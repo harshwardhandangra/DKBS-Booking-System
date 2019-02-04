@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+.*
+!/.gitignore
+bin/
+obj/
+node_modules/
+dist/
+Publish/
+*.csproj.user
