@@ -3,10 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CreatebookingComponent } from './module/booking/createbooking/createbooking.component';
+import { HeaderComponent } from './pagescomponent/header/header.component';
+import { FooterComponent } from './pagescomponent/footer/footer.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CreatebookingComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
