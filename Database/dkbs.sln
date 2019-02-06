@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "dkbs", "dkbs\dkbs.sqlproj", "{A909DA44-CD2F-4195-B974-E3090756B363}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A909DA44-CD2F-4195-B974-E3090756B363}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A909DA44-CD2F-4195-B974-E3090756B363}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A909DA44-CD2F-4195-B974-E3090756B363}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A909DA44-CD2F-4195-B974-E3090756B363}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A909DA44-CD2F-4195-B974-E3090756B363}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A909DA44-CD2F-4195-B974-E3090756B363}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3196E214-E4F6-46E7-8EC7-785FF93A2857}
+	EndGlobalSection
+EndGlobal
