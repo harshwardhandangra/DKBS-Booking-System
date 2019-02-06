@@ -61,5 +61,8 @@
   <ItemGroup>
     <Build Include="Lands.sql" />
     <Build Include="TownZipCodes.sql" />
+    <Build Include="CenterTypes.sql" />
+    <Build Include="IndustryCodes.sql" />
+    <Build Include="MailGroups.sql" />
   </ItemGroup>
 </Project>
