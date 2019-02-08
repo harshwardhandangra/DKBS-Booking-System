@@ -1,0 +1,31 @@
+.txtsize {
+    width: 236px;
+}
+
+.formbox .form-group input {
+    float: left;
+    width: 236px;
+}
+
+.FormH6 {
+    font-size: 19px;
+}
+
+.inlinediv {
+    width: 19%;
+}
+
+.formbox .form-group input.InlineInput {
+    width: 121px;
+}
+.formbox .form-group label {
+float: left;
+width: 24%;    /*24*/
+}
+
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 3px solid #05a6f0;
+}
