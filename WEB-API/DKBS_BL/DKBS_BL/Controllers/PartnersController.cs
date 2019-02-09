@@ -12,7 +12,7 @@ namespace DKBS_BL.Controllers
     [ApiController]
     public class PartnersController : ControllerBase
     {
-        IDictionary<ulong, string> partners = new Dictionary<ulong, string>();
+        IDictionary<long, string> partners = new Dictionary<long, string>();
 
         public PartnersController()
         {
@@ -31,7 +31,7 @@ namespace DKBS_BL.Controllers
         // GET: api/Partners , Name = "GetPartnerIdByCompanyName"
         [Route("GetPartnerIdByCompanyName/{companyName}")]
         [HttpGet("{companyName}")]
-        public ActionResult<ulong> GetPartnerIdByCompanyName(string companyName)
+        public ActionResult<long> GetPartnerIdByCompanyName(string companyName)
         {
             if (partners.Values.Contains(companyName))
             {
@@ -43,16 +43,24 @@ namespace DKBS_BL.Controllers
         // GET: api/Partners/5 Name = "GetCompanyNameById"
         [Route("GetCompanyNameById/{id}")]
         [HttpGet("{id}")]
-        public ActionResult<string> GetCompanyNameById(ulong id)
+        public ActionResult<string> GetCompanyNameById(long id)
         {
             if (partners.Keys.Contains(id))
                 return partners[id];
             return string.Empty;
         }
         [HttpGet]
-        public IDictionary<ulong, string> GetAllPartnerInfo()
+        public ICollection<Partner> GetAllPartnerInfo()
         {
-            return partners;
+            ICollection<Partner> pertnerCollection = new List<Partner>();
+            foreach (long key in partners.Keys)
+            {
+                Partner partner = new Partner();
+                partner.Id = key;
+                partner.CompanyName = partners[key];
+                pertnerCollection.Add(partner);
+            }
+            return pertnerCollection;
         }
         // POST: api/Partners
         [HttpPost]
@@ -64,10 +72,10 @@ namespace DKBS_BL.Controllers
             }            
         }
 
-        private ulong KeyByValue(IDictionary<ulong, string> dict, string val)
+        private long KeyByValue(IDictionary<long, string> dict, string val)
         {
-            ulong key = 0;
-            foreach (KeyValuePair<ulong, string> pair in dict)
+            long key = 0;
+            foreach (KeyValuePair<long, string> pair in dict)
             {
                 if (pair.Value == val)
                 {

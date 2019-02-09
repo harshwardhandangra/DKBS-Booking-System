@@ -4,9 +4,9 @@ using System.Text;
 
 namespace DKBS.BL.Entities
 {
-    public class Partner
+    public class Customer
     {
         public long Id { get; set; }
-        public string CompanyName { get; set; }
+        public string CustomerName { get; set; }
     }
 }
