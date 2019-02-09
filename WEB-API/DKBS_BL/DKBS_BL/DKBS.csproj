@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DKBS.BL.Entities\DKBS.BL.Entities.csproj" />
+    <ProjectReference Include="..\DKBS.BL.Entities\DKBS.Entities.csproj" />
   </ItemGroup>
 
 </Project>
