@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[CRMStatus]
+(
+	[CRMStatus_id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [CRMStatusTitle] NVARCHAR(255) NOT NULL, 
+    [LastModified] DATETIME NOT NULL, 
+    [LastModifiedBY] NVARCHAR(255) NOT NULL
+)
