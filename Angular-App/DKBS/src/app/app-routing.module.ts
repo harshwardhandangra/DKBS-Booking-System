@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { BookingComponent } from './pages/agent/booking/booking.component';
+import { CreatebookingComponent } from './pages/agent/booking/createbooking/createbooking.component';
 
 const routes: Routes = [
-  { path:'', component:BookingComponent},
+  { path:'', component:CreatebookingComponent},
 ];
 
 @NgModule({

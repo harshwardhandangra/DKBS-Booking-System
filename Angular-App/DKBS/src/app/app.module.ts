@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CreatebookingComponent } from './module/booking/createbooking/createbooking.component';
 import { HeaderComponent } from './pagescomponent/header/header.component';
 import { FooterComponent } from './pagescomponent/footer/footer.component';
 import { NavigationComponent } from './pagescomponent/navigation/navigation.component';
@@ -13,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ModelPopupComponent } from './pages/agent/model-popup/model-popup.component';
 import { ModalModule } from 'ngx-bootstrap';
 import { SubformComponent } from './pages/agent/subform/subform.component';
+import { CreatebookingComponent } from './pages/agent/booking/createbooking/createbooking.component';
 
 
 @NgModule({

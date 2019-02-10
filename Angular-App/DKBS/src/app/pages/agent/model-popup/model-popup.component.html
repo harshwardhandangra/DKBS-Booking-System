@@ -1,5 +1,5 @@
-
-
+<button class="btn btn-primary" (click)="open(content)"><span
+    class="glyphicon glyphicon-plus"></span></button>
 <ng-template #content let-modal>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
@@ -10,12 +10,7 @@
   <div class="modal-body">
     <app-subform></app-subform>
   </div>
-  <!-- <div class="modal-footer">
+  <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
-  </div> -->
+  </div>
 </ng-template>
-
-<button class="btn btn-lg btn-outline-primary" (click)="open(content)" style="padding:2px 4px; color: #05a6f0"><span class="glyphicon glyphicon-plus"></span></button>
-
-
-

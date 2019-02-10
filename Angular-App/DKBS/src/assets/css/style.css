@@ -116,7 +116,6 @@
   .collapsed-sidebar #main-nav{width:50px;}
   .collapsed-sidebar #playground{left:50px;z-index:99;overflow:visible;}
   .nav{border:none;}
-  .row{margin:22px 0px 0px 227px;}
   th{font-weight:400;}
   b, strong, dt, label{font-weight:400;}
   #use-video{display:none;}
