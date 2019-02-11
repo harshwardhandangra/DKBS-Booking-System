@@ -1,0 +1,125 @@
+
+<button class="btn btn-primary" (click)="open(content)"><span
+  class="glyphicon glyphicon-plus"></span></button>
+<ng-template #content let-modal>
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="modalRefhide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <section class="content-area">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-9">          
+				
+				
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="addzips1">
+                        <form class="formbox">
+					
+					  <label class="col-form-label">Choose</label>
+								  <select id="inputState" class="form-control txtsize" ng-model="Address.type" ng-dropdown required ng-change="changeAddress()"> 
+										<option ng-option value="Cash">Cash</option>
+										<option ng-option value="Check">Check</option>
+										<option ng-option value="Money Order">Money Order</option> 
+								  </select>
+                                 <hr class="style2">
+                        </form>
+
+                    </div>
+                    <div role="tabpanel" id="cash" >
+                        <form class="formbox">
+                            <div class="form-group">
+                                <label class="col-form-label">Name</label>
+                                <input type="text" class="form-control txtsize">
+                            </div>
+                           
+                           
+                            <div class="container">
+                                <div class="row text-center" style="margin: 0px 0px 0px -159px;">
+                                    <label for="default" class="btn btn-default">Save</label>
+                                    <label for="default" class="btn btn-default">Save & Exit</label>
+                                    <label for="default" class="btn btn-default">Cancle</label>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+					
+					  <div role="tabpanel"  id="money_order">
+                        <form class="formbox">
+                            <div class="form-group">
+                                <label class="col-form-label">Full Info</label>
+                                <input type="text" class="form-control txtsize">
+                            </div>
+                           
+						   
+						   <div class="form-group">
+							  <label class="col-form-label">Land*</label>
+							  <select id="inputState" class="form-control txtsize">
+								<option selected="selected">Belgien</option>
+								<option>...</option>
+							  </select>
+							</div>
+							
+                            <div class="form-group">
+                                <label class="col-form-label">Town/City/Name*</label>
+                                <input type="text" class="form-control txtsize">
+                            </div>                          
+                            <div class="container">
+                                <div class="row text-center" style="margin: 0px 0px 0px -159px;">
+                                    <label for="default" class="btn btn-default">Save</label>
+                                    <label for="default" class="btn btn-default">Save & Exit</label>
+                                    <label for="default" class="btn btn-default">Cancle</label>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+					
+					<!-- class="tab-pane"  -->
+						  <div role="tabpanel" id="money_order" >
+                        <form class="formbox">
+                            <div class="form-group">
+                                <label class="col-form-label">Zip/Postal Code</label>
+                                <input type="text" class="form-control txtsize">
+                            </div>
+                              <div class="form-group">
+							  <label class="col-form-label">Land*</label>
+							  <select id="inputState" class="form-control txtsize">
+								<option selected="selected">Belgien</option>
+								<option>...</option>
+							  </select>
+							</div>
+							
+                            <div class="form-group">
+                                <label class="col-form-label">Town/City/Name*</label>
+                                <input type="text" class="form-control txtsize">
+                            </div>
+                          
+                            <div class="container">
+                                <div class="row text-center" style="margin: 0px 0px 0px -159px;">
+                                    <label for="default" class="btn btn-default">Save</label>
+                                    <label for="default" class="btn btn-default">Save & Exit</label>
+                                    <label for="default" class="btn btn-default">Cancle</label>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+					
+                    <div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+</section>
+</div>
+<!-- <div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+</div> -->
+</ng-template>

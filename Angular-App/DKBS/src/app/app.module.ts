@@ -13,6 +13,8 @@ import { ModelPopupComponent } from './pages/agent/model-popup/model-popup.compo
 import { ModalModule } from 'ngx-bootstrap';
 import { SubformComponent } from './pages/agent/subform/subform.component';
 import { CreatebookingComponent } from './pages/agent/booking/createbooking/createbooking.component';
+import { AddcustomerComponent } from './pages/agent/booking/modalpopup/addcustomer/addcustomer.component';
+import { AddzipcodeComponent } from "./pages/agent/booking/modalpopup/addzipcode/addzipcode.Component";
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { CreatebookingComponent } from './pages/agent/booking/createbooking/crea
     NavigationComponent,
     BookingComponent,
     ModelPopupComponent,
-    SubformComponent
+    SubformComponent,
+    AddcustomerComponent,
+    AddzipcodeComponent
   ],
   imports: [
     BrowserModule,
