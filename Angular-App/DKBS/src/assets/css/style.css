@@ -210,9 +210,20 @@
   .formbox{display:block;width:100%;max-width:819px;padding:50px;margin:auto; background:#fff;}
   .formbox .form-group{display: block;clear: both;position: relative;width: 100%;min-height: 37px;}
   .formbox .form-group label{float:left;width:20%;}
-  .formbox .form-group input{float:left;width:80%;}
+  .formbox .form-group input,
+  .formbox .form-group select{float: left;width: 80%;margin-right: 0px;}
   
+  .formboxadditional{display:block;width:100%;max-width:819px;padding:50px;margin:auto; background:#fff;}
+  .formboxadditional .form-group{display: block;clear: both;position: relative;width: 100%;min-height: 37px;}
+  .formboxadditional .form-group label{float:left;width:20%;}
+  .formboxadditional .form-group input,
+  .formboxadditional .form-group select{float: left;width: 72%;margin-right: 10px;}  
   
+  .modal-body .formbox{display:block;width:100%;max-width:819px;padding:0px;margin:auto; background:#fff;}
+  .modal-body .formbox .form-group{display: block;clear: both;position: relative;width: 100%;min-height: 37px;}
+  .modal-body .formbox .form-group label{float:left;width:20%;}
+  .modal-body .formbox .form-group input,
+  .modal-body .formbox .form-group select{float: left;width: 80%;margin-right: 0px;}
   
   /* -------------------------------- 
   
