@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>dkbs</Name>
+    <Name>Dkbs</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{a909da44-cd2f-4195-b974-e3090756b363}</ProjectGuid>
@@ -23,6 +23,7 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <TargetDatabase>Dkbs_DL</TargetDatabase>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -57,6 +58,7 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="Snapshots" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Lands.sql" />
@@ -64,5 +66,36 @@
     <Build Include="CenterTypes.sql" />
     <Build Include="IndustryCodes.sql" />
     <Build Include="MailGroups.sql" />
+    <Build Include="CRMStatus.sql" />
+    <Build Include="Bordopstilling.sql" />
+    <Build Include="CauseofRemoval.sql" />
+    <Build Include="PartnerType.sql" />
+    <Build Include="BookingAndIncidentStatuses.sql" />
+    <Build Include="Origins.sql" />
+    <Build Include="HeadQuarters.sql" />
+    <Build Include="CoursePackageType.sql" />
+    <Build Include="ProcedureReviewType.sql" />
+    <Build Include="ITProcedureStatus.sql" />
+    <Build Include="Discussionforum.sql" />
+    <Build Include="ServiceCatalog.sql" />
+    <Build Include="ServiceRequestCommunications.sql" />
+    <Build Include="SRConversationItems.sql" />
+    <Build Include="CoursePackage.sql" />
+    <Build Include="Provision.sql" />
+    <Build Include="Nyheder.sql" />
+    <Build Include="NewsTitle.sql" />
+    <Build Include="Partners_1.sql" />
+    <Build Include="Customers.sql" />
+    <Build Include="Booking.sql" />
+    <Build Include="Procedures.sql" />
+    <Build Include="AgreementsAndDocuments.sql" />
+    <Build Include="ServiceRequestNotes.sql" />
+    <Build Include="Employee.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="dkbs.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Snapshots\dkbs_20190208_12-58-49.dacpac" />
   </ItemGroup>
 </Project>

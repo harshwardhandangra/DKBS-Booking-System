@@ -1,11 +1,11 @@
 ﻿CREATE TABLE [dbo].[TownZipCodes]
 (
-	[TownZipCodeId] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [ZipPostalCode] NVARCHAR(255) NULL, 
-    [FullInfo] NVARCHAR(255) NULL, 
-    [LandId] INT NULL, 
+	[TownZipCode_Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [ZipPostalCode] NVARCHAR(255) NOT NULL, 
+    [FullInfo] NVARCHAR(255) NULL,
+	[Land_Id] INT NULL, 
     [TownCityName] NVARCHAR(255) NULL, 
-    [LastModified] DATETIME NULL, 
-    [LastModifiedBY] NVARCHAR(255) NULL,
-	CONSTRAINT FK_LandTownZipCodes FOREIGN KEY ([LandId]) REFERENCES Lands([LandId])
+    [LastModified] DATETIME NOT NULL, 
+    [LastModifiedBY] NVARCHAR(255) NOT NULL,
+	CONSTRAINT FK_LandTownZipCodes FOREIGN KEY ([Land_Id]) REFERENCES Lands([Land_Id])
 )

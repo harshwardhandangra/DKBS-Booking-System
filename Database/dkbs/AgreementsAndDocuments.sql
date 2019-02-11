@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[AgreementsAndDocuments]
+(
+	[AgreementsAndDocuments_Id] INT NOT NULL PRIMARY KEY, 
+    [Title] NCHAR(10) NULL, 
+    [ModifiedDate] NCHAR(10) NULL, 
+    [ModifiedBy] NCHAR(10) NULL, 
+    [Category] NCHAR(10) NULL, 
+    [Date for next review] NCHAR(10) NULL, 
+    [Details] NCHAR(10) NULL, 
+    [ExpirationDate] NCHAR(10) NULL, 
+    [LimitToCustomers] NCHAR(10) NULL, 
+    [MailGroups] NCHAR(10) NULL, 
+    [Organization] NCHAR(10) NULL, 
+    [Owner] NCHAR(10) NULL, 
+    [Partners] NCHAR(10) NULL, 
+    [Phsyicallocation] NCHAR(10) NULL, 
+    [PublishForEndUsers] NCHAR(10) NULL, 
+    [RelatedServiceLevels] NCHAR(10) NULL, 
+    [RelatedServices] NCHAR(10) NULL, 
+    [RelatedSuppliers] NCHAR(10) NULL, 
+    [ReviewInformation] NCHAR(10) NULL, 
+    [ReviewStatus] NCHAR(10) NULL, 
+    [URL] NCHAR(10) NULL, 
+    [Views] NCHAR(10) NULL, 
+    [Month] NCHAR(10) NULL
+)
