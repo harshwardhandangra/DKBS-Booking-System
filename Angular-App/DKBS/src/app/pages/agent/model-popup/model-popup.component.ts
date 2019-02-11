@@ -18,7 +18,7 @@ export class ModelPopupComponent {
   constructor(private modalService: BsModalService) {}
 
   open(content) {
-    this.modelref = this.modalService.show(content,Object.assign({},{class:'model-sm'}))
+    this.modelref = this.modalService.show(content,Object.assign({},{class:'modal-lg'}))
   }
 
   modalRefhide() {
