@@ -16,8 +16,8 @@
   a:active{text-decoration:none!important;}
   a:focus, a:hover{color:#23527c;}
   .row.same-height .panel-footer{position:absolute;bottom:0px;right:0px;left:0px;}
-  .navbar-top{z-index:999;background-color:#05A6F0;color:#8a8a8a;border-width:0;top:0;position:fixed;width:inherit;left:250px;right:0px;height:50px;margin-bottom:0px;}
-  .usertop .dropdown-toggle{padding:0;background:transparent;border:none;margin-top:4px;color:#fff;cursor:pointer;}
+  .navbar-top{z-index:999;background-color:#05A6F0;color:#8a8a8a;border-width:0;top:0;position:fixed;width:inherit;left:250px;right:0px;height:50px;margin-bottom:0px;padding: 0}
+  .usertop .dropdown-toggle{padding:0;background:transparent;border:none;color:#fff;cursor:pointer;}
   .usertop .dropdown-toggle img{width:40px;}
   .navbar-top .dropdown-menu li a{color:#484848;padding:10px;border-bottom:1px #e8e8e8 solid;}
   .navbar-top .dropdown-menu{padding:0px;border:none;border-radius:0px;font-size:12px;}
@@ -218,19 +218,27 @@
   .formbox .form-group label{float:left;width:20%;}
   .formbox .form-group input,
   .formbox .form-group select{float: left;width: 80%;margin-right: 0px;}
-  
+  .formbox .form-group input[type="checkbox"],
+  .formbox .form-group input[type="radio"]
+  {float: left;width: auto;margin-right: 0px;}
+
   .formboxadditional{display:block;width:100%;max-width:819px;padding:50px;margin:auto; background:#fff;}
   .formboxadditional .form-group{display: block;clear: both;position: relative;width: 100%;min-height: 37px;}
   .formboxadditional .form-group label{float:left;width:20%;}
   .formboxadditional .form-group input,
   .formboxadditional .form-group select{float: left;width: 72%;margin-right: 10px;}  
-  
+  .formboxadditional .form-group input[type="checkbox"],
+  .formboxadditional .form-group input[type="radio"]
+  {float: left;width: auto;margin-right: 0px;}
+
   .modal-body .formbox{display:block;width:100%;max-width:819px;padding:0px;margin:auto; background:#fff;}
   .modal-body .formbox .form-group{display: block;clear: both;position: relative;width: 100%;min-height: 37px;}
   .modal-body .formbox .form-group label{float:left;width:20%;}
   .modal-body .formbox .form-group input,
   .modal-body .formbox .form-group select{float: left;width: 80%;margin-right: 0px;}
-  
+  .modal-body .formbox .form-group input[type="checkbox"],
+  .modal-body .formbox .form-group input[type="radio"]
+  {float: left;width: auto;margin-right: 0px;}
   /* -------------------------------- 
   
   Basic Style
