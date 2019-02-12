@@ -1,0 +1,151 @@
+<button class="btn btn-primary" (click)="open(content)"><span class="fa fa-plus"></span></button>
+<ng-template #content let-modal>
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Contact Person</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="modalRefhide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body"> 
+        <div class="container-fluid">
+				<div class="row">
+					<div class="col-md-9" style="width: 723px;">	
+						<ul class="cd-breadcrumb triangle nav nav-tabs" role="tablist" style="text-align: left;">
+							<li class="active"><a href="#home3" data-toggle="tab">General</a></li>
+							<li><a href="#profile3" role="tab" data-toggle="tab">Other</a></li>							
+						</ul>
+					  <!-- Tab panes -->
+						<div class="tab-content">
+							<div role="tabpanel" class="tab-pane active" id="home3">
+                                <form class="formbox">
+                                    <div class="form-group">
+                                        <label class="col-form-label">Navn*</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Email*</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Organization*</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Mobil</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-form-label">Telefon</label>
+                                        <input type="text" class="form-control">
+										
+                                    </div>
+                                    <div class="form-group">
+									<label class="col-form-label">Land</label> 
+									<select>
+                                       <option value="Danmark">Danmark</option>
+                                     
+										  </select>										
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Nyhedsbrev</label>
+                                        <input type="checkbox">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Stillingsbeskrivelse</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-form-label">Kon</label>
+                                       <select>
+											<option value="  "></option>
+										</select>
+  
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Alder</label>
+                                       <select>
+											<option value="  "></option>
+										</select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Noter</label>
+                                       <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Interssetags</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Kundetype</label>
+                                        <select>
+									<option value="Bronze">Bronze</option>
+										</select>
+  
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Salgsstatus</label>
+                                       <select>
+										<option value="volvo"></option>
+										</select>
+  
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-form-label">Attachements</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+									
+									
+									  <div class="container" style="padding: 5px; margin: 0px 667px;">
+                                        <div class="row text-center" style="margin: 0px 0px 0px -159px;">
+                                            <a class="btn btn-default">Save</a>
+                                            <a class="btn btn-default">Save & Exit</a>
+                                            <a class="btn btn-default">Cancel</a>
+
+                                        </div>
+                                    </div>
+                                </form>
+							
+							
+							
+							
+							</div>
+                            <div role="tabpanel" class="tab-pane" id="profile3">
+                                <form class="formbox">
+                                    <div class="form-group">
+                                        <label class="col-form-label">Interssetags</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Postnr., by, land</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Branche</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">First Name</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="container" style="padding: 5px; margin: 0px 667px;">
+                                        <div class="row text-center" style="margin: 0px 0px 0px -159px;">
+                                            <label for="default" class="btn btn-default">Save</label>
+                                            <label for="default" class="btn btn-default">Save & Exit</label>
+                                            <label for="default" class="btn btn-default">Cancle</label>
+                                           
+                                        </div>
+                                    </div>
+                                </form>
+                              
+                            
+                            </div>
+						
+					</div>
+				</div>
+			</div>
+                </div>
+</div>
+</ng-template>
