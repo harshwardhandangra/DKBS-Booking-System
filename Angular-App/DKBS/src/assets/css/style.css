@@ -213,16 +213,18 @@
   .navbar-top .navbar-default .navbar-nav>li>a { color: #efefef; font-size: 16px;}
   
   
-  .formbox{display:block;width:100%;max-width:819px;padding:50px;margin:auto; background:#fff;}
+  .formbox{display:block;width:100%;max-width:1000px;padding:50px 20px;margin:auto; background:#fff;}
   .formbox .form-group{display: block;clear: both;position: relative;width: 100%;min-height: 37px;}
   .formbox .form-group label{float:left;width:20%;}
   .formbox .form-group input,
-  .formbox .form-group select{float: left;width: 80%;margin-right: 0px;}
+  .formbox .form-group select,
+  .formbox .form-group textarea,
+  .formbox .form-group .radiocheckbox,
+  .formbox .form-group .width80per{float: left;width: 80%;margin-right: 0px;}
   .formbox .form-group input[type="checkbox"],
   .formbox .form-group input[type="radio"]
-  {float: left;width: auto;margin-right: 0px;}
-
-  .formboxadditional{display:block;width:100%;max-width:819px;padding:50px;margin:auto; background:#fff;}
+  {float: left;width: auto;margin-right: 0px;margin-top:12px;}
+  .formboxadditional{display:block;width:100%;max-width:1000px;padding:50px 20px;margin:auto; background:#fff;}
   .formboxadditional .form-group{display: block;clear: both;position: relative;width: 100%;min-height: 37px;}
   .formboxadditional .form-group label{float:left;width:20%;}
   .formboxadditional .form-group input,
@@ -244,90 +246,23 @@
   Basic Style
   
   -------------------------------- */
-  .cd-breadcrumb {
-   
-    padding: 0.5em 1em;
-    margin: 1em auto;
-    background-color: #edeff0;
-    border-radius: .25em;
-  }
-  .cd-breadcrumb:after{
-    content: "";
-    display: table;
-    clear: both;
-  }
-  .cd-breadcrumb li {
-    display: inline-block;
-    float: inherit;
-    margin: 0.5em 0;
-  }
-  .cd-breadcrumb li::after{
-    /* this is the separator between items */
-    display: inline-block;
-    content: '\00bb';
-    margin: 0 .6em;
-    color: #959fa5;
-  }
-  .cd-breadcrumb li:last-of-type::after {
-    /* hide separator after the last item */
-    display: none;
-  }
-  .cd-breadcrumb li > *{
-    /* single step */
-    display: inline-block;
-    font-size: 18px;
-    color: #2c3f4c;
-  }
-  .cd-breadcrumb li.active > * {
-    /* selected step */
-    color: #96c03d;
-  }
-  .no-touch .cd-breadcrumb a:hover {
-    /* steps already visited */
-    color: #96c03d;
-  }
-  .cd-breadcrumb.custom-separator li::after {
-    /* replace the default arrow separator with a custom icon */
-    content: '';
-    height: 16px;
-    width: 16px;
-    background: url(../img/cd-custom-separator.svg) no-repeat center center;
-    vertical-align: middle;
-  }
-  .cd-breadcrumb.custom-icons li > *::before {
-    /* add a custom icon before each item */
-    content: '';
-    display: inline-block;
-    height: 20px;
-    width: 20px;
-    margin-right: .4em;
-    margin-top: -2px;
-    background: url(../img/cd-custom-icons-01.svg) no-repeat 0 0;
-    vertical-align: middle;
-  }
-  .cd-breadcrumb.custom-icons li:not(.active):nth-of-type(2) > *::before{
-    /* change custom icon using image sprites */
-    background-position: -20px 0;
-  }
-  .cd-breadcrumb.custom-icons li:not(.active):nth-of-type(3) > *::before {
-    background-position: -40px 0;
-  }
-  .cd-breadcrumb.custom-icons li:not(.active):nth-of-type(4) > *::before {
-    background-position: -60px 0;
-  }
-  .cd-breadcrumb.custom-icons li.active:first-of-type > *::before{
-    /* change custom icon for the active item */
-    background-position: 0 -20px;
-  }
-  .cd-breadcrumb.custom-icons li.active:nth-of-type(2) > *::before{
-    background-position: -20px -20px;
-  }
-  .cd-breadcrumb.custom-icons li.active:nth-of-type(3) > *::before {
-    background-position: -40px -20px;
-  }
-  .cd-breadcrumb.custom-icons li.active:nth-of-type(4) > *::before{
-    background-position: -60px -20px;
-  }
+  .cd-breadcrumb {padding: 0.5em 1em; margin: 1em auto; background-color: #edeff0; border-radius: .25em; }
+  .cd-breadcrumb:after{content: ""; display: table; clear: both;  }
+  .cd-breadcrumb li {display: inline-block; float: inherit; margin: 0.5em 0;}
+  .cd-breadcrumb li::after{display: inline-block; content: '\00bb'; margin: 0 .6em;color: #959fa5;}
+  .cd-breadcrumb li:last-of-type::after {display: none;  }
+  .cd-breadcrumb li > *{display: inline-block; font-size: 18px;color: #2c3f4c;}
+  .cd-breadcrumb li.active > * { color: #96c03d; }
+  .no-touch .cd-breadcrumb a:hover { color: #96c03d;  }
+  .cd-breadcrumb.custom-separator li::after {content: '';   height: 16px;  width: 16px; background: url(../img/cd-custom-separator.svg) no-repeat center center; vertical-align: middle;  }
+  .cd-breadcrumb.custom-icons li > *::before {content: ''; display: inline-block; height: 20px; width: 20px; margin-right: .4em; margin-top: -2px; background: url(../img/cd-custom-icons-01.svg) no-repeat 0 0; vertical-align: middle; }
+  .cd-breadcrumb.custom-icons li:not(.active):nth-of-type(2) > *::before{background-position: -20px 0;  }
+  .cd-breadcrumb.custom-icons li:not(.active):nth-of-type(3) > *::before { background-position: -40px 0; }
+  .cd-breadcrumb.custom-icons li:not(.active):nth-of-type(4) > *::before { background-position: -60px 0;}
+  .cd-breadcrumb.custom-icons li.active:first-of-type > *::before{background-position: 0 -20px;  }
+  .cd-breadcrumb.custom-icons li.active:nth-of-type(2) > *::before{background-position: -20px -20px;  }
+  .cd-breadcrumb.custom-icons li.active:nth-of-type(3) > *::before {background-position: -40px -20px;}
+  .cd-breadcrumb.custom-icons li.active:nth-of-type(4) > *::before{ background-position: -60px -20px;}
   
   
   /* -------------------------------- 
@@ -433,9 +368,24 @@
       }
     }
   }
-  
-  
-  
+  .mtop40{margin-top:40px;}
+  .mright50{margin-right:50px;}
+  .clear{clear: both;display:block;}
+  .interhis{margin-left: 20%;font-size: 14px;}
+  .form-group .radiocheckbox  .form-check{    margin: 7px 0 10px;}
+  .form-group .radiocheckbox  input[type="checkbox"], 
+  .form-group .radiocheckbox  input[type="radio"]{    margin-top: 0.3rem;}
+  .formbox .form-group .radiocheckbox  label{width: auto;  float: initial;}
+  .formbox .form-group .width80per{margin-bottom:15px;}
+  .formbox .form-group .width80per label,
+  .formbox .form-group .width80per input[type="text"]{width:100%;}
+  .formbox .form-group .width80per .col-sm-2,
+  .formbox .form-group .width80per .col-sm-3{padding:0 5px;}
+  .formbox .form-group .width80per ul{margin:0px 0px 0px 0px;padding:0px;list-style:none;}
+  .formbox .form-group .width80per ul li{width:13%;float: left;margin-left: 1%;}
+  .formbox .form-group .width80per ul li:nth-child(1){margin-left:0px;}
+  .formbox .form-group .width80per ul li:last-child{margin-top:40px;}
+
   
   
   @media (max-width:1366px){

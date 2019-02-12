@@ -121,16 +121,23 @@
                 <div class="form-group">
                   <label class="col-form-label">Intern historik</label>
                   <textarea class="form-control" rows="5" id="comment"></textarea>
+                  <span class="interhis">Intern historik</span>
                 </div>
 
                 <h6 class="FormH6">Ønsket geografisk område</h6>
                 <hr class="style2">
                 <div class="form-group">
                   <label class="col-form-label">Region/landsdel</label>
-                  <input type="checkbox">Region 1<br />
-                  <input type="checkbox">Region 2<br />
-                  <!--Need to iterate data using ng repeat-->
-
+                  <div class="radiocheckbox">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="">
+                      <label class="form-check-label"> Region 1 </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="">
+                      <label class="form-check-label">Region 2</label>
+                    </div>
+                  </div>
                 </div>
 
                 <h6 class="FormH6">Eventtype og formal</h6>
@@ -159,13 +166,13 @@
                 </div>
                 <div class="form-group">
                   <label class="col-form-label">Værelser</label>
-                  <div class="col-sm-16">
+                  <div class="width80per">
                     <div class="row">
-                      <div class="col-sm-5 inlinediv">
+                      <div class="col-sm-6 ">
                         <label>Antal enkeltVærelser</label>
                         <input type="text" class="form-control InlineInput">
                       </div>
-                      <div class="col-sm-3 inlinediv">
+                      <div class="col-sm-6 ">
                         <label>Antal dobbeltVærelser</label>
                         <input type="text" class="form-control InlineInput">
                       </div>
@@ -173,95 +180,107 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <div class="form-group">
-                    <label class="col-form-label">Bordopstilling i plenum</label>
-                    <select id="Select3" class="form-control txtsize">
-                      <option selected="selected">Choose...</option>
-                      <option>...</option>
-                    </select>
-                  </div>
+                  <label class="col-form-label">Bordopstilling i plenum</label>
+                  <select id="Select3" class="form-control txtsize">
+                    <option selected="selected">Choose...</option>
+                    <option>...</option>
+                  </select>
                 </div>
                 <h6 class="FormH6">Kommentarer</h6>
                 <hr class="style2">
                 <div class="form-group">
                   <label class="col-form-label">Supplerende Ønsker/Kommentarer </label>
                   <textarea class="form-control" rows="5" id="Textarea1"></textarea>
+                  <span class="clear"></span>
                 </div>
                 <h6 class="FormH6">Lokaler og bordopstilling</h6>
                 <hr class="style2">
                 <div class="form-group">
-                  <label class="col-form-label">Værelser</label>
-                  <div class="col-sm-16">
-                    <div class="row">
-                      <div class="col-sm-2 inlinediv">
-                        <label>Kursusapkker</label>
-                        <input type="text" class="form-control InlineInput">
-                      </div>
-                      <div class="col-sm-2 inlinediv">
+                  <label class="col-form-label">Arrangementtype</label>
+                  <div class="width80per">
+                    <ul>
+                      <li>
+                        <label> Kursuspakke</label>
+                        <input type="text" class="form-control">
+                      </li>
+                      <li>
                         <label>Antal deltagere</label>
-                        <input type="text" class="form-control InlineInput">
-                      </div>
-                      <div class="col-sm-2 inlinediv">
+                        <input type="text" class="form-control">
+                      </li>
+                      <li>
                         <label>Fra</label>
-                        <input type="text" class="form-control InlineInput">
-                      </div>
-                      <div class="col-sm-2 inlinediv">
+                        <input type="text" class="form-control">
+                      </li>
+                      <li>
                         <label>Til</label>
-                        <input type="text" class="form-control InlineInput">
-                      </div>
-                    </div>
-                  </div>
-
-                  <label class="col-form-label">Lokaler</label>
-                  <div class="col-sm-16">
-                    <div class="row">
-                      <div class="col-sm-2 inlinediv">
-                        <label>Lokaletype</label>
-                        <input type="text" class="form-control InlineInput">
-                      </div>
-                      <div class="col-sm-2 inlinediv">
-                        <label>Antal lokaler</label>
-                        <input type="text" class="form-control InlineInput">
-                      </div>
-                      <div class="col-sm-2 inlinediv">
-                        <label>a personer</label>
-                        <input type="text" class="form-control InlineInput">
-                      </div>
-                      <div class="col-sm-2 inlinediv">
-                        <label>Bordopstilling</label>
-                        <input type="text" class="form-control InlineInput">
-                      </div>
-                      <div class="col-sm-2 inlinediv">
-                        <label>Fra</label>
-                        <input type="text" class="form-control InlineInput">
-                      </div><br />
-                      <div class="col-sm-2 inlinediv">
-                        <label>Til</label>
-                        <input type="text" class="form-control InlineInput">
-                      </div>
-                    </div>
-                  </div>
-                  <br />
-                  <label class="col-form-label"> opgiv ogs pris pa</label>
-                  <div class="col-sm-16">
-                    <div class="row">
-                      <div class="col-sm-2 inlinediv">
-                        <label>Beskrivelse</label>
-                        <input type="text" class="form-control InlineInput">
-                      </div>
-                      <div class="col-sm-2 inlinediv">
-                        <label>Anta(stk.)</label>
-                        <input type="text" class="form-control InlineInput">
-                      </div>
-                    </div>
-                    <br />
-                  </div>
-                  <div class="form-group">
-                    <label class="col-form-label">Bookingansvarling</label>
-                    <input type="text" class="form-control">
+                        <input type="text" class="form-control">
+                      </li>
+                      <li>
+                        <i class="fa fa-plus"></i>Add new row
+                      </li>
+                    </ul>
                   </div>
                 </div>
-
+                <div class="form-group">
+                  <label class="col-form-label">Lokaler</label>
+                  <div class="width80per">
+                    <ul>
+                      <li>
+                        <label> Lokaletype</label>
+                        <input type="text" class="form-control">
+                      </li>
+                      <li>
+                        <label>Antal lokaler</label>
+                        <input type="text" class="form-control">
+                      </li>
+                      <li>
+                        <label>a personer</label>
+                        <input type="text" class="form-control">
+                      </li>
+                      <li>
+                        <label>Bordopstilling</label>
+                        <input type="text" class="form-control">
+                      </li>
+                      <li>
+                        <label>Fra</label>
+                        <input type="text" class="form-control">
+                      </li>
+                      <li>
+                        <label>Til</label>
+                        <input type="text" class="form-control">
+                      </li>
+                      <li>
+                        <i class="fa fa-plus"></i>Add new row
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-form-label"> opgiv ogs pris pa</label>
+                  <div class="width80per">
+                    <ul>
+                      <li>
+                        <label> Beskrivelse</label>
+                        <input type="text" class="form-control">
+                      </li>
+                      <li>
+                        <label>Anta(stk.)</label>
+                        <input type="text" class="form-control">
+                      </li>
+                      <li>
+                        <i class="fa fa-plus"></i>Add new row
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-form-label">Bookingansvarling</label>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="form-group mtop40">
+                  <button type="submit" class="btn btn-danger mright50">Previous</button>
+                  <button type="submit" class="btn btn-success">Next</button>
+                </div>
               </form>
             </div>
             <div role="tabpanel" class="tab-pane" id="messages">
