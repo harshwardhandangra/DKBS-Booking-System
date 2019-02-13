@@ -29,7 +29,7 @@ import { BookingdetailsComponent } from './pages/agent/booking/bookingdetails/bo
     AddcustomerComponent,
     AddzipcodeComponent,
     ContactpersonComponent,
-    YourchildcompnameComponent,
+ 
     BookingdetailsComponent
   ],
   imports: [
