@@ -13,6 +13,7 @@ import { ModalModule } from 'ngx-bootstrap';
 import { CreatebookingComponent } from './pages/agent/booking/createbooking/createbooking.component';
 import { AddcustomerComponent } from './pages/agent/booking/modalpopup/addcustomer/addcustomer.component';
 import { AddzipcodeComponent } from "./pages/agent/booking/modalpopup/addzipcode/addzipcode.Component";
+import { ContactpersonComponent } from './pages/agent/booking/modalpopup/contactperson/contactperson.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { AddzipcodeComponent } from "./pages/agent/booking/modalpopup/addzipcode
     NavigationComponent,
     BookingComponent,
     AddcustomerComponent,
-    AddzipcodeComponent
+    AddzipcodeComponent,
+    ContactpersonComponent
   ],
   imports: [
     BrowserModule,

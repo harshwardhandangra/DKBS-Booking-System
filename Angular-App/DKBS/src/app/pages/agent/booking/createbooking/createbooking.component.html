@@ -6,10 +6,10 @@
       <div class="row">
         <div class="col-md-12">
           <ul class="cd-breadcrumb triangle nav nav-tabs" role="tablist">
-            <li class="active"><a href="#home" data-toggle="tab">Kundeoplysniger</a></li>
+            <li class="active"><a href="#home" class="tab selected"  data-toggle="tab">Kundeoplysniger</a></li>
             <li><a href="#profile" role="tab" data-toggle="tab">Eventdetaljer</a></li>
             <li><a href="#messages" role="tab" data-toggle="tab">Matching</a></li>
-            <li><a href="#settings" role="tab" data-toggle="tab">Additional Search Criteria</a></li>
+            <li><a href="#settings3" role="tab" data-toggle="tab">Additional Search Criteria</a></li>
           </ul>
 
           <!-- Tab panes -->
@@ -44,6 +44,7 @@
                 <div class="form-group">
                   <label class="col-form-label">Contact Person</label>
                   <input type="text" class="form-control">
+                  <app-contactperson></app-contactperson>
                 </div>
                 <div class="form-group">
                   <label class="col-form-label">Afedeling</label>
@@ -100,7 +101,7 @@
               </form>
 
             </div>
-            <div role="tabpanel" class="tab-pane" id="profile">
+            <div role="tabpane2" class="tab-pane" id="profile">
 
               <form class="formbox">
                 <h6 class="FormH6">Dato og tidspunkt</h6>
@@ -283,7 +284,7 @@
                 </div>
               </form>
             </div>
-            <div role="tabpanel" class="tab-pane" id="messages">
+            <div role="tabpane3" class="tab-pane" id="messages">
               <form class="formbox">
                 <h6 class="FormH6">Cener-matching</h6>
                 <hr class="style2">
@@ -312,7 +313,7 @@
 
               </form>
             </div>
-            <div role="tabpanel" class="tab-pane" id="settings">
+            <div role="tabpane4" class="tab-pane" id="settings3">
               <form class="formbox">
                 <h6 class="FormH6">Search Criteria</h6>
                 <hr class="style2">
