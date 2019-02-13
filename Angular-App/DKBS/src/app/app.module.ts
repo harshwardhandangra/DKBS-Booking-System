@@ -15,6 +15,8 @@ import { AddcustomerComponent } from './pages/agent/booking/modalpopup/addcustom
 import { AddzipcodeComponent } from "./pages/agent/booking/modalpopup/addzipcode/addzipcode.Component";
 import { ContactpersonComponent } from './pages/agent/booking/modalpopup/contactperson/contactperson.component';
 
+import { BookingdetailsComponent } from './pages/agent/booking/bookingdetails/bookingdetails.component';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { ContactpersonComponent } from './pages/agent/booking/modalpopup/contact
     BookingComponent,
     AddcustomerComponent,
     AddzipcodeComponent,
-    ContactpersonComponent
+    ContactpersonComponent,
+ 
+    BookingdetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,8 @@ import { BsModalService,BsModalRef } from 'ngx-bootstrap';
 })
 export class AddcustomerComponent {
 
+  selectedwallet = 'General';
+
   // constructor() { }
   modelref:BsModalRef
 

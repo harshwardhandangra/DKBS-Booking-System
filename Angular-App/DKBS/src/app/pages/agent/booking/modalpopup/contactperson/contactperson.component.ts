@@ -8,6 +8,7 @@ import { BsModalService,BsModalRef } from 'ngx-bootstrap';
 })
 export class ContactpersonComponent {
 
+  selectedwallet = 'Generalkp';
   modelref:BsModalRef
 
   constructor(private modalService: BsModalService) {}

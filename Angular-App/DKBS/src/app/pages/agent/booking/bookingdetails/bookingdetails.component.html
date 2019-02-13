@@ -1,0 +1,299 @@
+<app-navigation></app-navigation>
+<main id="playground">
+    <app-header></app-header>
+    <section class="content-area">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- <ul class="cd-breadcrumb triangle nav nav-tabs" role="tablist">
+                <li class="active"><a href="#SAGSDETALJER" data-toggle="tab">SAGSDETALJER</a></li>
+                <li><a href="#EVENTDETALJER" role="tab" data-toggle="tab">EVENTDETALJER</a></li>
+                <li><a href="#firma" role="tab" data-toggle="tab">FIRMA-OG KONTTAKTOPLYSNIGER</a></li>
+                <li><a href="#OTHER" role="tab" data-toggle="tab">OTHER</a></li>
+            </ul> -->
+            <ul class="cd-breadcrumb triangle nav nav-tabs" role="tablist">
+                    <li [class]="selectedwallet === 'SAGSDETALJER'?'active':'inactive'"><a (click)="selectedwallet = 'SAGSDETALJER'">SAGSDETALJER</a></li>
+                    <li [class]="selectedwallet === 'EVENTDETALJER'?'active':'inactive'"><a (click)="selectedwallet = 'EVENTDETALJER'">EVENTDETALJER</a></li>
+                    <li [class]="selectedwallet === 'FIRMA-OG'?'active':'inactive'"> <a (click)="selectedwallet = 'FIRMA-OG'">FIRMA-OG KONTTAKTOPLYSNIGER</a></li>
+                    <li [class]="selectedwallet === 'OTHER'?'active':'inactive'"><a (click)="selectedwallet = 'OTHER'">OTHER</a></li>
+                  </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" *ngIf="selectedwallet === 'SAGSDETALJER'">
+                    <form class="formbox">
+                        <div class="form-group">
+                            <label class="col-form-label">Email offer sent</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Response time for email offer</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Center info Arsag til fjernelse</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Comments</label>
+                            <input type="text" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-form-label">Flow</label>
+                            <input type="text" value="Action" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Parkeret indtil</label>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Intern historik</label>
+                            <input type="text" value="No Existing entries" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">1. Lukkedato</label>
+                            <input type="text" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-form-label">Meeting series</label>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Additional series text</label>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-form-label">Is main series case</label>
+                            <input type="text" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-form-label">Vxlg sprog</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Attachments</label>
+
+
+                        </div>
+
+                    </form>
+
+
+                </div>
+                <div role="tabpanel" *ngIf="selectedwallet === 'EVENTDETALJER'">
+                    <form class="formbox">
+                        <div class="form-group">
+                            <label class="col-form-label">Ankomst</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Afrejse</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Datoerne er fleksible</label>
+                            <input type="text" value="No" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">VORES noter</label>
+                            <input type="text" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-form-label">Formal</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Antal deltagere</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Antal vxrelser</label>
+                            <input type="text" value="Antal enkeltvxelser" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Deltagere</label>
+                            <input type="text" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+
+                            <label class="col-form-label">Bordopstilling i plenum</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Arrangementtype</label>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-form-label">Lokarer</label>
+                            <input type="text" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-form-label">Venligst opgiv ogsa pris pa</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Supplerende onsker/kommentarer</label>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-form-label">Onsket geografist omrade</label>
+
+                        </div>
+
+                        <div class="form-group">
+
+
+                            <label class="col-form-label">Bookingansvarlig</label>
+                            <input type="checkbox">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-form-label" value="No">Statsaftale</label>
+                            <input type="text" value="No">
+                        </div>
+
+                        <div class="form-group">
+
+                            <label class="col-form-label">Regionsaftale</label>
+                            <input type="text" value="No">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-form-label">CenterMatching</label>
+
+                        </div>
+
+                    </form>
+
+
+                </div>
+                <div role="tabpanel" *ngIf="selectedwallet === 'FIRMA-OG'">
+                                <form class="formbox">
+                                    <div class="form-group">
+                                        <label class="col-form-label">Firma</label>
+                                        <input type="text" value= "WinPoint A/s"class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Kontaktperson</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Hvor kender du os fra ?</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label"> Henvist Kontaktperson</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-form-label">Email</label>
+                                        <input type="text"  class="form-control">
+										
+                                    </div>
+                                    <div class="form-group">
+									<label class="col-form-label">Mobil</label> 
+												  <input type="text"  class="form-control">					
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Telefon</label>
+										<Input type ="text" class="form-control">
+									
+                                       
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Henvist firma</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+									
+                                        <label class="col-form-label">Addresse</label>
+										<input type="text" value="Holmekrogen 10" class="form-control">
+  
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Postnr., by, land</label>
+											<input type="text" value="2830 - Virum, Denmark" class="form-control">
+                                    </div>
+									
+                                    <div class="form-group">
+                                        <label class="col-form-label">Branche</label>
+                                       <input type="text" value ="IT og telekommunikation" class="form-control">
+                                    </div>
+									
+                                    
+                          
+                                </form>
+                              
+                            
+                            </div>
+                <div role="tabpanel" *ngIf="selectedwallet === 'OTHER'">
+                                <form class="formbox">
+                                    <div class="form-group">
+                                        <label class="col-form-label">Firma</label>
+                                        <input type="text" value= "WinPoint A/s"class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Kontaktperson</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Hvor kender du os fra ?</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label"> Henvist Kontaktperson</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-form-label">Email</label>
+                                        <input type="text"  class="form-control">
+										
+                                    </div>
+                                    <div class="form-group">
+									<label class="col-form-label">Mobil</label> 
+												  <input type="text"  class="form-control">					
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Telefon</label>
+										<Input type ="text" class="form-control">
+									
+                                       
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Henvist firma</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+									
+                                        <label class="col-form-label">Addresse</label>
+										<input type="text" value="Holmekrogen 10" class="form-control">
+  
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Postnr., by, land</label>
+											<input type="text" value="2830 - Virum, Denmark" class="form-control">
+                                    </div>
+									
+                                    <div class="form-group">
+                                        <label class="col-form-label">Branche</label>
+                                       <input type="text" value ="IT og telekommunikation" class="form-control">
+                                    </div>
+                                </form>
+                            </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+</main>
