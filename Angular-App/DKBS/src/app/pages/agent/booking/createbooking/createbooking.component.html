@@ -5,16 +5,22 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <ul class="cd-breadcrumb triangle nav nav-tabs" role="tablist">
+          <!-- <ul class="cd-breadcrumb triangle nav nav-tabs" role="tablist">
             <li class="active"><a href="#home" class="tab selected"  data-toggle="tab">Kundeoplysniger</a></li>
             <li><a href="#profile" role="tab" data-toggle="tab">Eventdetaljer</a></li>
             <li><a href="#messages" role="tab" data-toggle="tab">Matching</a></li>
             <li><a href="#settings3" role="tab" data-toggle="tab">Additional Search Criteria</a></li>
-          </ul>
+          </ul> -->
+          <ul class="cd-breadcrumb triangle nav nav-tabs" role="tablist">
+              <li [class]="selectedwallet === 'Kundeoplysniger'?'active':'inactive'"><a (click)="selectedwallet = 'Kundeoplysniger'">Kundeoplysniger</a></li>
+              <li [class]="selectedwallet === 'Eventdetaljer'?'active':'inactive'"><a (click)="selectedwallet = 'Eventdetaljer'">Eventdetaljer</a></li>
+              <li [class]="selectedwallet === 'Matching'?'active':'inactive'"> <a (click)="selectedwallet = 'Matching'">Matching</a></li>
+              <li [class]="selectedwallet === 'Additionalsc'?'active':'inactive'"><a (click)="selectedwallet = 'Additionalsc'">Additional Search Criteria</a></li>
+            </ul>
 
           <!-- Tab panes -->
           <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="home">
+            <div role="tabpanel" *ngIf="selectedwallet === 'Kundeoplysniger'">
               <form class="formboxadditional">
                 <h4 class="pull-left">Individual Information
                 </h4>
@@ -101,7 +107,7 @@
               </form>
 
             </div>
-            <div role="tabpane2" class="tab-pane" id="profile">
+            <div role="tabpane2" *ngIf="selectedwallet === 'Eventdetaljer'">
 
               <form class="formbox">
                 <h6 class="FormH6">Dato og tidspunkt</h6>
@@ -217,10 +223,84 @@
                         <input type="text" class="form-control">
                       </li>
                       <li>
-                        <i class="fa fa-plus"></i>Add new row
+                       <a (click)="addFieldValue()"><i class="fa fa-plus"></i>Add new row</a> 
+                        <!-- <button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button> -->
                       </li>
                     </ul>
+
+                    <ul *ngFor="let ObjArrangementtype of Arrangementtype; let i = index">
+                        <li>
+                         
+                          <input type="text" class="form-control">
+                        </li>
+                        <li>
+                          
+                          <input type="text" class="form-control">
+                        </li>
+                        <li>
+                          
+                          <input type="text" class="form-control">
+                        </li>
+                        <li>
+                         
+                          <input type="text" class="form-control">
+                        </li>
+                        <li>
+                            <button class="btn btn-default"  type="button" (click)="deleteFieldValue(i)">Delete</button>
+                            
+                        </li>
+                      </ul>
                   </div>
+                  <!-- <div class="width80per">
+                      <table class="table table-bordered">
+                          <thead>
+                              <tr>
+                                  <th>Kursuspakke</th>
+                                  <th>Antal deltagere</th>
+                                  <th>Fra</th>
+                                  <th>Til</th>
+                                  <th>Action</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                            
+                              <tr *ngFor="let ObjArrangementtype of Arrangementtype; let i = index">
+                                  <td>
+                                      <input [(ngModel)]="ObjArrangementtype.Kursuspakke" class="form-control" type="text" name="{{ObjArrangementtype.Kursuspakke}}" />
+                                  </td>
+                                  <td>
+                                      <input [(ngModel)]="ObjArrangementtype.Antaldeltagere" class="form-control" type="text" name="{{ObjArrangementtype.Antaldeltagere}}" />
+                                  </td>
+                                  <td>
+                                      <input [(ngModel)]="ObjArrangementtype.Fra" class="form-control" type="text" name="{{ObjArrangementtype.Fra}}" />
+                                  </td>
+                                  <td>
+                                      <input [(ngModel)]="ObjArrangementtype.Til" class="form-control" type="text" name="{{ObjArrangementtype.Til}}" />
+                                  </td>
+                                  <td>
+                                      <button class="btn btn-default"  type="button" (click)="deleteFieldValue(i)">Delete</button>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>
+                                      <input class="form-control" type="text" id="newAttributeCode" [(ngModel)]="newAttribute.Kursuspakke" name="newAttributeKursuspakke" />
+                                  </td>
+                                  <td>
+                                      <input class="form-control" type="text" id="newAttributeName" [(ngModel)]="newAttribute.Antaldeltagere" name="newAttributeAntaldeltagere" />
+                                  </td>
+                                  <td>
+                                      <input class="form-control" type="text" id="newAttributePrice" [(ngModel)]="newAttribute.Fra" name="newAttributeFra" />
+                                  </td>
+                                  <td>
+                                      <input class="form-control" type="text" id="newAttributePrice" [(ngModel)]="newAttribute.Til" name="newAttributeTil" />
+                                  </td>
+                                  <td>
+                                      <button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button>
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                    </div> -->
                 </div>
                 <div class="form-group">
                   <label class="col-form-label">Lokaler</label>
@@ -284,7 +364,7 @@
                 </div>
               </form>
             </div>
-            <div role="tabpane3" class="tab-pane" id="messages">
+            <div role="tabpane3" *ngIf="selectedwallet === 'Matching'">
               <form class="formbox">
                 <h6 class="FormH6">Cener-matching</h6>
                 <hr class="style2">
@@ -313,7 +393,7 @@
 
               </form>
             </div>
-            <div role="tabpane4" class="tab-pane" id="settings3">
+            <div role="tabpane4" *ngIf="selectedwallet === 'Additionalsc'">
               <form class="formbox">
                 <h6 class="FormH6">Search Criteria</h6>
                 <hr class="style2">

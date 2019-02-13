@@ -7,6 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreatebookingComponent implements OnInit {
 
+  selectedwallet = 'Kundeoplysniger';
+
+  private Arrangementtype: Array<any> = [];
+    private newAttribute: any = {};
+
+    addFieldValue() {
+        this.Arrangementtype.push(this.newAttribute)
+        this.newAttribute = {};
+    }
+
+    deleteFieldValue(index) {
+        this.Arrangementtype.splice(index, 1);
+    }
+    
   constructor() { }
 
   ngOnInit() {

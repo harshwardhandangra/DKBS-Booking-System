@@ -11,12 +11,16 @@
 				<div class="row">
 					<div class="col-md-9" style="width: 723px;">	
 						<ul class="cd-breadcrumb triangle nav nav-tabs" role="tablist" style="text-align: left;">
-							<li class="active"><a href="#home3" data-toggle="tab">General</a></li>
-							<li><a href="#profile3" role="tab" data-toggle="tab">Other</a></li>							
+							<!-- <li class="active"><a href="#home3" data-toggle="tab">General</a></li>
+                            <li><a href="#profile3" role="tab" data-toggle="tab">Other</a></li>		 -->
+                            <li [class]="selectedwallet === 'Generalkp'?'active':'inactive'"><a (click)="selectedwallet = 'Generalkp'">General</a></li>
+                            <li [class]="selectedwallet === 'Otherkp'?'active':'inactive'"><a (click)="selectedwallet = 'Otherkp'">Other</a></li>
+                            
+                            
 						</ul>
 					  <!-- Tab panes -->
 						<div class="tab-content">
-							<div role="tabpanel" class="tab-pane active" id="home3">
+							<div role="tabpanel" *ngIf="selectedwallet === 'Generalkp'">
                                 <form class="formbox">
                                     <div class="form-group">
                                         <label class="col-form-label">Navn*</label>
@@ -112,7 +116,7 @@
 							
 							
 							</div>
-                            <div role="tabpanel" class="tab-pane" id="profile3">
+                            <div role="tabpanel" *ngIf="selectedwallet === 'Otherkp'">
                                 <form class="formbox">
                                     <div class="form-group">
                                         <label class="col-form-label">Interssetags</label>

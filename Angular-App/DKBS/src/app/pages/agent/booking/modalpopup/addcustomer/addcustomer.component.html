@@ -1,7 +1,7 @@
 <button class="btn btn-primary" (click)="open(content)"><span class="fa fa-plus"></span></button>
 <ng-template #content let-modal>
 <div class="modal-header">
-  <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+  <h4 class="modal-title" id="modal-basic-title">Add Company</h4>
   <button type="button" class="close pull-right" aria-label="Close" (click)="modalRefhide()">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -13,12 +13,15 @@
     <div class="row">
         <div class="col-md-12">
             <ul class="cd-breadcrumb triangle nav nav-tabs" role="tablist">
-                <li class="active"><a href="#subform1" data-toggle="tab">General</a></li>
-                <li><a href="#subform2" role="tab" data-toggle="tab">Other</a></li>
+                <!-- <li class="active"><a href="#subform1" data-toggle="tab">General</a></li>
+                <li><a href="#subform2" role="tab" data-toggle="tab">Other</a></li> -->
+
+                <li [class]="selectedwallet === 'General'?'active':'inactive'"><a (click)="selectedwallet = 'General'">General</a></li>
+              <li [class]="selectedwallet === 'Other'?'active':'inactive'"><a (click)="selectedwallet = 'Other'">Other</a></li>
             </ul>
             <!-- Tab panes -->
             <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="subform1">
+                <div role="tabpanel" *ngIf="selectedwallet === 'General'">
                     <form class="formbox">
                         <div class="form-group">
                             <label class="col-form-label">Navn*</label>
@@ -113,7 +116,7 @@
                     </form>
 
                 </div>
-                <div role="tabpanel" class="tab-pane" id="subform2">
+                <div role="tabpanel" *ngIf="selectedwallet === 'Other'">
                     <form class="formbox">
                         <div class="form-group">
                             <label class="col-form-label">Interssetags</label>
