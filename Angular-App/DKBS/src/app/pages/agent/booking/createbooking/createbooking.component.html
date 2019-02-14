@@ -4,18 +4,25 @@
   <section class="content-area">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 dbkstabs">
           <!-- <ul class="cd-breadcrumb triangle nav nav-tabs" role="tablist">
             <li class="active"><a href="#home" class="tab selected"  data-toggle="tab">Kundeoplysniger</a></li>
             <li><a href="#profile" role="tab" data-toggle="tab">Eventdetaljer</a></li>
             <li><a href="#messages" role="tab" data-toggle="tab">Matching</a></li>
             <li><a href="#settings3" role="tab" data-toggle="tab">Additional Search Criteria</a></li>
           </ul> -->
-          <ul class="cd-breadcrumb triangle nav nav-tabs" role="tablist">
-              <li [class]="selectedwallet === 'Kundeoplysniger'?'active':'inactive'"><a (click)="selectedwallet = 'Kundeoplysniger'">Kundeoplysniger</a></li>
-              <li [class]="selectedwallet === 'Eventdetaljer'?'active':'inactive'"><a (click)="selectedwallet = 'Eventdetaljer'">Eventdetaljer</a></li>
-              <li [class]="selectedwallet === 'Matching'?'active':'inactive'"> <a (click)="selectedwallet = 'Matching'">Matching</a></li>
-              <li [class]="selectedwallet === 'Additionalsc'?'active':'inactive'"><a (click)="selectedwallet = 'Additionalsc'">Additional Search Criteria</a></li>
+          <!---<ul class=" nav nav-tabs" role="tablist">
+            <li [class]="selectedwallet === 'Kundeoplysniger'?'active':'inactive'"><a (click)="selectedwallet = 'Kundeoplysniger'">Kundeoplysniger</a></li>
+            <li [class]="selectedwallet === 'Eventdetaljer'?'active':'inactive'"><a (click)="selectedwallet = 'Eventdetaljer'">Eventdetaljer</a></li>
+            <li [class]="selectedwallet === 'Matching'?'active':'inactive'"> <a (click)="selectedwallet = 'Matching'">Matching</a></li>
+            <li [class]="selectedwallet === 'Additionalsc'?'active':'inactive'"><a (click)="selectedwallet = 'Additionalsc'" >Additional Search Criteria</a></li>
+          </ul>-->
+
+          <ul class=" nav nav-tabs" role="tablist">
+              <li [class]="selectedwallet === 'Kundeoplysniger'?'active':'inactive'"><a (click)="selectedwallet = 'Kundeoplysniger'" class="nav-link">Kundeoplysniger</a></li>
+              <li [class]="selectedwallet === 'Eventdetaljer'?'active':'inactive'"><a (click)="selectedwallet = 'Eventdetaljer'" class="nav-link">Eventdetaljer</a></li>
+              <li [class]="selectedwallet === 'Matching'?'active':'inactive'"> <a (click)="selectedwallet = 'Matching'" class="nav-link">Matching</a></li>
+              <li [class]="selectedwallet === 'Additionalsc'?'active':'inactive'"><a (click)="selectedwallet = 'Additionalsc'" class="nav-link">Additional Search Criteria</a></li>
             </ul>
 
           <!-- Tab panes -->
