@@ -7,7 +7,7 @@ import { BsModalService,BsModalRef } from 'ngx-bootstrap';
   styleUrls: ['./addzipcode.component.css']
 })
 export class AddzipcodeComponent {
-
+  zipitem='Folder';
   // constructor() { }
 
   // ngOnInit() {

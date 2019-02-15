@@ -9,7 +9,12 @@ import { NavigationComponent } from './pagescomponent/navigation/navigation.comp
 import { BookingComponent } from './pages/agent/booking/booking.component';
 //import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
-import { ModalModule } from 'ngx-bootstrap';
+import { ModalModule,TypeaheadModule  } from 'ngx-bootstrap';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+
+
 import { CreatebookingComponent } from './pages/agent/booking/createbooking/createbooking.component';
 import { AddcustomerComponent } from './pages/agent/booking/modalpopup/addcustomer/addcustomer.component';
 import { AddzipcodeComponent } from "./pages/agent/booking/modalpopup/addzipcode/addzipcode.Component";
@@ -39,7 +44,11 @@ import { BookingdetailsComponent } from './pages/agent/booking/bookingdetails/bo
     ReactiveFormsModule,
     //NgbModule.forRoot(),
     ModalModule.forRoot(),
-    HttpClientModule
+    BsDatepickerModule.forRoot(),
+    TimepickerModule.forRoot(),
+    HttpClientModule,
+    NgMultiSelectDropDownModule.forRoot(),
+    TypeaheadModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
