@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DKBS.BL.Entities
+namespace DKBS.Entities
 {
     public class Customer
     {

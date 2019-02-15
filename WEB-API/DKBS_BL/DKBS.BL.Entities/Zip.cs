@@ -4,9 +4,9 @@ using System.Text;
 
 namespace DKBS.Entities
 {
-    public class Partner
+    public class Zip
     {
         public long Id { get; set; }
-        public string CompanyName { get; set; }
+        public int ZipCode { get; set; }
     }
 }
