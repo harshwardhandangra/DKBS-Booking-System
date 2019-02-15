@@ -12,10 +12,10 @@
                 <li><a href="#OTHER" role="tab" data-toggle="tab">OTHER</a></li>
             </ul> -->
             <ul class="cd-breadcrumb triangle nav nav-tabs" role="tablist">
-                    <li [class]="selectedwallet === 'SAGSDETALJER'?'active':'inactive'"><a (click)="selectedwallet = 'SAGSDETALJER'">SAGSDETALJER</a></li>
-                    <li [class]="selectedwallet === 'EVENTDETALJER'?'active':'inactive'"><a (click)="selectedwallet = 'EVENTDETALJER'">EVENTDETALJER</a></li>
-                    <li [class]="selectedwallet === 'FIRMA-OG'?'active':'inactive'"> <a (click)="selectedwallet = 'FIRMA-OG'">FIRMA-OG KONTTAKTOPLYSNIGER</a></li>
-                    <li [class]="selectedwallet === 'OTHER'?'active':'inactive'"><a (click)="selectedwallet = 'OTHER'">OTHER</a></li>
+                    <li [class]="selectedwallet === 'SAGSDETALJER'?'active':'inactive'"><a (click)="selectedwallet = 'SAGSDETALJER'">Case Details</a></li>
+                    <li [class]="selectedwallet === 'EVENTDETALJER'?'active':'inactive'"><a (click)="selectedwallet = 'EVENTDETALJER'">Event Details</a></li>
+                    <li [class]="selectedwallet === 'FIRMA-OG'?'active':'inactive'"> <a (click)="selectedwallet = 'FIRMA-OG'">Company & Contact Info</a></li>
+                    <li [class]="selectedwallet === 'OTHER'?'active':'inactive'"><a (click)="selectedwallet = 'OTHER'">Other</a></li>
                   </ul>
             <!-- Tab panes -->
             <div class="tab-content">
