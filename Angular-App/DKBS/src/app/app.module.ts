@@ -13,14 +13,12 @@ import { ModalModule,TypeaheadModule  } from 'ngx-bootstrap';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
-
-
 import { CreatebookingComponent } from './pages/agent/booking/createbooking/createbooking.component';
 import { AddcustomerComponent } from './pages/agent/booking/modalpopup/addcustomer/addcustomer.component';
 import { AddzipcodeComponent } from "./pages/agent/booking/modalpopup/addzipcode/addzipcode.Component";
 import { ContactpersonComponent } from './pages/agent/booking/modalpopup/contactperson/contactperson.component';
-
 import { BookingdetailsComponent } from './pages/agent/booking/bookingdetails/bookingdetails.component';
+import { BookinglistComponent } from './pages/agent/booking/bookinglist/bookinglist.component';
 
 
 @NgModule({
@@ -35,7 +33,9 @@ import { BookingdetailsComponent } from './pages/agent/booking/bookingdetails/bo
     AddzipcodeComponent,
     ContactpersonComponent,
  
-    BookingdetailsComponent
+    BookingdetailsComponent,
+ 
+    BookinglistComponent
   ],
   imports: [
     BrowserModule,

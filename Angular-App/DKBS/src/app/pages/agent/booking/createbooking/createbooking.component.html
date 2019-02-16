@@ -6,18 +6,18 @@
       <div class="row">
         <div class="col-md-12 dbkstabs">
           <ul class=" nav nav-tabs" role="tablist">
-              <li [class]="selectedwallet === 'Kundeoplysniger'?'active':'inactive'"><a (click)="selectedwallet = 'Kundeoplysniger'" class="nav-link">Kundeoplysniger</a></li>
-              <li [class]="selectedwallet === 'Eventdetaljer'?'active':'inactive'"><a (click)="selectedwallet = 'Eventdetaljer'" class="nav-link">Eventdetaljer</a></li>
-              <li [class]="selectedwallet === 'Matching'?'active':'inactive'"> <a (click)="selectedwallet = 'Matching'" class="nav-link">Matching</a></li>
-              <li [class]="selectedwallet === 'Additionalsc'?'active':'inactive'"><a (click)="selectedwallet = 'Additionalsc'" class="nav-link">Additional Search Criteria</a></li>
-
-            </ul>
-
+            <li [class]="selectedwallet === 'Kundeoplysniger'?'active':'inactive'"><a
+                (click)="selectedwallet = 'Kundeoplysniger'" class="nav-link">Company Information</a></li>
+            <li [class]="selectedwallet === 'Eventdetaljer'?'active':'inactive'"><a
+                (click)="selectedwallet = 'Eventdetaljer'" class="nav-link">Event Details</a></li>
+            <li [class]="selectedwallet === 'Matching'?'active':'inactive'"> <a (click)="selectedwallet = 'Matching'"
+                class="nav-link">Matching</a></li>
+          </ul>
           <!-- Tab panes -->
           <div class="tab-content">
             <div role="tabpanel" *ngIf="selectedwallet === 'Kundeoplysniger'">
               <form class="formboxadditional">
-                <h4 class="pull-left">Individual Information
+                <h4 class="pull-left">Company Information
                 </h4>
                 <div class="pull-right">
                   <button type="button" class="btn btn-outline-info">Reset</button>
@@ -27,8 +27,8 @@
                 <div class="form-group">
                   <label class="col-form-label">Company</label>
                   <!-- <input type="text" class="form-control txtsize"> -->
-                  <input [(ngModel)]="selectedValue" [typeahead]="states" typeaheadOptionField="name" (typeaheadOnSelect)="onSelect($event)"  [typeaheadScrollable]="true" class="form-control" name="kp">
-
+                  <input [(ngModel)]="selectedValue" [typeahead]="states" typeaheadOptionField="name"
+                    (typeaheadOnSelect)="onSelect($event)" [typeaheadScrollable]="true" class="form-control" name="kp">
                   <app-addcustomer></app-addcustomer>
                 </div>
                 <div class="form-group">
@@ -42,14 +42,16 @@
                 <div class="form-group">
                   <label class="col-form-label">Postal code, City, Country</label>
                   <!-- <input type="text" class="form-control"> -->
-                  <input [(ngModel)]="selectedValue" [typeahead]="states" typeaheadOptionField="name" (typeaheadOnSelect)="onSelect($event)"  [typeaheadScrollable]="true" class="form-control" name="postal">
-
+                  <input [(ngModel)]="selectedValue" [typeahead]="states" typeaheadOptionField="name"
+                    (typeaheadOnSelect)="onSelect($event)" [typeaheadScrollable]="true" class="form-control"
+                    name="postal">
                   <app-addzipcode></app-addzipcode>
                 </div>
                 <div class="form-group">
                   <label class="col-form-label">Contact Person</label>
                   <!-- <input type="text" class="form-control"> -->
-                  <input [(ngModel)]="selectedValue" [typeahead]="states" typeaheadOptionField="name" (typeaheadOnSelect)="onSelect($event)"  [typeaheadScrollable]="true" class="form-control" name="kp">
+                  <input [(ngModel)]="selectedValue" [typeahead]="states" typeaheadOptionField="name"
+                    (typeaheadOnSelect)="onSelect($event)" [typeaheadScrollable]="true" class="form-control" name="kp">
                   <app-contactperson></app-contactperson>
                 </div>
                 <div class="form-group">
@@ -57,7 +59,7 @@
                   <input type="text" class="form-control">
                 </div>
                 <div class="form-group">
-                  <label class="col-form-label">Rack</label>
+                  <label class="col-form-label">Position</label>
                   <input type="text" class="form-control">
                 </div>
                 <div class="form-group">
@@ -112,16 +114,16 @@
               <form class="formbox">
                 <h6 class="FormH6">Date and time</h6>
                 <hr class="style2">
-                
+
                 <div class="form-group">
                   <label class="col-form-label">Arrival</label>
-                  <input   type="text" bsDatepicker class="form-control width18per" autocomplete="off"/>
+                  <input type="text" bsDatepicker class="form-control width18per" autocomplete="off" />
                   <timepicker [formControlName]="'myControl'" class=" widthtimepicker"></timepicker>
 
                 </div>
                 <div class="form-group">
                   <label class="col-form-label">Depart</label>
-                  <input   type="text" bsDatepicker class="form-control width18per" autocomplete="off"/>
+                  <input type="text" bsDatepicker class="form-control width18per" autocomplete="off" />
                   <timepicker [formControlName]="'myControl'" class=" widthtimepicker"></timepicker>
 
                 </div>
@@ -138,13 +140,15 @@
 
                 <h6 class="FormH6">Desired geographical area</h6>
                 <hr class="style2">
-                
+
                 <div class="form-group">
                   <label class="col-form-label">Region / Province</label>
                   <div class="radiocheckbox">
                     <div class="form-check">
-                      <ng-multiselect-dropdown  [placeholder]="'custom placeholder'"  [data]="dropdownList"  [(ngModel)]="selectedItems"  [settings]="dropdownSettings"  (onSelect)="onItemSelect($event)"  (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
-                    </div>                  
+                      <ng-multiselect-dropdown [placeholder]="'custom placeholder'" [data]="dropdownList"
+                        [(ngModel)]="selectedItems" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+                        (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
+                    </div>
                   </div>
                 </div>
 
@@ -224,33 +228,33 @@
                         <input type="text" class="form-control">
                       </li>
                       <li>
-                       <a (click)="addFieldValue()"><i class="fa fa-plus"></i>Add new row</a> 
+                        <a (click)="addFieldValue()"><i class="fa fa-plus"></i>Add new row</a>
                         <!-- <button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button> -->
                       </li>
                     </ul>
 
                     <ul *ngFor="let ObjArrangementtype of Arrangementtype; let i = index">
-                        <li>
-                         
-                          <input type="text" class="form-control">
-                        </li>
-                        <li>
-                          
-                          <input type="text" class="form-control">
-                        </li>
-                        <li>
-                          
-                          <input type="text" class="form-control">
-                        </li>
-                        <li>
-                         
-                          <input type="text" class="form-control">
-                        </li>
-                        <li>
-                            <button class="btn btn-default"  type="button" (click)="deleteFieldValue(i)">Delete</button>
-                            
-                        </li>
-                      </ul>
+                      <li>
+
+                        <input type="text" class="form-control">
+                      </li>
+                      <li>
+
+                        <input type="text" class="form-control">
+                      </li>
+                      <li>
+
+                        <input type="text" class="form-control">
+                      </li>
+                      <li>
+
+                        <input type="text" class="form-control">
+                      </li>
+                      <li>
+                        <button class="btn btn-default" type="button" (click)="deleteFieldValue(i)">Delete</button>
+
+                      </li>
+                    </ul>
                   </div>
                   <!-- <div class="width80per">
                       <table class="table table-bordered">
@@ -373,16 +377,18 @@
                   <label class="col-form-label">Partner Type</label>
                   <div class="radiocheckbox">
                     <div class="form-check">
-                      <ng-multiselect-dropdown  [placeholder]="'custom placeholder'"  [data]="dropdownList"  [(ngModel)]="selectedItems"  [settings]="dropdownSettings"  (onSelect)="onItemSelect($event)"  (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
+                      <ng-multiselect-dropdown [placeholder]="'custom placeholder'" [data]="dropdownList"
+                        [(ngModel)]="selectedItems" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+                        (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
                     </div>
-                  
+
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-form-label">Regions Agreement</label>
                   <input type="checkbox">
                 </div>
-           
+
                 <div class="form-group">
                   <label class="col-form-label">state agreement</label>
                   <input type="checkbox">
@@ -392,21 +398,23 @@
                   <label class="col-form-label">Search results</label>
                   <input type="checkbox">
                 </div>
-               
-               
-               <br>
-                  <h6 class="FormH6">Search Criteria</h6>
-                  <hr class="style2">
-                  <div class="form-group">
-                    <label class="col-form-label">Search Criteria</label>
-                    <div class="radiocheckbox">
-                      <div class="form-check">
-                        <ng-multiselect-dropdown  [placeholder]="'custom placeholder'"  [data]="dropdownList"  [(ngModel)]="selectedItems"  [settings]="dropdownSettings"  (onSelect)="onItemSelect($event)"  (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
-                      </div>
-                    
+
+
+                <br>
+                <h6 class="FormH6">Search Criteria</h6>
+                <hr class="style2">
+                <div class="form-group">
+                  <label class="col-form-label">Search Criteria</label>
+                  <div class="radiocheckbox">
+                    <div class="form-check">
+                      <ng-multiselect-dropdown [placeholder]="'custom placeholder'" [data]="dropdownList"
+                        [(ngModel)]="selectedItems" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+                        (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
                     </div>
+
                   </div>
-             
+                </div>
+
               </form>
             </div>
             <!-- <div role="tabpane4" *ngIf="selectedwallet === 'Additionalsc'">
