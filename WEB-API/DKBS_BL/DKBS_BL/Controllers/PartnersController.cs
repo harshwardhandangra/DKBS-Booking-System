@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using DKBS.BL.Entities;
+using DKBS.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DKBS_BL.Controllers
+namespace DKBS.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Partners")]
     [ApiController]
     public class PartnersController : ControllerBase
     {
