@@ -19,17 +19,17 @@
                                 <form class="formbox">
 
                                     <label class="col-form-label">Choose</label>
-                                    <select id="inputState" class="form-control txtsize" ng-model="Address.type"
+                                    <select id="inputState" class="form-control txtsize" ng-model="zipitem"
                                         ng-dropdown required ng-change="changeAddress()">
-                                        <option ng-option value="Cash">Cash</option>
-                                        <option ng-option value="Check">Check</option>
-                                        <option ng-option value="Money Order">Money Order</option>
+                                        <option ng-option value="Folder">Folder</option>
+                                        <option ng-option value="Item">Item</option>
+                                        <option ng-option value="ListFieldsContentType">ListFieldsContentType</option>
                                     </select>
                                     <hr class="style2">
                                 </form>
 
                             </div>
-                            <div role="tabpanel" id="cash">
+                            <div role="tabpanel" *ngIf="zipitem === 'Folder'">
                                 <form class="formbox">
                                     <div class="form-group">
                                         <label class="col-form-label">Name</label>
@@ -47,7 +47,7 @@
                                 </form>
                             </div>
 
-                            <div role="tabpanel" id="money_order">
+                            <div role="tabpanel"  *ngIf="zipitem === 'Item'">
                                 <form class="formbox">
                                     <div class="form-group">
                                         <label class="col-form-label">Full Info</label>
@@ -79,14 +79,14 @@
                             </div>
 
                             <!-- class="tab-pane"  -->
-                            <div role="tabpanel" id="money_order">
+                            <div role="tabpanel"  *ngIf="zipitem === 'ListFieldsContentType'">
                                 <form class="formbox">
                                     <div class="form-group">
                                         <label class="col-form-label">Zip/Postal Code</label>
                                         <input type="text" class="form-control txtsize">
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-form-label">Land*</label>
+                                        <label class="col-form-label">Country*</label>
                                         <select id="inputState" class="form-control txtsize">
                                             <option selected="selected">Belgien</option>
                                             <option>...</option>

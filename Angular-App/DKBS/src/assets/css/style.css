@@ -228,6 +228,8 @@
   .formbox .form-group textarea,
   .formbox .form-group .radiocheckbox,
   .formbox .form-group .width80per{float: left;width: 80%;margin-right: 0px;}
+  .formbox .form-group .width18per{float: left;width: 18%;margin-right: 0px;}
+  .widthtimepicker{margin: -28px 13px -5px 9px;height: 133px;}
   .formbox .form-group input[type="checkbox"],
   .formbox .form-group input[type="radio"]
   {float: left;width: auto;margin-right: 0px;margin-top:12px;}
