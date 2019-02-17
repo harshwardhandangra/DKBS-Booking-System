@@ -19,6 +19,7 @@ import { AddzipcodeComponent } from "./pages/agent/booking/modalpopup/addzipcode
 import { ContactpersonComponent } from './pages/agent/booking/modalpopup/contactperson/contactperson.component';
 import { BookingdetailsComponent } from './pages/agent/booking/bookingdetails/bookingdetails.component';
 import { BookinglistComponent } from './pages/agent/booking/bookinglist/bookinglist.component';
+import { HttpModule } from '@angular/http';
 
 
 @NgModule({
@@ -48,7 +49,9 @@ import { BookinglistComponent } from './pages/agent/booking/bookinglist/bookingl
     TimepickerModule.forRoot(),
     HttpClientModule,
     NgMultiSelectDropDownModule.forRoot(),
-    TypeaheadModule.forRoot()
+    TypeaheadModule.forRoot(),
+    HttpModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
