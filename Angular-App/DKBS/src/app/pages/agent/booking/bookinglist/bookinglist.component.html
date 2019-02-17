@@ -8,6 +8,161 @@
           <h1>
             Welcome to {{title}}!!
           </h1>
+          <div class="newbooking"> <a routerLink="newbooking"><i class="fa fa-plus"></i> New Booking</a></div>
+          <div class="accordion" id="accordionExample">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                  <div class="btn-link" data-toggle="collapse" data-target="#collapseOne">
+                    {{bookingAssignedTiltle}}
+                  </div>
+                </h2>
+              </div>
+          
+              <div id="collapseOne" class="collapse show"  data-parent="#accordionExample">
+                <div class="card-body">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th class="th-lg" *ngFor="let heading of bookingTask" scope="col">{{heading}}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let el of bookingAssignedElements">
+                        <th>{{el.SRM_id}}</th>
+                        <td><a routerLink="bookingdetails">{{el.Case}}</a></td>
+                        <td>{{el.Queries}}</td>
+                        <td>{{el.Role}}</td>
+                        <td>{{el.Booking_Responsible}}</td>
+                        <td>{{el.Assigned_to_team}}</td>
+                        <td>{{el.Contact}}</td>
+                        <td>{{el.Company_old_look_up}}</td>
+                        <td>{{el.Received_on}}</td>
+                        <td>{{el.Status}}</td>
+                        <td>{{el.SLA}}</td>
+                        <td>{{el.Active_support_time}}</td>
+                        <td>{{el.Time_to_Fix}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                  <div class="btn-link collapsed"  data-toggle="collapse" data-target="#collapseTwo">
+                    {{IncidentAssignedTiltle}}
+                  </div>
+                </h2>
+              </div>
+              <div id="collapseTwo" class="collapse" data-parent="#accordionExample">
+                <div class="card-body">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th *ngFor="let heading of incidentTask" scope="col">{{heading}} </th>
+                      </tr>
+                    </thead>
+                    <tbody class="text-left">
+                      <tr *ngFor="let el of incidentElements">
+                        <th>{{el.im_id}}</th>
+                        <td>{{el.Subject}}</td>
+                        <td>{{el.Procedures}}</td>
+                        <td>{{el.Role}}</td>
+                        <td>{{el.Assigned_to_Person}}</td>
+                        <td>{{el.Assigned_to_team}}</td>
+                        <td>{{el.Requester}}</td>
+                        <td>{{el.Customer}}</td>
+                        <td>{{el.Discovery_Time}}</td>
+                        <td>{{el.Status}}</td>
+                        <td>{{el.SLA}}</td>
+                        <td>{{el.Active_support_time}}</td>
+                        <td>{{el.Time_to_Fix}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="card">
+              <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                  <div class="btn-link collapsed"  data-toggle="collapse" data-target="#collapseThree">
+                    {{bookingUnAssignedTiltle}}
+                  </div>
+                </h2>
+              </div>
+              <div id="collapseThree" class="collapse" data-parent="#accordionExample">
+                <div class="card-body">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th *ngFor="let heading of bookingUnassignedTask" scope="col">{{heading}} </th>
+                      </tr>
+                    </thead>
+                    <tbody class="text-left">
+                      <tr *ngFor="let el of bookingUnAssignedElements">
+                        <th scope="row">{{el.SRM_id}}</th>
+                        <td>{{el.Case}}</td>
+                        <td>{{el.Queries}}</td>
+                        <td>{{el.Company_old_look_up}}</td>
+                        <td>{{el.Discovery_Time}}</td>
+                        <td>{{el.Status}}</td>
+                        <td>{{el.SLA}}</td>
+                        <td>{{el.Active_support_time}}</td>
+                        <td>{{el.Time_to_Fix}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="card">
+              <div class="card-header" id="headingFour">
+                <h2 class="mb-0">
+                  <div class="btn-link collapsed"  data-toggle="collapse" data-target="#collapseFour">
+                    {{IncidentUnAssignedTiltle}}
+                  </div>
+                </h2>
+              </div>
+              <div id="collapseFour" class="collapse" data-parent="#accordionExample">
+                <div class="card-body">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th *ngFor="let heading of incidentUnassignedTask" scope="col">{{heading}} </th>
+                      </tr>
+                    </thead>
+                    <tbody class="text-left">
+                      <tr *ngFor="let el of IncidentUnAssignedElements">
+                        <th>{{el.im_id}}</th>
+                        <td>{{el.Subject}}</td>
+                        <td>{{el.Procedures}}</td>
+                        <td>{{el.Requester}}</td>
+                        <td>{{el.Customer}}</td>
+                        <td>{{el.Discovery_Time}}</td>
+                        <td>{{el.Status}}</td>
+                        <td>{{el.SLA}}</td>
+                        <td>{{el.Active_support_time}}</td>
+                        <td>{{el.Time_to_Fix}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+<!--
+
           <div class="panel-group" id="accordion">
             <a routerLink="newbooking">New Booking</a>
             <div class="panel panel-default">
@@ -155,6 +310,9 @@
 
             </div>
           </div>
+
+        -->
+
         </div>
       </div>
     </div>

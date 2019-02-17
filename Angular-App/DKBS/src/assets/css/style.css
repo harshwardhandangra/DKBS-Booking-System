@@ -216,8 +216,7 @@
     background-color: #fff;
     border-color: #dee2e6 #dee2e6 #fff;
     border-bottom-color: #292961;
-    border-bottom-width: 2px; font-weight:bold;
-}
+    border-bottom-width: 2px; font-weight:bold;}
   .dbkstabs .tab-content{width:100%;max-width:1000px;padding:50px 20px 30px;margin: -1px auto 40px;border: 1px #ccc solid;}
   .formbox{display:block;background:#fff;width:100%;}
   form h4{font-size: 21px;color: #2e2e2e; font-weight: 600;}
@@ -227,7 +226,8 @@
   .formbox .form-group select,
   .formbox .form-group textarea,
   .formbox .form-group .radiocheckbox,
-  .formbox .form-group .width80per{float: left;width: 80%;margin-right: 0px;}
+  .formbox .form-group .width80per,
+  .formbox .form-group .datetimediv{float: left;width: 80%;margin-right: 0px;}
   .formbox .form-group .width18per{float: left;width: 18%;margin-right: 0px;}
   .widthtimepicker{margin: -28px 13px -5px 9px;height: 133px;}
   .formbox .form-group input[type="checkbox"],
@@ -250,141 +250,12 @@
   .modal-body .formbox .form-group input[type="checkbox"],
   .modal-body .formbox .form-group input[type="radio"]
   {float: left;width: auto;margin-right: 0px;}
-  /* -------------------------------- 
   
-  Basic Style
-  
-  -------------------------------- */
-  /*
-  .cd-breadcrumb {padding: 0.5em 1em; margin: 1em auto; background-color: #edeff0; border-radius: .25em; }
-  .cd-breadcrumb:after{content: ""; display: table; clear: both;  }
-  .cd-breadcrumb li {display: inline-block; float: inherit; margin: 0.5em 0;}
-  .cd-breadcrumb li::after{display: inline-block; content: '\00bb'; margin: 0 .6em;color: #959fa5;}
-  .cd-breadcrumb li:last-of-type::after {display: none;  }
-  .cd-breadcrumb li > *{display: inline-block; font-size: 18px;color: #2c3f4c;}
-  .cd-breadcrumb li.active > * { color: #96c03d; }
-  .no-touch .cd-breadcrumb a:hover { color: #96c03d;  }
-  .cd-breadcrumb.custom-separator li::after {content: '';   height: 16px;  width: 16px; background: url(../img/cd-custom-separator.svg) no-repeat center center; vertical-align: middle;  }
-  .cd-breadcrumb.custom-icons li > *::before {content: ''; display: inline-block; height: 20px; width: 20px; margin-right: .4em; margin-top: -2px; background: url(../img/cd-custom-icons-01.svg) no-repeat 0 0; vertical-align: middle; }
-  .cd-breadcrumb.custom-icons li:not(.active):nth-of-type(2) > *::before{background-position: -20px 0;  }
-  .cd-breadcrumb.custom-icons li:not(.active):nth-of-type(3) > *::before { background-position: -40px 0; }
-  .cd-breadcrumb.custom-icons li:not(.active):nth-of-type(4) > *::before { background-position: -60px 0;}
-  .cd-breadcrumb.custom-icons li.active:first-of-type > *::before{background-position: 0 -20px;  }
-  .cd-breadcrumb.custom-icons li.active:nth-of-type(2) > *::before{background-position: -20px -20px;  }
-  .cd-breadcrumb.custom-icons li.active:nth-of-type(3) > *::before {background-position: -40px -20px;}
-  .cd-breadcrumb.custom-icons li.active:nth-of-type(4) > *::before{ background-position: -60px -20px;}
-  
-  */
-  /* -------------------------------- 
-  
-  Triangle breadcrumb
-  
-  -------------------------------- */
-  /*
-  @media only screen and (min-width: 768px) {
-    .cd-breadcrumb.triangle {
-      
-      background-color: transparent;
-      padding: 0; text-align:center;display: block;
-    }
-    .cd-breadcrumb.triangle li {
-      position: relative;
-      padding: 0;
-      margin: 4px 0px 4px 0;
-    }
-    .cd-breadcrumb.triangle li:last-of-type {
-      margin-right: 0;
-    }
-    .cd-breadcrumb.triangle li > * {
-      position: relative;
-      padding: 8px .8em 8px 2.5em;
-      color: #fff;
-     
-      
-      margin-right:0px; border-width:0px; border-radius:0px;
-
-      border-color: #a5b8da !important;
-      background-color: #a5b8da;
-     
-    }
-    .cd-breadcrumb.triangle li.active > * {
-      
-      color: #ffffff !important;
-      border: 1px solid #505B66 !important;
-      background-color: #505B66 !important;
-     
-    }
-    .cd-breadcrumb.triangle li a:hover{color:#000;}
-    .cd-breadcrumb.triangle li:first-of-type > * {
-      padding-left: 1.6em;
-      border-radius: .25em 0 0 .25em;
-    }
-    .cd-breadcrumb.triangle li:last-of-type > * {
-      padding-right: 1.6em;
-      border-radius: 0 .25em .25em 0;
-    }
-    .no-touch .cd-breadcrumb.triangle a:hover {
-     
-      color: #ffffff;
-      background-color: #2c3f4c;
-      border-color: #2c3f4c;
-    }
-    .cd-breadcrumb.triangle li::after, .cd-breadcrumb.triangle li > *::after {
-     
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 100%;
-      content: '';
-      height: 0;
-      width: 0;
-    
-      border: 22px solid transparent;
-      border-right-width: 0;
-      border-left-width: 18px;
-    }
-    .cd-breadcrumb.triangle li::after {
-     
-      z-index: 1;
-      -webkit-transform: translateX(1px);
-      -moz-transform: translateX(1px);
-      -ms-transform: translateX(1px);
-      -o-transform: translateX(1px);
-      transform: translateX(1px);
-      border-left-color: #ffffff;
-     
-      margin: 0;
-    }
-    .cd-breadcrumb.triangle li > *::after {
-    
-      z-index: 2;
-      border-left-color: inherit;
-    }
-    .cd-breadcrumb.triangle li:last-of-type::after, .cd-breadcrumb.triangle li:last-of-type > *::after {
-     
-      display: none;
-    }
-    .cd-breadcrumb.triangle.custom-separator li::after {
-      
-      background-image: none;
-    }
-    .cd-breadcrumb.triangle.custom-icons li::after, .cd-breadcrumb.triangle.custom-icons li > *::after {
-      
-      border-top-width: 25px;
-      border-bottom-width: 25px;
-    }
-  
-    @-moz-document url-prefix() {
-      .cd-breadcrumb.triangle li::after,
-      .cd-breadcrumb.triangle li > *::after {
-       
-        border-left-style: dashed;
-      }
-    }
-  }*/
   .mtop40{margin-top:40px;}
   .mright50{margin-right:50px;}
   .clear{clear: both;display:block;}
+  .height20{display: block;width: :100%;clear: both;height:20px;}
+  .padright75{padding-right:75px;}
   .interhis{margin-left: 20%;font-size: 14px;}
   .form-group .radiocheckbox  .form-check{    margin: 7px 0 10px;}
   .form-group .radiocheckbox  input[type="checkbox"], 
@@ -392,15 +263,34 @@
   .formbox .form-group .radiocheckbox  label{width: auto;  float: initial;}
   .formbox .form-group .width80per{margin-bottom:15px;}
   .formbox .form-group .width80per label,
-  .formbox .form-group .width80per input[type="text"]{width:100%;font-size:14px;}
+  .formbox .form-group .width80per input[type="text"]{width:100%;font-size:12px;}
+  .formbox .form-group .width80per .lbl{font-size: 12px;font-weight: 600; color: #000;height: 40px; vertical-align: bottom;display: table-cell;}
+
   .formbox .form-group .width80per .col-sm-2,
   .formbox .form-group .width80per .col-sm-3{padding:0 5px;}
   .formbox .form-group .width80per ul{margin:0px 0px 0px 0px;padding:0px;list-style:none;}
-  .formbox .form-group .width80per ul li{width:13%;float: left;margin-left: 1%;}
+  .formbox .form-group .width80per ul li{width:13.4%;float: left;margin-left: 1%;}
   .formbox .form-group .width80per ul li:nth-child(1){margin-left:0px;}
-  .formbox .form-group .width80per ul li:last-child{margin-top:35px;font-size: 14px;}
+  .formbox .form-group .width80per ul li:last-child{margin-top:50px;font-size: 14px;}
   
-
+  .accordion .card .card-header{padding:0px;}
+  .accordion .card .card-header h2{font-size: 14px; cursor: pointer;padding: 5px 10px;}
+  .accordion .card .card-header h2 .btn-link{color: #707070;text-decoration: none;}
+  .accordion .card .card-body{overflow: auto;padding:10px;}
+  .accordion .card .card-body table{}
+  .accordion .card .card-body table thead{background: #f7f7f7;border:solid #f3f3f3  1px;}
+  .accordion .card .card-body table thead th{font-size: 12px;padding: 5px;}
+  .accordion .card .card-body table tbody{font-size:12px;}
+  .accordion .card .card-body table tbody td,
+  .accordion .card .card-body table tbody th{padding: 5px;}
+  .newbooking{margin-bottom: 5px;}
+  .newbooking  a{font-size:14px;}
+  .datetimediv{}
+  .formbox .form-group .datetimediv .dpicker{width:150px;}
+  .formbox .form-group .datetimediv .widthtimepicker{float:left;}
+  .formbox .form-group .datetimediv .widthtimepicker td.form-group{margin-bottom: 0px;}
+  .formbox .form-group .datetimediv .widthtimepicker td input{width:65px;}
+  
   
   
   @media (max-width:1366px){
