@@ -104,7 +104,10 @@
                     <option>...</option>
                   </select>
                 </div>
-
+                <div class="form-group mtop40 text-right padright75">
+                    <button type="submit" class="btn btn-danger mright50">Next</button>
+                    <button type="submit" class="btn btn-success">Cancel</button>
+                </div>
 
               </form>
 
@@ -114,19 +117,25 @@
               <form class="formbox">
                 <h6 class="FormH6">Date and time</h6>
                 <hr class="style2">
-
+                <div class="height20"></div>
                 <div class="form-group">
                   <label class="col-form-label">Arrival</label>
-                  <input type="text" bsDatepicker class="form-control width18per" autocomplete="off" />
-                  <timepicker [formControlName]="'myControl'" class=" widthtimepicker"></timepicker>
-
+                  <div class="datetimediv">
+                    <input type="text" bsDatepicker class="form-control dpicker" autocomplete="off" />
+                    <timepicker [formControlName]="'myControl'" class="widthtimepicker"></timepicker>
+                  </div>
+                  <div class="clear"></div>
                 </div>
+                <div class="clear"></div>
                 <div class="form-group">
                   <label class="col-form-label">Depart</label>
-                  <input type="text" bsDatepicker class="form-control width18per" autocomplete="off" />
-                  <timepicker [formControlName]="'myControl'" class=" widthtimepicker"></timepicker>
-
+                  <div class="datetimediv">
+                    <input type="text" bsDatepicker class="form-control dpicker" autocomplete="off" />
+                    <timepicker [formControlName]="'myControl'" class="widthtimepicker"></timepicker>
+                  </div>
+                  <div class="clear"></div>
                 </div>
+                <div class="clear"></div>
                 <div class="form-group">
                   <label class="col-form-label">The dates are flexible</label>
                   <input type="checkbox">
@@ -212,19 +221,19 @@
                   <div class="width80per">
                     <ul>
                       <li>
-                        <label> Course Packages</label>
+                        <div class="lbl"> Course Packages</div>
                         <input type="text" class="form-control">
                       </li>
                       <li>
-                        <label>Number of participants</label>
+                        <div class="lbl">Number of participants</div>
                         <input type="text" class="form-control">
                       </li>
                       <li>
-                        <label>From</label>
+                        <div class="lbl">From</div>
                         <input type="text" class="form-control">
                       </li>
                       <li>
-                        <label>To</label>
+                        <div class="lbl">To</div>
                         <input type="text" class="form-control">
                       </li>
                       <li>
@@ -312,27 +321,27 @@
                   <div class="width80per">
                     <ul>
                       <li>
-                        <label> local Attraction</label>
+                        <div class="lbl">local Attraction</div>
                         <input type="text" class="form-control">
                       </li>
                       <li>
-                        <label> Number of rooms</label>
+                        <div class="lbl">Number of rooms</div>
                         <input type="text" class="form-control">
                       </li>
                       <li>
-                        <label>a persons</label>
+                        <div class="lbl">a persons</div>
                         <input type="text" class="form-control">
                       </li>
                       <li>
-                        <label>Table Set</label>
+                        <div class="lbl">Table Set</div>
                         <input type="text" class="form-control">
                       </li>
                       <li>
-                        <label>From</label>
+                        <div class="lbl">From</div>
                         <input type="text" class="form-control">
                       </li>
                       <li>
-                        <label>To</label>
+                        <div class="lbl">To</div>
                         <input type="text" class="form-control">
                       </li>
                       <li>
@@ -346,11 +355,11 @@
                   <div class="width80per">
                     <ul>
                       <li>
-                        <label> Description</label>
+                        <div class="lbl">Description</div>
                         <input type="text" class="form-control">
                       </li>
                       <li>
-                        <label>Anta (pcs.)</label>
+                        <div class="lbl">Anta (pcs.)</div>
                         <input type="text" class="form-control">
                       </li>
                       <li>
@@ -363,7 +372,7 @@
                   <label class="col-form-label">Booking Responsibility</label>
                   <input type="text" class="form-control">
                 </div>
-                <div class="form-group mtop40">
+                <div class="form-group mtop40 text-right">
                   <button type="submit" class="btn btn-danger mright50">Previous</button>
                   <button type="submit" class="btn btn-success">Next</button>
                 </div>
@@ -414,7 +423,12 @@
 
                   </div>
                 </div>
-
+                <div class="form-group mtop40 text-right">
+                    <button type="submit" class="btn btn-danger mright50">Save</button>
+                    <button type="submit" class="btn btn-success mright50">Save and Draft</button>
+                    <button type="submit" class="btn btn-dark">Cancel</button>
+                </div>
+               
               </form>
             </div>
             <!-- <div role="tabpane4" *ngIf="selectedwallet === 'Additionalsc'">
