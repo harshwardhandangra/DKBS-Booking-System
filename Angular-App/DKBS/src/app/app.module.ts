@@ -20,6 +20,7 @@ import { ContactpersonComponent } from './pages/agent/booking/modalpopup/contact
 import { BookingdetailsComponent } from './pages/agent/booking/bookingdetails/bookingdetails.component';
 import { BookinglistComponent } from './pages/agent/booking/bookinglist/bookinglist.component';
 import { HttpModule } from '@angular/http';
+import { CustomerbookingComponent } from './pages/agent/booking/customerbooking/customerbooking.component';
 
 
 @NgModule({
@@ -36,7 +37,9 @@ import { HttpModule } from '@angular/http';
  
     BookingdetailsComponent,
  
-    BookinglistComponent
+    BookinglistComponent,
+ 
+    CustomerbookingComponent
   ],
   imports: [
     BrowserModule,

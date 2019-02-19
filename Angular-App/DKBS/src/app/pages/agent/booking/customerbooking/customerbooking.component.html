@@ -1,0 +1,97 @@
+<app-navigation></app-navigation>
+<main id="playground">
+  <app-header></app-header>
+  <section class="content-area">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12 dbkstabs">          
+          <!-- Tab panes -->
+          <div class="tab-content">
+              <form class="formboxadditional">                               
+                <div class="clearfix"></div>
+                <hr class="style2">
+                <div class="form-group">
+                  <label class="col-form-label">Where in Denmark would you like to find a venue?</label>
+                  <br>
+                  <select id="inputState" class="form-control txtsize">
+                    <option selected="selected">Not yet decided</option>
+                    <option>...</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="col-form-label">How many people will attend the event?(Please state only 1 number)</label>
+                  <input type="text" class="form-control" placeholder="Number of people">
+                </div>
+                <br>
+                <h6 class="FormH6">Do you need accommodation? If yes, please state your details</h6>
+                <hr class="style2">
+
+                <div class="form-group">
+                  <label class="col-form-label">Number of single rooms(approximately,If you do not have the exact number)</label>
+                  <input type="text" class="form-control" placeholder="Number of single rooms">
+                </div>
+
+                <div class="form-group">
+                  <label class="col-form-label">Number of double rooms(approximately,If you do not have the exact number)</label>
+                  <input type="text" class="form-control" placeholder="Number of double rooms">
+                </div>
+                <br>
+                <br>
+                <h6 class="FormH6">When will the event begin?</h6>               
+
+                 <label class="col-form-label">Start Date*</label>
+                  <div class="datetimediv">
+                    <input type="text" bsDatepicker class="form-control dpicker" autocomplete="off" />
+                    <timepicker [formControlName]="'myControl'" class="widthtimepicker"></timepicker>
+                  </div>
+                  <label class="col-form-label">End Date*</label>
+                  <div class="datetimediv">
+                    <input type="text" bsDatepicker class="form-control dpicker" autocomplete="off" />
+                    <timepicker [formControlName]="'myControl'" class="widthtimepicker"></timepicker>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-form-label">Do you have any special requests?Group room,green areas,accessibility for guests with disabilities,teambuilding etc. </label>
+                    <input type="textarea" class="form-control">
+                  </div>
+                  <br><br><br>
+                  <h6 class="FormH6">Contact Person*</h6>
+                  <div class="form-group">
+                    <label class="col-form-label">First Name</label>
+                    <input type="text" class="form-control" placeholder="First name">
+                  </div>
+                  <div class="form-group">
+                    <label class="col-form-label">Email*</label>
+                    <input type="text" class="form-control" placeholder="Email">
+                  </div>
+                  <div class="form-group">
+                    <label class="col-form-label">Phone*</label>
+                    <input type="text" class="form-control" placeholder="Phone">
+                  </div>
+                  <h6 class="FormH6">Company Name</h6>
+                  <div class="form-group">
+                    <label class="col-form-label">Vajnavn</label>
+                    <input type="text" class="form-control" placeholder="Street">
+                  </div>
+                  <div class="form-group">
+                    <label class="col-form-label">By</label>
+                    <input type="text" class="form-control" placeholder="City">
+                    </div>
+                  <div class="form-group">
+                    <label class="col-form-label">Post Number</label>
+                    <input type="text" class="form-control" placeholder="Zip/Post Code">
+                  </div>
+                  
+                <div class="form-group mtop40 text-right padright75">
+                    <button type="submit" class="btn btn-success mleft50">Send</button>                    
+                </div>
+
+              </form>
+
+                      
+            
+           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
