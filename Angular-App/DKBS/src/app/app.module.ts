@@ -21,6 +21,10 @@ import { BookingdetailsComponent } from './pages/agent/booking/bookingdetails/bo
 import { BookinglistComponent } from './pages/agent/booking/bookinglist/bookinglist.component';
 import { HttpModule } from '@angular/http';
 import { CustomerbookingComponent } from './pages/agent/booking/customerbooking/customerbooking.component';
+import { GooglePlacesDirective } from './google-places.directive';
+import { AllcasesComponent } from './pages/agent/booking/allcases/allcases.component';
+
+
 
 
 @NgModule({
@@ -39,7 +43,11 @@ import { CustomerbookingComponent } from './pages/agent/booking/customerbooking/
  
     BookinglistComponent,
  
-    CustomerbookingComponent
+    CustomerbookingComponent,
+ 
+    GooglePlacesDirective,
+ 
+    AllcasesComponent
   ],
   imports: [
     BrowserModule,

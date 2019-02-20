@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,NgZone} from '@angular/core';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead/typeahead-match.class';
 import { ZipcodeService } from 'src/service/zipcode/zipcode.service';
 import { StateprovinanceService } from 'src/service/stateprovinance/stateprovinance.service';
- 
+
 
 @Component({
   selector: 'app-createbooking',
@@ -11,6 +11,9 @@ import { StateprovinanceService } from 'src/service/stateprovinance/stateprovina
   styleUrls: ['./createbooking.component.css']
 })
 export class CreatebookingComponent implements OnInit {
+  public title = 'Places';
+  public addrKeys: string[];
+  public addr: object;
 
   selectedwallet = 'Kundeoplysniger';
   dropdownList = [];
@@ -39,10 +42,10 @@ export class CreatebookingComponent implements OnInit {
       itemsShowLimit: 3,
       allowSearchFilter: true
     };
-    this.GetAllZipCodes();
-    this.GetAllStateProvinance();
-    this.GetCompany();
-    this.GetContactPerson();
+    // this.GetAllZipCodes();
+    // this.GetAllStateProvinance();
+    // this.GetCompany();
+    // this.GetContactPerson();
   }
 
   selectedValue: string;
@@ -73,7 +76,7 @@ export class CreatebookingComponent implements OnInit {
     }
     
  
-  constructor(private zipcodeService:ZipcodeService, private stateprovinanceService:StateprovinanceService) {}
+  constructor(private zipcodeService:ZipcodeService, private stateprovinanceService:StateprovinanceService,private zone: NgZone) {}
   GetAllZipCodes(): any {
     this.zipcodeService.GetAllZipCodes().subscribe(res => {    
      this.states=res;    
@@ -119,5 +122,16 @@ export class CreatebookingComponent implements OnInit {
 
   // ngOnInit() {
   // }
+
+  setAddress(addrObj) {
+    
+    //We are wrapping this in a zone method to reflect the changes
+    //to the object in the DOM.
+    this.zone.run(() => {
+      this.addr = addrObj;
+      this.addrKeys = Object.keys(addrObj);
+      console.log(this.addr );
+    });
+  }
 
 }
