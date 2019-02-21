@@ -44,10 +44,27 @@
                 <div class="form-group">
                   <label class="col-form-label">Postal code, City, Country</label>
                   <!-- <input type="text" class="form-control"> -->
-                  <input [(ngModel)]="selectedValuecompany" [typeahead]="company" typeaheadOptionField="Zipcode"
+                  <!-- <input [(ngModel)]="selectedValuecompany" [typeahead]="company" typeaheadOptionField="Zipcode"
                     (typeaheadOnSelect)="onSelect($event)" [typeaheadScrollable]="true" class="form-control"
-                    name="postal" autocomplete="off">
+                    name="postal" autocomplete="off"> -->
+                    <input 
+                    type="text"
+                    class="google-place-input"
+                    google-place
+                    (onSelect)="setAddress($event)"
+                    placeholder="Type to search..">
+
+                    <div class="form-group">
+                      <ul style="list-style-type: none;">
+                        <li *ngFor="let key of addrKeys">
+                          <span style="font-weight: bold">{{key}}</span>: <span>{{addr[key]}}</span>
+                        </li>
+                      </ul>
+                    </div>
+ 
                   <app-addzipcode></app-addzipcode>
+
+
                 </div>
                 <div class="form-group">
                   <label class="col-form-label">Contact Person</label>
