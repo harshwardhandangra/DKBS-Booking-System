@@ -24,6 +24,7 @@ import { CustomerbookingComponent } from './pages/agent/booking/customerbooking/
 import { GooglePlacesDirective } from './google-places.directive';
 import { AllcasesComponent } from './pages/agent/booking/allcases/allcases.component';
 import { DashboardComponent } from './pages/partner/site/dashboard/dashboard.component';
+import { PartnernonpartnerComponent } from './pages/partner/partnernonpartner/partnernonpartner/partnernonpartner.component';
 
 
 
@@ -52,7 +53,10 @@ import { DashboardComponent } from './pages/partner/site/dashboard/dashboard.com
     AllcasesComponent,
 
  
-    DashboardComponent
+    DashboardComponent,
+
+ 
+    PartnernonpartnerComponent
   ],
   imports: [
     BrowserModule,
