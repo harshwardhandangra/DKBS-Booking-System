@@ -7,6 +7,7 @@ import { CustomerbookingComponent } from './pages/agent/booking/customerbooking/
 import { AllcasesComponent } from './pages/agent/booking/allcases/allcases.component';
 import { DashboardComponent } from './pages/partner/site/dashboard/dashboard.component';
 import { PartnernonpartnerComponent } from './pages/partner/partnernonpartner/partnernonpartner/partnernonpartner.component';
+import { CasesComponent } from './pages/partner/cases/cases.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path:'allcases', component:AllcasesComponent},
   { path:'PartnerDashboard', component:DashboardComponent},
   { path:'Partnercases', component:PartnernonpartnerComponent},
+  { path:'PartnerCases', component:CasesComponent},
 ];
 
 @NgModule({
