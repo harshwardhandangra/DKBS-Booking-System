@@ -26,6 +26,7 @@ import { AllcasesComponent } from './pages/agent/booking/allcases/allcases.compo
 import { DashboardComponent } from './pages/partner/site/dashboard/dashboard.component';
 import { PartnernonpartnerComponent } from './pages/partner/partnernonpartner/partnernonpartner/partnernonpartner.component';
 import { CasesComponent } from './pages/partner/cases/cases.component';
+import { AddpartnerComponent } from './pages/partner/addpartner/addpartner.component';
 
 @NgModule({
   declarations: [
@@ -52,8 +53,9 @@ import { CasesComponent } from './pages/partner/cases/cases.component';
  
     DashboardComponent,
 
-    PartnernonpartnerComponent
-    CasesComponent
+    PartnernonpartnerComponent,
+    CasesComponent,
+    AddpartnerComponent
   ],
   imports: [
     BrowserModule,
