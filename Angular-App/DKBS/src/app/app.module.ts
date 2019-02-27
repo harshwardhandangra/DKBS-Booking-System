@@ -23,9 +23,9 @@ import { HttpModule } from '@angular/http';
 import { CustomerbookingComponent } from './pages/agent/booking/customerbooking/customerbooking.component';
 import { GooglePlacesDirective } from './google-places.directive';
 import { AllcasesComponent } from './pages/agent/booking/allcases/allcases.component';
-
-
-
+import { DashboardComponent } from './pages/partner/site/dashboard/dashboard.component';
+import { PartnernonpartnerComponent } from './pages/partner/partnernonpartner/partnernonpartner/partnernonpartner.component';
+import { CasesComponent } from './pages/partner/cases/cases.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +47,13 @@ import { AllcasesComponent } from './pages/agent/booking/allcases/allcases.compo
  
     GooglePlacesDirective,
  
-    AllcasesComponent
+    AllcasesComponent,
+
+ 
+    DashboardComponent,
+
+    PartnernonpartnerComponent
+    CasesComponent
   ],
   imports: [
     BrowserModule,
