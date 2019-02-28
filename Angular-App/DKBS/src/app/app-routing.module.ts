@@ -6,8 +6,11 @@ import { BookinglistComponent } from './pages/agent/booking/bookinglist/bookingl
 import { CustomerbookingComponent } from './pages/agent/booking/customerbooking/customerbooking.component';
 import { AllcasesComponent } from './pages/agent/booking/allcases/allcases.component';
 import { DashboardComponent } from './pages/partner/site/dashboard/dashboard.component';
-import { PartnernonpartnerComponent } from './pages/partner/partnernonpartner/partnernonpartner/partnernonpartner.component';
 import { CasesComponent } from './pages/partner/cases/cases.component';
+import { PartnerlistComponent } from './pages/partner/partnerlist/partnerlist.component';
+import { ServicecatalogComponent } from './pages/partner/servicecatalog/servicecatalog.component';
+
+
 
 
 const routes: Routes = [
@@ -17,8 +20,9 @@ const routes: Routes = [
   { path:'customerbooking', component:CustomerbookingComponent},
   { path:'allcases', component:AllcasesComponent},
   { path:'PartnerDashboard', component:DashboardComponent},
-  { path:'Partnercases', component:PartnernonpartnerComponent},
   { path:'PartnerCases', component:CasesComponent},
+  { path:'partnerlist', component:PartnerlistComponent},
+  { path:'servicecatalog', component:ServicecatalogComponent},
 ];
 
 @NgModule({
