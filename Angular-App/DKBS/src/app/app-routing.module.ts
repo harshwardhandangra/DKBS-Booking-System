@@ -9,8 +9,7 @@ import { DashboardComponent } from './pages/partner/site/dashboard/dashboard.com
 import { CasesComponent } from './pages/partner/cases/cases.component';
 import { PartnerlistComponent } from './pages/partner/partnerlist/partnerlist.component';
 import { ServicecatalogComponent } from './pages/partner/servicecatalog/servicecatalog.component';
-
-
+import { AddpartnerComponent } from './pages/partner/addpartner/addpartner.component';
 
 
 const routes: Routes = [
@@ -23,6 +22,7 @@ const routes: Routes = [
   { path:'PartnerCases', component:CasesComponent},
   { path:'partnerlist', component:PartnerlistComponent},
   { path:'servicecatalog', component:ServicecatalogComponent},
+  { path:'Addpartner', component:AddpartnerComponent},
 ];
 
 @NgModule({

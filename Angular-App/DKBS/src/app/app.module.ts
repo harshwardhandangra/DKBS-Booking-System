@@ -27,6 +27,7 @@ import { DashboardComponent } from './pages/partner/site/dashboard/dashboard.com
 import { CasesComponent } from './pages/partner/cases/cases.component';
 import { PartnerlistComponent } from './pages/partner/partnerlist/partnerlist.component';
 import { ServicecatalogComponent } from './pages/partner/servicecatalog/servicecatalog.component';
+import { AddpartnerComponent } from './pages/partner/addpartner/addpartner.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,10 @@ import { ServicecatalogComponent } from './pages/partner/servicecatalog/servicec
 
     CasesComponent,
     PartnerlistComponent,
-    ServicecatalogComponent
+    ServicecatalogComponent,
+    PartnernonpartnerComponent,
+    CasesComponent,
+    AddpartnerComponent
   ],
   imports: [
     BrowserModule,

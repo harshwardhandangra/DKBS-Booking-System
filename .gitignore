@@ -9,3 +9,6 @@ node_modules/
 dist/
 Publish/
 *.csproj.user
+/Database/dkbs
+/dkbs-services/DKBS.API/Controllers
+/dkbs-services/DKBS.API1
