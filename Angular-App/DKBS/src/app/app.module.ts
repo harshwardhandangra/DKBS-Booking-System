@@ -24,8 +24,9 @@ import { CustomerbookingComponent } from './pages/agent/booking/customerbooking/
 import { GooglePlacesDirective } from './google-places.directive';
 import { AllcasesComponent } from './pages/agent/booking/allcases/allcases.component';
 import { DashboardComponent } from './pages/partner/site/dashboard/dashboard.component';
-import { PartnernonpartnerComponent } from './pages/partner/partnernonpartner/partnernonpartner/partnernonpartner.component';
 import { CasesComponent } from './pages/partner/cases/cases.component';
+import { PartnerlistComponent } from './pages/partner/partnerlist/partnerlist.component';
+import { ServicecatalogComponent } from './pages/partner/servicecatalog/servicecatalog.component';
 import { AddpartnerComponent } from './pages/partner/addpartner/addpartner.component';
 
 @NgModule({
@@ -53,6 +54,9 @@ import { AddpartnerComponent } from './pages/partner/addpartner/addpartner.compo
  
     DashboardComponent,
 
+    CasesComponent,
+    PartnerlistComponent,
+    ServicecatalogComponent,
     PartnernonpartnerComponent,
     CasesComponent,
     AddpartnerComponent
