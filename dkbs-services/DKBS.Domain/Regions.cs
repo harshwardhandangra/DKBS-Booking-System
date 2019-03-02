@@ -5,10 +5,11 @@ using System.Text;
 
 namespace DKBS.Domain
 {
-    public class Regions
+    public class Region
     {
         public int RegionId { get; set; }
-        [MaxLength(2255)]
+
+        [MaxLength(255)]
         public string Name { get; set; }
     }
 }

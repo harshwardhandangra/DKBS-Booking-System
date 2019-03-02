@@ -5,9 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DKBS.Data\DKBS.Data.csproj" />
-    <ProjectReference Include="..\DKBS.DTO\DKBS.DTO.csproj" />
-    <ProjectReference Include="..\DKBS.Infrastructure\DKBS.Infrastructure.csproj" />
+    <ProjectReference Include="..\DKBS.Domain\DKBS.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
