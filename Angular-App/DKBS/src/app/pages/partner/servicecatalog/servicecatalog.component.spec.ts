@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PartnernonpartnerComponent } from './partnernonpartner.component';
+import { ServicecatalogComponent } from './servicecatalog.component';
 
-describe('PartnernonpartnerComponent', () => {
-  let component: PartnernonpartnerComponent;
-  let fixture: ComponentFixture<PartnernonpartnerComponent>;
+describe('ServicecatalogComponent', () => {
+  let component: ServicecatalogComponent;
+  let fixture: ComponentFixture<ServicecatalogComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PartnernonpartnerComponent ]
+      declarations: [ ServicecatalogComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PartnernonpartnerComponent);
+    fixture = TestBed.createComponent(ServicecatalogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
