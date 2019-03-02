@@ -14,5 +14,9 @@ namespace DKBS.Data
         }
         public DbSet<Region> Regions { get; set; }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+        }
     }
 }

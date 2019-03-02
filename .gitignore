@@ -1,4 +1,4 @@
-﻿################################################################################
+################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 .*
@@ -12,3 +12,6 @@ Publish/
 /Database/dkbs
 /dkbs-services/DKBS.API/Controllers
 /dkbs-services/DKBS.API1
+dkbs-services/DKBS/DKBS.publish.xml
+dkbs-services/DKBS.API/Properties/PublishProfiles/dkbs-api-dev - Web Deploy.pubxml.user
+dkbs-services/DKBS.API/Properties/PublishProfiles/dkbs-api-dev - Web Deploy.pubxml

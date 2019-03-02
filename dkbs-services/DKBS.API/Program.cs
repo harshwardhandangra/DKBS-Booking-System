@@ -19,6 +19,13 @@ namespace DKBS.API
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+             .ConfigureLogging((hostingContext, logging) =>
+             {
+                 logging.ClearProviders();
+                 logging.AddConsole();
+                 logging.AddDebug();
+                 logging.AddEventSourceLogger();
+             })
                 .UseStartup<Startup>();
     }
 }
