@@ -25,7 +25,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DKBS.DTO", "DKBS.DTO\DKBS.D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "database", "database", "{7350829B-71E9-4AF4-97D2-BE69DF221AFE}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DKBS", "DKBS\DKBS.sqlproj", "{9A5879E6-D8D0-4F6D-BC6F-285E0D9F5542}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DKBS.Database", "DKBS\DKBS.Database.sqlproj", "{9A5879E6-D8D0-4F6D-BC6F-285E0D9F5542}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
