@@ -7,7 +7,6 @@ import { HeaderComponent } from './pagescomponent/header/header.component';
 import { FooterComponent } from './pagescomponent/footer/footer.component';
 import { NavigationComponent } from './pagescomponent/navigation/navigation.component';
 import { BookingComponent } from './pages/agent/booking/booking.component';
-//import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalModule,TypeaheadModule  } from 'ngx-bootstrap';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
@@ -21,14 +20,13 @@ import { BookingdetailsComponent } from './pages/agent/booking/bookingdetails/bo
 import { BookinglistComponent } from './pages/agent/booking/bookinglist/bookinglist.component';
 import { HttpModule } from '@angular/http';
 import { CustomerbookingComponent } from './pages/agent/booking/customerbooking/customerbooking.component';
-import { GooglePlacesDirective } from './google-places.directive';
+import { GooglePlacesDirective } from './directives/google-places.directive';
 import { AllcasesComponent } from './pages/agent/booking/allcases/allcases.component';
 import { DashboardComponent } from './pages/partner/site/dashboard/dashboard.component';
-import { CasesComponent } from './pages/partner/cases/cases.component';
+import { AllPartnersComponent } from './pages/partner/allpartners/allpartners.component';
 import { PartnerlistComponent } from './pages/partner/partnerlist/partnerlist.component';
 import { ServicecatalogComponent } from './pages/partner/servicecatalog/servicecatalog.component';
 import { AddpartnerComponent } from './pages/partner/addpartner/addpartner.component';
-
 import { ComposeemailComponent } from './Email/composeemail/composeemail.component';
 import { NgxEditorModule } from 'ngx-editor';
 
@@ -49,10 +47,9 @@ import { NgxEditorModule } from 'ngx-editor';
     GooglePlacesDirective, 
     AllcasesComponent, 
     DashboardComponent,
-    CasesComponent,
+    AllPartnersComponent,
     PartnerlistComponent,
     ServicecatalogComponent,
-    CasesComponent,
     AddpartnerComponent,
     ComposeemailComponent
   ],
