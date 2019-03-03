@@ -57,7 +57,6 @@ import { AddpartnerComponent } from './pages/partner/addpartner/addpartner.compo
     CasesComponent,
     PartnerlistComponent,
     ServicecatalogComponent,
-    PartnernonpartnerComponent,
     CasesComponent,
     AddpartnerComponent
   ],
