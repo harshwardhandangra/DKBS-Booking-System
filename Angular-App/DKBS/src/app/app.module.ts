@@ -29,6 +29,9 @@ import { PartnerlistComponent } from './pages/partner/partnerlist/partnerlist.co
 import { ServicecatalogComponent } from './pages/partner/servicecatalog/servicecatalog.component';
 import { AddpartnerComponent } from './pages/partner/addpartner/addpartner.component';
 
+import { ComposeemailComponent } from './Email/composeemail/composeemail.component';
+import { NgxEditorModule } from 'ngx-editor';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,27 +42,20 @@ import { AddpartnerComponent } from './pages/partner/addpartner/addpartner.compo
     BookingComponent,
     AddcustomerComponent,
     AddzipcodeComponent,
-    ContactpersonComponent,
- 
-    BookingdetailsComponent,
- 
-    BookinglistComponent,
- 
-    CustomerbookingComponent,
- 
-    GooglePlacesDirective,
- 
-    AllcasesComponent,
-
- 
+    ContactpersonComponent, 
+    BookingdetailsComponent, 
+    BookinglistComponent, 
+    CustomerbookingComponent, 
+    GooglePlacesDirective, 
+    AllcasesComponent, 
     DashboardComponent,
-
     CasesComponent,
     PartnerlistComponent,
     ServicecatalogComponent,
-    PartnernonpartnerComponent,
+    // PartnernonpartnerComponent,
     CasesComponent,
-    AddpartnerComponent
+    AddpartnerComponent,
+    ComposeemailComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +69,8 @@ import { AddpartnerComponent } from './pages/partner/addpartner/addpartner.compo
     HttpClientModule,
     NgMultiSelectDropDownModule.forRoot(),
     TypeaheadModule.forRoot(),
-    HttpModule
+    HttpModule,
+    NgxEditorModule 
 
   ],
   providers: [],
