@@ -6,7 +6,7 @@ import { BookinglistComponent } from './pages/agent/booking/bookinglist/bookingl
 import { CustomerbookingComponent } from './pages/agent/booking/customerbooking/customerbooking.component';
 import { AllcasesComponent } from './pages/agent/booking/allcases/allcases.component';
 import { DashboardComponent } from './pages/partner/site/dashboard/dashboard.component';
-import { CasesComponent } from './pages/partner/cases/cases.component';
+import { AllPartnersComponent } from './pages/partner/allpartners/allpartners.component';
 import { PartnerlistComponent } from './pages/partner/partnerlist/partnerlist.component';
 import { ServicecatalogComponent } from './pages/partner/servicecatalog/servicecatalog.component';
 import { AddpartnerComponent } from './pages/partner/addpartner/addpartner.component';
@@ -21,7 +21,7 @@ const routes: Routes = [
   { path:'customerbooking', component:CustomerbookingComponent},
   { path:'allcases', component:AllcasesComponent},
   { path:'PartnerDashboard', component:DashboardComponent},
-  { path:'PartnerCases', component:CasesComponent},
+  { path:'allpartners', component:AllPartnersComponent},
   { path:'partnerlist', component:PartnerlistComponent},
   { path:'servicecatalog', component:ServicecatalogComponent},
   { path:'Addpartner', component:AddpartnerComponent},
