@@ -1,6 +1,6 @@
-﻿namespace DKBS.Domain
+﻿namespace DKBS.DTO
 {
-    public class CenterMatching
+    public class CenterMatchingDTO
     {
         public int CenterMatchingId { get; set; }
 

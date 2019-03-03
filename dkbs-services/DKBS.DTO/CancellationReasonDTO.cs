@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace DKBS.Domain
+namespace DKBS.DTO
 {
-    public class CancellationReason
+    public class CancellationReasonDTO
     {
         public int Id { get; set; }
 

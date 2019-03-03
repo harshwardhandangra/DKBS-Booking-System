@@ -1,6 +1,6 @@
-﻿namespace DKBS.Domain
+﻿namespace DKBS.DTO
 {
-    public class Flow
+    public class FlowDTO
     {
         public int FlowId { get; set; }
 

@@ -1,6 +1,6 @@
-﻿namespace DKBS.Domain
+﻿namespace DKBS.DTO
 {
-    public class ParticipantType
+    public class ParticipantTypeDTO
     {
         public int ParticipantTypeId { get; set; }
 

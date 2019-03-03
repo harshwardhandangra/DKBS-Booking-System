@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace DKBS.Domain
+namespace DKBS.DTO
 {
-    public class Customer
+    public class CustomerDTO
     {
         public int CustomerId { get; set; }
         public string Name { get; set; }
