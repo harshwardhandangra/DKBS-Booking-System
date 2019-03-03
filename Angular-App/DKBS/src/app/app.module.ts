@@ -52,7 +52,6 @@ import { NgxEditorModule } from 'ngx-editor';
     CasesComponent,
     PartnerlistComponent,
     ServicecatalogComponent,
-    // PartnernonpartnerComponent,
     CasesComponent,
     AddpartnerComponent,
     ComposeemailComponent
