@@ -1,6 +1,6 @@
-﻿namespace DKBS.Domain
+﻿namespace DKBS.DTO
 {
-    public class TableType
+    public class TableTypeDTO
     {
         public int TableTypeId { get; set; }
 

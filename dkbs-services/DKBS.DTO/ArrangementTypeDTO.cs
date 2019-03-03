@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace DKBS.Domain
+namespace DKBS.DTO
 {
-    public class ArrangementType
+    public class ArrangementTypeDTO
     {
         public int ArrangementTypeId { get; set; }
 
@@ -11,6 +11,6 @@ namespace DKBS.Domain
         public int NumberOfPerticipants { get; set; }
         public DateTime ToDate { get; set; }
         public DateTime FromDate { get; set; }
-        public Booking Booking { get; set; }
+        public BookingDTO Booking { get; set; }
     }
 }

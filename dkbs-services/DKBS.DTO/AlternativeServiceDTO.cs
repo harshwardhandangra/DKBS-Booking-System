@@ -1,6 +1,6 @@
-﻿namespace DKBS.Domain
+﻿namespace DKBS.DTO
 {
-    public class AlternativeService
+    public class AlternativeServiceDTO
     {
         public int Id { get; set; }
         public int NumberOfPieces { get; set; }
@@ -8,6 +8,6 @@
         //[MaxLength(255)]
         public string Description { get; set; }
 
-        public Booking Booking { get; set; }
+        public BookingDTO Booking { get; set; }
     }
 }

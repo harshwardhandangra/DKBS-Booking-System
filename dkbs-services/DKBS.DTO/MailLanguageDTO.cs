@@ -1,6 +1,6 @@
-﻿namespace DKBS.Domain
+﻿namespace DKBS.DTO
 {
-    public class MailLanguage
+    public class MailLanguageDTO
     {
         public int MailLanguageId { get; set; }
 

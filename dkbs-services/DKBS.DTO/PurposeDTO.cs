@@ -1,6 +1,6 @@
-﻿namespace DKBS.Domain
+﻿namespace DKBS.DTO
 {
-    public class Purpose
+    public class PurposeDTO
     {
         public int PurposeId { get; set; }
 
