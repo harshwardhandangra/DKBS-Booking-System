@@ -28,6 +28,7 @@ import { CasesComponent } from './pages/partner/cases/cases.component';
 import { PartnerlistComponent } from './pages/partner/partnerlist/partnerlist.component';
 import { ServicecatalogComponent } from './pages/partner/servicecatalog/servicecatalog.component';
 import { AddpartnerComponent } from './pages/partner/addpartner/addpartner.component';
+import { SendreferralComponent } from './pages/partner/sendreferral/sendreferral.component';
 
 @NgModule({
   declarations: [
@@ -57,9 +58,10 @@ import { AddpartnerComponent } from './pages/partner/addpartner/addpartner.compo
     CasesComponent,
     PartnerlistComponent,
     ServicecatalogComponent,
-    PartnernonpartnerComponent,
+    // PartnernonpartnerComponent,
     CasesComponent,
-    AddpartnerComponent
+    AddpartnerComponent,
+    SendreferralComponent
   ],
   imports: [
     BrowserModule,

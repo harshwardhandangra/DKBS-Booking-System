@@ -10,7 +10,7 @@ import { CasesComponent } from './pages/partner/cases/cases.component';
 import { PartnerlistComponent } from './pages/partner/partnerlist/partnerlist.component';
 import { ServicecatalogComponent } from './pages/partner/servicecatalog/servicecatalog.component';
 import { AddpartnerComponent } from './pages/partner/addpartner/addpartner.component';
-
+import { SendreferralComponent } from './pages/partner/sendreferral/sendreferral.component';
 
 const routes: Routes = [
   { path:'', component:BookinglistComponent},
@@ -23,6 +23,7 @@ const routes: Routes = [
   { path:'partnerlist', component:PartnerlistComponent},
   { path:'servicecatalog', component:ServicecatalogComponent},
   { path:'Addpartner', component:AddpartnerComponent},
+  { path:'SendReferral', component:SendreferralComponent},
 ];
 
 @NgModule({
