@@ -9,7 +9,7 @@ namespace DKBS.Domain
     {
         public int Id { get; set; }
 
-        [MaxLength(255)]
+        //[MaxLength(255)]
         public string CancellationReasonName { get; set; }
     }
 }

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace DKBS.Domain
+namespace DKBS.DTO
 {
-    public class LeadOrign
+    public class CompaignDTO
     {
-        public int LeadOrignId { get; set; }
-        [MaxLength(2255)]
+        public int CompaignId { get; set; }
+       // [MaxLength(2255)]
         public string Name { get; set; }
     }
 }

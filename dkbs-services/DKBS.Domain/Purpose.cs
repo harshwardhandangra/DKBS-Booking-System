@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
-
-namespace DKBS.Domain
+﻿namespace DKBS.Domain
 {
     public class Purpose
     {
-        public int Id { get; set; }
+        public int PurposeId { get; set; }
 
-        [MaxLength(255)]
+        //[MaxLength(255)]
         public string PurposeName { get; set; }
     }
 }
