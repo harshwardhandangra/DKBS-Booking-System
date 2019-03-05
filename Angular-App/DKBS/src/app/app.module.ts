@@ -27,6 +27,7 @@ import { AllPartnersComponent } from './pages/partner/allpartners/allpartners.co
 import { PartnerlistComponent } from './pages/partner/partnerlist/partnerlist.component';
 import { ServicecatalogComponent } from './pages/partner/servicecatalog/servicecatalog.component';
 import { AddpartnerComponent } from './pages/partner/addpartner/addpartner.component';
+import { SendreferralComponent } from './pages/partner/sendreferral/sendreferral.component';
 import { ComposeemailComponent } from './Email/composeemail/composeemail.component';
 import { NgxEditorModule } from 'ngx-editor';
 
@@ -50,6 +51,9 @@ import { NgxEditorModule } from 'ngx-editor';
     AllPartnersComponent,
     PartnerlistComponent,
     ServicecatalogComponent,
+    CasesComponent,
+    AddpartnerComponent,
+    SendreferralComponent
     AddpartnerComponent,
     ComposeemailComponent
   ],
