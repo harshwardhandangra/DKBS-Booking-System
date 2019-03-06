@@ -19,16 +19,19 @@ import { BookingdetailsComponent } from './pages/agent/booking/bookingdetails/bo
 import { BookinglistComponent } from './pages/agent/booking/bookinglist/bookinglist.component';
 import { HttpModule } from '@angular/http';
 import { CustomerbookingComponent } from './pages/agent/booking/customerbooking/customerbooking.component';
-import { GooglePlacesDirective } from './google-places.directive';
+import { GooglePlacesDirective } from './directives/google-places.directive';
 import { AllcasesComponent } from './pages/agent/booking/allcases/allcases.component';
 import { DashboardComponent } from './pages/partner/site/dashboard/dashboard.component';
-import { CasesComponent } from './pages/partner/cases/cases.component';
+import { AllPartnersComponent } from './pages/partner/allpartners/allpartners.component';
 import { PartnerlistComponent } from './pages/partner/partnerlist/partnerlist.component';
 import { ServicecatalogComponent } from './pages/partner/servicecatalog/servicecatalog.component';
 import { AddpartnerComponent } from './pages/partner/addpartner/addpartner.component';
 import { AddzipcodeComponent } from './pages/agent/booking/modalpopup/addzipcode/addzipcode.Component';
 import { AddservicecatalogComponent } from './pages/partner/servicecatalog/addservicecatalog/addservicecatalog.component';
 import { PartnercasesComponent } from './pages/partner/site/cases/partnercases/partnercases.component';
+import { SendreferralComponent } from './pages/partner/sendreferral/sendreferral.component';
+import { ComposeemailComponent } from './Email/composeemail/composeemail.component';
+import { NgxEditorModule } from 'ngx-editor';
 
 @NgModule({
   declarations: [
@@ -40,28 +43,23 @@ import { PartnercasesComponent } from './pages/partner/site/cases/partnercases/p
     BookingComponent,
     AddcustomerComponent,
     AddzipcodeComponent,
-    ContactpersonComponent,
- 
-    BookingdetailsComponent,
- 
-    BookinglistComponent,
- 
-    CustomerbookingComponent,
- 
-    GooglePlacesDirective,
- 
-    AllcasesComponent,
-
- 
+    ContactpersonComponent, 
+    BookingdetailsComponent, 
+    BookinglistComponent, 
+    CustomerbookingComponent, 
+    GooglePlacesDirective, 
+    AllcasesComponent, 
     DashboardComponent,
-
-    CasesComponent,
+    AllPartnersComponent,
     PartnerlistComponent,
     ServicecatalogComponent,
     CasesComponent,
     AddpartnerComponent,
     AddservicecatalogComponent,
-    PartnercasesComponent
+    PartnercasesComponent,
+    SendreferralComponent,
+    AddpartnerComponent,
+    ComposeemailComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +72,8 @@ import { PartnercasesComponent } from './pages/partner/site/cases/partnercases/p
     HttpClientModule,
     NgMultiSelectDropDownModule.forRoot(),
     TypeaheadModule.forRoot(),
-    HttpModule
+    HttpModule,
+    NgxEditorModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
