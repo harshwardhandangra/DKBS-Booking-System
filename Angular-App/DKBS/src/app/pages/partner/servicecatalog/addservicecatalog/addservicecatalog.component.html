@@ -1,0 +1,81 @@
+<app-navigation></app-navigation>
+<main id="playground">
+  <app-header></app-header>
+  <section class="content-area">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12 dbkstabs">
+          <ul class=" nav nav-tabs" role="tablist">
+            <li [class]="selectedwallet === 'Kundeoplysniger'?'active':'inactive'"><a
+                (click)="selectedwallet = 'Kundeoplysniger'" class="nav-link">Add service catalog Details</a></li>
+
+          </ul>
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel">
+              <form class="formbox">
+                <h4 class="pull-left"> Add service catalog Information
+                </h4>
+                <!-- <div class="pull-right">
+                  <button type="button" class="btn btn-outline-info">Reset</button>
+                </div> -->
+                <div class="clearfix"></div>
+                <hr class="style2">
+                <div class="form-group">
+                  <label class="col-form-label">Course package</label>
+                  <input type="text" class="form-control txtsize">
+
+                </div>
+                <div class="form-group">
+                  <label class="col-form-label">Course package(English)</label>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label class="col-form-label">Price</label>
+                  <input type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label class="col-form-label">Included in the Price</label>
+                  <div class="width80per">
+                    <ul>
+                      <li>
+                        <div class="lbl">DK</div>
+                        <input type="text" class="form-control">
+                      </li>
+                      <li>
+                        <div class="lbl">One</div>
+                        <input type="text" class="form-control">
+                      </li>
+                      <li>
+                        <div class="lbl">Included Sorting</div>
+                        <input type="text" class="form-control">
+                      </li>
+                      <li>
+                        <a (click)="addFieldValue()"><i class="fa fa-plus"></i>Add new row</a>
+                        <!-- <button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button> -->
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="sel1">Course package Type:</label>
+                  <select class="form-control" id="sel1">
+                    <option>None</option>
+                    <option>Accomdation in double room </option>
+                    <option>Accomdation in single room</option>
+                  </select>
+                </div>
+                <div class="form-group mtop40 text-right">
+                  <button type="submit" class="btn btn-danger mright50">Save</button>
+                  <button type="submit" class="btn btn-success mright50">Save and Exit</button>
+                  <button type="submit" class="btn btn-dark">Cancel</button>
+                </div>
+                <br>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

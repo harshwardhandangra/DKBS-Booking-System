@@ -10,6 +10,8 @@ import { CasesComponent } from './pages/partner/cases/cases.component';
 import { PartnerlistComponent } from './pages/partner/partnerlist/partnerlist.component';
 import { ServicecatalogComponent } from './pages/partner/servicecatalog/servicecatalog.component';
 import { AddpartnerComponent } from './pages/partner/addpartner/addpartner.component';
+import { AddservicecatalogComponent } from './pages/partner/servicecatalog/addservicecatalog/addservicecatalog.component';
+import { PartnercasesComponent } from './pages/partner/site/cases/partnercases/partnercases.component';
 
 
 const routes: Routes = [
@@ -23,6 +25,8 @@ const routes: Routes = [
   { path:'partnerlist', component:PartnerlistComponent},
   { path:'servicecatalog', component:ServicecatalogComponent},
   { path:'Addpartner', component:AddpartnerComponent},
+  {path:'Addservicecatalog',component:AddservicecatalogComponent},
+  {path:'Partneractivecases',component:PartnercasesComponent}
 ];
 
 @NgModule({

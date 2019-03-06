@@ -7,7 +7,6 @@ import { HeaderComponent } from './pagescomponent/header/header.component';
 import { FooterComponent } from './pagescomponent/footer/footer.component';
 import { NavigationComponent } from './pagescomponent/navigation/navigation.component';
 import { BookingComponent } from './pages/agent/booking/booking.component';
-//import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalModule,TypeaheadModule  } from 'ngx-bootstrap';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
@@ -15,7 +14,6 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { CreatebookingComponent } from './pages/agent/booking/createbooking/createbooking.component';
 import { AddcustomerComponent } from './pages/agent/booking/modalpopup/addcustomer/addcustomer.component';
-import { AddzipcodeComponent } from "./pages/agent/booking/modalpopup/addzipcode/addzipcode.Component";
 import { ContactpersonComponent } from './pages/agent/booking/modalpopup/contactperson/contactperson.component';
 import { BookingdetailsComponent } from './pages/agent/booking/bookingdetails/bookingdetails.component';
 import { BookinglistComponent } from './pages/agent/booking/bookinglist/bookinglist.component';
@@ -28,6 +26,9 @@ import { CasesComponent } from './pages/partner/cases/cases.component';
 import { PartnerlistComponent } from './pages/partner/partnerlist/partnerlist.component';
 import { ServicecatalogComponent } from './pages/partner/servicecatalog/servicecatalog.component';
 import { AddpartnerComponent } from './pages/partner/addpartner/addpartner.component';
+import { AddzipcodeComponent } from './pages/agent/booking/modalpopup/addzipcode/addzipcode.Component';
+import { AddservicecatalogComponent } from './pages/partner/servicecatalog/addservicecatalog/addservicecatalog.component';
+import { PartnercasesComponent } from './pages/partner/site/cases/partnercases/partnercases.component';
 
 @NgModule({
   declarations: [
@@ -57,16 +58,16 @@ import { AddpartnerComponent } from './pages/partner/addpartner/addpartner.compo
     CasesComponent,
     PartnerlistComponent,
     ServicecatalogComponent,
-    PartnernonpartnerComponent,
     CasesComponent,
-    AddpartnerComponent
+    AddpartnerComponent,
+    AddservicecatalogComponent,
+    PartnercasesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule, 
     ReactiveFormsModule,
-    //NgbModule.forRoot(),
     ModalModule.forRoot(),
     BsDatepickerModule.forRoot(),
     TimepickerModule.forRoot(),
@@ -74,7 +75,6 @@ import { AddpartnerComponent } from './pages/partner/addpartner/addpartner.compo
     NgMultiSelectDropDownModule.forRoot(),
     TypeaheadModule.forRoot(),
     HttpModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]
