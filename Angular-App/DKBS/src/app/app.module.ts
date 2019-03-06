@@ -32,6 +32,7 @@ import { PartnercasesComponent } from './pages/partner/site/cases/partnercases/p
 import { SendreferralComponent } from './pages/partner/sendreferral/sendreferral.component';
 import { ComposeemailComponent } from './Email/composeemail/composeemail.component';
 import { NgxEditorModule } from 'ngx-editor';
+import { PartnerlistsiteComponent } from './pages/partner/partnerlistsite/partnerlistsite.component';
 
 @NgModule({
   declarations: [
@@ -53,13 +54,14 @@ import { NgxEditorModule } from 'ngx-editor';
     AllPartnersComponent,
     PartnerlistComponent,
     ServicecatalogComponent,
-    CasesComponent,
+    // CasesComponent,
     AddpartnerComponent,
     AddservicecatalogComponent,
     PartnercasesComponent,
     SendreferralComponent,
     AddpartnerComponent,
-    ComposeemailComponent
+    ComposeemailComponent,
+    PartnerlistsiteComponent
   ],
   imports: [
     BrowserModule,
