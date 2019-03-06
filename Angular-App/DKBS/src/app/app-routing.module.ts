@@ -10,6 +10,8 @@ import { AllPartnersComponent } from './pages/partner/allpartners/allpartners.co
 import { PartnerlistComponent } from './pages/partner/partnerlist/partnerlist.component';
 import { ServicecatalogComponent } from './pages/partner/servicecatalog/servicecatalog.component';
 import { AddpartnerComponent } from './pages/partner/addpartner/addpartner.component';
+import { AddservicecatalogComponent } from './pages/partner/servicecatalog/addservicecatalog/addservicecatalog.component';
+import { PartnercasesComponent } from './pages/partner/site/cases/partnercases/partnercases.component';
 import { SendreferralComponent } from './pages/partner/sendreferral/sendreferral.component';
 import { ComposeemailComponent } from './Email/composeemail/composeemail.component';
 
@@ -24,6 +26,8 @@ const routes: Routes = [
   { path:'partnerlist', component:PartnerlistComponent},
   { path:'servicecatalog', component:ServicecatalogComponent},
   { path:'Addpartner', component:AddpartnerComponent},
+  {path:'Addservicecatalog',component:AddservicecatalogComponent},
+  {path:'Partneractivecases',component:PartnercasesComponent}
   { path:'SendReferral', component:SendreferralComponent},
   { path:'EmailCompose', component:ComposeemailComponent}
 ];

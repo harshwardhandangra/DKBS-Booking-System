@@ -14,7 +14,6 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { CreatebookingComponent } from './pages/agent/booking/createbooking/createbooking.component';
 import { AddcustomerComponent } from './pages/agent/booking/modalpopup/addcustomer/addcustomer.component';
-import { AddzipcodeComponent } from "./pages/agent/booking/modalpopup/addzipcode/addzipcode.Component";
 import { ContactpersonComponent } from './pages/agent/booking/modalpopup/contactperson/contactperson.component';
 import { BookingdetailsComponent } from './pages/agent/booking/bookingdetails/bookingdetails.component';
 import { BookinglistComponent } from './pages/agent/booking/bookinglist/bookinglist.component';
@@ -27,6 +26,9 @@ import { AllPartnersComponent } from './pages/partner/allpartners/allpartners.co
 import { PartnerlistComponent } from './pages/partner/partnerlist/partnerlist.component';
 import { ServicecatalogComponent } from './pages/partner/servicecatalog/servicecatalog.component';
 import { AddpartnerComponent } from './pages/partner/addpartner/addpartner.component';
+import { AddzipcodeComponent } from './pages/agent/booking/modalpopup/addzipcode/addzipcode.Component';
+import { AddservicecatalogComponent } from './pages/partner/servicecatalog/addservicecatalog/addservicecatalog.component';
+import { PartnercasesComponent } from './pages/partner/site/cases/partnercases/partnercases.component';
 import { SendreferralComponent } from './pages/partner/sendreferral/sendreferral.component';
 import { ComposeemailComponent } from './Email/composeemail/composeemail.component';
 import { NgxEditorModule } from 'ngx-editor';
@@ -53,7 +55,9 @@ import { NgxEditorModule } from 'ngx-editor';
     ServicecatalogComponent,
     CasesComponent,
     AddpartnerComponent,
-    SendreferralComponent
+    AddservicecatalogComponent,
+    PartnercasesComponent,
+    SendreferralComponent,
     AddpartnerComponent,
     ComposeemailComponent
   ],
@@ -62,7 +66,6 @@ import { NgxEditorModule } from 'ngx-editor';
     AppRoutingModule,
     FormsModule, 
     ReactiveFormsModule,
-    //NgbModule.forRoot(),
     ModalModule.forRoot(),
     BsDatepickerModule.forRoot(),
     TimepickerModule.forRoot(),
@@ -71,7 +74,6 @@ import { NgxEditorModule } from 'ngx-editor';
     TypeaheadModule.forRoot(),
     HttpModule,
     NgxEditorModule 
-
   ],
   providers: [],
   bootstrap: [AppComponent]
