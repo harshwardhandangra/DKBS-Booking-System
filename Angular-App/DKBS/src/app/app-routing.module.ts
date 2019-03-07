@@ -14,6 +14,7 @@ import { AddservicecatalogComponent } from './pages/partner/servicecatalog/addse
 import { PartnercasesComponent } from './pages/partner/site/cases/partnercases/partnercases.component';
 import { SendreferralComponent } from './pages/partner/sendreferral/sendreferral.component';
 import { ComposeemailComponent } from './Email/composeemail/composeemail.component';
+import { PartnerlistsiteComponent } from './pages/partner/partnerlistsite/partnerlistsite.component';
 
 const routes: Routes = [
   { path:'', component:BookinglistComponent},
@@ -26,10 +27,11 @@ const routes: Routes = [
   { path:'partnerlist', component:PartnerlistComponent},
   { path:'servicecatalog', component:ServicecatalogComponent},
   { path:'Addpartner', component:AddpartnerComponent},
-  {path:'Addservicecatalog',component:AddservicecatalogComponent},
-  {path:'Partneractivecases',component:PartnercasesComponent}
+  { path:'Addservicecatalog',component:AddservicecatalogComponent},
+  { path:'Partneractivecases',component:PartnercasesComponent},
   { path:'SendReferral', component:SendreferralComponent},
-  { path:'EmailCompose', component:ComposeemailComponent}
+  { path:'EmailCompose', component:ComposeemailComponent},
+  { path:'Partnerlistsite', component:PartnerlistsiteComponent}
 ];
 
 @NgModule({
