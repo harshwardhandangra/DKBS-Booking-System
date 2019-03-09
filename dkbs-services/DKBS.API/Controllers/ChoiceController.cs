@@ -37,5 +37,203 @@ namespace DKBS.API.Controllers
         {
            return Ok(_choiceRepoistory.GetRegions());
         }
+
+        /// <summary>
+        /// Get All tableset details.
+        /// </summary>
+        /// <returns>List of tablesets.</returns>
+        [Route("tableSets")]
+        [HttpGet()]
+        public ActionResult<TableSetDTO> GetTableSets()
+        {
+            return Ok(_choiceRepoistory.GetTableSets());
+        }
+
+        /// <summary>
+        /// Get All purposes details.
+        /// </summary>
+        /// <returns>List of purposes.</returns>
+        [Route("purposes")]
+        [HttpGet()]
+        public ActionResult<PurposeDTO> GetPurposes()
+        {
+            return Ok(_choiceRepoistory.GetPurposes());
+        }
+
+        /// <summary>
+        /// Get All Tabletypes details.
+        /// </summary>
+        /// <returns>List of tabletypes.</returns>
+        [Route("TableTypes")]
+        [HttpGet()]
+        public ActionResult<TableTypeDTO> GetTableTypes()
+        {
+            return Ok(_choiceRepoistory.GetTableTypes());
+        }
+
+        /// <summary>
+        /// Get All PartnerTypes details.
+        /// </summary>
+        /// <returns>List of Partnertypes.</returns>
+        [Route("PartnerTypes")]
+        [HttpGet()]
+        public ActionResult<PartnerTypeDTO> GetPartnerTypes()
+        {
+            return Ok(_choiceRepoistory.GetPartnerTypes());
+        }
+
+        /// <summary>
+        /// Get All mailLanguages details.
+        /// </summary>
+        /// <returns>List of maillanguages.</returns>
+        [Route("MailLanguages")]
+        [HttpGet()]
+        public ActionResult<MailLanguageDTO> GetMailLanguages()
+        {
+            return Ok(_choiceRepoistory.GetMailLanguages());
+        }
+
+        /// <summary>
+        /// Get All LeadOfOrgins details.
+        /// </summary>
+        /// <returns>List of LeadOfOrgins.</returns>
+        [Route("LeadOfOrigins")]
+        [HttpGet()]
+        public ActionResult<LeadOfOriginDTO> GetLeadOfOrigins()
+        {
+            return Ok(_choiceRepoistory.GetLeadOfOrigins());
+        }
+
+        /// <summary>
+        /// Get All Land details.
+        /// </summary>
+        /// <returns>List of Lands.</returns>
+        [Route("Lands")]
+        [HttpGet()]
+        public ActionResult<LandDTO> GetLandDetails()
+        {
+            return Ok(_choiceRepoistory.GetLandDetails());
+        }
+
+        /// <summary>
+        /// Get All ITProcedureStatus details.
+        /// </summary>
+        /// <returns>List of ITProcedureStatuses.</returns>
+        [Route("ITProcedureStatus")]
+        [HttpGet()]
+        public ActionResult<ITProcedureStatusDTO> GetITProcedureStatusDetails()
+        {
+            return Ok(_choiceRepoistory.GetITProcedureStatuses());
+        }
+
+        /// <summary>
+        /// Get All IndustryCodes details.
+        /// </summary>
+        /// <returns>List of IndustryCodes.</returns>
+        [Route("IndustryCodes")]
+        [HttpGet()]
+        public ActionResult<IndustryCodeDTO> GetIndustryCodes()
+        {
+            return Ok(_choiceRepoistory.GetIndustryCodes());
+        }
+
+        /// <summary>
+        /// Get All Flow details.
+        /// </summary>
+        /// <returns>List of Flows.</returns>
+        [Route("Flow")]
+        [HttpGet()]
+        public ActionResult<FlowDTO> GetFlowDetails()
+        {
+            return Ok(_choiceRepoistory.GetFlowDetails());
+        }
+
+        /// <summary>
+        /// Get All CrmStatus details.
+        /// </summary>
+        /// <returns>List of CrmStatuses.</returns>
+        [Route("CrmStatus")]
+        [HttpGet()]
+        public ActionResult<CrmStatusDTO> GetCrmStatusDetails()
+        {
+            return Ok(_choiceRepoistory.GetCrmStatusDetails());
+        }
+
+        /// <summary>
+        /// Get All CoursePackageType details.
+        /// </summary>
+        /// <returns>List of CoursePackageTypes.</returns>
+        [Route("CoursePackageType")]
+        [HttpGet()]
+        public ActionResult<CoursePackageTypeDTO> GetCoursePackageTypes()
+        {
+            return Ok(_choiceRepoistory.GetCoursePackageTypes());
+        }
+
+        /// <summary>
+        /// Get All ContactPersons details.
+        /// </summary>
+        /// <returns>List of ContactPersons.</returns>
+        [Route("ContactPersons")]
+        [HttpGet()]
+        public ActionResult<ContactPersonDTO> GetContactPersons()
+        {
+            return Ok(_choiceRepoistory.GetContactPersons());
+        }
+
+        /// <summary>
+        /// Get All Campaign details.
+        /// </summary>
+        /// <returns>List of Campaigns.</returns>
+        [Route("Campaigns")]
+        [HttpGet()]
+        public ActionResult<CampaignDTO> GetCampaigns()
+        {
+            return Ok(_choiceRepoistory.GetCampaigns());
+        }
+
+        /// <summary>
+        /// Get All CenterType details.
+        /// </summary>
+        /// <returns>List of CenterTypes.</returns>
+        [Route("CenterTypes")]
+        [HttpGet()]
+        public ActionResult<CenterTypeDTO> GetCenterTypes()
+        {
+            return Ok(_choiceRepoistory.GetCenterTypes());
+        }
+
+        /// <summary>
+        /// Get All CenterMatching details.
+        /// </summary>
+        /// <returns>List of CenterMatchings.</returns>
+        [Route("CenterMatchings")]
+        [HttpGet()]
+        public ActionResult<CenterMatchingDTO> GetCenterMatchings()
+        {
+            return Ok(_choiceRepoistory.GetCenterMatchings());
+        }
+
+        /// <summary>
+        /// Get All CauseOfRemoval details.
+        /// </summary>
+        /// <returns>List of CauseOfRemovals.</returns>
+        [Route("CauseOfRemovals")]
+        [HttpGet()]
+        public ActionResult<CauseOfRemovalDTO> GetCauseOfRemovals()
+        {
+            return Ok(_choiceRepoistory.GetCauseOfRemovals());
+        }
+
+        /// <summary>
+        /// Get All CancellationReason details.
+        /// </summary>
+        /// <returns>List of CancellationReasons.</returns>
+        [Route("CancellationReasons")]
+        [HttpGet()]
+        public ActionResult<CancellationReasonDTO> GetCancellationReasons()
+        {
+            return Ok(_choiceRepoistory.GetCancellationReasons());
+        }
     }
 }
