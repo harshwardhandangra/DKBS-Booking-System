@@ -3,27 +3,50 @@
   <app-header></app-header>
   <section class="content-area">
     <div class="container-fluid">
-        <div style="margin: 5px; text-align: right">
-            <label> <button (click)="onBtExport()" style="height: 25px; cursor: pointer">Export to Excel</button> </label>
-          </div>
       <div class="row">
-      
-      <ag-grid-angular 
-        style="width: 100%;" 
-        class="ag-theme-balham"
-        [rowData]="rowData" 
-        [columnDefs]="columnDefs"
-        [pagination]="true"
-        [enableSorting]="true"
-        [multiSortKey]="true"
-        [animateRows]="true"
-        [paginationPageSize]=10
-        [enableFilter]="true"
-        [floatingFilter]="true">
-      </ag-grid-angular>
+        <div class="col-md-12">
+          
+         <div class="accordion" id="accordionExample">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                  <div class="btn-link" data-toggle="collapse" data-target="#collapseOne">
+                    Employee Details
+                  </div>
+                </h2>
+              </div>
+          
+              <div id="collapseOne" class="collapse show"  data-parent="#accordionExample">
+                <div class="card-body">
+                  <table class="table table-bordered" >
+                    <thead>
+                      <tr>
+                        <th class="th-lg" scope="col"></th>
+                        <th class="th-lg" scope="col">Name</th>
+                        <th class="th-lg" scope="col">Title</th>
+                        <th class="th-lg" scope="col">Telephone</th>
+                        <th class="th-lg" scope="col">Email</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr >
+                        <th>Details Bind</th>
+                        <th>Details Bind</th>
+                        <th>Details Bind</th>
+                        <th>Details Bind</th>
+                        <th>Details Bind</th>
+                        
+                       
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
        </div>
       </div>
-    
+    </div>
   </section>
   </main>
-
