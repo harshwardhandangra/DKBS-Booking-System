@@ -1,0 +1,29 @@
+<app-navigation></app-navigation>
+<main id="playground">
+  <app-header></app-header>
+  <section class="content-area">
+    <div class="container-fluid">
+        <div style="margin: 5px; text-align: right">
+            <label> <button (click)="onBtExport()" style="height: 25px; cursor: pointer">Export to Excel</button> </label>
+          </div>
+      <div class="row">
+      
+      <ag-grid-angular 
+        style="width: 100%;" 
+        class="ag-theme-balham"
+        [rowData]="rowData" 
+        [columnDefs]="columnDefs"
+        [pagination]="true"
+        [enableSorting]="true"
+        [multiSortKey]="true"
+        [animateRows]="true"
+        [paginationPageSize]=10
+        [enableFilter]="true"
+        [floatingFilter]="true">
+      </ag-grid-angular>
+       </div>
+      </div>
+    
+  </section>
+  </main>
+

@@ -15,6 +15,10 @@ import { PartnercasesComponent } from './pages/partner/site/cases/partnercases/p
 import { SendreferralComponent } from './pages/partner/sendreferral/sendreferral.component';
 import { ComposeemailComponent } from './Email/composeemail/composeemail.component';
 import { PartnerlistsiteComponent } from './pages/partner/partnerlistsite/partnerlistsite.component';
+import { EmployeeComponent } from './pages/partner/partnerinformation/employee/employee.component';
+import { CenterinnumbersComponent } from './pages/partner/partnerinformation/centerinnumbers/centerinnumbers.component';
+import { CenterdescriptionComponent } from './pages/partner/partnerinformation/centerdescription/centerdescription.component';
+
 
 const routes: Routes = [
   { path:'', component:BookinglistComponent},
@@ -31,7 +35,10 @@ const routes: Routes = [
   { path:'Partneractivecases',component:PartnercasesComponent},
   { path:'SendReferral', component:SendreferralComponent},
   { path:'EmailCompose', component:ComposeemailComponent},
-  { path:'Partnerlistsite', component:PartnerlistsiteComponent}
+  { path:'Partnerlistsite', component:PartnerlistsiteComponent},
+  { path:'PartnerEmployee', component:EmployeeComponent},
+  { path:'Centerinnumbers', component:CenterinnumbersComponent},
+  { path:'Centerdescription', component:CenterdescriptionComponent}
 ];
 
 @NgModule({
