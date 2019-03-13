@@ -18,3 +18,5 @@ dkbs-services/DKBS.Database/DKBS.publish.xml
 dkbs-services/DKBS.API/Properties/PublishProfiles/dkbs-api-dev - Web Deploy.pubxml.user
 dkbs-services/DKBS.API/Properties/PublishProfiles/dkbs-api-dev - Web Deploy.pubxml
 dkbs-services/DKBS.API/Properties/PublishProfiles/dkbs-api - Web Deploy.pubxml
+/Database/dkbs
+/dkbs-services/DKBS

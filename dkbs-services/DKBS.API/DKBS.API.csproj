@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DKBS.Data\DKBS.Data.csproj" />
+    <ProjectReference Include="..\DKBS.DTO\DKBS.DTO.csproj" />
     <ProjectReference Include="..\DKBS.Repository\DKBS.Repository.csproj" />
   </ItemGroup>
 

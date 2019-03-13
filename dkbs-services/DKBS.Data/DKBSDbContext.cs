@@ -13,7 +13,43 @@ namespace DKBS.Data
 
         }
         public DbSet<Region> Regions { get; set; }
-        
+
+        public DbSet<TableSet> TableSets { get; set; }
+
+        public DbSet<Purpose> Purposes { get; set; }
+
+        public DbSet<TableType> TableTypes { get; set; }
+
+        public DbSet<PartnerType> PartnerTypes { get; set; }
+
+        public DbSet<MailLanguage> MailLanguages { get; set; }
+
+        public DbSet<LeadOfOrigin> LeadOfOrigins { get; set; }
+
+        public DbSet<Land> Lands { get; set; }
+
+        public DbSet<ITProcedureStatus> ITProcedureStatuses { get; set; }
+
+        public DbSet<IndustryCode> IndustryCodes { get; set; }
+
+        public DbSet<Flow> Flows { get; set; }
+
+        public DbSet<CrmStatus> crmStatuses { get; set; }
+
+        public DbSet<CoursePackageType> coursePackageTypes { get; set; }
+
+        public DbSet<ContactPerson> ContactPersons { get; set; }
+
+        public DbSet<Campaign> Campaigns { get; set; }
+
+        public DbSet<CenterType> CenterTypes { get; set; }
+
+        public DbSet<CenterMatching> CenterMatchings { get; set; }
+
+        public DbSet<CauseOfRemoval> CauseOfRemovals { get; set; }
+
+        public DbSet<CancellationReason> CancellationReasons { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
