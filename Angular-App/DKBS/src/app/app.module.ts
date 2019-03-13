@@ -33,6 +33,10 @@ import { SendreferralComponent } from './pages/partner/sendreferral/sendreferral
 import { ComposeemailComponent } from './Email/composeemail/composeemail.component';
 import { NgxEditorModule } from 'ngx-editor';
 import { PartnerlistsiteComponent } from './pages/partner/partnerlistsite/partnerlistsite.component';
+import { EmployeeComponent } from './pages/partner/partnerinformation/employee/employee.component';
+import { AgGridModule } from 'ag-grid-angular';
+import { CenterinnumbersComponent } from './pages/partner/partnerinformation/centerinnumbers/centerinnumbers.component';
+import { CenterdescriptionComponent } from './pages/partner/partnerinformation/centerdescription/centerdescription.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +65,10 @@ import { PartnerlistsiteComponent } from './pages/partner/partnerlistsite/partne
     SendreferralComponent,
     AddpartnerComponent,
     ComposeemailComponent,
-    PartnerlistsiteComponent
+    PartnerlistsiteComponent,
+    EmployeeComponent,
+    CenterinnumbersComponent,
+    CenterdescriptionComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +82,8 @@ import { PartnerlistsiteComponent } from './pages/partner/partnerlistsite/partne
     NgMultiSelectDropDownModule.forRoot(),
     TypeaheadModule.forRoot(),
     HttpModule,
-    NgxEditorModule 
+    NgxEditorModule,
+    AgGridModule.withComponents(null) 
   ],
   providers: [],
   bootstrap: [AppComponent]
