@@ -2,7 +2,7 @@
 {
     public class LeadOfOrigin
     {
-        public int LeadOrignId { get; set; }
+        public int LeadOfOriginId { get; set; }
         public string Name { get; set; }
     }
 }

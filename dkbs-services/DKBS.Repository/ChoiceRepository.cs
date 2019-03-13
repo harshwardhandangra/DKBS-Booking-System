@@ -71,7 +71,7 @@ namespace DKBS.Repository
 
         public List<LeadOfOriginDTO> GetLeadOfOrigins()
         {
-            return _dbContext.LeadOfOrigins.Select(p => new LeadOfOriginDTO { Name = p.Name, LeadOrignId = p.LeadOrignId }).ToList();
+            return _dbContext.LeadOfOrigins.Select(p => new LeadOfOriginDTO { Name = p.Name, LeadOrignId = p.LeadOfOriginId }).ToList();
         }
 
         public List<LandDTO> GetLandDetails()
@@ -111,7 +111,7 @@ namespace DKBS.Repository
 
         public List<CampaignDTO> GetCampaigns()
         {
-            return _dbContext.Campaigns.Select(p => new CampaignDTO { Name = p.Name, CompaignId = p.CompaignId }).ToList();
+            return _dbContext.Campaigns.Select(p => new CampaignDTO { Name = p.Name, CompaignId = p.CampaignId }).ToList();
         }
 
         public List<CenterTypeDTO> GetCenterTypes()
