@@ -37,6 +37,8 @@ import { EmployeeComponent } from './pages/partner/partnerinformation/employee/e
 import { AgGridModule } from 'ag-grid-angular';
 import { CenterinnumbersComponent } from './pages/partner/partnerinformation/centerinnumbers/centerinnumbers.component';
 import { CenterdescriptionComponent } from './pages/partner/partnerinformation/centerdescription/centerdescription.component';
+import { CenterpremiseComponent } from './pages/partner/partnerinformation/centerpremise/centerpremise.component';
+import { CouserpackagepriceComponent } from './pages/partner/partnerinformation/couserpackageprice/couserpackageprice.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +70,9 @@ import { CenterdescriptionComponent } from './pages/partner/partnerinformation/c
     PartnerlistsiteComponent,
     EmployeeComponent,
     CenterinnumbersComponent,
-    CenterdescriptionComponent
+    CenterdescriptionComponent,
+    CenterpremiseComponent,
+    CouserpackagepriceComponent
   ],
   imports: [
     BrowserModule,
