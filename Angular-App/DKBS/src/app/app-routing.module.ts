@@ -18,6 +18,8 @@ import { PartnerlistsiteComponent } from './pages/partner/partnerlistsite/partne
 import { EmployeeComponent } from './pages/partner/partnerinformation/employee/employee.component';
 import { CenterinnumbersComponent } from './pages/partner/partnerinformation/centerinnumbers/centerinnumbers.component';
 import { CenterdescriptionComponent } from './pages/partner/partnerinformation/centerdescription/centerdescription.component';
+import { CenterpremiseComponent } from './pages/partner/partnerinformation/centerpremise/centerpremise.component';
+import { CouserpackagepriceComponent } from './pages/partner/partnerinformation/couserpackageprice/couserpackageprice.component';
 
 
 const routes: Routes = [
@@ -38,7 +40,10 @@ const routes: Routes = [
   { path:'Partnerlistsite', component:PartnerlistsiteComponent},
   { path:'PartnerEmployee', component:EmployeeComponent},
   { path:'Centerinnumbers', component:CenterinnumbersComponent},
-  { path:'Centerdescription', component:CenterdescriptionComponent}
+  { path:'Centerdescription', component:CenterdescriptionComponent},
+  { path:'Centerpremise', component:CenterpremiseComponent},
+  { path:'Couserpackageprice', component:CouserpackagepriceComponent}
+  
 ];
 
 @NgModule({
