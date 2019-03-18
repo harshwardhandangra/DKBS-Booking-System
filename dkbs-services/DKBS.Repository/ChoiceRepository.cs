@@ -46,17 +46,17 @@ namespace DKBS.Repository
 
         public List<TableSetDTO> GetTableSets()
         {
-            return _dbContext.TableSets.Select(p => new TableSetDTO { TableSetName = p.TableSetName, TableSetId = p.TableSetId, LastModified = p.LastModified, LastModifiedBy = p.LastModifiedBy }).ToList();
+            return _dbContext.TableSet.Select(p => new TableSetDTO { TableSetName = p.TableSetName, TableSetId = p.TableSetId}).ToList();
         }
 
         public List<PurposeDTO> GetPurposes()
         {
-            return _dbContext.Purposes.Select(p => new PurposeDTO { PurposeName = p.PurposeName, PurposeId = p.PurposeId }).ToList();
+            return _dbContext.Purpose.Select(p => new PurposeDTO { PurposeName = p.PurposeName, PurposeId = p.PurposeId }).ToList();
         }
 
         public List<PartnerTypeDTO> GetPartnerTypes()
         {
-            return _dbContext.PartnerTypes.Select(p => new PartnerTypeDTO { PartnerTypeTitle = p.PartnerTypeTitle, PartnerTypeId = p.PartnerTypeId, LastModified = p.LastModified, LastModifiedBy = p.LastModifiedBy }).ToList();
+            return _dbContext.PartnerTypes.Select(p => new PartnerTypeDTO { PartnerTypeTitle = p.PartnerTypeTitle, PartnerTypeId = p.PartnerTypeId }).ToList();
         }
 
         public List<TableTypeDTO> GetTableTypes()
@@ -76,22 +76,22 @@ namespace DKBS.Repository
 
         public List<LandDTO> GetLandDetails()
         {
-            return _dbContext.Lands.Select(p => new LandDTO { LandTitle = p.LandTitle, LandId = p.LandId, LastModified = p.LastModified, LastModifiedBy = p.LastModifiedBy }).ToList();
+            return _dbContext.Land.Select(p => new LandDTO { LandTitle = p.LandTitle, LandId = p.LandId }).ToList();
         }
 
         public List<ITProcedureStatusDTO> GetITProcedureStatuses()
         {
-            return _dbContext.ITProcedureStatuses.Select(p => new ITProcedureStatusDTO { ITProcedureStatusTitle = p.ITProcedureStatusTitle, ITProcedureStatusId = p.ITProcedureStatusId, InternalName = p.InternalName, LastModified = p.LastModified, LastModifiedBy = p.LastModifiedBy }).ToList();
+            return _dbContext.ITProcedureStatuses.Select(p => new ITProcedureStatusDTO { ITProcedureStatusTitle = p.ITProcedureStatusTitle, ITProcedureStatusId = p.ITProcedureStatusId, InternalName = p.InternalName}).ToList();
         }
 
         public List<IndustryCodeDTO> GetIndustryCodes()
         {
-            return _dbContext.IndustryCodes.Select(p => new IndustryCodeDTO { IndustryCodeTitle = p.IndustryCodeTitle, IndustryCodeId = p.IndustryCodeId, IsNewBranch = p.IsNewBranch, LastModified = p.LastModified, LastModifiedBy = p.LastModifiedBy }).ToList();
+            return _dbContext.IndustryCodes.Select(p => new IndustryCodeDTO { IndustryCodeTitle = p.IndustryCodeTitle, IndustryCodeId = p.IndustryCodeId, IsNewBranch = p.IsNewBranch }).ToList();
         }
 
         public List<FlowDTO> GetFlowDetails()
         {
-            return _dbContext.Flows.Select(p => new FlowDTO { FlowName = p.FlowName, FlowId = p.FlowId }).ToList();
+            return _dbContext.Flow.Select(p => new FlowDTO { FlowName = p.FlowName, FlowId = p.FlowId }).ToList();
         }
 
         public List<CrmStatusDTO> GetCrmStatusDetails()

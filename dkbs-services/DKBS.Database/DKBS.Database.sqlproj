@@ -62,6 +62,15 @@
   <ItemGroup>
     <Build Include="Tables\Regions.sql" />
     <Build Include="Tables\TableSets.sql" />
+    <Build Include="Tables\Purpose.sql" />
+    <Build Include="Tables\TableTypes.sql" />
+    <Build Include="Tables\PartnerTypes.sql" />
+    <Build Include="Tables\MailLanguages.sql" />
+    <Build Include="Tables\LeadOfOrigins.sql" />
+    <Build Include="Tables\Land.sql" />
+    <Build Include="Tables\ITProcedureStatuses.sql" />
+    <Build Include="Tables\IndustryCodes.sql" />
+    <Build Include="Tables\Flow.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DKBS.publish.xml" />

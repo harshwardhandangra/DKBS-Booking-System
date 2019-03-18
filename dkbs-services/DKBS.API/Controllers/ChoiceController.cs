@@ -64,7 +64,7 @@ namespace DKBS.API.Controllers
         /// Get All Tabletypes details.
         /// </summary>
         /// <returns>List of tabletypes.</returns>
-        [Route("TableTypes")]
+        [Route("tabletypes")]
         [HttpGet()]
         public ActionResult<TableTypeDTO> GetTableTypes()
         {
@@ -75,7 +75,7 @@ namespace DKBS.API.Controllers
         /// Get All PartnerTypes details.
         /// </summary>
         /// <returns>List of Partnertypes.</returns>
-        [Route("PartnerTypes")]
+        [Route("partnertypes")]
         [HttpGet()]
         public ActionResult<PartnerTypeDTO> GetPartnerTypes()
         {
@@ -86,7 +86,7 @@ namespace DKBS.API.Controllers
         /// Get All mailLanguages details.
         /// </summary>
         /// <returns>List of maillanguages.</returns>
-        [Route("MailLanguages")]
+        [Route("maillanguages")]
         [HttpGet()]
         public ActionResult<MailLanguageDTO> GetMailLanguages()
         {
@@ -97,7 +97,7 @@ namespace DKBS.API.Controllers
         /// Get All LeadOfOrgins details.
         /// </summary>
         /// <returns>List of LeadOfOrgins.</returns>
-        [Route("LeadOfOrigins")]
+        [Route("leadoforigins")]
         [HttpGet()]
         public ActionResult<LeadOfOriginDTO> GetLeadOfOrigins()
         {
@@ -108,7 +108,7 @@ namespace DKBS.API.Controllers
         /// Get All Land details.
         /// </summary>
         /// <returns>List of Lands.</returns>
-        [Route("Lands")]
+        [Route("lands")]
         [HttpGet()]
         public ActionResult<LandDTO> GetLandDetails()
         {
@@ -119,7 +119,7 @@ namespace DKBS.API.Controllers
         /// Get All ITProcedureStatus details.
         /// </summary>
         /// <returns>List of ITProcedureStatuses.</returns>
-        [Route("ITProcedureStatus")]
+        [Route("itprocedurestatus")]
         [HttpGet()]
         public ActionResult<ITProcedureStatusDTO> GetITProcedureStatusDetails()
         {
@@ -130,7 +130,7 @@ namespace DKBS.API.Controllers
         /// Get All IndustryCodes details.
         /// </summary>
         /// <returns>List of IndustryCodes.</returns>
-        [Route("IndustryCodes")]
+        [Route("industrycodes")]
         [HttpGet()]
         public ActionResult<IndustryCodeDTO> GetIndustryCodes()
         {
@@ -141,7 +141,7 @@ namespace DKBS.API.Controllers
         /// Get All Flow details.
         /// </summary>
         /// <returns>List of Flows.</returns>
-        [Route("Flow")]
+        [Route("flow")]
         [HttpGet()]
         public ActionResult<FlowDTO> GetFlowDetails()
         {

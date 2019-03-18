@@ -14,9 +14,9 @@ namespace DKBS.Data
         }
         public DbSet<Region> Regions { get; set; }
 
-        public DbSet<TableSet> TableSets { get; set; }
+        public DbSet<TableSet> TableSet { get; set; }
 
-        public DbSet<Purpose> Purposes { get; set; }
+        public DbSet<Purpose> Purpose { get; set; }
 
         public DbSet<TableType> TableTypes { get; set; }
 
@@ -26,13 +26,13 @@ namespace DKBS.Data
 
         public DbSet<LeadOfOrigin> LeadOfOrigins { get; set; }
 
-        public DbSet<Land> Lands { get; set; }
+        public DbSet<Land> Land { get; set; }
 
         public DbSet<ITProcedureStatus> ITProcedureStatuses { get; set; }
 
         public DbSet<IndustryCode> IndustryCodes { get; set; }
 
-        public DbSet<Flow> Flows { get; set; }
+        public DbSet<Flow> Flow { get; set; }
 
         public DbSet<CrmStatus> crmStatuses { get; set; }
 
