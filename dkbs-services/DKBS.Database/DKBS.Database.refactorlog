@@ -133,4 +133,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="CancellationReason" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="f2f8bfcc-efd3-4f04-ae0c-a85eb2853587" ChangeDateTime="03/18/2019 16:38:05">
+    <Property Name="ElementName" Value="[dbo].[CancellationReasons].[CancellationReason]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[CancellationReasons]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CancellationReasonId" />
+  </Operation>
 </Operations>

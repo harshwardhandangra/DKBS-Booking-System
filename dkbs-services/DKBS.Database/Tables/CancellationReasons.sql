@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[CancellationReasons]
 (
-	[CancellationReason] INT NOT NULL PRIMARY KEY IDENTITY, 
+	[CancellationReasonId] INT NOT NULL PRIMARY KEY IDENTITY, 
     [CancellationReasonName] NVARCHAR(255) NULL,
 	[CreatedDate] DATETIME NULL,
 	[CreatedBy] nvarchar(100),
