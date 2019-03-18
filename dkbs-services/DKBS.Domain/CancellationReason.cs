@@ -7,7 +7,7 @@ namespace DKBS.Domain
 {
     public class CancellationReason
     {
-        public int Id { get; set; }
+        public int CancellationReasonId { get; set; }
 
         //[MaxLength(255)]
         public string CancellationReasonName { get; set; }

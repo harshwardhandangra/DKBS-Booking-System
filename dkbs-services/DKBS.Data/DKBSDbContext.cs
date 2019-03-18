@@ -34,9 +34,9 @@ namespace DKBS.Data
 
         public DbSet<Flow> Flow { get; set; }
 
-        public DbSet<CrmStatus> crmStatuses { get; set; }
+        public DbSet<CrmStatus> CrmStatuses { get; set; }
 
-        public DbSet<CoursePackageType> coursePackageTypes { get; set; }
+        public DbSet<CoursePackageType> CoursePackageTypes { get; set; }
 
         public DbSet<ContactPerson> ContactPersons { get; set; }
 

@@ -71,6 +71,14 @@
     <Build Include="Tables\ITProcedureStatuses.sql" />
     <Build Include="Tables\IndustryCodes.sql" />
     <Build Include="Tables\Flow.sql" />
+    <Build Include="Tables\CrmStatuses.sql" />
+    <Build Include="Tables\CoursePackageTypes.sql" />
+    <Build Include="Tables\ContactPersons.sql" />
+    <Build Include="Tables\Campaigns.sql" />
+    <Build Include="Tables\CenterTypes.sql" />
+    <Build Include="Tables\CenterMatchings.sql" />
+    <Build Include="Tables\CauseOfRemovals.sql" />
+    <Build Include="Tables\CancellationReasons.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DKBS.publish.xml" />

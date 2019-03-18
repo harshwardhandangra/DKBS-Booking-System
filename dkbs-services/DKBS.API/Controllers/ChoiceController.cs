@@ -152,7 +152,7 @@ namespace DKBS.API.Controllers
         /// Get All CrmStatus details.
         /// </summary>
         /// <returns>List of CrmStatuses.</returns>
-        [Route("CrmStatus")]
+        [Route("crmstatus")]
         [HttpGet()]
         public ActionResult<CrmStatusDTO> GetCrmStatusDetails()
         {
@@ -163,7 +163,7 @@ namespace DKBS.API.Controllers
         /// Get All CoursePackageType details.
         /// </summary>
         /// <returns>List of CoursePackageTypes.</returns>
-        [Route("CoursePackageType")]
+        [Route("coursepackagetype")]
         [HttpGet()]
         public ActionResult<CoursePackageTypeDTO> GetCoursePackageTypes()
         {
@@ -174,7 +174,7 @@ namespace DKBS.API.Controllers
         /// Get All ContactPersons details.
         /// </summary>
         /// <returns>List of ContactPersons.</returns>
-        [Route("ContactPersons")]
+        [Route("contactpersons")]
         [HttpGet()]
         public ActionResult<ContactPersonDTO> GetContactPersons()
         {
@@ -185,7 +185,7 @@ namespace DKBS.API.Controllers
         /// Get All Campaign details.
         /// </summary>
         /// <returns>List of Campaigns.</returns>
-        [Route("Campaigns")]
+        [Route("campaigns")]
         [HttpGet()]
         public ActionResult<CampaignDTO> GetCampaigns()
         {
@@ -196,7 +196,7 @@ namespace DKBS.API.Controllers
         /// Get All CenterType details.
         /// </summary>
         /// <returns>List of CenterTypes.</returns>
-        [Route("CenterTypes")]
+        [Route("centertypes")]
         [HttpGet()]
         public ActionResult<CenterTypeDTO> GetCenterTypes()
         {
@@ -207,7 +207,7 @@ namespace DKBS.API.Controllers
         /// Get All CenterMatching details.
         /// </summary>
         /// <returns>List of CenterMatchings.</returns>
-        [Route("CenterMatchings")]
+        [Route("centermatchings")]
         [HttpGet()]
         public ActionResult<CenterMatchingDTO> GetCenterMatchings()
         {
@@ -218,7 +218,7 @@ namespace DKBS.API.Controllers
         /// Get All CauseOfRemoval details.
         /// </summary>
         /// <returns>List of CauseOfRemovals.</returns>
-        [Route("CauseOfRemovals")]
+        [Route("causeofremovals")]
         [HttpGet()]
         public ActionResult<CauseOfRemovalDTO> GetCauseOfRemovals()
         {
@@ -229,7 +229,7 @@ namespace DKBS.API.Controllers
         /// Get All CancellationReason details.
         /// </summary>
         /// <returns>List of CancellationReasons.</returns>
-        [Route("CancellationReasons")]
+        [Route("cancellationreasons")]
         [HttpGet()]
         public ActionResult<CancellationReasonDTO> GetCancellationReasons()
         {

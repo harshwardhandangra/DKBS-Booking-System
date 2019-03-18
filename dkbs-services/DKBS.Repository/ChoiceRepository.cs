@@ -96,12 +96,12 @@ namespace DKBS.Repository
 
         public List<CrmStatusDTO> GetCrmStatusDetails()
         {
-            return _dbContext.crmStatuses.Select(p => new CrmStatusDTO { CrmStatusTitle = p.CrmStatusTitle, CrmStatusId = p.CrmStatusId, LastModified = p.LastModified, LastModifiedBy = p.LastModifiedBy }).ToList();
+            return _dbContext.CrmStatuses.Select(p => new CrmStatusDTO { CrmStatusTitle = p.CrmStatusTitle, CrmStatusId = p.CrmStatusId, LastModified = p.LastModified, LastModifiedBy = p.LastModifiedBy }).ToList();
         }
 
         public List<CoursePackageTypeDTO> GetCoursePackageTypes()
         {
-            return _dbContext.coursePackageTypes.Select(p => new CoursePackageTypeDTO { CoursePackageTypeTitle = p.CoursePackageTypeTitle, CoursePackageTypeId = p.CoursePackageTypeId, LastModified = p.LastModified, LastModifiedBy = p.LastModifiedBy }).ToList();
+            return _dbContext.CoursePackageTypes.Select(p => new CoursePackageTypeDTO { CoursePackageTypeTitle = p.CoursePackageTypeTitle, CoursePackageTypeId = p.CoursePackageTypeId, LastModified = p.LastModified, LastModifiedBy = p.LastModifiedBy }).ToList();
         }
 
         public List<ContactPersonDTO> GetContactPersons()
@@ -131,7 +131,7 @@ namespace DKBS.Repository
 
         public List<CancellationReasonDTO> GetCancellationReasons()
         {
-            return _dbContext.CancellationReasons.Select(p => new CancellationReasonDTO { CancellationReasonName = p.CancellationReasonName, Id = p.Id }).ToList();
+            return _dbContext.CancellationReasons.Select(p => new CancellationReasonDTO { CancellationReasonName = p.CancellationReasonName, Id = p.CancellationReasonId }).ToList();
         }
     }
 }
