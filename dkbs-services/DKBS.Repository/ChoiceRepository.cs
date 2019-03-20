@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using DKBS.Domain;
+using AutoMapper;
 
 namespace DKBS.Repository
 {
@@ -34,19 +35,21 @@ namespace DKBS.Repository
     public class ChoiceRepository : IChoiceRepository
     {
         DKBSDbContext _dbContext;
-        public ChoiceRepository(DKBSDbContext dbContext)
+        IMapper _mapper;
+        public ChoiceRepository(DKBSDbContext dbContext,IMapper mapper)
         {
             _dbContext = dbContext;
+            _mapper = mapper;
         }
 
         public List<RegionDTO> GetRegions()
         {
-          return  _dbContext.Regions.Select( p  =>  new RegionDTO { Name = p.Name, RegionId = p.RegionId }).ToList();
+            return _mapper.Map<List<RegionDTO>>(_dbContext.Regions.ToList());
         }
 
         public List<TableSetDTO> GetTableSets()
         {
-            return _dbContext.TableSet.Select(p => new TableSetDTO { TableSetName = p.TableSetName, TableSetId = p.TableSetId}).ToList();
+            return _mapper.Map<List<TableSetDTO>>(_dbContext.TableSet.ToList());
         }
 
         public List<PurposeDTO> GetPurposes()

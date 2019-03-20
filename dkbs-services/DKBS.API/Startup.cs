@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using AutoMapper;
 using DKBS.Data;
 using DKBS.Repository;
 using Microsoft.AspNetCore.Builder;
@@ -42,10 +43,11 @@ namespace DKBS.API
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddDbContext<DKBSDbContext>(options => 
+            services.AddDbContext<DKBSDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DKBSConnectionString"))
             .UseLoggerFactory(DbCommandDebugLoggerFactory).EnableSensitiveDataLogging());
             services.AddScoped<IChoiceRepository, ChoiceRepository>();
+            services.AddAutoMapper();
             services.AddMvc();
             services.AddSwaggerGen(c =>
             {
@@ -61,6 +63,13 @@ namespace DKBS.API
                 //... and tell Swagger to use those XML comments.
                 c.IncludeXmlComments(xmlPath);
             });
+
+            Mapper.Initialize(cfg =>
+                    cfg.AddProfiles(new[] {
+                        "DKBS.API",
+                        "DKBS.Repository"
+                    }));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -85,5 +94,5 @@ namespace DKBS.API
             });
         }
     }
-  
+
 }
