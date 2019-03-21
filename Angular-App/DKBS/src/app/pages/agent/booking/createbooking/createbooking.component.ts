@@ -42,9 +42,9 @@ export class CreatebookingComponent implements OnInit {
       itemsShowLimit: 3,
       allowSearchFilter: true
     };
-    // this.GetAllZipCodes();
+    this.GetAllZipCodes();
     // this.GetAllStateProvinance();
-    // this.GetCompany();
+ this.GetCompany();
     // this.GetContactPerson();
   }
 
@@ -85,7 +85,8 @@ export class CreatebookingComponent implements OnInit {
 
    GetCompany(): any {
     this.zipcodeService.GetAllZipCodes().subscribe(res => {    
-     this.company=res;     
+     this.company=res;  
+     console.log(this.company);   
      });
    }
    GetContactPerson(): any {
