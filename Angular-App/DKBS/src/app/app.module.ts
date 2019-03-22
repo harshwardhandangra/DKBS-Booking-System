@@ -40,6 +40,7 @@ import { CenterdescriptionComponent } from './pages/partner/partnerinformation/c
 import { CenterpremiseComponent } from './pages/partner/partnerinformation/centerpremise/centerpremise.component';
 import { CouserpackagepriceComponent } from './pages/partner/partnerinformation/couserpackageprice/couserpackageprice.component';
 import { PartnernavigationComponent } from './pagescomponent/partnernavigation/partnernavigation.component';
+import { PartnersitenavigationComponent } from './pagescomponent/partnersitenavigation/partnersitenavigation.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { PartnernavigationComponent } from './pagescomponent/partnernavigation/p
     CenterdescriptionComponent,
     CenterpremiseComponent,
     CouserpackagepriceComponent,
-    PartnernavigationComponent
+    PartnernavigationComponent,
+    PartnersitenavigationComponent
   ],
   imports: [
     BrowserModule,
