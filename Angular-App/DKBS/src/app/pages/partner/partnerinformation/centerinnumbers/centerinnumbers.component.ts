@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./centerinnumbers.component.css']
 })
 export class CenterinnumbersComponent implements OnInit {
-
+  selectedValueContactPerson:any;
+  ContactPerson:any;
   constructor() { }
 
   ngOnInit() {
