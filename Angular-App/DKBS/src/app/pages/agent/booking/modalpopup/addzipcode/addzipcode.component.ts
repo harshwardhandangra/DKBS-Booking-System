@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BsModalService,BsModalRef } from 'ngx-bootstrap';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 import { ZipcodeService } from 'src/service/zipcode/zipcode.service';
 
 
@@ -9,18 +9,18 @@ import { ZipcodeService } from 'src/service/zipcode/zipcode.service';
   styleUrls: ['./addzipcode.component.css']
 })
 export class AddzipcodeComponent {
-  zipitem='Folder';
+  zipitem = 'Folder';
   // constructor() { }
 
   ngOnInit() {
-    
-    
+
+
   }
 
 
-  modelref:BsModalRef
+  modelref: BsModalRef
 
-  constructor(private modalService: BsModalService,private zipcodeService:ZipcodeService) {}
+  constructor(private modalService: BsModalService, private zipcodeService: ZipcodeService) { }
 
   // GetAllZipCodes(): any {
   //  this.zipcodeService.GetAllZipCodes().subscribe(res => {
@@ -29,14 +29,14 @@ export class AddzipcodeComponent {
   // }
 
   open(content) {
-    this.modelref = this.modalService.show(content,Object.assign({},{class:'modal-lg'}))
+    this.modelref = this.modalService.show(content, Object.assign({}, { class: 'modal-lg' }))
   }
 
   modalRefhide() {
     if (!this.modelref) {
       return;
     }
- 
+
     this.modelref.hide();
     this.modelref = null;
   }

@@ -20,13 +20,11 @@ import { BookinglistComponent } from './pages/agent/booking/bookinglist/bookingl
 import { HttpModule } from '@angular/http';
 import { CustomerbookingComponent } from './pages/agent/booking/customerbooking/customerbooking.component';
 import { GooglePlacesDirective } from './directives/google-places.directive';
-import { AllcasesComponent } from './pages/agent/booking/allcases/allcases.component';
 import { DashboardComponent } from './pages/partner/site/dashboard/dashboard.component';
 import { AllPartnersComponent } from './pages/partner/allpartners/allpartners.component';
 import { PartnerlistComponent } from './pages/partner/partnerlist/partnerlist.component';
 import { ServicecatalogComponent } from './pages/partner/servicecatalog/servicecatalog.component';
 import { AddpartnerComponent } from './pages/partner/addpartner/addpartner.component';
-import { AddzipcodeComponent } from './pages/agent/booking/modalpopup/addzipcode/addzipcode.Component';
 import { AddservicecatalogComponent } from './pages/partner/servicecatalog/addservicecatalog/addservicecatalog.component';
 import { PartnercasesComponent } from './pages/partner/site/cases/partnercases/partnercases.component';
 import { SendreferralComponent } from './pages/partner/sendreferral/sendreferral.component';
@@ -40,29 +38,30 @@ import { CenterdescriptionComponent } from './pages/partner/partnerinformation/c
 import { CenterpremiseComponent } from './pages/partner/partnerinformation/centerpremise/centerpremise.component';
 import { CouserpackagepriceComponent } from './pages/partner/partnerinformation/couserpackageprice/couserpackageprice.component';
 import { PartnernavigationComponent } from './pagescomponent/partnernavigation/partnernavigation.component';
+import { EmailComposeComponent } from './app/Email/email-compose/email-compose.component';
+import { AllcasesComponent } from './pages/agent/booking/allcases/allcases.component';
+import { AddzipcodeComponent } from './pages/agent/booking/modalpopup/addzipcode/addzipcode.component';
 import { PartnersitenavigationComponent } from './pagescomponent/partnersitenavigation/partnersitenavigation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreatebookingComponent,
+    AddzipcodeComponent,
     HeaderComponent,
     FooterComponent,
     NavigationComponent,
     BookingComponent,
     AddcustomerComponent,
-    AddzipcodeComponent,
     ContactpersonComponent, 
     BookingdetailsComponent, 
     BookinglistComponent, 
     CustomerbookingComponent, 
     GooglePlacesDirective, 
-    AllcasesComponent, 
     DashboardComponent,
     AllPartnersComponent,
     PartnerlistComponent,
     ServicecatalogComponent,
-    // CasesComponent,
     AddpartnerComponent,
     AddservicecatalogComponent,
     PartnercasesComponent,
@@ -76,7 +75,9 @@ import { PartnersitenavigationComponent } from './pagescomponent/partnersitenavi
     CenterpremiseComponent,
     CouserpackagepriceComponent,
     PartnernavigationComponent,
-    PartnersitenavigationComponent
+    PartnersitenavigationComponent,
+    EmailComposeComponent,
+    AllcasesComponent
   ],
   imports: [
     BrowserModule,
