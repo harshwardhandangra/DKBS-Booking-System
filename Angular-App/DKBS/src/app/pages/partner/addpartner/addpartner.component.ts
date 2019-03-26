@@ -11,6 +11,9 @@ export class AddpartnerComponent implements OnInit {
   constructor(private stateprovinanceService:StateprovinanceService) { }
   dropdownList = [];
   dropdownSettings = {};
+  selectedwallet:any;
+  dropdownListCenter:any;
+  selectedItems:any;
   ngOnInit() {
  
     this.dropdownSettings = {

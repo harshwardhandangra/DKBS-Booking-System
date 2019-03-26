@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./addservicecatalog.component.css']
 })
 export class AddservicecatalogComponent implements OnInit {
-
+  selectedwallet:any;
   constructor() { }
 
   ngOnInit() {
