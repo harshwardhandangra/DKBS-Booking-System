@@ -41,6 +41,7 @@ import { PartnernavigationComponent } from './pagescomponent/partnernavigation/p
 import { EmailComposeComponent } from './app/Email/email-compose/email-compose.component';
 import { AllcasesComponent } from './pages/agent/booking/allcases/allcases.component';
 import { AddzipcodeComponent } from './pages/agent/booking/modalpopup/addzipcode/addzipcode.component';
+import { PartnersitenavigationComponent } from './pagescomponent/partnersitenavigation/partnersitenavigation.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { AddzipcodeComponent } from './pages/agent/booking/modalpopup/addzipcode
     CenterpremiseComponent,
     CouserpackagepriceComponent,
     PartnernavigationComponent,
+    PartnersitenavigationComponent,
     EmailComposeComponent,
     AllcasesComponent
   ],
