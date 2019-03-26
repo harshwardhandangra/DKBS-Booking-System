@@ -11,6 +11,7 @@ namespace DKBS.Repository
 {
     public interface IChoiceRepository
     {
+        void Complete();
         List<TableSetDTO> GetTableSets();
         List<RegionDTO> GetRegions();
         List<PurposeDTO> GetPurposes();
@@ -30,6 +31,9 @@ namespace DKBS.Repository
         List<CenterMatchingDTO> GetCenterMatchings();
         List<CauseOfRemovalDTO> GetCauseOfRemovals();
         List<CancellationReasonDTO> GetCancellationReasons();
+        List<CustomerDTO> GetCustomers();
+        List<PartnerDTO> GetPartners();
+
     }
 
     public class ChoiceRepository : IChoiceRepository
@@ -41,6 +45,18 @@ namespace DKBS.Repository
             _dbContext = dbContext;
             _mapper = mapper;
         }
+
+        public void Complete()
+        {
+            _dbContext.SaveChanges();
+        }
+
+
+        public void Dispose()
+        {
+            _dbContext.Dispose();
+        }
+
 
         public List<RegionDTO> GetRegions()
         {
@@ -135,6 +151,16 @@ namespace DKBS.Repository
         public List<CancellationReasonDTO> GetCancellationReasons()
         {
             return _dbContext.CancellationReasons.Select(p => new CancellationReasonDTO { CancellationReasonName = p.CancellationReasonName, Id = p.CancellationReasonId }).ToList();
+        }
+
+        public List<CustomerDTO> GetCustomers()
+        {
+            return _mapper.Map<List<CustomerDTO>>(_dbContext.Customers.ToList());
+        }
+
+        public List<PartnerDTO> GetPartners()
+        {
+            return _mapper.Map<List<PartnerDTO>>(_dbContext.Partners.ToList());
         }
     }
 }

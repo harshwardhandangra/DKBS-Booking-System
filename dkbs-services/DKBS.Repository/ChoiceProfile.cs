@@ -13,6 +13,9 @@ namespace DKBS.Repository
         {
             CreateMap<Region, RegionDTO>();
             CreateMap<TableSet, TableSetDTO>();
+            CreateMap<Customer, CustomerDTO>();
+            CreateMap<ContactPerson, ContactPersonDTO>();
+            CreateMap<Partner, PartnerDTO>();
         }
     }
 }
