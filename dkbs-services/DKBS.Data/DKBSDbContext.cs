@@ -50,6 +50,10 @@ namespace DKBS.Data
 
         public DbSet<CancellationReason> CancellationReasons { get; set; }
 
+        public DbSet<Customer> Customers { get; set; }
+
+        public DbSet<Partner> Partners { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
