@@ -20,7 +20,9 @@ import { CenterinnumbersComponent } from './pages/partner/partnerinformation/cen
 import { CenterdescriptionComponent } from './pages/partner/partnerinformation/centerdescription/centerdescription.component';
 import { CenterpremiseComponent } from './pages/partner/partnerinformation/centerpremise/centerpremise.component';
 import { CouserpackagepriceComponent } from './pages/partner/partnerinformation/couserpackageprice/couserpackageprice.component';
-
+import { AwaitingpartnerComponent } from './pages/agent/booking/provision/awaitingpartner/awaitingpartner.component';
+import { AwaitingDKBSComponent } from './pages/agent/booking/provision/awaiting-dkbs/awaiting-dkbs.component';
+import { AwaitingeconomyComponent } from './pages/agent/booking/provision/awaitingeconomy/awaitingeconomy.component';
 
 const routes: Routes = [
   { path:'', component:BookinglistComponent},
@@ -42,7 +44,10 @@ const routes: Routes = [
   { path:'Centerinnumbers', component:CenterinnumbersComponent},
   { path:'Centerdescription', component:CenterdescriptionComponent},
   { path:'Centerpremise', component:CenterpremiseComponent},
-  { path:'Couserpackageprice', component:CouserpackagepriceComponent}
+  { path:'Couserpackageprice', component:CouserpackagepriceComponent},
+  { path:'Awaitingpartner', component:AwaitingpartnerComponent},
+  { path:'AwaitingDKBS', component:AwaitingDKBSComponent},
+  { path:'Awaitingeconomy', component:AwaitingeconomyComponent}
   
 ];
 

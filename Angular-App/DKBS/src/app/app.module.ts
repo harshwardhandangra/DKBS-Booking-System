@@ -42,6 +42,10 @@ import { EmailComposeComponent } from './app/Email/email-compose/email-compose.c
 import { AllcasesComponent } from './pages/agent/booking/allcases/allcases.component';
 import { AddzipcodeComponent } from './pages/agent/booking/modalpopup/addzipcode/addzipcode.component';
 import { PartnersitenavigationComponent } from './pagescomponent/partnersitenavigation/partnersitenavigation.component';
+import { AwaitingpartnersComponent } from './agent/booking/provision/awaitingpartners/awaitingpartners.component';
+import { AwaitingpartnerComponent } from './pages/agent/booking/provision/awaitingpartner/awaitingpartner.component';
+import { AwaitingDKBSComponent } from './pages/agent/booking/provision/awaiting-dkbs/awaiting-dkbs.component';
+import { AwaitingeconomyComponent } from './pages/agent/booking/provision/awaitingeconomy/awaitingeconomy.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +81,11 @@ import { PartnersitenavigationComponent } from './pagescomponent/partnersitenavi
     PartnernavigationComponent,
     PartnersitenavigationComponent,
     EmailComposeComponent,
-    AllcasesComponent
+    AllcasesComponent,
+    AwaitingpartnersComponent,
+    AwaitingpartnerComponent,
+    AwaitingDKBSComponent,
+    AwaitingeconomyComponent
   ],
   imports: [
     BrowserModule,
