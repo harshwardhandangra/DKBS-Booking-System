@@ -35,7 +35,7 @@ namespace DKBS.API.Controllers
         /// <param name="name"></param>
         /// <returns></returns>
         [HttpGet("{name}", Name = "GetPartner")]
-        public ActionResult<IEnumerable<PartnerEmployeeDTO>> GetPartner(string name)
+        public ActionResult<IEnumerable<PartnerEmployeeDTO>> GetPartnerEmployees(string name)
         {
             return _choiceRepoistory.GetPartnerEmployees().FindAll(c => c.EmployeeName.Contains(name));
         }
@@ -45,7 +45,7 @@ namespace DKBS.API.Controllers
         /// </summary>
         /// <param name="partnerEmployeeDto"></param>
         /// <returns></returns>
-        // GET api/Partner/{Partner}
+        // GET api/PartnerEmployee/{PartnerEmployee}
         [HttpPost("{Partner}")]
         public ActionResult<IEnumerable<PartnerEmployeeDTO>> CreatePartner([FromBody] PartnerEmployeeDTO partnerEmployeeDto)
         {
