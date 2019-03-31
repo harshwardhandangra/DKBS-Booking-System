@@ -46,7 +46,7 @@ namespace DKBS.API.Controllers
         /// <returns></returns>
         // GET api/Partner/{Partner}
         [HttpPost("{Partner}")]
-        public ActionResult<IEnumerable<CustomerDTO>> CreatePartner([FromBody] PartnerDTO partnerDto)
+        public ActionResult<IEnumerable<PartnerDTO>> CreatePartner([FromBody] PartnerDTO partnerDto)
         {
 
             if (ModelState.IsValid)

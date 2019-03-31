@@ -33,6 +33,7 @@ namespace DKBS.Repository
         List<CancellationReasonDTO> GetCancellationReasons();
         List<CustomerDTO> GetCustomers();
         List<PartnerDTO> GetPartners();
+        List<PartnerEmployeeDTO> GetPartnerEmployees();
 
     }
 
@@ -161,6 +162,11 @@ namespace DKBS.Repository
         public List<PartnerDTO> GetPartners()
         {
             return _mapper.Map<List<PartnerDTO>>(_dbContext.Partners.ToList());
+        }
+
+        public List<PartnerEmployeeDTO> GetPartnerEmployees()
+        {
+            return _mapper.Map<List<PartnerEmployeeDTO>>(_dbContext.PartnerEmployees.ToList());
         }
     }
 }

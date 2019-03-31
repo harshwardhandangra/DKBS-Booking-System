@@ -79,6 +79,27 @@
     <Build Include="Tables\CenterMatchings.sql" />
     <Build Include="Tables\CauseOfRemovals.sql" />
     <Build Include="Tables\CancellationReasons.sql" />
+    <Build Include="Tables\Booking.sql" />
+    <Build Include="Tables\Customers.sql" />
+    <Build Include="Tables\Partners.sql" />
+    <Build Include="Tables\ProcedureReviewType.sql" />
+    <Build Include="Tables\Procedures.sql" />
+    <Build Include="Tables\ServiceCatalog.sql" />
+    <Build Include="Tables\ServiceRequestCommunications.sql" />
+    <Build Include="Tables\ServiceRequestNotes.sql" />
+    <Build Include="Tables\SRConversationItems.sql" />
+    <Build Include="Tables\BookingAndStatuses.sql" />
+    <Build Include="Tables\TownZipCodes.sql" />
+    <Build Include="Tables\Provision.sql" />
+    <Build Include="Tables\MailGroups.sql" />
+    <Build Include="Tables\PartnerEmployee.sql" />
+    <Build Include="Tables\ProcedureInfo.sql" />
+    <Build Include="Tables\BookingAlternativeService.sql" />
+    <Build Include="Tables\BookingRooms.sql" />
+    <Build Include="Tables\BookingArrangementType.sql" />
+    <Build Include="Tables\BookingReference.sql" />
+    <Build Include="Tables\BookingRegions.sql" />
+    <Build Include="Tables\ParticipantType.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DKBS.publish.xml" />

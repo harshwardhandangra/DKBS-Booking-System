@@ -54,6 +54,8 @@ namespace DKBS.Data
 
         public DbSet<Partner> Partners { get; set; }
 
+        public DbSet<PartnerEmployee> PartnerEmployees { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);

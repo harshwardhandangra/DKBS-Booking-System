@@ -235,5 +235,16 @@ namespace DKBS.API.Controllers
         {
             return Ok(_choiceRepoistory.GetCancellationReasons());
         }
+
+        /// <summary>
+        /// Get All partnerEmployees details.
+        /// </summary>
+        /// <returns>List of partnerEmployees.</returns>
+        [Route("partnerEmployees")]
+        [HttpGet()]
+        public ActionResult<CancellationReasonDTO> GetPartnerEmployesss()
+        {
+            return Ok(_choiceRepoistory.GetPartnerEmployees());
+        }
     }
 }
