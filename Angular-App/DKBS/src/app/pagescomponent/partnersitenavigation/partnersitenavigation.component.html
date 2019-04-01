@@ -8,54 +8,78 @@
 </div>
 
 <div id="sidebar">
-  <div class="sidebar_scroll">
-    <ul class="nav lg-menu" id="main-nav">
-      <!-- <li><a routerLink="/"> <i class="fa fa-users"></i> <span>Booking</span></a>
-      </li> -->
-     
-      <li><a href="javascript:void(0)"> <i class="fa fa-user"></i> <span>Active Cases</span></a>
+    <div class="sidebar_scroll">
+      <ul class="nav lg-menu" id="main-nav">
+      
+  
+  
+      <li><a href="javascript:void(0)"> <i class="fa fa-book"></i> <span>Active Cases</span> <i
+          class="pull-right has-submenu fa fa-angle-right">
+        </i></a>
         <ul class="nav nav-submenu submenu-hidden">
-          <li><a href="#">Inbox</a></li>
-          <li><a href="#">Awaiting customer decision</a></li>
-          <li><a href="#">Awaiting holding</a></li>
-          
-        </ul>
+        <li><a routerLink="/allpartners"> <i class="fa fa-user"></i> <span>Inbox</span></a>       
+        </li>  
+        <li><a routerLink="/allpartners"> <i class="fa fa-user"></i> <span>Awaiting the Customer's</span></a>       
+        </li>
+        <li><a routerLink="/allpartners"> <i class="fa fa-user"></i> <span>Awaiting Holding</span></a>       
+        </li>
+      </ul>
+  
+      <li><a href="javascript:void(0)"> <i class="fa fa-book"></i> <span>Not Active Cases</span> <i
+        class="pull-right has-submenu fa fa-angle-right">
+      </i></a>
+      <ul class="nav nav-submenu submenu-hidden">
+      <li><a routerLink="/allpartners"> <i class="fa fa-user"></i> <span>No Answer</span></a>       
+      </li>  
+      <li><a routerLink="/allpartners"> <i class="fa fa-user"></i> <span>Lost cases</span></a>       
       </li>
-
-      <li><a href="javascript:void(0)"> <i class="fa fa-user"></i> <span>Not Active Cases</span></a>
-        <ul class="nav nav-submenu submenu-hidden">
-          <li><a href="#">No answer</a></li>
-          <li><a href="#">Lost cases</a></li>
-          <li><a href="#">Cases held</a></li>
-          <li><a href="#">Referred cases</a></li>
-          
-        </ul>
+      <li><a routerLink="/allpartners"> <i class="fa fa-user"></i> <span>Cases Held</span></a>       
       </li>
-     
-       <li><a href="javascript:void(0)"> <i class="fa fa-book"></i> <span>Partner Information</span> <i
-            class="pull-right has-submenu fa fa-angle-right"></i></a>
-        <ul class="nav nav-submenu submenu-hidden">
-          <li><a routerLink="/PartnerEmployee"> <i class="fa fa-user"></i> <span>Partner-Employee</span></a>       
-          </li>
-    
-          <li><a routerLink="/Centerinnumbers"> <i class="fa fa-user"></i> <span>Center in numbers</span></a>       
-          </li>
-          
-          <li><a routerLink="Centerdescription"> <i class="fa fa-user"></i> <span>Center Description</span></a>       
-          </li>
-    
-          <li><a routerLink="Centerpremise"> <i class="fa fa-user"></i> <span>Center Premises in numbers</span></a>       
-          </li>
-    
-          <li><a routerLink="Couserpackageprice"> <i class="fa fa-user"></i> <span>Course packages & price</span></a>       
-          </li>
-        </ul>
-      </li> 
-    
+      <li><a routerLink="/allpartners"> <i class="fa fa-user"></i> <span>Referred cases</span></a>       
+      </li>
     </ul>
+  
+         <li><a href="javascript:void(0)"> <i class="fa fa-book"></i> <span>Partner Information</span> <i
+              class="pull-right has-submenu fa fa-angle-right"></i></a>
+          <ul class="nav nav-submenu submenu-hidden">
+            <li><a routerLink="/PartnerEmployee"> <i class="fa fa-user"></i> <span>Partner-Employee</span></a>       
+            </li>
+      
+            <li><a routerLink="/Centerinnumbers"> <i class="fa fa-user"></i> <span>Center in numbers</span></a>       
+            </li>
+            
+            <li><a routerLink="/Centerdescription"> <i class="fa fa-user"></i> <span>Center Description</span></a>       
+            </li>
+      
+            <li><a routerLink="/Centerpremise"> <i class="fa fa-user"></i> <span>Center Premises in numbers</span></a>       
+            </li>
+      
+            <li><a routerLink="/Couserpackageprice"> <i class="fa fa-user"></i> <span>Course packages & price</span></a>       
+            </li>
+          </ul>
+        </li> 
+        <li><a href="javascript:void(0)"> <i class="fa fa-book"></i> <span>Intranet</span> <i
+          class="pull-right has-submenu fa fa-angle-right">
+        </i></a>
+        <ul class="nav nav-submenu submenu-hidden">
+        <li><a routerLink="/allpartners"> <i class="fa fa-user"></i> <span>Agreements & Documents</span></a>       
+        </li>  
+        <li><a routerLink="/allpartners"> <i class="fa fa-user"></i> <span>News</span></a>       
+        </li>
+        <li><a routerLink="/allpartners"> <i class="fa fa-user"></i> <span>Communication Forums</span></a>       
+        </li>        
+      </ul>
+  
+        <li><a routerLink="/allpartners"> <i class="fa fa-user"></i> <span>All Partners List</span></a>
+        </li>
+        <li><a routerLink="/Partnerlistsite"> <i class="fa fa-user"></i> <span>Partner list site</span></a>       
+        </li>
+      </ul>
+    </div>
+  
   </div>
 
-</div>
+
 <div class="collapsebtn">
   <a class="navbar-brand show-hide-sidebar hide-sidebar" href="#"><i class="fa fa-angle-double-left"></i> Collapse
     sidebar</a>
