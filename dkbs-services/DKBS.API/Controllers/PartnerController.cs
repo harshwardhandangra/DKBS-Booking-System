@@ -14,7 +14,7 @@ namespace DKBS.API.Controllers
     /// <summary>
     /// Partner controller
     /// </summary>
-    [Route("api/[controller]")]
+    [Route("partner")]
     [ApiController]
     public class PartnerController : ControllerBase
     {
@@ -34,10 +34,10 @@ namespace DKBS.API.Controllers
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        [HttpGet("{name}", Name = "GetPartner")]
-        public ActionResult<IEnumerable<PartnerDTO>> GetPartner(string name)
+        [HttpGet("{id}")]
+        public ActionResult<IEnumerable<PartnerDTO>> GetPartner(int id)
         {
-            return _choiceRepoistory.GetPartners().FindAll(c => c.PartnerName.Contains(name));
+            return _choiceRepoistory.GetPartners().FindAll(c => c.PartnerName.Contains(id.ToString()));
         }
         /// <summary>
         /// Creating Partner
@@ -45,7 +45,7 @@ namespace DKBS.API.Controllers
         /// <param name="partnerDto"></param>
         /// <returns></returns>
         // GET api/Partner/{Partner}
-        [HttpPost("{Partner}")]
+        [HttpPost]
         public ActionResult<IEnumerable<PartnerDTO>> CreatePartner([FromBody] PartnerDTO partnerDto)
         {
 

@@ -13,6 +13,8 @@ namespace DKBS.API.Controllers
     /// <summary>
     /// Customer Controller
     /// </summary>
+    /// 
+    [Route("customer")]
     public class CustomerController : Controller
     {
         private readonly IChoiceRepository _choiceRepoistory;
@@ -34,7 +36,7 @@ namespace DKBS.API.Controllers
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        [HttpGet("{name}", Name = "GetCustomer")]
+        [HttpGet("{name}")]
         public ActionResult<IEnumerable<CustomerDTO>> GetCustomer(string name)
         {
             return _choiceRepoistory.GetCustomers().FindAll(c => c.Name.Contains(name));
@@ -46,7 +48,7 @@ namespace DKBS.API.Controllers
         /// <param name="customerDto"></param>
         /// <returns></returns>
         // GET api/Customer/{customer}
-        [HttpPost("{Customer}")]
+        [HttpPost]
         public ActionResult<IEnumerable<CustomerDTO>> CreateCustomer([FromBody] CustomerDTO customerDto)
         {
 
