@@ -17,6 +17,7 @@ export class CreatebookingComponent implements OnInit {
 
   selectedwallet = 'Kundeoplysniger';
   dropdownList = [];
+  dropdownListLeadOrigin = [];
   dropdownListforSearchType = [];
   dropdownListforPartnerType = [];
   selectedItems = [];
@@ -43,9 +44,11 @@ export class CreatebookingComponent implements OnInit {
       allowSearchFilter: true
     };
     this.GetAllZipCodes();
-    // this.GetAllStateProvinance();
- this.GetCompany();
-    // this.GetContactPerson();
+    this.GetAllStateProvinance();
+    this.GetAllPartnerType();
+    this.GetCompany();
+    this.GetContactPerson();
+    this.GetAllLeadOrigin();
   }
 
   selectedValue: string;
@@ -90,8 +93,11 @@ export class CreatebookingComponent implements OnInit {
      });
    }
    GetContactPerson(): any {
-    this.zipcodeService.GetAllZipCodes().subscribe(res => {    
-     this.ContactPerson=res;     
+    this.zipcodeService.GetAllcontactpersons().subscribe(res => {    
+     this.ContactPerson=res;   
+     console.log("vsd");   
+     console.log(this.ContactPerson);   
+
      });
    }
 
@@ -99,7 +105,7 @@ export class CreatebookingComponent implements OnInit {
     this.stateprovinanceService.GetAllStateProvinance().subscribe(state => {
      console.log(state);
     for (let i = 0; i < state.length; ++i) {
-      this.dropdownList.push({ item_id: state[i].Region_Id, item_text: state[i].Region_Name });
+      this.dropdownList.push({ item_id: state[i].regionId, item_text: state[i].name });
     }
      });
    }
@@ -108,7 +114,7 @@ export class CreatebookingComponent implements OnInit {
    GetAllPartnerType(): any {
     this.stateprovinanceService.GetAllPartnerType().subscribe(state => {   
     for (let i = 0; i < state.length; ++i) {
-      this.dropdownListforSearchType.push({ item_id: state[i].Region_Id, item_text: state[i].Region_Name });
+      this.dropdownListforSearchType.push({ item_id: state[i].partnerTypeId, item_text: state[i].partnerTypeTitle });
     }
      });
    }
@@ -121,6 +127,18 @@ export class CreatebookingComponent implements OnInit {
      });
    }
 
+
+   GetAllLeadOrigin(): any {
+    this.stateprovinanceService.GetAllLeadOrigin().subscribe(state => {
+      console.log("sonar");   
+     console.log(state);
+    for (let i = 0; i < state.length; ++i) {
+      this.dropdownListLeadOrigin.push({ item_id: state[i].regionId, item_text: state[i].name });
+      console.log(this.dropdownListLeadOrigin);   
+      console.log("sonar");  
+    }
+     });
+   }
   // ngOnInit() {
   // }
 
