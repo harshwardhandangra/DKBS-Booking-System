@@ -19,7 +19,7 @@ export class CommonService {
 
   constructor(private _http: Http,private router: Router,@Inject(DOCUMENT) private document: any) {
       if(document.location.hostname=="localhost"){
-        this.baseUrl = GlobalConfig.LocalApiUrl + '/';
+        this.baseUrl = GlobalConfig.ApiUrl + '/';
       }else{
         this.baseUrl = GlobalConfig.ApiUrl + '/';
       }
@@ -69,8 +69,8 @@ export class CommonService {
 
   get(url: string): Observable<any> {    
     
-   //var response = this._http.get(this.baseUrl + url, this.getHeader()).pipe(map(data => <any>data.json()),
-   var response = this._http.get( url, this.getHeader()).pipe(map(data => <any>data.json()),
+   var response = this._http.get(this.baseUrl + url, this.getHeader()).pipe(map(data => <any>data.json()),
+   //var response = this._http.get( url, this.getHeader()).pipe(map(data => <any>data.json()),
     catchError(this.handleError('getData')));  
     return response;
   }
