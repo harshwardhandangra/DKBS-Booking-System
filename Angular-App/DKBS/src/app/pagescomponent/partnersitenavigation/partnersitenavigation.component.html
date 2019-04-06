@@ -1,87 +1,86 @@
 <div id="logo-container">
-  <a routerLink="/" id="logo-img">
-    <!--<img src="img/logo.png" class="big-logo" alt="logo">-->
-<img src=" https://dkbs.dk/wp-content/themes/dkbs-new/assets/images/DKBSlogo_new.png" class="big-logo" alt="logo">
-   
- 
-  </a>
+    <a routerLink="/" id="logo-img">
+        <!--<img src="img/logo.png" class="big-logo" alt="logo">-->
+        <img src=" https://dkbs.dk/wp-content/themes/dkbs-new/assets/images/DKBSlogo_new.png" class="big-logo" alt="logo">
+    </a>
 </div>
-
 <div id="sidebar">
     <div class="sidebar_scroll">
-      <ul class="nav lg-menu" id="main-nav">
-      
-  
-  
-      <li><a href="javascript:void(0)"> <i class="fa fa-book"></i> <span>Active Cases</span> <i
-          class="pull-right has-submenu fa fa-angle-right">
-        </i></a>
-        <ul class="nav nav-submenu submenu-hidden">
-        <li><a routerLink="/allpartners"> <i class="fa fa-user"></i> <span>Inbox</span></a>       
-        </li>  
-        <li><a routerLink="/allpartners"> <i class="fa fa-user"></i> <span>Awaiting the Customer's</span></a>       
-        </li>
-        <li><a routerLink="/allpartners"> <i class="fa fa-user"></i> <span>Awaiting Holding</span></a>       
-        </li>
-      </ul>
-  
-      <li><a href="javascript:void(0)"> <i class="fa fa-book"></i> <span>Not Active Cases</span> <i
-        class="pull-right has-submenu fa fa-angle-right">
-      </i></a>
-      <ul class="nav nav-submenu submenu-hidden">
-      <li><a routerLink="/allpartners"> <i class="fa fa-user"></i> <span>No Answer</span></a>       
-      </li>  
-      <li><a routerLink="/allpartners"> <i class="fa fa-user"></i> <span>Lost cases</span></a>       
-      </li>
-      <li><a routerLink="/allpartners"> <i class="fa fa-user"></i> <span>Cases Held</span></a>       
-      </li>
-      <li><a routerLink="/allpartners"> <i class="fa fa-user"></i> <span>Referred cases</span></a>       
-      </li>
-    </ul>
-  
-         <li><a href="javascript:void(0)"> <i class="fa fa-book"></i> <span>Partner Information</span> <i
-              class="pull-right has-submenu fa fa-angle-right"></i></a>
-          <ul class="nav nav-submenu submenu-hidden">
-            <li><a routerLink="/PartnerEmployee"> <i class="fa fa-user"></i> <span>Partner-Employee</span></a>       
+        <ul class="nav lg-menu" id="main-nav">
+            <li>
+                <a (click)="submenu1=!submenu1"><i class="fa fa-book"></i><span>Active Cases</span><i class="pull-right has-submenu fa fa-angle-right"></i>
+                </a>
+                <ul class="nav nav-submenu" *ngIf="submenu1">
+                    <li>
+                        <a routerLink="/Partneractivecases"><i class="fa fa-user"></i><span>Inbox</span></a>
+                    </li>
+                    <li>
+                        <a routerLink="/Partneractivecases"><i class="fa fa-user"></i><span>Awaiting the Customer's</span></a>
+                    </li>
+                    <li>
+                        <a routerLink="/Partneractivecases"><i class="fa fa-user"></i><span>Awaiting Holding</span></a>
+                    </li>
+                </ul>
             </li>
-      
-            <li><a routerLink="/Centerinnumbers"> <i class="fa fa-user"></i> <span>Center in numbers</span></a>       
+            <li>
+                <a (click)="submenu2=!submenu2"><i class="fa fa-book"></i><span>Not Active Cases</span><i class="pull-right has-submenu fa fa-angle-right"></i></a>
+                <ul class="nav nav-submenu" *ngIf="submenu2">
+                    <li>
+                        <a routerLink="/Partneractivecases"><i class="fa fa-user"></i> <span>No Answer</span></a>
+                    </li>
+                    <li>
+                        <a routerLink="/Partneractivecases"><i class="fa fa-user"></i> <span>Lost cases</span></a>
+                    </li>
+                    <li>
+                        <a routerLink="/Partneractivecases"><i class="fa fa-user"></i> <span>Cases Held</span></a>
+                    </li>
+                    <li>
+                        <a routerLink="/Partneractivecases"><i class="fa fa-user"></i> <span>Referred cases</span></a>
+                    </li>
+                </ul>
             </li>
-            
-            <li><a routerLink="/Centerdescription"> <i class="fa fa-user"></i> <span>Center Description</span></a>       
+            <li>
+                <a (click)="submenu3=!submenu3"><i class="fa fa-book"></i><span>Partner Information</span><i class="pull-right has-submenu fa fa-angle-right"></i></a>
+                <ul class="nav nav-submenu" *ngIf="submenu3">
+                    <li>
+                        <a routerLink="/PartnerEmployee"><i class="fa fa-user"></i><span>Partner-Employee</span></a>
+                    </li>
+                    <li>
+                        <a routerLink="/Centerinnumbers"><i class="fa fa-user"></i><span>Center in numbers</span></a>
+                    </li>
+                    <li>
+                        <a routerLink="/Centerdescription"><i class="fa fa-user"></i><span>Center Description</span></a>
+                    </li>
+                    <li>
+                        <a routerLink="/Centerpremise"><i class="fa fa-user"></i> <span>Center Premises in numbers</span></a>
+                    </li>
+                    <li>
+                        <a routerLink="/Couserpackageprice"><i class="fa fa-user"></i> <span>Course packages & price</span></a>
+                    </li>
+                </ul>
             </li>
-      
-            <li><a routerLink="/Centerpremise"> <i class="fa fa-user"></i> <span>Center Premises in numbers</span></a>       
+            <li>
+                <a (click)="submenu4=!submenu4"><i class="fa fa-book"></i><span>Intranet</span><i class="pull-right has-submenu fa fa-angle-right"></i></a>
+                <ul class="nav nav-submenu" *ngIf="submenu4">
+                    <li>
+                        <a href="javascript:void(0)"> <i class="fa fa-user"></i> <span>Agreements & Documents</span></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)"> <i class="fa fa-user"></i> <span>News</span></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)"> <i class="fa fa-user"></i> <span>Communication Forums</span></a>
+                    </li>
+                </ul>
             </li>
-      
-            <li><a routerLink="/Couserpackageprice"> <i class="fa fa-user"></i> <span>Course packages & price</span></a>       
-            </li>
-          </ul>
-        </li> 
-        <li><a href="javascript:void(0)"> <i class="fa fa-book"></i> <span>Intranet</span> <i
-          class="pull-right has-submenu fa fa-angle-right">
-        </i></a>
-        <ul class="nav nav-submenu submenu-hidden">
-        <li><a routerLink="/allpartners"> <i class="fa fa-user"></i> <span>Agreements & Documents</span></a>       
-        </li>  
-        <li><a routerLink="/allpartners"> <i class="fa fa-user"></i> <span>News</span></a>       
-        </li>
-        <li><a routerLink="/allpartners"> <i class="fa fa-user"></i> <span>Communication Forums</span></a>       
-        </li>        
-      </ul>
-  
-        <li><a routerLink="/allpartners"> <i class="fa fa-user"></i> <span>All Partners List</span></a>
-        </li>
-        <li><a routerLink="/Partnerlistsite"> <i class="fa fa-user"></i> <span>Partner list site</span></a>       
-        </li>
-      </ul>
+        </ul>
     </div>
-  
-  </div>
+
+</div>
 
 
 <div class="collapsebtn">
-  <a class="navbar-brand show-hide-sidebar hide-sidebar" href="#"><i class="fa fa-angle-double-left"></i> Collapse
+    <a class="navbar-brand show-hide-sidebar hide-sidebar" href="#"><i class="fa fa-angle-double-left"></i> Collapse
     sidebar</a>
-  <a class="navbar-brand show-hide-sidebar show-sidebar" href="#"><i class="fa fa-angle-double-right"></i></a>
+    <a class="navbar-brand show-hide-sidebar show-sidebar" href="#"><i class="fa fa-angle-double-right"></i></a>
 </div>

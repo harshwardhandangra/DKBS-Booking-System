@@ -1,152 +1,121 @@
 <div id="logo-container">
-  <a routerLink="/" id="logo-img">
-    <!--<img src="img/logo.png" class="big-logo" alt="logo">-->
-<img src=" https://dkbs.dk/wp-content/themes/dkbs-new/assets/images/DKBSlogo_new.png" class="big-logo" alt="logo">
-   
- 
-  </a>
+    <a routerLink="/" id="logo-img">
+        <!--<img src="img/logo.png" class="big-logo" alt="logo">-->
+        <img src=" https://dkbs.dk/wp-content/themes/dkbs-new/assets/images/DKBSlogo_new.png" class="big-logo" alt="logo">
+    </a>
 </div>
-
 <div id="sidebar">
-  <div class="sidebar_scroll">
-    <ul class="nav lg-menu" id="main-nav">
-      <li><a routerLink="/"> <i class="fa fa-users"></i> <span>Booking</span></a>
-      </li>
-    
+    <div class="sidebar_scroll">
+        <ul class="nav lg-menu" id="main-nav">
+            <!-- <li>
+                <a routerLink="/"> <i class="fa fa-users"></i> <span>Booking</span></a>
+            </li> -->
+            <li>
+                <a href="javascript:void(0)"> <i class="fa fa-envelope-o"></i> <span>unread mails (0)</span></a>
+            </li>
+            <li>
+                <a href="javascript:void(0)"> <i class="fa fa-envelope"></i> <span>unreceived mails (0)</span></a>
+            </li>
+            <li>
+                <a routerLink="/allcases"> <i class="fa fa-users"></i> <span>all cases</span></a>
+            </li>
+            <li>
+                <a href="javascript:void(0)"> <i class="fa fa-bar-chart"></i> <span>since 1 january 2016</span></a>
+            </li>
+            <li>
+                <a href="javascript:void(0)"> <i class="fa fa-bar-chart"></i> <span>since 1 january 2017</span></a>
+            </li>
+            <li>
+                <a href="javascript:void(0)"> <i class="fa fa-bar-chart"></i> <span>since 1 january 2018</span></a>
+            </li>
+            <li>
+                <a (click)="submenu1=!submenu1"> <i class="fa fa-book"></i> <span>Malou (0)</span> <i class="pull-right has-submenu fa fa-angle-right"></i></a>
+                <ul class="nav nav-submenu" *ngIf="submenu1">
+                    <li>
+                        <a href="javascript:void(0)"> <i class="fa fa-user"></i> <span>Malous's location (0)</span></a>
+                    </li>
 
-      <li><a routerLink="/allcases"> <i class="fa fa-envelope-o"></i> <span>unread mails</span></a>
-      </li>
-      <li><a routerLink="/allcases"> <i class="fa fa-envelope"></i> <span>unreceived mails</span></a>
-      </li>
+                    <li>
+                        <a href="javascript:void(0)"> <i class="fa fa-user"></i> <span>Malous unread mails (0)</span></a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0)"> <i class="fa fa-user"></i> <span>Mette (0)</span></a>
+            </li>
+            <li>
+                <a (click)="submenu2=!submenu2"> <i class="fa fa-users"></i> <span>Partners Statistics</span> <i class="pull-right has-submenu fa fa-angle-right"></i></a>
+                <ul class="nav nav-submenu" *ngIf="submenu2">
+                    <li>
+                        <a href="javascript:void(0)"> <i class="fa fa-user"></i> <span>Mettes's Placed (0)</span></a>
+                    </li>
 
-      <li><a href="javascript:void(0)"> <i class="fa fa-users"></i> <span>all cases</span> <i
-        class="pull-right has-submenu fa fa-angle-right"></i></a>
-      <ul class="nav nav-submenu submenu-hidden">
-      <li><a routerLink="/allcases"> <i class="fa fa-bar-chart"></i> <span>since 1 january 2016</span></a>       
-      </li>
+                    <li>
+                        <a href="javascript:void(0)"> <i class="fa fa-user"></i> <span>Mettes unread mails (0)</span></a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a (click)="submenu3=!submenu3"> <i class="fa fa-book"></i> <span>Christina (0)</span> <i class="pull-right has-submenu fa fa-angle-right"></i></a>
+                <ul class="nav nav-submenu" *ngIf="submenu3">
+                    <li>
+                        <a href="javascript:void(0)"> <i class="fa fa-user"></i> <span>Christina Placed (0)</span></a>
+                    </li>
 
-      <li><a routerLink="/allcases"> <i class="fa fa-bar-chart"></i> <span>since 1 january 2017</span></a>       
-      </li>
-      
-      <li><a routerLink="/allcases"> <i class="fa fa-bar-chart"></i> <span>since 1 january 2018</span></a>       
-      </li>     
-    </ul>
+                    <li>
+                        <a href="javascript:void(0)"> <i class="fa fa-user"></i> <span>Christina unread mails (0)</span></a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a (click)="submenu4=!submenu4"> <i class="fa fa-book"></i> <span>Yvonne (0)</span> <i class="pull-right has-submenu fa fa-angle-right"></i></a>
+                <ul class="nav nav-submenu" *ngIf="submenu4">
+                    <li>
+                        <a href="javascript:void(0)"> <i class="fa fa-user"></i> <span>Yvonne Placed (0)</span></a>
+                    </li>
 
-    <li><a href="javascript:void(0)"> <i class="fa fa-book"></i> <span>Malou</span> <i
-      class="pull-right has-submenu fa fa-angle-right"></i></a>
-    <ul class="nav nav-submenu submenu-hidden">
-    <li><a routerLink="/allcases"> <i class="fa fa-user"></i> <span>Malous's location</span></a>       
-    </li>
+                    <li>
+                        <a href="javascript:void(0)"> <i class="fa fa-user"></i> <span>Yvonne unread mails (0)</span></a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a (click)="submenu5=!submenu5"> <i class="fa fa-clock-o"></i> <span>Provision Statements</span> <i class="pull-right has-submenu fa fa-angle-right"></i></a>
+                <ul class="nav nav-submenu" *ngIf="submenu5">
+                    <li>
+                        <a routerLink="/Awaitingpartner"> <i class="fa fa-clock-o"></i> <span>Awaiting Partners</span></a>
+                    </li>
 
-    <li><a routerLink="/allcases"> <i class="fa fa-user"></i> <span>Malous unread mails</span></a>       
-    </li>
-  </ul>
+                    <li>
+                        <a routerLink="/AwaitingDKBS"> <i class="fa fa-clock-o"></i> <span>Awaiting DKBS</span></a>
+                    </li>
 
-  <li><a routerLink="/allcases"> <i class="fa fa-user"></i> <span>Mette</span></a>
-  </li>
-
-  <li><a href="javascript:void(0)"> <i class="fa fa-users"></i> <span>Partners</span> <i
-    class="pull-right has-submenu fa fa-angle-right"></i></a>
-  <ul class="nav nav-submenu submenu-hidden">
-  <li><a routerLink="/allcases"> <i class="fa fa-user"></i> <span>Mettes's Placed</span></a>       
-  </li>
-
-  <li><a routerLink="/allcases"> <i class="fa fa-user"></i> <span>Mettes unread mails</span></a>       
-  </li>
-
-  <li><a href="javascript:void(0)"> <i class="fa fa-book"></i> <span>Christina</span> <i
-    class="pull-right has-submenu fa fa-angle-right"></i></a>
-  <ul class="nav nav-submenu submenu-hidden">
-  <li><a routerLink="/allcases"> <i class="fa fa-user"></i> <span>Christina Placed</span></a>       
-  </li>
-
-  <li><a routerLink="/allcases"> <i class="fa fa-user"></i> <span>Christina unread mails</span></a>       
-  </li>
-</ul>
-
-<li><a href="javascript:void(0)"> <i class="fa fa-book"></i> <span>Yvonne</span> <i
-  class="pull-right has-submenu fa fa-angle-right"></i></a>
-<ul class="nav nav-submenu submenu-hidden">
-<li><a routerLink="/allcases"> <i class="fa fa-user"></i> <span>Yvonne Placed</span></a>       
-</li>
-
-<li><a routerLink="/allcases"> <i class="fa fa-user"></i> <span>Yvonne unread mails</span></a>       
-</li>
-</ul>
-</ul>
-
-<li><a href="javascript:void(0)"> <i class="fa fa-clock-o"></i> <span>Provision Statements</span> <i
-  class="pull-right has-submenu fa fa-angle-right"></i></a>
-<ul class="nav nav-submenu submenu-hidden">
-<li><a routerLink="/Awaitingpartner"> <i class="fa fa-clock-o"></i> <span>Awaiting Partners</span></a>       
-</li>
-
-<li><a routerLink="/AwaitingDKBS"> <i class="fa fa-clock-o"></i> <span>Awaiting DKBS</span></a>       
-</li>
-
-<li><a routerLink="/Awaitingeconomy"> <i class="fa fa-clock-o"></i> <span>Awaiting Economy</span></a>       
-</li>
-
-
-</ul>
-</li> 
-
-  <li><a routerLink="/allcases"> <i class="fa fa-space-shuttle"></i> <span>Booking</span></a>
-  </li>
-  <li><a routerLink="/allcases"> <i class="fa fa-thumbs-o-up"></i> <span>Approvals</span></a>
-  </li>
-  <li><a routerLink="/allcases"> <i class="fa fa-exchange"></i> <span>Procedure activity</span></a>
-  </li>
-  <li><a routerLink="/allcases"> <i class="fa fa-eye"></i> <span>Custom views</span></a>
-  </li>
-  <li><a routerLink="/allcases"> <i class="fa fa-user-secret"></i> <span>Commision</span></a>
-  </li>
-
-      <!-- <li><a routerLink="/allcases"> <i class="fa fa-user"></i> <span>Booking All Cases</span></a>
-      </li> -->0
-      <!-- <li><a routerLink="/PartnerDashboard"> <i class="fa fa-user"></i> <span>Partner Dashboard</span></a>
-      </li> -->
-      <!-- <li><a routerLink="/allpartners"> <i class="fa fa-user"></i> <span>All Partners List</span></a>
-      </li> -->
-      <li><a routerLink="/servicecatalog"> <i class="fa fa-user"></i> <span>Service Catalog</span></a>
-      </li>
-      <li><a routerLink="/EmailCompose"> <i class="fa fa-user"></i> <span>Compose Email</span></a>
-      </li>
-      <li><a routerLink="/SendReferral"> <i class="fa fa-user"></i> <span>Send Referral</span></a>
-       
-      </li>
-
-      <!-- <li><a routerLink="/Partnerlistsite"> <i class="fa fa-user"></i> <span>Partner list site</span></a>
-       
-      </li> -->
-      
-     
-       <!-- <li><a href=""> <i class="fa fa-book"></i> <span>Partner Information</span> <i
-            class="pull-right has-submenu fa fa-angle-right"></i></a>
-        <ul class="nav nav-submenu submenu-hidden">
-          <li><a routerLink="PartnerEmployee"> <i class="fa fa-user"></i> <span>Partner-Employee</span></a>       
-          </li>
-    
-          <li><a routerLink="Centerinnumbers"> <i class="fa fa-user"></i> <span>Center in numbers</span></a>       
-          </li>
-          
-          <li><a routerLink="Centerdescription"> <i class="fa fa-user"></i> <span>Center Description</span></a>       
-          </li>
-    
-          <li><a routerLink="Centerpremise"> <i class="fa fa-user"></i> <span>Center Premises in numbers</span></a>       
-          </li>
-    
-          <li><a routerLink="Couserpackageprice"> <i class="fa fa-user"></i> <span>Course packages & price</span></a>       
-          </li>
+                    <li>
+                        <a routerLink="/Awaitingeconomy"> <i class="fa fa-clock-o"></i> <span>Awaiting Economy</span></a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0)"> <i class="fa fa-space-shuttle"></i> <span>Booking</span></a>
+            </li>
+            <li>
+                <a href="javascript:void(0)"> <i class="fa fa-thumbs-o-up"></i> <span>Approvals</span></a>
+            </li>
+            <li>
+                <a href="javascript:void(0)"> <i class="fa fa-exchange"></i> <span>Procedure activity</span></a>
+            </li>
+            <li>
+                <a href="javascript:void(0)"> <i class="fa fa-eye"></i> <span>Custom views</span></a>
+            </li>
+            <li>
+                <a href="javascript:void(0)"> <i class="fa fa-user-secret"></i> <span>Commision</span></a>
+            </li>
         </ul>
-      </li>  -->
-    
-    </ul>
-  </div>
+    </div>
 
 </div>
 <div class="collapsebtn">
-  <a class="navbar-brand show-hide-sidebar hide-sidebar" href="javascript:void(0)"><i class="fa fa-angle-double-left"></i> Collapse
+    <a class="navbar-brand show-hide-sidebar hide-sidebar" href="javascript:void(0)"><i class="fa fa-angle-double-left"></i> Collapse
     sidebar</a>
-  <a class="navbar-brand show-hide-sidebar show-sidebar" href="javascript:void(0)"><i class="fa fa-angle-double-right"></i></a>
+    <a class="navbar-brand show-hide-sidebar show-sidebar" href="javascript:void(0)"><i class="fa fa-angle-double-right"></i></a>
 </div>
