@@ -13,14 +13,14 @@ export class ZipcodeService {
 
    GetAllZipCodes(): any {
   //  var url ='https://my.api.mockaroo.com/ZipCode.json?key=60e50c10';
-    var url =' http://dkbs-api-dev.azurewebsites.net/choice/regions';
+    var url =' https://dkbs-api-dev.azurewebsites.net/choice/regions';
    
     return this.commonService.get(url);
   }
 
   GetAllcontactpersons(): any {
     //  var url ='https://my.api.mockaroo.com/ZipCode.json?key=60e50c10';
-      var url =' http://dkbs-api-dev.azurewebsites.net/choice/regions';
+      var url =' https://dkbs-api-dev.azurewebsites.net/choice/regions';
      
       return this.commonService.get(url);
     }
