@@ -28,8 +28,8 @@ export class StateprovinanceService {
   }
 
   GetAllLeadOrigin(): any {
-    var url ='https://dkbs-api-dev.azurewebsites.net/choice/leadoforigins';
-    //var url =' https://dkbs-api-dev.azurewebsites.net/choice/regions';
+    //var url ='http://dkbs-api-dev.azurewebsites.net/choice/leadoforigins';
+    var url ='https://dkbs-api-dev.azurewebsites.net/choice/regions';
     return this.commonService.get(url);
   }
 
