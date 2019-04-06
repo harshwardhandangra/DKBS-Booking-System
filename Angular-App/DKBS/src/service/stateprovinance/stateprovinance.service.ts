@@ -12,13 +12,12 @@ export class StateprovinanceService {
 
   
   GetAllStateProvinance(): any {
-    //var url ='https://my.api.mockaroo.com/regions.json?key=60e50c10';
-    var url =' https://dkbs-api-dev.azurewebsites.net/choice/regions';
+    var url = '/choice/regions';
     return this.commonService.get(url);
   }
 
   GetAllPartnerType(): any {
-    var url ='https://dkbs-api-dev.azurewebsites.net/choice/partnertypes';
+    var url = '/choice/partnertypes';
     return this.commonService.get(url);
   }
 
@@ -28,8 +27,7 @@ export class StateprovinanceService {
   }
 
   GetAllLeadOrigin(): any {
-    //var url ='http://dkbs-api-dev.azurewebsites.net/choice/leadoforigins';
-    var url ='https://dkbs-api-dev.azurewebsites.net/choice/regions';
+    var url = '/choice/leadoforigins';
     return this.commonService.get(url);
   }
 

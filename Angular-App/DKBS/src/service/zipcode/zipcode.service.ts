@@ -12,16 +12,12 @@ export class ZipcodeService {
    }
 
    GetAllZipCodes(): any {
-  //  var url ='https://my.api.mockaroo.com/ZipCode.json?key=60e50c10';
-    var url =' https://dkbs-api-dev.azurewebsites.net/choice/regions';
-   
+       var url = '/choice/regions';
     return this.commonService.get(url);
   }
 
   GetAllcontactpersons(): any {
-    //  var url ='https://my.api.mockaroo.com/ZipCode.json?key=60e50c10';
-      var url =' https://dkbs-api-dev.azurewebsites.net/choice/regions';
-     
-      return this.commonService.get(url);
+      var url = '/choice/regions';
+    return this.commonService.get(url);
     }
 }
