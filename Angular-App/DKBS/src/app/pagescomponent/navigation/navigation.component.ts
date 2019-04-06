@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
   selectedwallet = 'Kundeoplysniger';
-  submenu: number;
+  submenu1: boolean;
+  submenu2: boolean;
+  submenu3: boolean;
+  submenu4: boolean;
+  submenu5: boolean;
   constructor() { }
 
   ngOnInit() {

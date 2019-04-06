@@ -1,120 +1,120 @@
-<app-navigation></app-navigation>
+<app-partnersitenavigation></app-partnersitenavigation>
 <main id="playground">
-  <app-header></app-header>
-  <section class="content-area">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-12 dbkstabs">
-          <!-- <ul class=" nav nav-tabs" role="tablist">
+    <app-header></app-header>
+    <section class="content-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 dbkstabs">
+                    <!-- <ul class=" nav nav-tabs" role="tablist">
             <li [class]="selectedwallet === 'Kundeoplysniger'?'active':'inactive'"><a
                 (click)="selectedwallet = 'Kundeoplysniger'" class="nav-link">Partner Details</a></li>
            
           </ul> -->
-          <!-- Tab panes -->
-          <div class="tab-content">
-            <div role="tabpanel">
-              <form class="formbox">
-                <h4 class="pull-left">Then Referral
-                </h4>
-               
-                <div class="clearfix"></div>
-                <hr class="style2">
-                <div class="form-group">
-                  <label class="col-form-label">Business Name *</label>
-                  <input type="text" class="form-control txtsize">
-                  
-                </div>
-                <div class="form-group">
-                  <label class="col-form-label">Contact *</label>
-                  <input type="text" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label class="col-form-label">Email *</label>
-                  <input type="text" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label class="col-form-label">Phone *</label>
-                  <input type="text" class="form-control">
-                </div>
-              
-                <div class="form-group">
-                  <label class="col-form-label">Mobile Phone</label>
-                  <input type="text" class="form-control">
-                </div>
-                <h4 class="pull-left">Details
-                </h4>
-                <div class="form-group">
-                  <label class="col-form-label">Arrival</label>
-                  <div class="datetimediv">
-                    <input type="text" bsDatepicker class="form-control dpicker" autocomplete="off" />
-                    <timepicker [formControlName]="'myControl'" class="widthtimepicker"></timepicker>
-                  </div>
-                  <div class="clear"></div>
-                </div>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel">
+                            <form class="formbox">
+                                <h4 class="pull-left">Then Referral
+                                </h4>
 
-                <div class="form-group">
-                  <label class="col-form-label">Departure</label>
-                  <div class="datetimediv">
-                    <input type="text" bsDatepicker class="form-control dpicker" autocomplete="off" />
-                    <timepicker [formControlName]="'myControl'" class="widthtimepicker"></timepicker>
-                  </div>
-                  <div class="clear"></div>
-                </div>
-                <div class="clearfix"></div>
-                <hr class="style2">
-            
-                <div class="form-group">
-                  <label class="col-form-label">Number of Participants</label>
-                  <input type="text" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label class="col-form-label">Table setting in plenary</label>
-                  <select id="inputState" class="form-control txtsize">
+                                <div class="clearfix"></div>
+                                <hr class="style2">
+                                <div class="form-group">
+                                    <label class="col-form-label">Business Name *</label>
+                                    <input type="text" class="form-control txtsize">
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-form-label">Contact *</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-form-label">Email *</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-form-label">Phone *</label>
+                                    <input type="text" class="form-control">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-form-label">Mobile Phone</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <h4 class="pull-left">Details
+                                </h4>
+                                <div class="form-group">
+                                    <label class="col-form-label">Arrival</label>
+                                    <div class="datetimediv">
+                                        <input type="text" bsDatepicker class="form-control dpicker" autocomplete="off" />
+                                        <timepicker [formControlName]="'myControl'" class="widthtimepicker"></timepicker>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-form-label">Departure</label>
+                                    <div class="datetimediv">
+                                        <input type="text" bsDatepicker class="form-control dpicker" autocomplete="off" />
+                                        <timepicker [formControlName]="'myControl'" class="widthtimepicker"></timepicker>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <hr class="style2">
+
+                                <div class="form-group">
+                                    <label class="col-form-label">Number of Participants</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-form-label">Table setting in plenary</label>
+                                    <select id="inputState" class="form-control txtsize">
                     <option selected="selected">Choose...</option>
                     <option>...</option>
                   </select>
-                </div>     
+                                </div>
 
-                <div class="form-group">
-                  <label class="col-form-label">Rooms</label>
-                  <div class="width80per">
-                    <div class="row">
-                      <div class="col-sm-6 ">
-                        <label>No of Single Rooms:</label>
-                        <input type="text" class="form-control InlineInput">
-                      </div>
-                      <div class="col-sm-6 ">
-                        <label>No of Double Rooms: </label>
-                        <input type="text" class="form-control InlineInput">
-                      </div>
+                                <div class="form-group">
+                                    <label class="col-form-label">Rooms</label>
+                                    <div class="width80per">
+                                        <div class="row">
+                                            <div class="col-sm-6 ">
+                                                <label>No of Single Rooms:</label>
+                                                <input type="text" class="form-control InlineInput">
+                                            </div>
+                                            <div class="col-sm-6 ">
+                                                <label>No of Double Rooms: </label>
+                                                <input type="text" class="form-control InlineInput">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-form-label">Additional Request/Comments</label>
+                                    <textarea class="form-control" rows="5" id="comment"></textarea>
+
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="col-form-label">Refers</label>
+                                    <select id="inputState" class="form-control txtsize">
+                    <option selected="selected">Choose...</option>
+                    <option>...</option>
+                  </select>
+                                </div>
+                                <div class="form-group mtop40 text-right">
+                                    <button type="submit" class="btn btn-danger mright50">Save</button>
+                                    <button type="submit" class="btn btn-success mright50">Save and Draft</button>
+                                    <button type="submit" class="btn btn-dark">Cancel</button>
+                                </div>
+                                <br>
+                            </form>
+                        </div>
                     </div>
-                  </div>
                 </div>
-                <div class="form-group">
-                  <label class="col-form-label">Additional Request/Comments</label>
-                  <textarea class="form-control" rows="5" id="comment"></textarea>
-               
-                </div>
-
-
-                <div class="form-group">
-                  <label class="col-form-label">Refers</label>
-                  <select id="inputState" class="form-control txtsize">
-                    <option selected="selected">Choose...</option>
-                    <option>...</option>
-                  </select>
-                </div>  
-                <div class="form-group mtop40 text-right">
-                  <button type="submit" class="btn btn-danger mright50">Save</button>
-                  <button type="submit" class="btn btn-success mright50">Save and Draft</button>
-                  <button type="submit" class="btn btn-dark">Cancel</button>
-              </div>
-                <br>   
-              </form>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 </main>
