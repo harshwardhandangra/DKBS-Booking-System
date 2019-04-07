@@ -25,30 +25,31 @@ import { AwaitingDKBSComponent } from './pages/agent/booking/provision/awaiting-
 import { AwaitingeconomyComponent } from './pages/agent/booking/provision/awaitingeconomy/awaitingeconomy.component';
 
 const routes: Routes = [
-  { path:'', component:BookinglistComponent},
-  { path:'newbooking', component:CreatebookingComponent},
-  { path:'bookingdetails', component:BookingdetailsComponent}, 
-  { path:'customerbooking', component:CustomerbookingComponent},
-  { path:'allcases', component:AllcasesComponent},
-  { path:'PartnerDashboard', component:DashboardComponent},
-  { path:'allpartners', component:AllPartnersComponent},
-  { path:'partnerlist', component:PartnerlistComponent},
-  { path:'servicecatalog', component:ServicecatalogComponent},
-  { path:'Addpartner', component:AddpartnerComponent},
-  { path:'Addservicecatalog',component:AddservicecatalogComponent},
-  { path:'Partneractivecases',component:PartnercasesComponent},
-  { path:'SendReferral', component:SendreferralComponent},
-  { path:'EmailCompose', component:ComposeemailComponent},
-  { path:'Partnerlistsite', component:PartnerlistsiteComponent},
-  { path:'PartnerEmployee', component:EmployeeComponent},
-  { path:'Centerinnumbers', component:CenterinnumbersComponent},
-  { path:'Centerdescription', component:CenterdescriptionComponent},
-  { path:'Centerpremise', component:CenterpremiseComponent},
-  { path:'Couserpackageprice', component:CouserpackagepriceComponent},
-  { path:'Awaitingpartner', component:AwaitingpartnerComponent},
-  { path:'AwaitingDKBS', component:AwaitingDKBSComponent},
-  { path:'Awaitingeconomy', component:AwaitingeconomyComponent}
-  
+  { path: '', component: BookinglistComponent },
+  { path: 'newbooking', component: CreatebookingComponent },
+  { path: 'bookingdetails', component: BookingdetailsComponent },
+  { path: 'customerbooking', component: CustomerbookingComponent },
+  { path: 'allcases', component: AllcasesComponent },
+  { path: 'PartnerDashboard', component: DashboardComponent },
+  { path: 'allpartners', component: AllPartnersComponent },
+  { path: 'partnerlist', component: PartnerlistComponent },
+  { path: 'servicecatalog', component: ServicecatalogComponent },
+  { path: 'Addpartner', component: AddpartnerComponent },
+  { path: 'Addservicecatalog', component: AddservicecatalogComponent },
+  { path: 'Partneractivecases', component: PartnercasesComponent },
+  { path: 'SendReferral', component: SendreferralComponent },
+  { path: 'EmailCompose', component: ComposeemailComponent },
+  { path: 'Partnerlistsite', component: PartnerlistsiteComponent },
+  { path: 'PartnerEmployee', component: EmployeeComponent },
+  { path: 'Centerinnumbers', component: CenterinnumbersComponent },
+  { path: 'Centerdescription', component: CenterdescriptionComponent },
+  { path: 'Centerpremise', component: CenterpremiseComponent },
+  { path: 'Couserpackageprice', component: CouserpackagepriceComponent },
+  { path: 'Awaitingpartner', component: AwaitingpartnerComponent },
+  { path: 'AwaitingDKBS', component: AwaitingDKBSComponent },
+  { path: 'Awaitingeconomy', component: AwaitingeconomyComponent },
+  { path: 'test', component: AddpartnerComponent }
+
 ];
 
 @NgModule({

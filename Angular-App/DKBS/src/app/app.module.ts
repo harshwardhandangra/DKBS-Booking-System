@@ -38,11 +38,9 @@ import { CenterdescriptionComponent } from './pages/partner/partnerinformation/c
 import { CenterpremiseComponent } from './pages/partner/partnerinformation/centerpremise/centerpremise.component';
 import { CouserpackagepriceComponent } from './pages/partner/partnerinformation/couserpackageprice/couserpackageprice.component';
 import { PartnernavigationComponent } from './pagescomponent/partnernavigation/partnernavigation.component';
-import { EmailComposeComponent } from './app/Email/email-compose/email-compose.component';
 import { AllcasesComponent } from './pages/agent/booking/allcases/allcases.component';
 import { AddzipcodeComponent } from './pages/agent/booking/modalpopup/addzipcode/addzipcode.component';
 import { PartnersitenavigationComponent } from './pagescomponent/partnersitenavigation/partnersitenavigation.component';
-import { AwaitingpartnersComponent } from './agent/booking/provision/awaitingpartners/awaitingpartners.component';
 import { AwaitingpartnerComponent } from './pages/agent/booking/provision/awaitingpartner/awaitingpartner.component';
 import { AwaitingDKBSComponent } from './pages/agent/booking/provision/awaiting-dkbs/awaiting-dkbs.component';
 import { AwaitingeconomyComponent } from './pages/agent/booking/provision/awaitingeconomy/awaitingeconomy.component';
@@ -70,7 +68,6 @@ import { AwaitingeconomyComponent } from './pages/agent/booking/provision/awaiti
     AddservicecatalogComponent,
     PartnercasesComponent,
     SendreferralComponent,
-    AddpartnerComponent,
     ComposeemailComponent,
     PartnerlistsiteComponent,
     EmployeeComponent,
@@ -80,9 +77,7 @@ import { AwaitingeconomyComponent } from './pages/agent/booking/provision/awaiti
     CouserpackagepriceComponent,
     PartnernavigationComponent,
     PartnersitenavigationComponent,
-    EmailComposeComponent,
     AllcasesComponent,
-    AwaitingpartnersComponent,
     AwaitingpartnerComponent,
     AwaitingDKBSComponent,
     AwaitingeconomyComponent
