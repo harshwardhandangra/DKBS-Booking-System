@@ -1,14 +1,13 @@
-﻿
-namespace DKBS.DTO
+﻿namespace DKBS.DTO
 {
     public class BookingReferenceDTO
     {
         public int BookingReferrenceId { get; set; }
-        public BookingDTO Booking { get; set; }
-        public int RefferId { get; set; }
-        public CampaignDTO Compign { get; set; }
+        public int BookingId { get; set; }
+        public int ContactPersonId { get; set; }
+        public int CampignId { get; set; }
        // [MaxLength(500)]
         public string Other { get; set; }
-        public LeadOfOriginDTO LeadOfOrigin { get; set; }
-    }
+        public int LeadOfOriginId { get; set; }
+    }      
 }

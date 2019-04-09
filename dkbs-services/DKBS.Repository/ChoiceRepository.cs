@@ -12,6 +12,20 @@ namespace DKBS.Repository
     public interface IChoiceRepository
     {
         void Complete();
+        List<BookingAlternativeServiceDTO> GetBookingAlternativeServices();
+        List<BookingArrangementTypeDTO> GetBookingArrangementTypes();
+        List<BookingDTO> GetBookings();
+        List<BookingReferenceDTO> GetBookingReferences();
+        List<BookingRegionDTO> GetBookingRegions();
+        List<ContactPersonDTO> GetContactPeople();
+        List<MailGroupDTO> GetMailGroups();
+        List<ParticipantTypeDTO> GetParticipantTypes();
+        List<ProcedureDTO> GetProcedures();
+        List<ProcedureInfoDTO> GetProcedureInfos();
+        List<ProcedureReviewTypeDTO> GetProcedureReviewTypes();
+        List<ProvisionDTO> GetProvisions();
+        List<BookingRoomsDTO> GetBookingRooms();
+        List<TownZipCodeDTO> GetTownZipCodes();
         List<TableSetDTO> GetTableSets();
         List<RegionDTO> GetRegions();
         List<PurposeDTO> GetPurposes();
@@ -167,6 +181,76 @@ namespace DKBS.Repository
         public List<PartnerEmployeeDTO> GetPartnerEmployees()
         {
             return _mapper.Map<List<PartnerEmployeeDTO>>(_dbContext.PartnerEmployees.ToList());
+        }
+
+        public List<BookingAlternativeServiceDTO> GetBookingAlternativeServices()
+        {
+            return _mapper.Map<List<BookingAlternativeServiceDTO>>(_dbContext.BookingAlternativeServices.ToList());
+        }
+
+        public List<BookingArrangementTypeDTO> GetBookingArrangementTypes()
+        {
+            return _mapper.Map<List<BookingArrangementTypeDTO>>(_dbContext.BookingArrangementTypes.ToList());
+        }
+
+        public List<BookingDTO> GetBookings()
+        {
+            return _mapper.Map<List<BookingDTO>>(_dbContext.Bookings.ToList());
+        }
+
+        public List<BookingReferenceDTO> GetBookingReferences()
+        {
+            return _mapper.Map<List<BookingReferenceDTO>>(_dbContext.BookingReferences.ToList());
+        }
+
+        public List<BookingRegionDTO> GetBookingRegions()
+        {
+            return _mapper.Map<List<BookingRegionDTO>>(_dbContext.BookingRegions.ToList());
+        }
+
+        public List<ContactPersonDTO> GetContactPeople()
+        {
+            return _mapper.Map<List<ContactPersonDTO>>(_dbContext.ContactPeople.ToList());
+        }
+
+        public List<MailGroupDTO> GetMailGroups()
+        {
+            return _mapper.Map<List<MailGroupDTO>>(_dbContext.MailGroups.ToList());
+        }
+
+        public List<ParticipantTypeDTO> GetParticipantTypes()
+        {
+            return _mapper.Map<List<ParticipantTypeDTO>>(_dbContext.ParticipantTypes.ToList());
+        }
+
+        public List<ProcedureDTO> GetProcedures()
+        {
+            return _mapper.Map<List<ProcedureDTO>>(_dbContext.Procedures.ToList());
+        }
+
+        public List<ProcedureReviewTypeDTO> GetProcedureReviewTypes()
+        {
+            return _mapper.Map<List<ProcedureReviewTypeDTO>>(_dbContext.ProcedureReviewTypes.ToList());
+        }
+
+        public List<ProvisionDTO> GetProvisions()
+        {
+            return _mapper.Map<List<ProvisionDTO>>(_dbContext.Provisions.ToList());
+        }
+
+        public List<BookingRoomsDTO> GetBookingRooms()
+        {
+            return _mapper.Map<List<BookingRoomsDTO>>(_dbContext.BookingRooms.ToList());
+        }
+
+        public List<TownZipCodeDTO> GetTownZipCodes()
+        {
+            return _mapper.Map<List<TownZipCodeDTO>>(_dbContext.TownZipCodes.ToList());
+        }
+
+        public List<ProcedureInfoDTO> GetProcedureInfos()
+        {
+            return _mapper.Map<List<ProcedureInfoDTO>>(_dbContext.ProcedureInfos.ToList());
         }
     }
 }

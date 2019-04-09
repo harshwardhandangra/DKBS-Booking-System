@@ -77,5 +77,38 @@ namespace DKBS.API.Controllers
             return CreatedAtRoute("GetCustomer", new { name = newlyCreatedCustomer.Name }, newlyCreatedCustomer);
         }
 
+
+        /// <summary>
+        /// Update Customer
+        /// </summary>
+        /// <param name="CustomerId"></param>
+        /// <param name="customerDTO"></param>
+        /// <returns></returns>
+        [HttpPut("{CustomerId}")]
+        public IActionResult UpdateCustomer(int CustomerId, [FromBody] CustomerDTO customerDTO)
+        {
+
+            if (ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            if (customerDTO == null)
+                return BadRequest();
+
+            var customer = _choiceRepoistory.GetCustomers().Find(c => c.CustomerId == CustomerId);
+
+            if (customer == null)
+            {
+                return BadRequest();
+            }
+
+            customer = customerDTO;
+
+            _choiceRepoistory.Complete();
+
+            return NoContent();
+        }
+
     }
 }

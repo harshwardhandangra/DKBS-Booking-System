@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DKBS.Domain
+namespace DKBS.DTO
 {
     public class PartnerEmployeeDTO
     {

@@ -68,7 +68,7 @@ namespace DKBS.API.Controllers
                 return BadRequest();
             }
 
-            ContactPerson newlyCreatedContactPerson = new ContactPerson() { Name = contactPersonDTO.Name, Department = contactPersonDTO.Department , Email = contactPersonDTO.Email, ContactPersonId = contactPersonDTO.ContactPersonId, Mobile = contactPersonDTO.Mobile, Position = contactPersonDTO.Position, Telephone = contactPersonDTO.Telephone};
+            ContactPerson newlyCreatedContactPerson = new ContactPerson() { Name = contactPersonDTO.Name, Department = contactPersonDTO.Department, Email = contactPersonDTO.Email, ContactPersonId = contactPersonDTO.ContactPersonId, Mobile = contactPersonDTO.Mobile, Position = contactPersonDTO.Position, Telephone = contactPersonDTO.Telephone };
             var destination = _mapper.Map<ContactPerson, ContactPersonDTO>(newlyCreatedContactPerson);
 
 
@@ -76,6 +76,37 @@ namespace DKBS.API.Controllers
             _choiceRepoistory.Complete();
 
             return CreatedAtRoute("GetContactPerson", new { name = newlyCreatedContactPerson.Name }, newlyCreatedContactPerson);
+        }
+
+        /// <summary>
+        /// Update Contact Person
+        /// </summary>
+        /// <param name="ContactPersonId"></param>
+        /// <param name="contactPersonDTO"></param>
+        /// <returns></returns>
+        [HttpPut("{ContactPersonId}")]
+        public IActionResult UpdateContactPerson(int ContactPersonId, [FromBody] ContactPersonDTO contactPersonDTO)
+        {
+
+            if (ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            if (contactPersonDTO == null)
+                return BadRequest();
+
+            var checkContactPersonIdinDb = _choiceRepoistory.GetContactPersons().Find(c => c.ContactPersonId == ContactPersonId);
+
+            if (checkContactPersonIdinDb == null)
+            {
+                return BadRequest();
+            }
+
+            checkContactPersonIdinDb = contactPersonDTO;
+            _choiceRepoistory.Complete();
+
+            return NoContent();
         }
     }
 }

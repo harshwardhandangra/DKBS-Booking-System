@@ -3,11 +3,11 @@
     public class BookingReference
     {
         public int BookingReferrenceId { get; set; }
-        public Booking Booking { get; set; }
-        public int RefferId { get; set; }
-        public Campaign Campign { get; set; }
+        public int BookingId { get; set; }
+        public int ContactPersonId { get; set; }
+        public int CampignId { get; set; }
        // [MaxLength(500)]
         public string Other { get; set; }
-        public LeadOfOrigin LeadOfOrigin { get; set; }
-    }
+        public int LeadOfOriginId { get; set; }
+    }      
 }

@@ -73,5 +73,36 @@ namespace DKBS.API.Controllers
 
             return CreatedAtRoute("GetPartners", new { name = newlyCreatedPartner.PartnerName }, newlyCreatedPartner);
         }
+
+        /// <summary>
+        /// Update partner
+        /// </summary>
+        /// <param name="PartnerId"></param>
+        /// <param name="partnerDTO"></param>
+        /// <returns></returns>
+        [HttpPut("{PartnerId}")]
+        public IActionResult UpdatePartner(int PartnerId, [FromBody] PartnerDTO partnerDTO)
+        {
+            if (ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            if (partnerDTO == null)
+                return BadRequest();
+
+            var partner = _choiceRepoistory.GetPartners().Find(c => c.PartnerId == PartnerId);
+
+            if (partner == null)
+            {
+                return BadRequest();
+            }
+
+            partner = partnerDTO;
+
+            _choiceRepoistory.Complete();
+            return NoContent();
+        }
+
     }
 }

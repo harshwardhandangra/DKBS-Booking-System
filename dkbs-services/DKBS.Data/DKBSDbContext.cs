@@ -56,6 +56,35 @@ namespace DKBS.Data
 
         public DbSet<PartnerEmployee> PartnerEmployees { get; set; }
 
+        public DbSet<TownZipCode> TownZipCodes { get; set; }
+
+        public DbSet<BookingRooms> BookingRooms { get; set; }
+
+        public DbSet<Provision> Provisions { get; set; }
+
+        public DbSet<ProcedureReviewType> ProcedureReviewTypes { get; set; }
+
+        public DbSet<Procedure> Procedures { get; set; }
+
+        public DbSet<ParticipantType> ParticipantTypes { get; set; }
+
+        public DbSet<MailGroup> MailGroups { get; set; }
+
+        public DbSet<ContactPerson> ContactPeople { get; set; }
+        public DbSet<BookingRegion> BookingRegions { get; set; }
+
+        public DbSet<BookingReference> BookingReferences { get; set; }
+
+        public DbSet<Booking> Bookings { get; set; }
+
+        public DbSet<BookingArrangementType> BookingArrangementTypes { get; set; }
+
+        public DbSet<BookingAlternativeService> BookingAlternativeServices { get; set; }
+        public DbSet<ProcedureInfo> ProcedureInfos { get; set; }
+
+
+
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);

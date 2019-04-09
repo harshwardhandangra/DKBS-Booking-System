@@ -242,9 +242,157 @@ namespace DKBS.API.Controllers
         /// <returns>List of partnerEmployees.</returns>
         [Route("partnerEmployees")]
         [HttpGet()]
-        public ActionResult<CancellationReasonDTO> GetPartnerEmployesss()
+        public ActionResult<PartnerEmployeeDTO> GetPartnerEmployes()
         {
             return Ok(_choiceRepoistory.GetPartnerEmployees());
         }
+
+
+        /// <summary>
+        /// Get All AlternativeService
+        /// </summary>
+        /// <returns></returns>
+        [Route("BookingAlternativeServices")]
+        [HttpGet()]
+        public ActionResult<BookingAlternativeServiceDTO> GetBookingAlternativeServices()
+        {
+            return Ok(_choiceRepoistory.GetBookingAlternativeServices());
+        }
+
+        /// <summary>
+        /// Get All AlternativeTypes
+        /// </summary>
+        /// <returns></returns>
+        [Route("BookingArrangementTypes")]
+        [HttpGet()]
+        public ActionResult<BookingArrangementTypeDTO> GetBookingArrangementTypes()
+        {
+            return Ok(_choiceRepoistory.GetBookingArrangementTypes());
+        }
+
+        /// <summary>
+        /// Get All Bookings
+        /// </summary>
+        /// <returns></returns>
+        [Route("bookings")]
+        [HttpGet()]
+        public ActionResult<BookingDTO> GetBookings()
+        {
+            return Ok(_choiceRepoistory.GetBookings());
+        }
+
+        /// <summary>
+        /// Get All BookingReferences
+        /// </summary>
+        /// <returns></returns>
+        [Route("bookingReference")]
+        [HttpGet()]
+        public ActionResult<BookingReferenceDTO> GetBookingReferences()
+        {
+            return Ok(_choiceRepoistory.GetBookingReferences());
+        }
+
+
+        /// <summary>
+        /// Get All BookingRegions
+        /// </summary>
+        /// <returns></returns>
+        [Route("bookingRegions")]
+        [HttpGet()]
+        public ActionResult<BookingRegionDTO> GetBookingRegions()
+        {
+            return Ok(_choiceRepoistory.GetBookingRegions());
+        }
+
+        /// <summary>
+        /// Get All ContactPeople
+        /// </summary>
+        /// <returns></returns>
+        [Route("contactPeople")]
+        [HttpGet()]
+        public ActionResult<ContactPersonDTO> GetContactPeople()
+        {
+            return Ok(_choiceRepoistory.GetContactPeople());
+        }
+
+        /// <summary>
+        /// Get All MailGroups
+        /// </summary>
+        /// <returns></returns>
+        [Route("mailGroups")]
+        [HttpGet()]
+        public ActionResult<MailGroupDTO> GetMailGroups()
+        {
+            return Ok(_choiceRepoistory.GetMailGroups());
+        }
+
+        /// <summary>
+        /// Get All ParticipantTypes
+        /// </summary>
+        /// <returns></returns>
+        [Route("participantTypes")]
+        [HttpGet()]
+        public ActionResult<ParticipantTypeDTO> GetParticipantTypes()
+        {
+            return Ok(_choiceRepoistory.GetParticipantTypes());
+        }
+
+        /// <summary>
+        /// Get All Procedures
+        /// </summary>
+        /// <returns></returns>
+        [Route("procedures")]
+        [HttpGet()]
+        public ActionResult<ProcedureDTO> GetProcedures()
+        {
+            return Ok(_choiceRepoistory.GetProcedures());
+        }
+
+        /// <summary>
+        /// Get All ProcedureReviewTypes
+        /// </summary>
+        /// <returns></returns>
+        [Route("procedureReviewTypes")]
+        [HttpGet()]
+        public ActionResult<ProcedureReviewTypeDTO> GetProcedureReviewTypes()
+        {
+            return Ok(_choiceRepoistory.GetProcedureReviewTypes());
+        }
+
+
+        /// <summary>
+        /// Get All Provisions
+        /// </summary>
+        /// <returns></returns>
+        [Route("provisions")]
+        [HttpGet()]
+        public ActionResult<ProvisionDTO> GetProvisions()
+        {
+            return Ok(_choiceRepoistory.GetProvisions());
+        }
+
+        /// <summary>
+        /// Get All Rooms
+        /// </summary>
+        /// <returns></returns>
+        [Route("BookingRooms")]
+        [HttpGet()]
+        public ActionResult<BookingRoomsDTO> GetBookingRooms()
+        {
+            return Ok(_choiceRepoistory.GetBookingRooms());
+        }
+
+        /// <summary>
+        /// Get All TownZipCodes
+        /// </summary>
+        /// <returns></returns>
+        [Route("townZipCodes")]
+        [HttpGet()]
+        public ActionResult<TownZipCodeDTO> GetTownZipCodes()
+        {
+            return Ok(_choiceRepoistory.GetTownZipCodes());
+        }
+
+
     }
 }

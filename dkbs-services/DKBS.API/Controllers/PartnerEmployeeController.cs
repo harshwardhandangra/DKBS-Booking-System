@@ -47,7 +47,7 @@ namespace DKBS.API.Controllers
         /// <returns></returns>
         // GET api/PartnerEmployee/{PartnerEmployee}
         [HttpPost("{Partner}")]
-        public ActionResult<IEnumerable<PartnerEmployeeDTO>> CreatePartner([FromBody] PartnerEmployeeDTO partnerEmployeeDto)
+        public ActionResult<IEnumerable<PartnerEmployeeDTO>> CreatePartnerEmployee([FromBody] PartnerEmployeeDTO partnerEmployeeDto)
         {
 
             if (ModelState.IsValid)
@@ -74,5 +74,39 @@ namespace DKBS.API.Controllers
 
             return CreatedAtRoute("GetPartnerEmployees", new { name = newlyCreatedPartnerEmployee.EmployeeName }, newlyCreatedPartnerEmployee);
         }
+
+        /// <summary>
+        /// Updating partner employess
+        /// </summary>
+        /// <param name="partnerId"></param>
+        /// <param name="partnerEmployeeDTO"></param>
+        /// <returns></returns>
+
+        [HttpPut("{partnerId}")]
+        public IActionResult UpdatePartnerEmployee(int partnerId,[FromBody] PartnerEmployeeDTO partnerEmployeeDTO)
+        {
+
+            if (partnerEmployeeDTO == null)
+                return BadRequest();
+
+            if (ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            var checkPartnerIdinDb = _choiceRepoistory.GetPartnerEmployees().Find(c => c.PartnerEmployeeId == partnerId);
+
+            if (checkPartnerIdinDb == null)
+            {
+                return BadRequest();
+            }
+
+            // TODO test it Once
+            checkPartnerIdinDb = partnerEmployeeDTO;
+            _choiceRepoistory.Complete();
+
+            return NoContent();
+        }
+
     }
 }
