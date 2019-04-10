@@ -393,6 +393,60 @@ namespace DKBS.API.Controllers
             return Ok(_choiceRepoistory.GetTownZipCodes());
         }
 
+        /// <summary>
+        /// Get All BookingAndStatuses
+        /// </summary>
+        /// <returns></returns>
+        [Route("BookingAndStatuses")]
+        [HttpGet()]
+        public ActionResult<BookingAndStatusesDTO> GetBookingAndStatuses()
+        {
+            return Ok(_choiceRepoistory.GetBookingAndStatuses());
+        }
+
+        /// <summary>
+        /// Get All ServiceCatalogs
+        /// </summary>
+        /// <returns></returns>
+        [Route("ServiceCatalogs")]
+        [HttpGet()]
+        public ActionResult<ServiceCatalogDTO> GetServiceCatalogs()
+        {
+            return Ok(_choiceRepoistory.GetServiceCatalogs());
+        }
+
+        /// <summary>
+        /// Get All ServiceRequestCommunications
+        /// </summary>
+        /// <returns></returns>
+        [Route("ServiceRequestCommunications")]
+        [HttpGet()]
+        public ActionResult<ServiceRequestCommunicationsDTO> GetServiceRequestCommunications()
+        {
+            return Ok(_choiceRepoistory.GetServiceRequestCommunications());
+        }
+
+        /// <summary>
+        /// Get All ServiceRequestNotes
+        /// </summary>
+        /// <returns></returns>
+        [Route("ServiceRequestNotes")]
+        [HttpGet()]
+        public ActionResult<ServiceRequestNotesDTO> GetServiceRequestNotes()
+        {
+            return Ok(_choiceRepoistory.GetServiceRequestNotes());
+        }
+
+        /// <summary>
+        /// Get All SRConversationItems
+        /// </summary>
+        /// <returns></returns>
+        [Route("SRConversationItems")]
+        [HttpGet()]
+        public ActionResult<SRConversationItemsDTO> GetSRConversationItems()
+        {
+            return Ok(_choiceRepoistory.GetSRConversationItems());
+        }
 
     }
 }
