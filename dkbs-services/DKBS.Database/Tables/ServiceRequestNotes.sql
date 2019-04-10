@@ -8,7 +8,7 @@
 	[PlannedEnd] NCHAR(10) NULL, 
     [CopyToCloseRemark] NCHAR(10) NULL, 
     [ScheduleAction] NCHAR(10) NULL, 
-    [LastModified] NCHAR(10) NULL, 
+    [LastModified] DATETIME NULL, 
     [LastModifiedBY] NCHAR(10) NULL
 	
 )

@@ -48,6 +48,11 @@ namespace DKBS.Repository
         List<CustomerDTO> GetCustomers();
         List<PartnerDTO> GetPartners();
         List<PartnerEmployeeDTO> GetPartnerEmployees();
+        List<BookingAndStatusesDTO> GetBookingAndStatuses();
+        List<ServiceCatalogDTO> GetServiceCatalogs();
+        List<ServiceRequestCommunicationsDTO> GetServiceRequestCommunications();
+        List<ServiceRequestNotesDTO> GetServiceRequestNotes();
+        List<SRConversationItemsDTO> GetSRConversationItems();
 
     }
 
@@ -251,6 +256,31 @@ namespace DKBS.Repository
         public List<ProcedureInfoDTO> GetProcedureInfos()
         {
             return _mapper.Map<List<ProcedureInfoDTO>>(_dbContext.ProcedureInfos.ToList());
+        }
+
+        public List<BookingAndStatusesDTO> GetBookingAndStatuses()
+        {
+            return _mapper.Map<List<BookingAndStatusesDTO>>(_dbContext.BookingAndStatuses.ToList());
+        }
+
+        public List<ServiceCatalogDTO> GetServiceCatalogs()
+        {
+            return _mapper.Map<List<ServiceCatalogDTO>>(_dbContext.ServiceCatalogs.ToList());
+        }
+
+        public List<ServiceRequestCommunicationsDTO> GetServiceRequestCommunications()
+        {
+            return _mapper.Map<List<ServiceRequestCommunicationsDTO>>(_dbContext.ServiceRequestCommunications.ToList());
+        }
+
+        public List<ServiceRequestNotesDTO> GetServiceRequestNotes()
+        {
+            return _mapper.Map<List<ServiceRequestNotesDTO>>(_dbContext.ServiceRequestNotes.ToList());
+        }
+
+        public List<SRConversationItemsDTO> GetSRConversationItems()
+        {
+            return _mapper.Map<List<SRConversationItemsDTO>>(_dbContext.SRConversationItems.ToList());
         }
     }
 }

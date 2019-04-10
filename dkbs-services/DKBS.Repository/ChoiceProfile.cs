@@ -12,6 +12,7 @@ namespace DKBS.Repository
         public ChoiceProfile()
         {
             CreateMap<BookingAlternativeService, BookingAlternativeServiceDTO>();
+            CreateMap<BookingAndStatuses, BookingAndStatusesDTO>();
             CreateMap<BookingArrangementType, BookingArrangementTypeDTO>();
             CreateMap<Booking, BookingDTO>();
             CreateMap<BookingReference, BookingReferenceDTO>();
@@ -43,6 +44,10 @@ namespace DKBS.Repository
             CreateMap<Provision, ProvisionDTO>();
             CreateMap<Purpose, PurposeDTO>();
             CreateMap<Region, RegionDTO>();
+            CreateMap<ServiceCatalog, ServiceCatalogDTO>();
+            CreateMap<ServiceRequestCommunications, ServiceRequestCommunicationsDTO>();
+            CreateMap<ServiceRequestNotes, ServiceRequestNotesDTO>();
+            CreateMap<SRConversationItems, SRConversationItemsDTO>();
             CreateMap<TableSet, TableSetDTO>();
             CreateMap<TableType, TableTypeDTO>();
             CreateMap<TownZipCode, TownZipCodeDTO>();

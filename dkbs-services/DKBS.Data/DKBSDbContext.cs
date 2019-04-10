@@ -80,8 +80,15 @@ namespace DKBS.Data
         public DbSet<BookingArrangementType> BookingArrangementTypes { get; set; }
 
         public DbSet<BookingAlternativeService> BookingAlternativeServices { get; set; }
+
         public DbSet<ProcedureInfo> ProcedureInfos { get; set; }
 
+        public DbSet<BookingAndStatuses> BookingAndStatuses { get; set; }
+
+        public DbSet<ServiceCatalog> ServiceCatalogs { get; set; }
+        public DbSet<ServiceRequestCommunications> ServiceRequestCommunications { get; set; }
+        public DbSet<ServiceRequestNotes> ServiceRequestNotes { get; set; }
+        public DbSet<SRConversationItems> SRConversationItems { get; set; }
 
 
 
