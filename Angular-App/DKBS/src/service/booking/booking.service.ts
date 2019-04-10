@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { CommonService } from '../common/common.service';
 
 @Injectable({
   providedIn: 'root'
@@ -34,8 +35,12 @@ export class BookingService {
     }
   ];
   headElements = ['ID', 'First', 'Last', 'Handle', 'PrimeCustomer'];
-  constructor() { }
+  constructor(private commonService:CommonService) {
+
+  }
   
+
+
   getBookingTask(): any{
     return this.bookingAssignmentTasks;
   }

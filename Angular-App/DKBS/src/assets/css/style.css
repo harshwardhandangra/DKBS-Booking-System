@@ -987,7 +987,8 @@ ul {
 }
 
 .dbkstabs .nav-tabs li {
-    width: 25%;
+    /* width: 25%; */
+    width: 333px;
     text-align: center;
 }
 

@@ -3,6 +3,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead/typeahead-match.class';
 import { ZipcodeService } from 'src/service/zipcode/zipcode.service';
 import { StateprovinanceService } from 'src/service/stateprovinance/stateprovinance.service';
+import { ChoiceService } from 'src/service/Choice/Choice.service';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class CreatebookingComponent implements OnInit {
   ArrivalDate = new Date();
   DepartDate = new Date();
 
-  selectedwallet = 'Kundeoplysniger';
+  selectedwallet = 'Eventdetaljer';
   dropdownList = [];
   dropdownListLeadOrigin = [];
   dropdownListforSearchType = [];
@@ -46,17 +47,7 @@ export class CreatebookingComponent implements OnInit {
     this.ArrivalDate.setDate(this.ArrivalDate.getDate() + 1);
     this.DepartDate.setDate(this.DepartDate.getDate() + 2);
 
-    // this.dropdownList = [
-    //   { item_id: 1, item_text: 'Mumbai' },
-    //   { item_id: 2, item_text: 'Bangaluru' },
-    //   { item_id: 3, item_text: 'Pune' },
-    //   { item_id: 4, item_text: 'Navsari' },
-    //   { item_id: 5, item_text: 'New Delhi' }
-    // ];
-    // this.selectedItems = [
-    //   { item_id: 3, item_text: 'Pune' },
-    //   { item_id: 4, item_text: 'Navsari' }
-    // ];
+  
     this.dropdownSettings = {
       singleSelection: false,
       idField: 'item_id',
@@ -103,7 +94,7 @@ export class CreatebookingComponent implements OnInit {
     }
     
  
-  constructor(private zipcodeService:ZipcodeService, private stateprovinanceService:StateprovinanceService,private zone: NgZone) {}
+  constructor(private zipcodeService:ZipcodeService, private stateprovinanceService:StateprovinanceService,private zone: NgZone,private choiceService:ChoiceService) {}
   GetAllZipCodes(): any {
     this.zipcodeService.GetAllZipCodes().subscribe(res => {    
      this.states=res;    
@@ -163,6 +154,11 @@ export class CreatebookingComponent implements OnInit {
   // ngOnInit() {
   // }
 
+  GetReferredbyDDL(): any {
+    this.zipcodeService.GetAllZipCodes().subscribe(res => {    
+     this.states=res;    
+     });
+   }
   setAddress(addrObj) {
     
     //We are wrapping this in a zone method to reflect the changes
