@@ -6,10 +6,11 @@
       <div class="row">
         <div class="col-md-12 dbkstabs">
           <ul class=" nav nav-tabs" role="tablist">
-            <li [class]="selectedwallet === 'Kundeoplysniger'?'active':'inactive'"><a
-                (click)="selectedwallet = 'Kundeoplysniger'" class="nav-link">Company Information</a></li>
+           
             <li [class]="selectedwallet === 'Eventdetaljer'?'active':'inactive'"><a
                 (click)="selectedwallet = 'Eventdetaljer'" class="nav-link">Event Details</a></li>
+                <li [class]="selectedwallet === 'Kundeoplysniger'?'active':'inactive'"><a
+                  (click)="selectedwallet = 'Kundeoplysniger'" class="nav-link">Company Information</a></li>
             <li [class]="selectedwallet === 'Matching'?'active':'inactive'"> <a (click)="selectedwallet = 'Matching'"
                 class="nav-link">Matching</a></li>
           </ul>
@@ -31,7 +32,7 @@
                     (typeaheadOnSelect)="onSelect($event)" [typeaheadScrollable]="true" class="form-control" name="kp" autocomplete="off">
 
                 
-                  <app-addcustomer></app-addcustomer>
+                  <!-- <app-addcustomer></app-addcustomer> -->
                 </div>
                 <!-- <div class="form-group">
                   <label class="col-form-label">Business</label>
@@ -68,7 +69,7 @@
                   <!-- <input type="text" class="form-control"> -->
                   <input [(ngModel)]="selectedValueContactPerson" [typeahead]="ContactPerson" typeaheadOptionField="name"
                     (typeaheadOnSelect)="onSelect($event)" [typeaheadScrollable]="true" class="form-control" name="ContactPerson" autocomplete="off">
-                  <app-contactperson></app-contactperson>
+                  <!-- <app-contactperson></app-contactperson> -->
                 </div>
                 <!-- <div class="form-group">
                   <label class="col-form-label">Department</label>
@@ -95,10 +96,12 @@
                 <hr class="style2">
 
                 <div class="form-group">
-                  <!-- <label class="col-form-label">Referred by</label> -->
-                  <label class="col-form-label">Searchable Lookup</label>
+                  <label class="col-form-label">Referred by</label> 
+                  <!-- <label class="col-form-label">Searchable Lookup</label> -->
                
-                  <input type="text" class="form-control">
+                  <input [(ngModel)]="selectedValuestates" [typeahead]="Referred" typeaheadOptionField="name"
+                  (typeaheadOnSelect)="onSelect($event)" [typeaheadScrollable]="true" class="form-control" name="kp" autocomplete="off">
+                  
                 </div>
 
                 <div class="form-group">
