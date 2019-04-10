@@ -33,7 +33,7 @@
                 
                   <app-addcustomer></app-addcustomer>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label class="col-form-label">Business</label>
                   <input type="text" class="form-control">
                 </div>
@@ -43,10 +43,7 @@
                 </div>
                 <div class="form-group">
                   <label class="col-form-label">Postal code, City, Country</label>
-                  <!-- <input type="text" class="form-control"> -->
-                  <!-- <input [(ngModel)]="selectedValuecompany" [typeahead]="company" typeaheadOptionField="Zipcode"
-                    (typeaheadOnSelect)="onSelect($event)" [typeaheadScrollable]="true" class="form-control"
-                    name="postal" autocomplete="off"> -->
+               
                     <input 
                     type="text"
                     class="google-place-input"
@@ -65,7 +62,7 @@
                   <app-addzipcode></app-addzipcode>
 
 
-                </div>
+                </div> -->
                 <div class="form-group">
                   <label class="col-form-label">Contact Person</label>
                   <!-- <input type="text" class="form-control"> -->
@@ -73,14 +70,14 @@
                     (typeaheadOnSelect)="onSelect($event)" [typeaheadScrollable]="true" class="form-control" name="ContactPerson" autocomplete="off">
                   <app-contactperson></app-contactperson>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label class="col-form-label">Department</label>
                   <input type="text" class="form-control">
                 </div>
                 <div class="form-group">
                   <label class="col-form-label">Position</label>
                   <input type="text" class="form-control">
-                </div>
+                </div> -->
                 <div class="form-group">
                   <label class="col-form-label">Email</label>
                   <input type="text" class="form-control">
@@ -98,7 +95,9 @@
                 <hr class="style2">
 
                 <div class="form-group">
-                  <label class="col-form-label">Referred by</label>
+                  <!-- <label class="col-form-label">Referred by</label> -->
+                  <label class="col-form-label">Searchable Lookup</label>
+               
                   <input type="text" class="form-control">
                 </div>
 
@@ -141,8 +140,8 @@
                 <div class="form-group">
                   <label class="col-form-label">Arrival</label>
                   <div class="datetimediv">
-                    <input type="text" bsDatepicker class="form-control dpicker" autocomplete="off" />
-                    <timepicker  class="widthtimepicker"></timepicker>
+                    <input type="text" [(ngModel)]="ArrivalDate" name="ArrivalDate"  bsDatepicker class="form-control dpicker" autocomplete="off" />
+                    <timepicker [(ngModel)]="mytime1" name="mytime1" class="widthtimepicker"></timepicker>
                   </div>
                   <div class="clear"></div>
                 </div>
@@ -150,8 +149,8 @@
                 <div class="form-group">
                   <label class="col-form-label">Depart</label>
                   <div class="datetimediv">
-                    <input type="text" bsDatepicker class="form-control dpicker" autocomplete="off" />
-                    <timepicker  class="widthtimepicker"></timepicker>
+                    <input type="text" [(ngModel)]="DepartDate" name="DepartDate" bsDatepicker class="form-control dpicker" autocomplete="off" />
+                    <timepicker  [(ngModel)]="mytime2" name="mytime2" class="widthtimepicker"></timepicker>
                   </div>
                   <div class="clear"></div>
                 </div>
@@ -163,48 +162,61 @@
                 </div>
                 <div class="form-group">
                   <label class="col-form-label">Internal history</label>
-                  <textarea class="form-control" rows="5" id="comment"></textarea>
-                  <span class="interhis">Internal history</span>
+                  <textarea class="form-control" rows="5" id="comment"></textarea>                 
                 </div>
-
-                <h6 class="FormH6">Desired geographical area</h6>
-                <hr class="style2">
-
-                <div class="form-group">
-                  <label class="col-form-label">Region / Province</label>
-                  <div class="radiocheckbox">
-                    <div class="form-check">
-                      <ng-multiselect-dropdown [placeholder]="'custom placeholder'" [data]="dropdownList"
-                           name="Regions" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
-                        (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
-                    </div>
-                  </div>
-                </div>
+                <br>  <br>
+              
 
                 <h6 class="FormH6">Event type and purpose</h6>
                 <hr class="style2">
                 <div class="form-group">
                   <div class="form-group">
                     <label class="col-form-label">Formal</label>
-                    <select id="Select1" class="form-control txtsize">
+                    <!-- <select id="Select1" class="form-control txtsize">
                       <option selected="selected">Choose...</option>
                       <option>...</option>
-                    </select>
+                    </select> -->
+                    <div class="width80per">
+                        <div class="row">
+                          <div class="col-sm-6 ">
+                              <label class="col-form-label">Formal</label>
+                              <select id="Select1" class="form-control txtsize" style="width: 364px;">
+                                <option selected="selected">Choose...</option>
+                                <option>...</option>
+                              </select> 
+                          </div>
+                          <div class="col-sm-6 ">
+                              <label class="col-form-label">Table setting in plenary</label>
+                              <select id="Select1" class="form-control txtsize" style="width: 364px;">
+                                <option selected="selected">Choose...</option>
+                                <option>...</option>
+                              </select> 
+                          </div>
+                        </div>
+                      </div>
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="form-group">
                     <label class="col-form-label">Participants</label>
-                    <select id="Select2" class="form-control txtsize">
-                      <option selected="selected">Choose...</option>
-                      <option>...</option>
-                    </select>
+                    <div class="width80per">
+                        <div class="row">
+                          <div class="col-sm-6 ">
+                            <label>Participants</label>
+                            <input type="text" class="form-control InlineInput">
+                          </div>
+                          <div class="col-sm-6 ">
+                            <label>Number of participants</label>
+                            <input type="text" class="form-control InlineInput">
+                          </div>
+                        </div>
+                      </div>
                   </div>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label class="col-form-label">Number of participants</label>
                   <input type="text" class="form-control">
-                </div>
+                </div> -->
                 <div class="form-group">
                   <label class="col-form-label">Rooms</label>
                   <div class="width80per">
@@ -220,21 +232,15 @@
                     </div>
                   </div>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label class="col-form-label">Table setting in plenary</label>
                   <select id="Select3" class="form-control txtsize">
                     <option selected="selected">Choose...</option>
                     <option>...</option>
                   </select>
-                </div>
-                <h6 class="FormH6">comments</h6>
-                <hr class="style2">
-                <div class="form-group">
-                  <label class="col-form-label">Supplementary Wishes / Comments </label>
-                  <textarea class="form-control" rows="5" id="Textarea1"></textarea>
-                  <span class="clear"></span>
-                </div>
-                <h6 class="FormH6">Premises and table setting</h6>
+                </div> -->
+             
+                <h6 class="FormH6">Course packages and rooms</h6>
                 <hr class="style2">
                 <div class="form-group">
                   <label class="col-form-label">Event type</label>
@@ -388,16 +394,27 @@
                     </ul>
                   </div>
                 </div>
+               
+
+                <h6 class="FormH6">comments</h6>
+                <hr class="style2">
                 <div class="form-group">
-                  <label class="col-form-label">Booking Responsibility</label>
-                  <input type="text" class="form-control">
+                  <label class="col-form-label">Supplementary Wishes / Comments </label>
+                  <textarea class="form-control" rows="5" id="Textarea1"></textarea>
+                  <span class="clear"></span>
                 </div>
+                <div class="form-group">
+                    <label class="col-form-label">Booking Responsibility</label>
+                    <input type="text" class="form-control">
+                  </div>
+
                 <div class="form-group mtop40 text-right">
                   <button type="submit" class="btn btn-danger mright50">Previous</button>
                   <button type="submit" class="btn btn-success">Next</button>
                 </div>
               </form>
             </div>
+            
             <div role="tabpane3" *ngIf="selectedwallet === 'Matching'">
               <form class="formbox">
                 <h6 class="FormH6">Cener-matching</h6>
@@ -427,7 +444,19 @@
                   <label class="col-form-label">Search results</label>
                   <input type="checkbox">
                 </div>
+                <h6 class="FormH6">Desired geographical area</h6>
+                <hr class="style2">
 
+                <div class="form-group">
+                  <label class="col-form-label">Region / Province</label>
+                  <div class="radiocheckbox">
+                    <div class="form-check">
+                      <ng-multiselect-dropdown [placeholder]="'custom placeholder'" [data]="dropdownList"
+                           name="Regions" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+                        (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
+                    </div>
+                  </div>
+                </div>
 
                 <br>
                 <h6 class="FormH6">Search Criteria</h6>

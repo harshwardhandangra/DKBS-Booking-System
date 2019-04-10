@@ -14,6 +14,11 @@ export class CreatebookingComponent implements OnInit {
   public title = 'Places';
   public addrKeys: string[];
   public addr: object;
+  
+  mytime1: Date | undefined = new Date();
+  mytime2: Date | undefined = new Date();
+  ArrivalDate = new Date();
+  DepartDate = new Date();
 
   selectedwallet = 'Kundeoplysniger';
   dropdownList = [];
@@ -22,7 +27,25 @@ export class CreatebookingComponent implements OnInit {
   dropdownListforPartnerType = [];
   selectedItems = [];
   dropdownSettings = {};
+
+  
+
   ngOnInit() {
+
+    const time = new Date();
+    time.setHours(9);
+    time.setMinutes(0);
+
+    const time2 = new Date();
+    time2.setHours(5);
+    time2.setMinutes(0);
+
+    this.mytime1 = time;
+    this.mytime2= time2;
+
+    this.ArrivalDate.setDate(this.ArrivalDate.getDate() + 1);
+    this.DepartDate.setDate(this.DepartDate.getDate() + 2);
+
     // this.dropdownList = [
     //   { item_id: 1, item_text: 'Mumbai' },
     //   { item_id: 2, item_text: 'Bangaluru' },
@@ -56,7 +79,8 @@ export class CreatebookingComponent implements OnInit {
   states: any[];
   company: any[];
   ContactPerson: any[];
- 
+  
+  
   onSelect(event: TypeaheadMatch): void {
     this.selectedOption = event.item;
   }
@@ -89,21 +113,20 @@ export class CreatebookingComponent implements OnInit {
    GetCompany(): any {
     this.zipcodeService.GetAllZipCodes().subscribe(res => {    
      this.company=res;  
-     console.log(this.company);   
+    
      });
    }
    GetContactPerson(): any {
     this.zipcodeService.GetAllcontactpersons().subscribe(res => {    
      this.ContactPerson=res;   
-     console.log("vsd");   
-     console.log(this.ContactPerson);   
+    
 
      });
    }
 
    GetAllStateProvinance(): any {
     this.stateprovinanceService.GetAllStateProvinance().subscribe(state => {
-     console.log(state);
+    
     for (let i = 0; i < state.length; ++i) {
       this.dropdownList.push({ item_id: state[i].regionId, item_text: state[i].name });
     }
@@ -130,12 +153,10 @@ export class CreatebookingComponent implements OnInit {
 
    GetAllLeadOrigin(): any {
     this.stateprovinanceService.GetAllLeadOrigin().subscribe(state => {
-      console.log("sonar");   
-     console.log(state);
+    
     for (let i = 0; i < state.length; ++i) {
       this.dropdownListLeadOrigin.push({ item_id: state[i].regionId, item_text: state[i].name });
-      console.log(this.dropdownListLeadOrigin);   
-      console.log("sonar");  
+      
     }
      });
    }
