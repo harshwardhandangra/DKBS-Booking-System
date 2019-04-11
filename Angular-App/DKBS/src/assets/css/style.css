@@ -991,6 +991,9 @@ ul {
     width: 333px;
     text-align: center;
 }
+.dbkbsNuminput {
+    width: 366px;
+}
 
 .dbkstabs .nav-tabs li a {
     font-size: 14px;
