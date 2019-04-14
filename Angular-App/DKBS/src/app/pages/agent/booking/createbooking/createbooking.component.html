@@ -165,7 +165,8 @@
                 </div>
                 <div class="form-group">
                   <label class="col-form-label">Internal history</label>
-                  <textarea class="form-control" rows="5" id="comment"></textarea>                 
+                  <!-- <textarea class="form-control" rows="5" id="comment"></textarea>     -->
+                  <input type="text" class="form-control InlineInput">             
                 </div>
                 <br>  <br>
               
@@ -174,7 +175,7 @@
                 <hr class="style2">
                 <div class="form-group">
                   <div class="form-group">
-                    <label class="col-form-label">Formal</label>
+                    <label class="col-form-label">Purpose</label>
                     <!-- <select id="Select1" class="form-control txtsize">
                       <option selected="selected">Choose...</option>
                       <option>...</option>
@@ -182,14 +183,14 @@
                     <div class="width80per">
                         <div class="row">
                           <div class="col-sm-6 ">
-                              <label class="col-form-label">Formal</label>
+                              <label class="col-form-label">Purpose</label>
                               <select id="Select1" class="form-control txtsize" style="width: 364px;">
                                 <option selected="selected">Choose...</option>
                                 <option>...</option>
                               </select> 
                           </div>
                           <div class="col-sm-6 ">
-                              <label class="col-form-label">Table setting in plenary</label>
+                              <label class="col-form-label">Table setting</label>
                               <select id="Select1" class="form-control txtsize" style="width: 364px;">
                                 <option selected="selected">Choose...</option>
                                 <option>...</option>
@@ -206,11 +207,14 @@
                         <div class="row">
                           <div class="col-sm-6 ">
                             <label>Participants</label>
-                            <input type="text" class="form-control InlineInput">
+                            <select id="Select1" class="form-control txtsize" style="width: 364px;">
+                              <option selected="selected">Choose...</option>
+                              <option>...</option>
+                            </select> 
                           </div>
                           <div class="col-sm-6 ">
                             <label>Number of participants</label>
-                            <input type="text" class="form-control InlineInput">
+                            <input myNumberOnly class="form-control InlineInput" style="width:366px" maxlength="8">
                           </div>
                         </div>
                       </div>
@@ -226,11 +230,11 @@
                     <div class="row">
                       <div class="col-sm-6 ">
                         <label>Number of single rooms</label>
-                        <input type="text" class="form-control InlineInput">
+                        <input myNumberOnly class="form-control InlineInput" style="width:366px" maxlength="8">
                       </div>
                       <div class="col-sm-6 ">
                         <label>Number of double rooms</label>
-                        <input type="text" class="form-control InlineInput">
+                        <input myNumberOnly class="form-control InlineInput" style="width:366px" maxlength="8">
                       </div>
                     </div>
                   </div>
@@ -251,19 +255,28 @@
                     <ul>
                       <li>
                         <div class="lbl"> Course Packages</div>
-                        <input type="text" class="form-control">
+                        <select id="Select1" class="form-control txtsize" style="width: 103px;">
+                          <option selected="selected">Choose...</option>
+                          <option>...</option>
+                        </select> 
+                        
                       </li>
                       <li>
-                        <div class="lbl">Number of participants</div>
-                        <input type="text" class="form-control">
+                        <div class="lbl">No. of participants</div>
+                        <input myNumberOnly class="form-control InlineInput" maxlength="8">
                       </li>
-                      <li>
+                      <li style="width: 210px;">
                         <div class="lbl">From</div>
-                        <input type="text" class="form-control">
+                        <!-- <input type="text" class="form-control"> -->
+                        <div class="datetimediv">                         
+                          <timepicker  [(ngModel)]="mytime2" name="mytime2" class="widthtimepicker"></timepicker>
+                        </div>
                       </li>
-                      <li>
+                      <li style="width: 217px;">
                         <div class="lbl">To</div>
-                        <input type="text" class="form-control">
+                        <div class="datetimediv">                         
+                          <timepicker  [(ngModel)]="mytime2" name="mytime2" class="widthtimepicker"></timepicker>
+                        </div>
                       </li>
                       <li>
                         <a (click)="addFieldValue()"><i class="fa fa-plus"></i>Add new row</a>
@@ -353,25 +366,33 @@
                         <div class="lbl">local Attraction</div>
                         <input type="text" class="form-control">
                       </li>
-                      <li>
-                        <div class="lbl">Number of rooms</div>
+                      <li style="width: 66px;">
+                        <div class="lbl">No. of rooms</div>
                         <input type="text" class="form-control">
                       </li>
-                      <li>
-                        <div class="lbl">a persons</div>
+                      <li style="width: 66px;">
+                        <div class="lbl">Per persons</div>
                         <input type="text" class="form-control">
                       </li>
                       <li>
                         <div class="lbl">Table Set</div>
-                        <input type="text" class="form-control">
+                        <select id="Select1" class="form-control txtsize" style="width: 103px;">
+                          <option selected="selected">Choose...</option>
+                          <option>...</option>
+                        </select> 
                       </li>
-                      <li>
+                      <li style="width: 210px;">
                         <div class="lbl">From</div>
-                        <input type="text" class="form-control">
+                        <!-- <input type="text" class="form-control"> -->
+                        <div class="datetimediv">                         
+                          <timepicker  [(ngModel)]="mytime2" name="mytime2" class="widthtimepicker"></timepicker>
+                        </div>
                       </li>
-                      <li>
+                      <li style="width: 217px;">
                         <div class="lbl">To</div>
-                        <input type="text" class="form-control">
+                        <div class="datetimediv">                         
+                          <timepicker  [(ngModel)]="mytime2" name="mytime2" class="widthtimepicker"></timepicker>
+                        </div>
                       </li>
                       <li>
                         <i class="fa fa-plus"></i>Add new row

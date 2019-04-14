@@ -44,6 +44,7 @@ import { PartnersitenavigationComponent } from './pagescomponent/partnersitenavi
 import { AwaitingpartnerComponent } from './pages/agent/booking/provision/awaitingpartner/awaitingpartner.component';
 import { AwaitingDKBSComponent } from './pages/agent/booking/provision/awaiting-dkbs/awaiting-dkbs.component';
 import { AwaitingeconomyComponent } from './pages/agent/booking/provision/awaitingeconomy/awaitingeconomy.component';
+import { NumberOnlyDirective } from './number.directive';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { AwaitingeconomyComponent } from './pages/agent/booking/provision/awaiti
     AllcasesComponent,
     AwaitingpartnerComponent,
     AwaitingDKBSComponent,
-    AwaitingeconomyComponent
+    AwaitingeconomyComponent,
+    NumberOnlyDirective
   ],
   imports: [
     BrowserModule,
