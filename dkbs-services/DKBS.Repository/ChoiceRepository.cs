@@ -218,10 +218,92 @@ namespace DKBS.Repository
 
         public List<BookingDTO> GetBookings()
         {
-            return _mapper.Map<List<BookingDTO>>(_dbContext.Bookings.ToList());
+                    var booking = _dbContext.Bookings
+                    .Include(x => x.Partner.CenterType)
+                    .Include(x => x.Partner.PartnerType)
+                    .Include(x => x.Customer.IndustryCode)
+                    .Include(x => x.TableType)
+                    .Include(x => x.CancellationReason)
+                    .Include(x => x.CauseOfRemoval)
+                    .Include(x => x.ContactPerson)
+                    .Include(x => x.BookingAndStatus)
+                    .Include(x => x.Flow)
+                    .Include(x => x.MailLanguage)
+                    .Include(x => x.PartnerType)
+                    .Include(x => x.ParticipantType)
+                    .Include(x => x.Purpose)
+                    .Include(x => x.LeadOfOrigin)
+                    .Include(x => x.Campaign)
+                    .ToList();
+
+                List<BookingDTO> bookingDTO = new List<BookingDTO>();
+
+                foreach (var item in booking)
+                {
+                    var bookingDto = new BookingDTO();
+
+                    CenterTypeDTO centerTypeDto = _mapper.Map<CenterTypeDTO>(item.Partner.CenterType);
+                    PartnerTypeDTO partnerTypeDto = _mapper.Map<PartnerTypeDTO>(item.Partner.PartnerType);
+                    var partnerDto = new PartnerDTO()
+                    {
+                        PartnerId = item.Partner.PartnerId,
+                        CenterTypeDTO = centerTypeDto,
+                        PartnerTypeDTO = partnerTypeDto,
+                        EmailId = item.Partner.EmailId,
+                        LastModified = item.Partner.LastModified,
+                        LastModifiedBy = item.Partner.LastModifiedBy,
+                        PartnerName = item.Partner.PartnerName,
+                        PhoneNumber = item.Partner.PhoneNumber
+                    };
+                    IndustryCodeDTO industryCodeDto = _mapper.Map<IndustryCode, IndustryCodeDTO>(item.Customer.IndustryCode);
+                    var customerDto = new CustomerDTO()
+                    {
+                        City = item.Customer.City,
+                        IndustryCodeDTO = industryCodeDto,
+                        CreatedBy = item.Customer.CreatedBy,
+                        Country = item.Customer.Country,
+                        CreatedDate = item.Customer.CreatedDate,
+                        CustomerName = item.Customer.CustomerName,
+                        EmailId = item.Customer.EmailId,
+                        LastModifiedBY = item.Customer.LastModifiedBY,
+                        LastModifiedDate = item.Customer.LastModifiedDate,
+                        PhoneNumber = item.Customer.PhoneNumber
+                    };
+                    TableTypeDTO tableTypeDTO = _mapper.Map<TableType, TableTypeDTO>(item.TableType);
+                    CancellationReasonDTO cancellationReasonDTO = _mapper.Map<CancellationReason, CancellationReasonDTO>(item.CancellationReason);
+                    CauseOfRemovalDTO causeOfRemovalDTO = _mapper.Map<CauseOfRemoval, CauseOfRemovalDTO>(item.CauseOfRemoval);
+                    ContactPersonDTO contactPersonDTO = _mapper.Map<ContactPerson, ContactPersonDTO>(item.ContactPerson);
+                    BookingAndStatusDTO bookingAndStatusDTO = _mapper.Map<BookingAndStatus, BookingAndStatusDTO>(item.BookingAndStatus);
+                    FlowDTO flowDTO = _mapper.Map<Flow, FlowDTO>(item.Flow);
+                    ParticipantTypeDTO participantTypeDTO = _mapper.Map<ParticipantType, ParticipantTypeDTO>(item.ParticipantType);
+                    PurposeDTO purposeDTO = _mapper.Map<Purpose, PurposeDTO>(item.Purpose);
+                    LeadOfOriginDTO leadOfOriginDTO = _mapper.Map<LeadOfOrigin, LeadOfOriginDTO>(item.LeadOfOrigin);
+                    CampaignDTO campaignDTO = _mapper.Map<Campaign, CampaignDTO>(item.Campaign);
+                    MailLanguageDTO mailLanguageDTO = _mapper.Map<MailLanguageDTO>(item.MailLanguage);
+
+                    bookingDto.BookingId = item.BookingId;
+                    bookingDto.PartnerDTO = partnerDto;
+                    bookingDto.CustomerDTO = customerDto;
+                    bookingDto.TableTypeDTO = tableTypeDTO;
+                    bookingDto.CancellationReasonDTO = cancellationReasonDTO;
+                    bookingDto.CauseOfRemovalDTO = causeOfRemovalDTO;
+                    bookingDto.ContactPersonDTO = contactPersonDTO;
+                    bookingDto.BookingAndStatusDTO = bookingAndStatusDTO;
+                    bookingDto.FlowDTO = flowDTO;
+                    bookingDto.ParticipantTypeDTO = participantTypeDTO;
+                    bookingDto.PurposeDTO = purposeDTO;
+                    bookingDto.LeadOfOriginDTO = leadOfOriginDTO;
+                    bookingDto.CampaignDTO = campaignDTO;
+                    bookingDto.MailLanguageDTO = mailLanguageDTO;
+                    bookingDTO.Add(bookingDto);
+            }
+
+            return bookingDTO;
+
+
         }
 
-        public List<BookingReferenceDTO> GetBookingReferences()
+            public List<BookingReferenceDTO> GetBookingReferences()
         {
             return _mapper.Map<List<BookingReferenceDTO>>(_dbContext.BookingReferences.ToList());
         }
