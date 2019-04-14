@@ -9,6 +9,7 @@
     [CopyToCloseRemark] NCHAR(10) NULL, 
     [ScheduleAction] NCHAR(10) NULL, 
     [LastModified] DATETIME NULL, 
-    [LastModifiedBY] NCHAR(10) NULL
+    [LastModifiedBY] NCHAR(10) NULL, 
+    CONSTRAINT [FK_ServiceRequestNotes_Booking] FOREIGN KEY (BookingId) REFERENCES Booking(BookingId)
 	
 )

@@ -546,4 +546,466 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="TownZipCodeId" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="c47c9a75-197a-4394-ac75-ba6b4df5f684" ChangeDateTime="04/13/2019 13:59:39">
+    <Property Name="ElementName" Value="[dbo].[FK_Booking_ToTable]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Booking_Id1]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3b2933cf-e2b1-46be-8e4d-e9fd81f7b659" ChangeDateTime="04/13/2019 14:01:03">
+    <Property Name="ElementName" Value="[dbo].[FK_Booking_Id1]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Partner_Id1]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="27275eed-43c7-4bfd-96ae-9c446bbf1d8b" ChangeDateTime="04/13/2019 14:03:43">
+    <Property Name="ElementName" Value="[dbo].[FK_Booking_ToTable]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_CancellationReasonId]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="30f9ab88-9f25-4310-b4b4-6f7a4f6f614c" ChangeDateTime="04/13/2019 14:03:52">
+    <Property Name="ElementName" Value="[dbo].[FK_CancellationReasonId]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_CancellationReason_Id4]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="7583d6cc-bd99-4cc6-ad3d-7a7a2fa93568" ChangeDateTime="04/13/2019 14:04:39">
+    <Property Name="ElementName" Value="[dbo].[Booking].[BookinAndStatusId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="BookingAndStatusId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="9e2af37b-8d5e-4dec-aadd-d6c692b54d0a" ChangeDateTime="04/13/2019 14:06:02">
+    <Property Name="ElementName" Value="[dbo].[FK_MailLanguage_id9]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_MailLanguage_Id9]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="237699f2-87de-4af5-8e93-2452302d2302" ChangeDateTime="04/13/2019 14:06:07">
+    <Property Name="ElementName" Value="[dbo].[FK_Flow_id8]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Flow_Id8]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="60420d12-237e-4603-ba3b-392b912a2ee1" ChangeDateTime="04/13/2019 14:06:11">
+    <Property Name="ElementName" Value="[dbo].[FK_BookingAndStatus_id7]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_BookingAndStatus_Id7]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6e458817-e012-4bf8-ac1d-8c51733536bd" ChangeDateTime="04/13/2019 14:06:15">
+    <Property Name="ElementName" Value="[dbo].[FK_ContactPerson_id6]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_ContactPerson_Id6]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="16b322e4-ef39-4a56-b4ab-620deacad48a" ChangeDateTime="04/13/2019 14:06:19">
+    <Property Name="ElementName" Value="[dbo].[FK_CauseOfRemoval_id5]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_CauseOfRemoval_Id5]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e7ee7893-3fc5-40ef-953b-5615e8c12364" ChangeDateTime="04/13/2019 14:07:36">
+    <Property Name="ElementName" Value="[dbo].[FK_Purpose_id12]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Purpose_Id12]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="44e404df-d57e-41fc-a5f2-062f30176bd5" ChangeDateTime="04/13/2019 14:14:49">
+    <Property Name="ElementName" Value="[dbo].[BookingAndStatuses].[BookingAndStatusesId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[BookingAndStatuses]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="BookingAndStatusId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="53d54487-bdec-4515-a52a-a01f5f9e9eb8" ChangeDateTime="04/13/2019 14:18:22">
+    <Property Name="ElementName" Value="[dbo].[ParticipantType].[ParticipantTypeId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ParticipantType]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ParticipentTypeId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="9afbccec-a1bb-4555-b194-ea137921d95f" ChangeDateTime="04/13/2019 14:19:57">
+    <Property Name="ElementName" Value="[dbo].[FK_OriginI_Id13]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Origin_Id13]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="49ce18b4-4ab9-4f9a-a516-0a5ff317d4ad" ChangeDateTime="04/13/2019 14:38:24">
+    <Property Name="ElementName" Value="[dbo].[BookingAndStatuses].[BookingAndStatusesId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[BookingAndStatuses]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="BookingAndStatusId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="128e0470-1639-4847-82d9-2fb1d9a89efd" ChangeDateTime="04/13/2019 14:47:30">
+    <Property Name="ElementName" Value="[dbo].[Booking].[BookinAndStatusId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="BookingAndStatus" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a4873d6f-30a9-4127-a498-37d903f0b483" ChangeDateTime="04/13/2019 14:47:43">
+    <Property Name="ElementName" Value="[dbo].[Booking].[BookingAndStatus]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="BookingAndStatusId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ea24966d-7a4b-43a2-bfa3-39e47a4adaad" ChangeDateTime="04/13/2019 14:50:16">
+    <Property Name="ElementName" Value="[dbo].[Booking].[OriginId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="LeadOfOriginId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1ab0ec01-4053-4a4f-be70-d4a0b5dcb555" ChangeDateTime="04/13/2019 14:52:47">
+    <Property Name="ElementName" Value="[dbo].[FK_Booking_ToTable]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Partners_ToTable]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0548403d-ef0f-416b-9eba-fd95005fd812" ChangeDateTime="04/13/2019 14:53:04">
+    <Property Name="ElementName" Value="[dbo].[FK_Partners_ToTable]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Partners_]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="071db745-ba0c-4194-9616-b871696794ec" ChangeDateTime="04/13/2019 14:53:10">
+    <Property Name="ElementName" Value="[dbo].[FK_Partners_]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Partners_Id1]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="950ed30f-46fd-4823-9146-8a15d0b461f0" ChangeDateTime="04/13/2019 14:53:31">
+    <Property Name="ElementName" Value="[dbo].[FK_Partners_Id1]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Partner_Id1]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c6fa6c8d-6ea9-4e37-a15d-21aa3bf04bb5" ChangeDateTime="04/13/2019 15:07:43">
+    <Property Name="ElementName" Value="[dbo].[FK_BookingAlternativeService_ToTable]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[BookingAlternativeService]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Booking_Id1]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e23ce71d-a0c2-4d88-9c99-1ae7656f008d" ChangeDateTime="04/13/2019 15:13:24">
+    <Property Name="ElementName" Value="[dbo].[FK_BookingAlternativeService_ToTable]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[BookingAlternativeService]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_BookingAlternativeService_]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f3fa4148-ff6f-4eac-8f2e-d1adeff923b3" ChangeDateTime="04/13/2019 15:13:44">
+    <Property Name="ElementName" Value="[dbo].[FK_BookingAlternativeService_]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[BookingAlternativeService]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Booking_]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="421a4000-72d0-4346-a2d8-fafddbddb17e" ChangeDateTime="04/13/2019 15:13:56">
+    <Property Name="ElementName" Value="[dbo].[FK_Booking_]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[BookingAlternativeService]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Booking_Id3]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="88c5acad-b700-449b-b088-5a1aaf270596" ChangeDateTime="04/13/2019 15:16:57">
+    <Property Name="ElementName" Value="[dbo].[FK_Booking_Id3]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[BookingAlternativeService]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Booking_Id1]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="257ce775-3824-4474-bf89-392e5e47cb93" ChangeDateTime="04/13/2019 15:17:37">
+    <Property Name="ElementName" Value="[dbo].[FK_Booking_Id1]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[BookingAlternativeService]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_AlternativeService_To_Booking]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a44e0985-1530-4518-886c-61ea79a88622" ChangeDateTime="04/13/2019 15:18:40">
+    <Property Name="ElementName" Value="[dbo].[FK_AlternativeService_To_Booking]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[BookingAlternativeService]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_AlternativeService_Booking]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="58239917-30f1-4aea-b133-ac90b45acc9e" ChangeDateTime="04/13/2019 15:28:59">
+    <Property Name="ElementName" Value="[dbo].[PartnerEmployee].[ParticipentTypeId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PartnerEmployee]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ParticipantTypeId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="be8c9a55-08c3-4390-aa56-0beca0168cca" ChangeDateTime="04/13/2019 15:29:25">
+    <Property Name="ElementName" Value="[dbo].[FK_PartnerEmployee_ParticipentType]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[PartnerEmployee]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_PartnerEmployee_ParticipantType]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ef3ebeeb-9246-4011-a5a3-36fdbd27e2e7" ChangeDateTime="04/13/2019 15:30:08">
+    <Property Name="ElementName" Value="[dbo].[FK_Partners_ToTable]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Partners]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Partners_CenterType]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="7a4b7da3-6409-46a6-ba91-cb24ef89b8de" ChangeDateTime="04/13/2019 15:30:21">
+    <Property Name="ElementName" Value="[dbo].[FK_Partners_CenterType]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Partners]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Partners_CenterType_]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="090b3287-aacc-4897-b0fd-61b703857558" ChangeDateTime="04/13/2019 15:30:24">
+    <Property Name="ElementName" Value="[dbo].[FK_Partners_PartnerType]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Partners]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Partners_CenterType]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c2ef8a1c-3976-487f-b635-9354f4ba8690" ChangeDateTime="04/13/2019 15:30:32">
+    <Property Name="ElementName" Value="[dbo].[FK_Partners_CenterType_]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Partners]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Partners_PartnerType]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="7531fb69-cf05-4ad5-a24d-b012f61df2ca" ChangeDateTime="04/13/2019 15:31:42">
+    <Property Name="ElementName" Value="[dbo].[FK_ProcedureInfo_Partner]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[ProcedureInfo]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_ProcedureInfo_Procedure]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a1c77716-a616-4bc1-a361-4d84dc7d9507" ChangeDateTime="04/13/2019 15:33:07">
+    <Property Name="ElementName" Value="[dbo].[ProcedureInfo].[ProcedureId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ProcedureInfo]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ProceduresId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ff98d930-85c4-40ff-a217-eb1cfe3be421" ChangeDateTime="04/13/2019 15:37:33">
+    <Property Name="ElementName" Value="[dbo].[FK_Partners_Id1]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Provision]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Provision_Partners]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="95a3cd00-1d69-4b4e-b948-0d30ce7880d6" ChangeDateTime="04/13/2019 15:37:45">
+    <Property Name="ElementName" Value="[dbo].[FK_Booking_Id2]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Provision]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Provision_Booking]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e8547c1f-ae88-412a-98dc-8492a223022a" ChangeDateTime="04/13/2019 15:39:00">
+    <Property Name="ElementName" Value="[dbo].[FK_Booking_Id1]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[ServiceRequestCommunications]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_ServiceRequestCommunications_Booking]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="562daadb-02f9-4619-a63d-6df76e568899" ChangeDateTime="04/13/2019 15:39:09">
+    <Property Name="ElementName" Value="[dbo].[FK_Procedures_Id]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[ServiceRequestCommunications]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_ServiceRequestCommunications_Procedures]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2d23e87c-e0f5-4a63-879a-0073262561e6" ChangeDateTime="04/13/2019 15:40:25">
+    <Property Name="ElementName" Value="[dbo].[SRConversationItems].[Booking_Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[SRConversationItems]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="BookingId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0e0f824d-6476-493b-839d-6308daeadd20" ChangeDateTime="04/13/2019 15:41:43">
+    <Property Name="ElementName" Value="[dbo].[FK_LandTownZipCodes]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[TownZipCodes]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_TownZipCodes_Land]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ad52a847-d79d-44b8-beb3-d38c1959aba7" ChangeDateTime="04/13/2019 15:42:55">
+    <Property Name="ElementName" Value="[dbo].[FK_Partner_Id1]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Booking_Partner]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3d15415c-2ef6-41af-950f-c306b254592e" ChangeDateTime="04/13/2019 15:43:05">
+    <Property Name="ElementName" Value="[dbo].[FK_Customer_Id2]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Booking_Customer]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="207ba7db-8688-4c8f-bcf7-58f747999d8c" ChangeDateTime="04/13/2019 15:43:14">
+    <Property Name="ElementName" Value="[dbo].[FK_TableType_Id3]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Booking_TableType]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f818060e-a012-459f-9274-1b6689da1b74" ChangeDateTime="04/13/2019 15:43:24">
+    <Property Name="ElementName" Value="[dbo].[FK_CancellationReason_Id4]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Booking_CancellationReason]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="8aecea73-a603-4bdb-82f4-1a5b297cd4bb" ChangeDateTime="04/13/2019 15:43:30">
+    <Property Name="ElementName" Value="[dbo].[FK_CauseOfRemoval_Id5]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Booking_CauseOfRemoval]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="146fb5da-5136-4220-9df8-95238d5b36d5" ChangeDateTime="04/13/2019 15:43:36">
+    <Property Name="ElementName" Value="[dbo].[FK_ContactPerson_Id6]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Booking_ContactPerson]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0aa3ab84-d77a-4c45-9f33-65a854587cfc" ChangeDateTime="04/13/2019 15:43:43">
+    <Property Name="ElementName" Value="[dbo].[FK_BookingAndStatus_Id7]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Booking_BookingAndStatus]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d3dae8ec-3a5a-4b21-bfa7-8eb51eabf77d" ChangeDateTime="04/13/2019 15:43:49">
+    <Property Name="ElementName" Value="[dbo].[FK_Flow_Id8]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Booking_Flow]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="9f8ac30b-583e-4e6c-b73a-fe4838a901f6" ChangeDateTime="04/13/2019 15:43:55">
+    <Property Name="ElementName" Value="[dbo].[FK_MailLanguage_Id9]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Booking_MailLanguage]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="34786df9-50a6-496c-92f8-ab6d85e26c26" ChangeDateTime="04/13/2019 15:44:01">
+    <Property Name="ElementName" Value="[dbo].[FK_PartnerType_Id10]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Booking_PartnerType]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d0192e43-6d1a-49d3-8070-95321c495d4e" ChangeDateTime="04/13/2019 15:44:09">
+    <Property Name="ElementName" Value="[dbo].[FK_ParticipentType_Id11]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Booking_ParticipentType]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="9e724530-ce22-4fb7-96ec-86b138717d4f" ChangeDateTime="04/13/2019 15:44:15">
+    <Property Name="ElementName" Value="[dbo].[FK_Purpose_Id12]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Booking_Purpose]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c22eade5-4469-4d62-bb33-884ac9d35814" ChangeDateTime="04/13/2019 15:44:23">
+    <Property Name="ElementName" Value="[dbo].[FK_LeadOfOrigin_Id13]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Booking_LeadOfOrigin]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="9683b648-d4ce-4ee2-b292-0800484521e0" ChangeDateTime="04/13/2019 15:44:29">
+    <Property Name="ElementName" Value="[dbo].[FK_Campaign_Id14]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Booking_Campaign]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f6a072df-d55d-4eb8-9c91-ffa15a2f22bb" ChangeDateTime="04/13/2019 16:42:11">
+    <Property Name="ElementName" Value="[dbo].[Procedures].[ProceduresId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Procedures]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ProcedureId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d76414e9-0aae-4f78-816b-196ef1935b9e" ChangeDateTime="04/13/2019 16:42:30">
+    <Property Name="ElementName" Value="[dbo].[Procedures].[ProceduresName]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Procedures]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ProcedureName" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f5735058-349c-44da-a68d-90c51abba750" ChangeDateTime="04/13/2019 17:11:34">
+    <Property Name="ElementName" Value="[dbo].[Booking].[ParticipentTypeId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ParticipantTypeId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="bf4a2964-d473-4d59-bd59-da7ffdf66618" ChangeDateTime="04/13/2019 17:11:47">
+    <Property Name="ElementName" Value="[dbo].[FK_Booking_ParticipentType]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Booking]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Booking_ParticipantType]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a7fef997-c334-4ac8-aa22-fe0f9836da66" ChangeDateTime="04/14/2019 03:01:26">
+    <Property Name="ElementName" Value="[dbo].[ProcedureInfo].[ProceduresId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ProcedureInfo]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ProcedureId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3a6f5e1d-d7f3-438e-9501-b834e9101234" ChangeDateTime="04/14/2019 03:08:15">
+    <Property Name="ElementName" Value="[dbo].[Provision].[PartnersId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Provision]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PartnerId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2277c7a0-6090-42be-8d96-5700211e5715" ChangeDateTime="04/14/2019 04:23:21">
+    <Property Name="ElementName" Value="[dbo].[BookingRegions].[BookingRegionsId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[BookingRegions]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="BookingRegionId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="46d4bd67-aa60-4ee1-ab9d-1f79840eef30" ChangeDateTime="04/14/2019 04:34:53">
+    <Property Name="ElementName" Value="[dbo].[BookingArrangementType].[ServiceCatalogueId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[BookingArrangementType]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ServiceCatalogId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="23d6d2b4-0685-4196-8a25-ecf7b1d45936" ChangeDateTime="04/14/2019 10:36:02">
+    <Property Name="ElementName" Value="[dbo].[ServiceRequestCommunications].[ProceduresId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ServiceRequestCommunications]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ProcedureId" />
+  </Operation>
 </Operations>

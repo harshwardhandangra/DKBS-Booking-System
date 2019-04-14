@@ -19,7 +19,7 @@ namespace DKBS.API.Controllers
         private readonly IChoiceRepository _choiceRepoistory;
 
         /// <summary>
-        /// Will take IChoiceRepository as param
+        /// Will take IChoiceRepository as paramE:\DKBS-Booking-System\dkbs-services\DKBS.API\Controllers\ChoiceController.cs
         /// </summary>
         /// <param name="choiceRepoistory"></param>
         public ChoiceController(IChoiceRepository choiceRepoistory)
@@ -249,6 +249,18 @@ namespace DKBS.API.Controllers
 
 
         /// <summary>
+        /// Get All partner details.
+        /// </summary>
+        /// <returns>List of partners.</returns>
+        [Route("partners")]
+        [HttpGet()]
+        public ActionResult<PartnerEmployeeDTO> GetPartners()
+        {
+            return Ok(_choiceRepoistory.GetPartners());
+        }
+
+
+        /// <summary>
         /// Get All AlternativeService
         /// </summary>
         /// <returns></returns>
@@ -304,16 +316,16 @@ namespace DKBS.API.Controllers
             return Ok(_choiceRepoistory.GetBookingRegions());
         }
 
-        /// <summary>
-        /// Get All ContactPeople
-        /// </summary>
-        /// <returns></returns>
-        [Route("contactPeople")]
-        [HttpGet()]
-        public ActionResult<ContactPersonDTO> GetContactPeople()
-        {
-            return Ok(_choiceRepoistory.GetContactPeople());
-        }
+        ///// <summary>
+        ///// Get All ContactPeople
+        ///// </summary>
+        ///// <returns></returns>
+        //[Route("contactPeople")]
+        //[HttpGet()]
+        //public ActionResult<ContactPersonDTO> GetContactPeople()
+        //{
+        //    return Ok(_choiceRepoistory.GetContactPeople());
+        //}
 
         /// <summary>
         /// Get All MailGroups
@@ -399,7 +411,7 @@ namespace DKBS.API.Controllers
         /// <returns></returns>
         [Route("BookingAndStatuses")]
         [HttpGet()]
-        public ActionResult<BookingAndStatusesDTO> GetBookingAndStatuses()
+        public ActionResult<BookingAndStatusDTO> GetBookingAndStatuses()
         {
             return Ok(_choiceRepoistory.GetBookingAndStatuses());
         }

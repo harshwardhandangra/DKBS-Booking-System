@@ -53,7 +53,7 @@ namespace DKBS.API.Controllers
         public ActionResult<IEnumerable<ContactPersonDTO>> CreateContactPerson([FromBody] ContactPersonDTO contactPersonDTO)
         {
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
@@ -88,7 +88,7 @@ namespace DKBS.API.Controllers
         public IActionResult UpdateContactPerson(int ContactPersonId, [FromBody] ContactPersonDTO contactPersonDTO)
         {
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest();
             }

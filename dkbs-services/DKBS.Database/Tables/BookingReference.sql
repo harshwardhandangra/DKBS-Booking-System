@@ -3,8 +3,10 @@
 	[BookingReferenceId] INT NOT NULL PRIMARY KEY IDENTITY, 
 	[BookingId] INT NOT NULL,
 	[ContactPersonId] INT NOT NULL,
-	[CampaignId] INT NOT NULL,
 	[Other] NVARCHAR(255) NULL,
-	[LeadOfOriginId] INT NOT NULL,    
+	[LeadOfOriginId] INT NOT NULL, 
+    CONSTRAINT [FK_BookingReference_Booking] FOREIGN KEY ([BookingId]) REFERENCES Booking([BookingId]), 
+    CONSTRAINT [FK_BookingReference_ContactPerson] FOREIGN KEY ([ContactPersonId]) REFERENCES [ContactPersons]([ContactPersonId]), 
+    CONSTRAINT [FK_BookingReference_LeadOfOrigin] FOREIGN KEY (LeadOfOriginId) REFERENCES LeadOfOrigins(LeadOfOriginId),    
     
 )

@@ -12,7 +12,7 @@ namespace DKBS.Repository
         public ChoiceProfile()
         {
             CreateMap<BookingAlternativeService, BookingAlternativeServiceDTO>();
-            CreateMap<BookingAndStatuses, BookingAndStatusesDTO>();
+            CreateMap<BookingAndStatus, BookingAndStatusDTO>();
             CreateMap<BookingArrangementType, BookingArrangementTypeDTO>();
             CreateMap<Booking, BookingDTO>();
             CreateMap<BookingReference, BookingReferenceDTO>();
@@ -35,7 +35,17 @@ namespace DKBS.Repository
             CreateMap<MailGroup, MailGroupDTO>();
             CreateMap<MailLanguage, MailLanguageDTO>();
             CreateMap<ParticipantType, ParticipantTypeDTO>();
+
+
             CreateMap<Partner, PartnerDTO>();
+                //.ForMember(dest => dest.CenterTypeDTO, opt => opt.MapFrom(src => src.CenterType))
+                //.ForMember(dest => dest.PartnerTypeDTO, opt => opt.MapFrom(src => src.PartnerType))
+                //.ForMember(dest => dest.EmailId, opt => opt.MapFrom(src => src.EmailId))
+                //.ForMember(dest => dest.LastModified, opt => opt.MapFrom(src => src.LastModified))
+                //.ForMember(dest => dest.LastModifiedBy, opt => opt.MapFrom(src => src.LastModifiedBy))
+                //.ForMember(dest => dest.PartnerName, opt => opt.MapFrom(src => src.PartnerName))
+                //.ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => src.PhoneNumber));
+
             CreateMap<PartnerEmployee, PartnerEmployeeDTO>();
             CreateMap<PartnerType, PartnerTypeDTO>();
             CreateMap<Procedure, ProcedureDTO>();

@@ -36,10 +36,10 @@ namespace DKBS.API.Controllers
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        [HttpGet("{name}")]
+        [HttpGet("{name}",Name = "GetCustomer")]
         public ActionResult<IEnumerable<CustomerDTO>> GetCustomer(string name)
         {
-            return _choiceRepoistory.GetCustomers().FindAll(c => c.Name.Contains(name));
+            return _choiceRepoistory.GetCustomers().FindAll(c => c.CustomerName.Contains(name));
         }
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace DKBS.API.Controllers
         public ActionResult<IEnumerable<CustomerDTO>> CreateCustomer([FromBody] CustomerDTO customerDto)
         {
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
@@ -67,14 +67,14 @@ namespace DKBS.API.Controllers
                 return BadRequest();
             }
 
-            Customer newlyCreatedCustomer = new Customer() { Name=customerDto.Name, Address1= customerDto.Address1, Address2 = customerDto.Address2, City = customerDto.City, Country = customerDto.Country, CreatedBy = customerDto.CreatedBy, CreatedDate = customerDto.CreatedDate, CustomerId = customerDto.CustomerId, ZipCode = customerDto.ZipCode, ModifiedBy = customerDto.ModifiedBy, ModifiedDate = customerDto.ModifiedDate };
+            Customer newlyCreatedCustomer = new Customer() { CustomerName=customerDto.CustomerName,  City = customerDto.City, Country = customerDto.Country, CreatedBy = customerDto.CreatedBy, CreatedDate = customerDto.CreatedDate, CustomerId = customerDto.CustomerId, LastModifiedBY = customerDto.LastModifiedBY, LastModifiedDate = customerDto.LastModifiedDate };
             var destination = _mapper.Map<Customer, CustomerDTO>(newlyCreatedCustomer);
 
 
             _choiceRepoistory.GetCustomers().Add(destination);
             _choiceRepoistory.Complete();
 
-            return CreatedAtRoute("GetCustomer", new { name = newlyCreatedCustomer.Name }, newlyCreatedCustomer);
+            return CreatedAtRoute("GetCustomer", new { name = newlyCreatedCustomer.CustomerName }, newlyCreatedCustomer);
         }
 
 
@@ -88,7 +88,7 @@ namespace DKBS.API.Controllers
         public IActionResult UpdateCustomer(int CustomerId, [FromBody] CustomerDTO customerDTO)
         {
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest();
             }

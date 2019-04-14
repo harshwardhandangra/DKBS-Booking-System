@@ -14,7 +14,7 @@ namespace DKBS.Data
         }
         public DbSet<Region> Regions { get; set; }
 
-        public DbSet<TableSet> TableSet { get; set; }
+        public DbSet<TableSet> TableSets { get; set; }
 
         public DbSet<Purpose> Purpose { get; set; }
 
@@ -83,7 +83,7 @@ namespace DKBS.Data
 
         public DbSet<ProcedureInfo> ProcedureInfos { get; set; }
 
-        public DbSet<BookingAndStatuses> BookingAndStatuses { get; set; }
+        public DbSet<BookingAndStatus> BookingAndStatuses { get; set; }
 
         public DbSet<ServiceCatalog> ServiceCatalogs { get; set; }
         public DbSet<ServiceRequestCommunications> ServiceRequestCommunications { get; set; }

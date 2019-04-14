@@ -6,6 +6,7 @@ using System.Text;
 using System.Linq;
 using DKBS.Domain;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 
 namespace DKBS.Repository
 {
@@ -48,12 +49,29 @@ namespace DKBS.Repository
         List<CustomerDTO> GetCustomers();
         List<PartnerDTO> GetPartners();
         List<PartnerEmployeeDTO> GetPartnerEmployees();
-        List<BookingAndStatusesDTO> GetBookingAndStatuses();
+        List<BookingAndStatusDTO> GetBookingAndStatuses();
         List<ServiceCatalogDTO> GetServiceCatalogs();
         List<ServiceRequestCommunicationsDTO> GetServiceRequestCommunications();
         List<ServiceRequestNotesDTO> GetServiceRequestNotes();
         List<SRConversationItemsDTO> GetSRConversationItems();
 
+        void SetBookings(Booking booking);
+        void SetPartner(Partner newlyCreatedPartner);
+        void SetCenterType(CenterType centerTypeMapped);
+        void SetPartnerType(PartnerType partnerTypeMapped);
+        void AttachIndustryCode(IndustryCode industryCode);
+        void SetCreatedCustomer(Customer newlyCreatedCustomer);
+        void SetTableType(TableType newlyCreatedtableType);
+        void SetCancellationReason(CancellationReason newlyCreatedCancellationReason);
+        void SetCauseOfRemoval(CauseOfRemoval newlyCreatedCancellationReason);
+        void SetContactPerson(ContactPerson newlyCreatedContactPerson);
+        void SetBookingAndStatus(BookingAndStatus newlyCreatedBookingAndStatus);
+        void SetFlow(Flow newlyCreatedFlow);
+        void SetMailLanguage(MailLanguage newlyCreatedmailLanguage);
+        void SetParticipantType(ParticipantType newlyCreatedParticipantType);
+        void SetPurpose(Purpose newlyCreatedPurpose);
+        void SetCampaign(Campaign newlyCreatedCampaign);
+        void SetLeadOfOrigin(LeadOfOrigin newlyCreatedLeadOfOrigin);
     }
 
     public class ChoiceRepository : IChoiceRepository
@@ -85,7 +103,7 @@ namespace DKBS.Repository
 
         public List<TableSetDTO> GetTableSets()
         {
-            return _mapper.Map<List<TableSetDTO>>(_dbContext.TableSet.ToList());
+            return _mapper.Map<List<TableSetDTO>>(_dbContext.TableSets.ToList());
         }
 
         public List<PurposeDTO> GetPurposes()
@@ -110,7 +128,7 @@ namespace DKBS.Repository
 
         public List<LeadOfOriginDTO> GetLeadOfOrigins()
         {
-            return _dbContext.LeadOfOrigins.Select(p => new LeadOfOriginDTO { Name = p.Name, LeadOrignId = p.LeadOfOriginId }).ToList();
+            return _dbContext.LeadOfOrigins.Select(p => new LeadOfOriginDTO { Name = p.Name, LeadOfOriginId = p.LeadOfOriginId }).ToList();
         }
 
         public List<LandDTO> GetLandDetails()
@@ -150,7 +168,7 @@ namespace DKBS.Repository
 
         public List<CampaignDTO> GetCampaigns()
         {
-            return _dbContext.Campaigns.Select(p => new CampaignDTO { Name = p.Name, CompaignId = p.CampaignId }).ToList();
+            return _dbContext.Campaigns.Select(p => new CampaignDTO { Name = p.Name, CampaignId = p.CampaignId }).ToList();
         }
 
         public List<CenterTypeDTO> GetCenterTypes()
@@ -170,7 +188,7 @@ namespace DKBS.Repository
 
         public List<CancellationReasonDTO> GetCancellationReasons()
         {
-            return _dbContext.CancellationReasons.Select(p => new CancellationReasonDTO { CancellationReasonName = p.CancellationReasonName, Id = p.CancellationReasonId }).ToList();
+            return _dbContext.CancellationReasons.Select(p => new CancellationReasonDTO { CancellationReasonName = p.CancellationReasonName, CancellationReasonId = p.CancellationReasonId }).ToList();
         }
 
         public List<CustomerDTO> GetCustomers()
@@ -215,7 +233,7 @@ namespace DKBS.Repository
 
         public List<ContactPersonDTO> GetContactPeople()
         {
-            return _mapper.Map<List<ContactPersonDTO>>(_dbContext.ContactPeople.ToList());
+            return _mapper.Map<List<ContactPersonDTO>>(_dbContext.ContactPersons.ToList());
         }
 
         public List<MailGroupDTO> GetMailGroups()
@@ -258,9 +276,9 @@ namespace DKBS.Repository
             return _mapper.Map<List<ProcedureInfoDTO>>(_dbContext.ProcedureInfos.ToList());
         }
 
-        public List<BookingAndStatusesDTO> GetBookingAndStatuses()
+        public List<BookingAndStatusDTO> GetBookingAndStatuses()
         {
-            return _mapper.Map<List<BookingAndStatusesDTO>>(_dbContext.BookingAndStatuses.ToList());
+            return _mapper.Map<List<BookingAndStatusDTO>>(_dbContext.BookingAndStatuses.ToList());
         }
 
         public List<ServiceCatalogDTO> GetServiceCatalogs()
@@ -281,6 +299,91 @@ namespace DKBS.Repository
         public List<SRConversationItemsDTO> GetSRConversationItems()
         {
             return _mapper.Map<List<SRConversationItemsDTO>>(_dbContext.SRConversationItems.ToList());
+        }
+
+        public void SetBookings(Booking booking)
+        {
+            _dbContext.Bookings.Add(booking);
+        }
+
+        public void SetPartner(Partner newlyCreatedPartner)
+        {
+            _dbContext.Partners.Add(newlyCreatedPartner);
+        }
+
+        public void SetCenterType(CenterType centerTypeMapped)
+        {
+            _dbContext.CenterTypes.Add(centerTypeMapped);
+        }
+
+        public void SetPartnerType(PartnerType partnerTypeMapped)
+        {
+            _dbContext.PartnerTypes.Add(partnerTypeMapped);
+        }
+
+        public void AttachIndustryCode(IndustryCode industryCode)
+        {
+            _dbContext.IndustryCodes.Add(industryCode);
+        }
+
+        public void SetCreatedCustomer(Customer newlyCreatedCustomer)
+        {
+               _dbContext.Customers.Add(newlyCreatedCustomer);
+        }
+
+        public void SetTableType(TableType newlyCreatedtableType)
+        {
+             _dbContext.TableTypes.Add(newlyCreatedtableType);
+        }
+
+        public void SetCancellationReason(CancellationReason newlyCreatedCancellationReason)
+        {
+            _dbContext.CancellationReasons.Add(newlyCreatedCancellationReason);
+        }
+
+        public void SetCauseOfRemoval(CauseOfRemoval newlyCreatedCauseOfRemoval)
+        {
+            _dbContext.CauseOfRemovals.Add(newlyCreatedCauseOfRemoval);
+        }
+
+        public void SetContactPerson(ContactPerson newlyCreatedContactPerson)
+        {
+            _dbContext.ContactPersons.Add(newlyCreatedContactPerson);
+        }
+
+        public void SetBookingAndStatus(BookingAndStatus newlyCreatedBookingAndStatus)
+        {
+            _dbContext.BookingAndStatuses.Add(newlyCreatedBookingAndStatus);
+        }
+
+        public void SetFlow(Flow newlyCreatedFlow)
+        {
+            _dbContext.Flow.Add(newlyCreatedFlow);
+        }
+
+        public void SetMailLanguage(MailLanguage newlyCreatedmailLanguage)
+        {
+            _dbContext.MailLanguages.Add(newlyCreatedmailLanguage);
+        }
+
+        public void SetParticipantType(ParticipantType newlyCreatedParticipantType)
+        {
+            _dbContext.ParticipantTypes.Add(newlyCreatedParticipantType);      
+        }
+
+        public void SetPurpose(Purpose newlyCreatedPurpose)
+        {
+            _dbContext.Purpose.Add(newlyCreatedPurpose);
+        }
+
+        public void SetCampaign(Campaign newlyCreatedCampaign)
+        {
+             _dbContext.Campaigns.Add(newlyCreatedCampaign);
+        }
+
+        public void SetLeadOfOrigin(LeadOfOrigin newlyCreatedLeadOfOrigin)
+        {
+            _dbContext.LeadOfOrigins.Add(newlyCreatedLeadOfOrigin);
         }
     }
 }

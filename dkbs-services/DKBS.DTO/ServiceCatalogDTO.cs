@@ -8,9 +8,9 @@ namespace DKBS.DTO
         public string CoursePackage { get; set; }
         public int Offered { get; set; }
         public Decimal Price { get; set; }
-        public int CoursepackageTypeID { get; set; }
+        public CoursePackageTypeDTO CoursePackageTypeDTO { get; set; }
         public DateTime LastModified { get; set; }
         public string LastModifiedBY { get; set; }
-            
+
     }
 }

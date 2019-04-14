@@ -2,8 +2,8 @@
 {
     public class BookingRegionDTO
     {
-        public int BookingRegionsId { get; set; }
-        public int BookingId { get; set; }
-        public int RegionId { get; set; }
+        public int BookingRegionId { get; set; }
+        public BookingDTO BookingDTO { get; set; }
+        public RegionDTO RegionDTO { get; set; }
     }
 }

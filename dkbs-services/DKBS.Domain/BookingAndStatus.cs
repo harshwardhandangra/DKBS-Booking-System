@@ -1,15 +1,16 @@
 ﻿using System;
 
-namespace DKBS.DTO
+namespace DKBS.Domain
 {
-    public class BookingAndStatusesDTO
+    public class BookingAndStatus
     {
-        public int BookingAndStatusesId { get; set; }
+        public int BookingAndStatusId { get; set; }
         public string BookingerIncidentTitle { get; set; }
-        public int SLACount { get; set; }
-        public int ClosedStatus { get; set; }
+        public bool SLACount { get; set; }
+        public bool ClosedStatus { get; set; }
         public string InformUserByEmail { get; set; }
         public DateTime LastModified { get; set; }
         public string LastModifiedBY { get; set; }
+       
     }
 }

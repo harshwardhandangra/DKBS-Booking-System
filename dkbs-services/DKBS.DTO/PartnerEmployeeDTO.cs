@@ -9,10 +9,10 @@ namespace DKBS.DTO
         public string JobTitle { get; set; }
         public string TelePhoneNumber { get; set; }
         public string Email { get; set; }
-        public int PartnerId { get; set; }
-        public int MailGroupId { get; set; }
-        public int PartnerTypeId { get; set; }
-        public int ParticipentTypeId { get; set; }
+        public PartnerDTO PartnerDTO { get; set; }
+        public MailGroupDTO MailGroupDTO { get; set; }
+        public PartnerTypeDTO PartnerTypeDTO { get; set; }
+        public ParticipantTypeDTO ParticipantTypeDTO { get; set; }
         public DateTime LastModified { get; set; }
         public string LastModifiedBY { get; set; }
     }
