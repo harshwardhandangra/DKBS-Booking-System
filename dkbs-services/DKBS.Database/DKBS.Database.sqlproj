@@ -96,7 +96,7 @@
     <Build Include="Tables\ProcedureInfo.sql" />
     <Build Include="Tables\BookingAlternativeService.sql" />
     <Build Include="Tables\BookingRooms.sql" />
-    <Build Include="Tables\BookingArrangementType.sql" />
+    <Build Include="Tables\BookingArrangementTypes.sql" />
     <Build Include="Tables\BookingReference.sql" />
     <Build Include="Tables\BookingRegions.sql" />
     <Build Include="Tables\ParticipantType.sql" />

@@ -2,7 +2,7 @@
 {
     public class BookingReference
     {
-        public int BookingReferrenceId { get; set; }
+        public int BookingReferenceId { get; set; }
         public int BookingId { get; set; }
         public int ContactPersonId { get; set; }
         public int CampignId { get; set; }
