@@ -1,4 +1,6 @@
-﻿namespace DKBS.Domain
+﻿using System;
+
+namespace DKBS.Domain
 {
     public class Region
     {

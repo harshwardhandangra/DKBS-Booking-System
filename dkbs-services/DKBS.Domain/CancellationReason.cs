@@ -8,8 +8,10 @@ namespace DKBS.Domain
     public class CancellationReason
     {
         public int CancellationReasonId { get; set; }
-
-        //[MaxLength(255)]
         public string CancellationReasonName { get; set; }
+        public DateTime LastModified { get; set; }
+        public string LastModifiedBy { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public string CreatedBy { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace DKBS.API.Controllers
     /// <summary>
     /// Partner controller
     /// </summary>
-    [Route("partner")]
+    [Route("api/[controller]")]
     [ApiController]
     public class PartnerController : ControllerBase
     {
@@ -30,26 +30,39 @@ namespace DKBS.API.Controllers
         }
 
         /// <summary>
-        /// Get Partner List based on some character entered by user in Partner name
+        /// Get Partner by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("{id}")]
+        public ActionResult<PartnerDTO> GetPartnerById(int id)
+        {
+            return _choiceRepoistory.GetPartners().Find(c => c.PartnerId == id);
+        }
+
+
+        /// <summary>
+        /// Get Partner List based by user in Partner name
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        [HttpGet("{id}")]
-        public ActionResult<IEnumerable<PartnerDTO>> GetPartner(int id)
+        [HttpGet("[action]/{name}", Name = "GetPartnersByName")]
+        public ActionResult<IEnumerable<PartnerDTO>> SearchPartnersByName(string name)
         {
-            return _choiceRepoistory.GetPartners().FindAll(c => c.PartnerName.Contains(id.ToString()));
+            return _choiceRepoistory.GetPartners().FindAll(c => c.PartnerName.Contains(name));
         }
+
+
         /// <summary>
         /// Creating Partner
         /// </summary>
         /// <param name="partnerDto"></param>
         /// <returns></returns>
-        // GET api/Partner/{Partner}
         [HttpPost]
         public ActionResult<IEnumerable<PartnerDTO>> CreatePartner([FromBody] PartnerDTO partnerDto)
         {
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
@@ -64,14 +77,16 @@ namespace DKBS.API.Controllers
                 return BadRequest();
             }
 
-            Partner newlyCreatedPartner = new Partner() { PartnerName = partnerDto.PartnerName, PartnerId = partnerDto.PartnerId, /*CenterTypeId = partnerDto.CenterTypeId,*/ EmailId = partnerDto.EmailId, LastModified = partnerDto.LastModified, LastModifiedBy = partnerDto.LastModifiedBy,/* PartnerType = partnerDto.PartnerType,*/ PhoneNumber = partnerDto.PhoneNumber  };
+            var centerType = _mapper.Map<CenterTypeDTO, CenterType>(partnerDto.CenterTypeDTO);
+            var partnerType = _mapper.Map<PartnerTypeDTO, PartnerType>(partnerDto.PartnerTypeDTO);
+            Partner newlyCreatedPartner = new Partner() { PartnerId = partnerDto.PartnerId, PartnerName = partnerDto.PartnerName, CenterType = centerType, EmailId = partnerDto.EmailId, LastModified = partnerDto.LastModified, LastModifiedBy = partnerDto.LastModifiedBy, PartnerType = partnerType, PhoneNumber = partnerDto.PhoneNumber };
             var destination = _mapper.Map<Partner, PartnerDTO>(newlyCreatedPartner);
 
 
             _choiceRepoistory.GetPartners().Add(destination);
             _choiceRepoistory.Complete();
 
-            return CreatedAtRoute("GetPartners", new { name = newlyCreatedPartner.PartnerName }, newlyCreatedPartner);
+            return CreatedAtRoute("GetPartnersByName", new { name = newlyCreatedPartner.PartnerName }, newlyCreatedPartner);
         }
 
         /// <summary>
@@ -83,7 +98,7 @@ namespace DKBS.API.Controllers
         [HttpPut("{PartnerId}")]
         public IActionResult UpdatePartner(int PartnerId, [FromBody] PartnerDTO partnerDTO)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest();
             }

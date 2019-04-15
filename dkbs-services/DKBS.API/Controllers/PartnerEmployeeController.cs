@@ -50,7 +50,7 @@ namespace DKBS.API.Controllers
         public ActionResult<IEnumerable<PartnerEmployeeDTO>> CreatePartnerEmployee([FromBody] PartnerEmployeeDTO partnerEmployeeDto)
         {
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
@@ -65,14 +65,46 @@ namespace DKBS.API.Controllers
                 return BadRequest();
             }
 
-            PartnerEmployee newlyCreatedPartnerEmployee = new PartnerEmployee() { EmployeeName = partnerEmployeeDto.EmployeeName, PartnerEmployeeId = partnerEmployeeDto.PartnerEmployeeId, Email = partnerEmployeeDto.Email, ParticipentTypeId = partnerEmployeeDto.ParticipentTypeId, JobTitle = partnerEmployeeDto.JobTitle, PartnerTypeId = partnerEmployeeDto.PartnerTypeId, MailGroupId = partnerEmployeeDto.MailGroupId, TelePhoneNumber = partnerEmployeeDto.TelePhoneNumber, PartnerId = partnerEmployeeDto.PartnerId, LastModified = partnerEmployeeDto.LastModified, LastModifiedBY = partnerEmployeeDto.LastModifiedBY};
+            var centerType = _mapper.Map<CenterTypeDTO, CenterType>(partnerEmployeeDto.PartnerDTO.CenterTypeDTO);
+            var partnerType = _mapper.Map<PartnerTypeDTO, PartnerType>(partnerEmployeeDto.PartnerDTO.PartnerTypeDTO);
+            
+            // TODO: check and use map functionlity of mapping properties
+            var partner = new Partner()
+            {
+                CenterType = centerType,
+                PartnerType = partnerType,
+                EmailId = partnerEmployeeDto.Email,
+                PartnerId = partnerEmployeeDto.PartnerDTO.PartnerId,
+                PartnerName = partnerEmployeeDto.PartnerDTO.PartnerName,
+                 PhoneNumber = partnerEmployeeDto.PartnerDTO.PhoneNumber,
+                LastModified = partnerEmployeeDto.PartnerDTO.LastModified,
+                LastModifiedBy = partnerEmployeeDto.PartnerDTO.LastModifiedBy
+            };
+
+            var participantType = _mapper.Map<ParticipantTypeDTO, ParticipantType>(partnerEmployeeDto.ParticipantTypeDTO);
+            var mailGroup = _mapper.Map<MailGroupDTO, MailGroup>(partnerEmployeeDto.MailGroupDTO);
+
+
+            PartnerEmployee newlyCreatedPartnerEmployee = new PartnerEmployee()
+            {
+                EmployeeName = partnerEmployeeDto.EmployeeName,
+                PartnerEmployeeId = partnerEmployeeDto.PartnerEmployeeId,
+                Email = partnerEmployeeDto.Email,
+                ParticipantType = participantType,
+                JobTitle = partnerEmployeeDto.JobTitle,
+                PartnerType = partnerType,
+                MailGroup = mailGroup,
+                TelePhoneNumber = partnerEmployeeDto.TelePhoneNumber,
+                Partner = partner,
+                LastModified = partnerEmployeeDto.LastModified,
+                LastModifiedBY = partnerEmployeeDto.LastModifiedBY
+            };
+
             var destination = _mapper.Map<PartnerEmployee, PartnerEmployeeDTO>(newlyCreatedPartnerEmployee);
-
-
             _choiceRepoistory.GetPartnerEmployees().Add(destination);
             _choiceRepoistory.Complete();
 
-            return CreatedAtRoute("GetPartnerEmployees", new { name = newlyCreatedPartnerEmployee.EmployeeName }, newlyCreatedPartnerEmployee);
+            return CreatedAtRoute("GetPartner", new { name = newlyCreatedPartnerEmployee.EmployeeName }, newlyCreatedPartnerEmployee);
         }
 
         /// <summary>
@@ -83,13 +115,13 @@ namespace DKBS.API.Controllers
         /// <returns></returns>
 
         [HttpPut("{partnerId}")]
-        public IActionResult UpdatePartnerEmployee(int partnerId,[FromBody] PartnerEmployeeDTO partnerEmployeeDTO)
+        public IActionResult UpdatePartnerEmployee(int partnerId, [FromBody] PartnerEmployeeDTO partnerEmployeeDTO)
         {
 
             if (partnerEmployeeDTO == null)
                 return BadRequest();
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
@@ -101,7 +133,6 @@ namespace DKBS.API.Controllers
                 return BadRequest();
             }
 
-            // TODO test it Once
             checkPartnerIdinDb = partnerEmployeeDTO;
             _choiceRepoistory.Complete();
 

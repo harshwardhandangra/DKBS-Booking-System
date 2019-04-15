@@ -3,9 +3,9 @@
     public class ProcedureInfoDTO
     {
         public int ProcedureInfoId { get; set; }
-        public int ProcedureId { get; set; }
-        public int PartnerId { get; set; }
-        public int CenterTypeId { get; set; }
+        public ProcedureDTO ProcedureDTO  { get; set; }
+        public PartnerDTO PartnerDTO { get; set; }
+        public CenterTypeDTO CenterTypeDTO { get; set; }
         public string EmailOffer { get; set; }
         public string Reply { get; set; }
         public string Comment { get; set; }

@@ -8,7 +8,7 @@ namespace DKBS.Domain
         public string CoursePackage { get; set; }
         public int Offered { get; set; }
         public Decimal Price { get; set; }
-        public int CoursepackageTypeID { get; set; }
+        public CoursePackageType CoursePackageType { get; set; }
         public DateTime LastModified { get; set; }
         public string LastModifiedBY { get; set; }
             

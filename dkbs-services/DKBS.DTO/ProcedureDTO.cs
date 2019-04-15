@@ -6,12 +6,12 @@ namespace DKBS.DTO
     {
         public int ProcedureId { get; set; }
         public string ProcedureName { get; set; }
-        public CauseOfRemovalDTO CauseOfRemoval { get; set; }
-        public ProcedureReviewTypeDTO ProcedureReviewType { get; set; }
+        public CauseOfRemovalDTO CauseOfRemovalDTO { get; set; }
+        public ProcedureReviewTypeDTO ProcedureReviewTypeDTO { get; set; }
         public DateTime LastModified { get; set; }
         public string LastModifiedBy { get; set; }
-        public BookingDTO Booking { get; set; }
-        public PartnerDTO Partner { get; set; }
-        public CustomerDTO Customer { get; set; }
+        public BookingDTO BookingDTO { get; set; }
+        public PartnerDTO PartnerDTO { get; set; }
+        public CustomerDTO CustomerDTO { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[BookingAndStatuses]
 (
-	[BookingAndStatusesId] INT NOT NULL PRIMARY KEY IDENTITY, 
+	[BookingAndStatusId] INT NOT NULL PRIMARY KEY IDENTITY, 
     [BookingerIncidentTitle] NVARCHAR(255) NOT NULL, 
     [SLACount] BIT NULL, 
     [ClosedStatus] BIT NULL, 

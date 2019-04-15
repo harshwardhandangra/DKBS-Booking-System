@@ -7,9 +7,11 @@ namespace DKBS.DTO
 {
     public class CancellationReasonDTO
     {
-        public int Id { get; set; }
-
-        //[MaxLength(255)]
+        public int CancellationReasonId { get; set; }
         public string CancellationReasonName { get; set; }
+        public DateTime LastModified { get; set; }
+        public string LastModifiedBy { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public string CreatedBy { get; set; }
     }
 }

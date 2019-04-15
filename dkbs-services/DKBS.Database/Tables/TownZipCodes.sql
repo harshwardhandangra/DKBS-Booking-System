@@ -7,5 +7,5 @@
     [City] NVARCHAR(255) NULL, 
     [LastModified] DATETIME NOT NULL, 
     [LastModifiedBY] NVARCHAR(255) NOT NULL,
-	CONSTRAINT FK_LandTownZipCodes FOREIGN KEY ([LandId]) REFERENCES Land([LandId])
+	CONSTRAINT [FK_TownZipCodes_Land] FOREIGN KEY ([LandId]) REFERENCES Land([LandId]) 
 )

@@ -6,11 +6,11 @@
     [Communications] NVARCHAR(255) NULL, 
     [FromMyIT] NCHAR(10) NULL, 
     [CopyToCloseRemark] NCHAR(10) NULL,
-	[ProceduresId] INT NOT NULL,
+	[ProcedureId] INT NOT NULL,
     [IsPartnerSideCommunication] NCHAR(10) NULL, 
     [ProcedureInfoCommunication] NCHAR(10) NULL, 
     [LastModified] DATETIME NOT NULL, 
     [LastModifiedBY] NVARCHAR(255) NOT NULL,
-	CONSTRAINT FK_Booking_Id1 FOREIGN KEY ([BookingId]) REFERENCES Booking([BookingId]),
-	CONSTRAINT FK_Procedures_Id FOREIGN KEY ([ProceduresId]) REFERENCES Procedures([ProceduresId])
+	CONSTRAINT [FK_ServiceRequestCommunications_Booking] FOREIGN KEY ([BookingId]) REFERENCES Booking([BookingId]),
+	CONSTRAINT [FK_ServiceRequestCommunications_Procedures] FOREIGN KEY ([ProcedureId]) REFERENCES Procedures([ProcedureId])
 )

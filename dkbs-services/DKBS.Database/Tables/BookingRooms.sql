@@ -8,5 +8,7 @@
     [PerPerson] INT NULL, 
 	[ToDate] DATETIME NULL,
 	[FromDate] DATETIME NULL, 
+    CONSTRAINT [FK_BookingRooms_Booking] FOREIGN KEY (BookingId) REFERENCES Booking(BookingId), 
+    CONSTRAINT [FK_BookingRooms_TableSet] FOREIGN KEY (TablesetId) REFERENCES Tableset(TablesetId) 
     
 )

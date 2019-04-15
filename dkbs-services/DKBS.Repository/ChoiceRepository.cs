@@ -6,6 +6,7 @@ using System.Text;
 using System.Linq;
 using DKBS.Domain;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 
 namespace DKBS.Repository
 {
@@ -48,12 +49,29 @@ namespace DKBS.Repository
         List<CustomerDTO> GetCustomers();
         List<PartnerDTO> GetPartners();
         List<PartnerEmployeeDTO> GetPartnerEmployees();
-        List<BookingAndStatusesDTO> GetBookingAndStatuses();
+        List<BookingAndStatusDTO> GetBookingAndStatuses();
         List<ServiceCatalogDTO> GetServiceCatalogs();
         List<ServiceRequestCommunicationsDTO> GetServiceRequestCommunications();
         List<ServiceRequestNotesDTO> GetServiceRequestNotes();
         List<SRConversationItemsDTO> GetSRConversationItems();
 
+        void SetBookings(Booking booking);
+        void SetPartner(Partner newlyCreatedPartner);
+        void SetCenterType(CenterType centerTypeMapped);
+        void SetPartnerType(PartnerType partnerTypeMapped);
+        void AttachIndustryCode(IndustryCode industryCode);
+        void SetCreatedCustomer(Customer newlyCreatedCustomer);
+        void SetTableType(TableType newlyCreatedtableType);
+        void SetCancellationReason(CancellationReason newlyCreatedCancellationReason);
+        void SetCauseOfRemoval(CauseOfRemoval newlyCreatedCancellationReason);
+        void SetContactPerson(ContactPerson newlyCreatedContactPerson);
+        void SetBookingAndStatus(BookingAndStatus newlyCreatedBookingAndStatus);
+        void SetFlow(Flow newlyCreatedFlow);
+        void SetMailLanguage(MailLanguage newlyCreatedmailLanguage);
+        void SetParticipantType(ParticipantType newlyCreatedParticipantType);
+        void SetPurpose(Purpose newlyCreatedPurpose);
+        void SetCampaign(Campaign newlyCreatedCampaign);
+        void SetLeadOfOrigin(LeadOfOrigin newlyCreatedLeadOfOrigin);
     }
 
     public class ChoiceRepository : IChoiceRepository
@@ -85,7 +103,7 @@ namespace DKBS.Repository
 
         public List<TableSetDTO> GetTableSets()
         {
-            return _mapper.Map<List<TableSetDTO>>(_dbContext.TableSet.ToList());
+            return _mapper.Map<List<TableSetDTO>>(_dbContext.TableSets.ToList());
         }
 
         public List<PurposeDTO> GetPurposes()
@@ -110,7 +128,7 @@ namespace DKBS.Repository
 
         public List<LeadOfOriginDTO> GetLeadOfOrigins()
         {
-            return _dbContext.LeadOfOrigins.Select(p => new LeadOfOriginDTO { Name = p.Name, LeadOrignId = p.LeadOfOriginId }).ToList();
+            return _dbContext.LeadOfOrigins.Select(p => new LeadOfOriginDTO { Name = p.Name, LeadOfOriginId = p.LeadOfOriginId }).ToList();
         }
 
         public List<LandDTO> GetLandDetails()
@@ -150,7 +168,7 @@ namespace DKBS.Repository
 
         public List<CampaignDTO> GetCampaigns()
         {
-            return _dbContext.Campaigns.Select(p => new CampaignDTO { Name = p.Name, CompaignId = p.CampaignId }).ToList();
+            return _dbContext.Campaigns.Select(p => new CampaignDTO { Name = p.Name, CampaignId = p.CampaignId }).ToList();
         }
 
         public List<CenterTypeDTO> GetCenterTypes()
@@ -170,7 +188,7 @@ namespace DKBS.Repository
 
         public List<CancellationReasonDTO> GetCancellationReasons()
         {
-            return _dbContext.CancellationReasons.Select(p => new CancellationReasonDTO { CancellationReasonName = p.CancellationReasonName, Id = p.CancellationReasonId }).ToList();
+            return _dbContext.CancellationReasons.Select(p => new CancellationReasonDTO { CancellationReasonName = p.CancellationReasonName, CancellationReasonId = p.CancellationReasonId }).ToList();
         }
 
         public List<CustomerDTO> GetCustomers()
@@ -200,10 +218,92 @@ namespace DKBS.Repository
 
         public List<BookingDTO> GetBookings()
         {
-            return _mapper.Map<List<BookingDTO>>(_dbContext.Bookings.ToList());
+                    var booking = _dbContext.Bookings
+                    .Include(x => x.Partner.CenterType)
+                    .Include(x => x.Partner.PartnerType)
+                    .Include(x => x.Customer.IndustryCode)
+                    .Include(x => x.TableType)
+                    .Include(x => x.CancellationReason)
+                    .Include(x => x.CauseOfRemoval)
+                    .Include(x => x.ContactPerson)
+                    .Include(x => x.BookingAndStatus)
+                    .Include(x => x.Flow)
+                    .Include(x => x.MailLanguage)
+                    .Include(x => x.PartnerType)
+                    .Include(x => x.ParticipantType)
+                    .Include(x => x.Purpose)
+                    .Include(x => x.LeadOfOrigin)
+                    .Include(x => x.Campaign)
+                    .ToList();
+
+                List<BookingDTO> bookingDTO = new List<BookingDTO>();
+
+                foreach (var item in booking)
+                {
+                    var bookingDto = new BookingDTO();
+
+                    CenterTypeDTO centerTypeDto = _mapper.Map<CenterTypeDTO>(item.Partner.CenterType);
+                    PartnerTypeDTO partnerTypeDto = _mapper.Map<PartnerTypeDTO>(item.Partner.PartnerType);
+                    var partnerDto = new PartnerDTO()
+                    {
+                        PartnerId = item.Partner.PartnerId,
+                        CenterTypeDTO = centerTypeDto,
+                        PartnerTypeDTO = partnerTypeDto,
+                        EmailId = item.Partner.EmailId,
+                        LastModified = item.Partner.LastModified,
+                        LastModifiedBy = item.Partner.LastModifiedBy,
+                        PartnerName = item.Partner.PartnerName,
+                        PhoneNumber = item.Partner.PhoneNumber
+                    };
+                    IndustryCodeDTO industryCodeDto = _mapper.Map<IndustryCode, IndustryCodeDTO>(item.Customer.IndustryCode);
+                    var customerDto = new CustomerDTO()
+                    {
+                        City = item.Customer.City,
+                        IndustryCodeDTO = industryCodeDto,
+                        CreatedBy = item.Customer.CreatedBy,
+                        Country = item.Customer.Country,
+                        CreatedDate = item.Customer.CreatedDate,
+                        CustomerName = item.Customer.CustomerName,
+                        EmailId = item.Customer.EmailId,
+                        LastModifiedBY = item.Customer.LastModifiedBY,
+                        LastModifiedDate = item.Customer.LastModifiedDate,
+                        PhoneNumber = item.Customer.PhoneNumber
+                    };
+                    TableTypeDTO tableTypeDTO = _mapper.Map<TableType, TableTypeDTO>(item.TableType);
+                    CancellationReasonDTO cancellationReasonDTO = _mapper.Map<CancellationReason, CancellationReasonDTO>(item.CancellationReason);
+                    CauseOfRemovalDTO causeOfRemovalDTO = _mapper.Map<CauseOfRemoval, CauseOfRemovalDTO>(item.CauseOfRemoval);
+                    ContactPersonDTO contactPersonDTO = _mapper.Map<ContactPerson, ContactPersonDTO>(item.ContactPerson);
+                    BookingAndStatusDTO bookingAndStatusDTO = _mapper.Map<BookingAndStatus, BookingAndStatusDTO>(item.BookingAndStatus);
+                    FlowDTO flowDTO = _mapper.Map<Flow, FlowDTO>(item.Flow);
+                    ParticipantTypeDTO participantTypeDTO = _mapper.Map<ParticipantType, ParticipantTypeDTO>(item.ParticipantType);
+                    PurposeDTO purposeDTO = _mapper.Map<Purpose, PurposeDTO>(item.Purpose);
+                    LeadOfOriginDTO leadOfOriginDTO = _mapper.Map<LeadOfOrigin, LeadOfOriginDTO>(item.LeadOfOrigin);
+                    CampaignDTO campaignDTO = _mapper.Map<Campaign, CampaignDTO>(item.Campaign);
+                    MailLanguageDTO mailLanguageDTO = _mapper.Map<MailLanguageDTO>(item.MailLanguage);
+
+                    bookingDto.BookingId = item.BookingId;
+                    bookingDto.PartnerDTO = partnerDto;
+                    bookingDto.CustomerDTO = customerDto;
+                    bookingDto.TableTypeDTO = tableTypeDTO;
+                    bookingDto.CancellationReasonDTO = cancellationReasonDTO;
+                    bookingDto.CauseOfRemovalDTO = causeOfRemovalDTO;
+                    bookingDto.ContactPersonDTO = contactPersonDTO;
+                    bookingDto.BookingAndStatusDTO = bookingAndStatusDTO;
+                    bookingDto.FlowDTO = flowDTO;
+                    bookingDto.ParticipantTypeDTO = participantTypeDTO;
+                    bookingDto.PurposeDTO = purposeDTO;
+                    bookingDto.LeadOfOriginDTO = leadOfOriginDTO;
+                    bookingDto.CampaignDTO = campaignDTO;
+                    bookingDto.MailLanguageDTO = mailLanguageDTO;
+                    bookingDTO.Add(bookingDto);
+            }
+
+            return bookingDTO;
+
+
         }
 
-        public List<BookingReferenceDTO> GetBookingReferences()
+            public List<BookingReferenceDTO> GetBookingReferences()
         {
             return _mapper.Map<List<BookingReferenceDTO>>(_dbContext.BookingReferences.ToList());
         }
@@ -215,7 +315,7 @@ namespace DKBS.Repository
 
         public List<ContactPersonDTO> GetContactPeople()
         {
-            return _mapper.Map<List<ContactPersonDTO>>(_dbContext.ContactPeople.ToList());
+            return _mapper.Map<List<ContactPersonDTO>>(_dbContext.ContactPersons.ToList());
         }
 
         public List<MailGroupDTO> GetMailGroups()
@@ -258,9 +358,9 @@ namespace DKBS.Repository
             return _mapper.Map<List<ProcedureInfoDTO>>(_dbContext.ProcedureInfos.ToList());
         }
 
-        public List<BookingAndStatusesDTO> GetBookingAndStatuses()
+        public List<BookingAndStatusDTO> GetBookingAndStatuses()
         {
-            return _mapper.Map<List<BookingAndStatusesDTO>>(_dbContext.BookingAndStatuses.ToList());
+            return _mapper.Map<List<BookingAndStatusDTO>>(_dbContext.BookingAndStatuses.ToList());
         }
 
         public List<ServiceCatalogDTO> GetServiceCatalogs()
@@ -281,6 +381,91 @@ namespace DKBS.Repository
         public List<SRConversationItemsDTO> GetSRConversationItems()
         {
             return _mapper.Map<List<SRConversationItemsDTO>>(_dbContext.SRConversationItems.ToList());
+        }
+
+        public void SetBookings(Booking booking)
+        {
+            _dbContext.Bookings.Add(booking);
+        }
+
+        public void SetPartner(Partner newlyCreatedPartner)
+        {
+            _dbContext.Partners.Add(newlyCreatedPartner);
+        }
+
+        public void SetCenterType(CenterType centerTypeMapped)
+        {
+            _dbContext.CenterTypes.Add(centerTypeMapped);
+        }
+
+        public void SetPartnerType(PartnerType partnerTypeMapped)
+        {
+            _dbContext.PartnerTypes.Add(partnerTypeMapped);
+        }
+
+        public void AttachIndustryCode(IndustryCode industryCode)
+        {
+            _dbContext.IndustryCodes.Add(industryCode);
+        }
+
+        public void SetCreatedCustomer(Customer newlyCreatedCustomer)
+        {
+               _dbContext.Customers.Add(newlyCreatedCustomer);
+        }
+
+        public void SetTableType(TableType newlyCreatedtableType)
+        {
+             _dbContext.TableTypes.Add(newlyCreatedtableType);
+        }
+
+        public void SetCancellationReason(CancellationReason newlyCreatedCancellationReason)
+        {
+            _dbContext.CancellationReasons.Add(newlyCreatedCancellationReason);
+        }
+
+        public void SetCauseOfRemoval(CauseOfRemoval newlyCreatedCauseOfRemoval)
+        {
+            _dbContext.CauseOfRemovals.Add(newlyCreatedCauseOfRemoval);
+        }
+
+        public void SetContactPerson(ContactPerson newlyCreatedContactPerson)
+        {
+            _dbContext.ContactPersons.Add(newlyCreatedContactPerson);
+        }
+
+        public void SetBookingAndStatus(BookingAndStatus newlyCreatedBookingAndStatus)
+        {
+            _dbContext.BookingAndStatuses.Add(newlyCreatedBookingAndStatus);
+        }
+
+        public void SetFlow(Flow newlyCreatedFlow)
+        {
+            _dbContext.Flow.Add(newlyCreatedFlow);
+        }
+
+        public void SetMailLanguage(MailLanguage newlyCreatedmailLanguage)
+        {
+            _dbContext.MailLanguages.Add(newlyCreatedmailLanguage);
+        }
+
+        public void SetParticipantType(ParticipantType newlyCreatedParticipantType)
+        {
+            _dbContext.ParticipantTypes.Add(newlyCreatedParticipantType);      
+        }
+
+        public void SetPurpose(Purpose newlyCreatedPurpose)
+        {
+            _dbContext.Purpose.Add(newlyCreatedPurpose);
+        }
+
+        public void SetCampaign(Campaign newlyCreatedCampaign)
+        {
+             _dbContext.Campaigns.Add(newlyCreatedCampaign);
+        }
+
+        public void SetLeadOfOrigin(LeadOfOrigin newlyCreatedLeadOfOrigin)
+        {
+            _dbContext.LeadOfOrigins.Add(newlyCreatedLeadOfOrigin);
         }
     }
 }

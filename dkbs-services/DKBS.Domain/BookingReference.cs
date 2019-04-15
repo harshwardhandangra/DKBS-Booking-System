@@ -8,6 +8,6 @@
         public int CampignId { get; set; }
        // [MaxLength(500)]
         public string Other { get; set; }
-        public int LeadOfOriginId { get; set; }
+        public LeadOfOrigin LeadOfOrigin { get; set; }
     }      
 }
