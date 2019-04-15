@@ -11,10 +11,6 @@ namespace DKBS.Domain
         public string Email { get; set; }
         public string Telephone { get; set; }
         public string Mobile { get; set; }
-        public DateTime LastModified { get; set; }
-        public string LastModifiedBY { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public string CreatedBy { get; set; }
-
+       
     }
 }

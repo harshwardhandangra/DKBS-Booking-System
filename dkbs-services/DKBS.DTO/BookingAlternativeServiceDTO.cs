@@ -9,7 +9,6 @@ namespace DKBS.DTO
         public string Description { get; set; }
         public DateTime CreatedDate { get; set; }
         public string CreatedBy { get; set; }
-        public string LastModified { get; set; }
         public string LastModifieddBy { get; set; }
         public BookingDTO BookingDTO { get; set; }
     }
