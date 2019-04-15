@@ -48,22 +48,16 @@ namespace DKBS.API
             .UseLoggerFactory(DbCommandDebugLoggerFactory).EnableSensitiveDataLogging());
             services.AddScoped<IChoiceRepository, ChoiceRepository>();
             services.AddAutoMapper();
-            //services.AddCors(options =>
-            //{
-            //    options.AddPolicy(AllowOrigins,
-            //    builder =>
-            //    {
-            //        builder.AllowAnyOrigin();
-            //        builder.AllowAnyMethod();
-            //        builder.AllowAnyHeader();
-            //    });
-            //});
-
-            services.AddCors(c =>
+            services.AddCors(options =>
             {
-                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+                options.AddPolicy(AllowOrigins,
+                builder =>
+                {
+                    builder.AllowAnyOrigin();
+                    builder.AllowAnyMethod();
+                    builder.AllowAnyHeader();
+                });
             });
-
             services.AddMvc();
             services.AddSwaggerGen(c =>
             {
@@ -98,8 +92,7 @@ namespace DKBS.API
             app.UseFileServer();
             app.UseDefaultFiles();
             app.UseStaticFiles();
-            app.UseCors(options => options.AllowAnyOrigin());
-            //app.UseCors(AllowOrigins);
+            app.UseCors(AllowOrigins);
             app.UseMvc();
 
             //This line enables the app to use Swagger, with the configuration in the ConfigureServices method.
