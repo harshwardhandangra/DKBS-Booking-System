@@ -454,19 +454,26 @@
 
                   </div>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label class="col-form-label">Regions Agreement</label>
                   <input type="checkbox">
-                </div>
+                </div> -->
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label class="col-form-label">state agreement</label>
                   <input type="checkbox">
-                </div>
+                </div> -->
 
                 <div class="form-group">
-                  <label class="col-form-label">Search results</label>
-                  <input type="checkbox">
+                  <label class="col-form-label">Center Matchings</label>
+                  <div class="radiocheckbox">
+                    <div class="form-check">
+                      <ng-multiselect-dropdown [placeholder]="'custom placeholder'" [data]="dropdownListforSearchType"
+                        [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+                        (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
+                    </div>
+
+                  </div>
                 </div>
                 <h6 class="FormH6">Desired geographical area</h6>
                 <hr class="style2">
