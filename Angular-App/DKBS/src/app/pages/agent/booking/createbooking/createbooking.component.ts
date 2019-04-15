@@ -24,6 +24,10 @@ export class CreatebookingComponent implements OnInit {
   selectedwallet = 'Eventdetaljer';
   dropdownList = [];
   dropdownListLeadOrigin = [];
+  dropdownListPurpose= [];
+  dropdownListPParticipants= [];
+  dropdownListTableSetting= [];
+
   dropdownListforSearchType = [];
   dropdownListforPartnerType = [];
   selectedItems = [];
@@ -143,14 +147,38 @@ export class CreatebookingComponent implements OnInit {
 
 
    GetAllLeadOrigin(): any {
-    this.stateprovinanceService.GetAllLeadOrigin().subscribe(state => {
-    
+    this.stateprovinanceService.GetAllLeadOrigin().subscribe(state => {    
     for (let i = 0; i < state.length; ++i) {
-      this.dropdownListLeadOrigin.push({ item_id: state[i].regionId, item_text: state[i].name });
-      
+      this.dropdownListLeadOrigin.push({ item_id: state[i].regionId, item_text: state[i].name });      
     }
      });
    }
+
+   GetAllPurpose(): any {
+    this.choiceService.GetAllpurposes().subscribe(ResponceData => {    
+    for (let i = 0; i < ResponceData.length; ++i) {
+      this.dropdownListPurpose.push({ item_id: ResponceData[i].purposeId, item_text: ResponceData[i].purposeName });      
+    }
+     });
+   }
+
+   GetAllTableSetting(): any {
+    this.choiceService.GetAllpurposes().subscribe(ResponceData => {    
+    for (let i = 0; i < ResponceData.length; ++i) {
+      this.dropdownListTableSetting.push({ item_id: ResponceData[i].tableTypeId, item_text: ResponceData[i].tableTypeName });      
+    }
+     });
+   }
+
+   GetAllParticipants(): any {
+    this.choiceService.GetAllpurposes().subscribe(ResponceData => {    
+    for (let i = 0; i < ResponceData.length; ++i) {
+      this.dropdownListPParticipants.push({ item_id: ResponceData[i].participantTypeId, item_text: ResponceData[i].participantTypeName });      
+    }
+     });
+   }
+
+  
   // ngOnInit() {
   // }
 
