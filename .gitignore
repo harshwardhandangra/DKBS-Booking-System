@@ -20,3 +20,5 @@ dkbs-services/DKBS.API/Properties/PublishProfiles/dkbs-api-dev - Web Deploy.pubx
 dkbs-services/DKBS.API/Properties/PublishProfiles/dkbs-api - Web Deploy.pubxml
 /Database/dkbs
 /dkbs-services/DKBS
+dkbs-services/DKBS.Migration/DKBS.Migration.jfm
+dkbs-services/DKBS.Migration/DKBS.Migration.dbmdl
