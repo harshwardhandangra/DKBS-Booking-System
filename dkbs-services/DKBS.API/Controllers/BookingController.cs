@@ -72,7 +72,7 @@ namespace DKBS.API.Controllers
         [HttpGet("[action]/{bookingId}")]
         public ActionResult<BookingArrangementTypeDTO> GetBookingArrangementType(int bookingId)
         {
-            return _choiceRepoistory.GetBookingArrangementTypes().FirstOrDefault(c => c.BookingId == bookingId);
+            return _choiceRepoistory.GetBookingArrangementTypes().FirstOrDefault(c => c.BookingDTO.BookingId == bookingId);
         }
 
         /// <summary>

@@ -7,5 +7,5 @@
         public ContactPerson ContactPerson { get; set; }
         public string Other { get; set; }
         public LeadOfOrigin LeadOfOrigin { get; set; }
-    }      
+    }
 }
