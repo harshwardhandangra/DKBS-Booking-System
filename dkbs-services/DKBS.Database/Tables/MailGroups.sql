@@ -4,6 +4,8 @@
     [MailGroupsTitle] NVARCHAR(255) NOT NULL, 
     [InternalName] NVARCHAR(255) NULL, 
     [IncludeInPartnerEmail] BIT NULL, 
-    [LastModified] DATETIME NOT NULL, 
-    [LastModifiedBY] NVARCHAR(255) NOT NULL
+    [CreatedDate] DATETIME NULL,
+	[CreatedBy] nvarchar(100),
+	[LastModified] DATETIME NULL, 
+	[LastModifiedBy] NVARCHAR(100) NULL
 )
