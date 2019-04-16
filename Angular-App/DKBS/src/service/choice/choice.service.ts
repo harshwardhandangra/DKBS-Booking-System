@@ -154,5 +154,8 @@ export class ChoiceService {
     var url = '/choice/townZipCodes';
     return this.commonService.get(url);
   }
-
+  Getpartners(): any {
+    var url = '/choice/partners';
+    return this.commonService.get(url);
+  }
 }

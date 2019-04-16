@@ -14,44 +14,36 @@ import { ChoiceService } from 'src/service/Choice/Choice.service';
 export class CreatebookingComponent implements OnInit {
   public title = 'Places';
   public addrKeys: string[];
-  public addr: object;
-  
+  public addr: object;  
   mytime1: Date | undefined = new Date();
   mytime2: Date | undefined = new Date();
   ArrivalDate = new Date();
   DepartDate = new Date();
-
   selectedwallet = 'Eventdetaljer';
   dropdownList = [];
   dropdownListLeadOrigin = [];
+  dropdownPackageType = [];
+  dropdownCampaign = [];
   dropdownListPurpose= [];
   dropdownListPParticipants= [];
   dropdownListTableSetting= [];
-
   dropdownListforSearchType = [];
   dropdownListforPartnerType = [];
   selectedItems = [];
-  dropdownSettings = {};
-
-  
+  dropdownSettings = {}; 
 
   ngOnInit() {
 
     const time = new Date();
     time.setHours(9);
     time.setMinutes(0);
-
     const time2 = new Date();
     time2.setHours(5);
     time2.setMinutes(0);
-
     this.mytime1 = time;
     this.mytime2= time2;
-
     this.ArrivalDate.setDate(this.ArrivalDate.getDate() + 1);
-    this.DepartDate.setDate(this.DepartDate.getDate() + 2);
-
-  
+    this.DepartDate.setDate(this.DepartDate.getDate() + 2);  
     this.dropdownSettings = {
       singleSelection: false,
       idField: 'item_id',
@@ -67,6 +59,13 @@ export class CreatebookingComponent implements OnInit {
     this.GetCompany();
     this.GetContactPerson();
     this.GetAllLeadOrigin();
+    this.GetAllPurpose();
+    this.GetAllTableSetting();
+    this.GetAllParticipants();
+    this.GetAllRefer();
+    this.GetReferredbyDDL();
+    this.GetPackageType();
+    this.GetAllcampaigns();
   }
 
   selectedValue: string;
@@ -74,7 +73,8 @@ export class CreatebookingComponent implements OnInit {
   states: any[];
   company: any[];
   ContactPerson: any[];
-  
+  Referred: any[];
+  ReferDDL: any[]; 
   
   onSelect(event: TypeaheadMatch): void {
     this.selectedOption = event.item;
@@ -104,7 +104,6 @@ export class CreatebookingComponent implements OnInit {
      this.states=res;    
      });
    }
-
    GetCompany(): any {
     this.zipcodeService.GetAllZipCodes().subscribe(res => {    
      this.company=res;  
@@ -118,7 +117,6 @@ export class CreatebookingComponent implements OnInit {
 
      });
    }
-
    GetAllStateProvinance(): any {
     this.stateprovinanceService.GetAllStateProvinance().subscribe(state => {
     
@@ -127,8 +125,6 @@ export class CreatebookingComponent implements OnInit {
     }
      });
    }
-
-
    GetAllPartnerType(): any {
     this.stateprovinanceService.GetAllPartnerType().subscribe(state => {   
     for (let i = 0; i < state.length; ++i) {
@@ -136,7 +132,6 @@ export class CreatebookingComponent implements OnInit {
     }
      });
    }
-
    GetSearchType(): any {
     this.stateprovinanceService.GetSearchType().subscribe(state => {   
     for (let i = 0; i < state.length; ++i) {
@@ -144,8 +139,6 @@ export class CreatebookingComponent implements OnInit {
     }
      });
    }
-
-
    GetAllLeadOrigin(): any {
     this.stateprovinanceService.GetAllLeadOrigin().subscribe(state => {    
     for (let i = 0; i < state.length; ++i) {
@@ -153,7 +146,6 @@ export class CreatebookingComponent implements OnInit {
     }
      });
    }
-
    GetAllPurpose(): any {
     this.choiceService.GetAllpurposes().subscribe(ResponceData => {    
     for (let i = 0; i < ResponceData.length; ++i) {
@@ -161,7 +153,6 @@ export class CreatebookingComponent implements OnInit {
     }
      });
    }
-
    GetAllTableSetting(): any {
     this.choiceService.GetAllpurposes().subscribe(ResponceData => {    
     for (let i = 0; i < ResponceData.length; ++i) {
@@ -169,7 +160,6 @@ export class CreatebookingComponent implements OnInit {
     }
      });
    }
-
    GetAllParticipants(): any {
     this.choiceService.GetAllpurposes().subscribe(ResponceData => {    
     for (let i = 0; i < ResponceData.length; ++i) {
@@ -177,14 +167,21 @@ export class CreatebookingComponent implements OnInit {
     }
      });
    }
-
-  
-  // ngOnInit() {
-  // }
-
+   GetAllRefer(): any {
+    this.choiceService.Getpartners().subscribe(res => {    
+     this.ReferDDL=res;    
+     });
+   }  
+   GetPackageType(): any {
+    this.choiceService.GetAllcoursepackagetype().subscribe(state => {    
+    for (let i = 0; i < state.length; ++i) {
+      this.dropdownPackageType.push({ item_id: state[i].coursePackageTypeId, item_text: state[i].coursePackageTypeTitle });      
+    }
+     });
+   }
   GetReferredbyDDL(): any {
     this.zipcodeService.GetAllZipCodes().subscribe(res => {    
-     this.states=res;    
+     this.Referred=res;    
      });
    }
   setAddress(addrObj) {
@@ -197,5 +194,13 @@ export class CreatebookingComponent implements OnInit {
       console.log(this.addr );
     });
   }
+
+  GetAllcampaigns(): any {
+    this.choiceService.GetAllcampaigns().subscribe(state => {    
+    for (let i = 0; i < state.length; ++i) {
+      this.dropdownCampaign.push({ item_id: state[i].campaignId, item_text: state[i].name });      
+    }
+     });
+   }
 
 }

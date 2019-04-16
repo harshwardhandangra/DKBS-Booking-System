@@ -105,24 +105,23 @@
                   <label class="col-form-label">Referred by</label> 
                   <!-- <label class="col-form-label">Searchable Lookup</label> -->
                
-                  <input [(ngModel)]="selectedValuestates" [typeahead]="Referred" typeaheadOptionField="name"
-                  (typeaheadOnSelect)="onSelect($event)" [typeaheadScrollable]="true" class="form-control" name="kp" autocomplete="off">
+                  <input [(ngModel)]="selectedValueReferred" [typeahead]="Referred" typeaheadOptionField="name"
+                  (typeaheadOnSelect)="onSelect($event)" [typeaheadScrollable]="true" class="form-control" name="Referred" autocomplete="off">
                   
                 </div>
 
                 <div class="form-group">
                   <label class="col-form-label">Refers</label>
-                  <select id="inputState" class="form-control txtsize">
-                    <option selected="selected">Choose...</option>
-                    <option>...</option>
-                  </select>
+                  <input [(ngModel)]="selectedValueReferDDL" [typeahead]="ReferDDL" typeaheadOptionField="name"
+                  (typeaheadOnSelect)="onSelect($event)" [typeaheadScrollable]="true" class="form-control" name="ReferDDL" autocomplete="off">
                 </div>
                 <div class="form-group">
                   <label class="col-form-label">Where do you know us?</label>
                   <select id="inputState" class="form-control txtsize">
-                    <option selected="selected">Choose...</option>
-                    <option>...</option>
-                  </select>
+                      <option  *ngFor="let ObjdropdownCampaign of dropdownCampaign" [value]="ObjdropdownCampaign.item_id">
+                       {{ObjdropdownCampaign.item_text}}
+                      </option>                   
+                    </select>
                 </div>
                 <div class="form-group">
                   <label class="col-form-label">Lead Origin</label>
@@ -277,10 +276,13 @@
                     <ul>
                       <li>
                         <div class="lbl"> Course Packages</div>
-                        <select id="Select1" class="form-control txtsize" style="width: 103px;">
-                          <option selected="selected">Choose...</option>
-                          <option>...</option>
-                        </select> 
+                      
+
+                        <select id="inputState" class="form-control txtsize"  style="width: 103px;">
+                            <option  *ngFor="let ObjdropdownPackageType of dropdownPackageType" [value]="ObjdropdownPackageType.item_id">
+                             {{ObjdropdownPackageType.item_text}}
+                            </option>                   
+                          </select>
                         
                       </li>
                       <li>
