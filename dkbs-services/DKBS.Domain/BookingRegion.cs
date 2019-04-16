@@ -3,7 +3,7 @@
     public class BookingRegion
     {
         public int BookingRegionId { get; set; }
-        public Booking Booking { get; set; }
-        public Region Region { get; set; }
+        public int BookingId { get; set; }
+        public int RegionId { get; set; }
     }
 }
