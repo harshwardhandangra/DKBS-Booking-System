@@ -142,7 +142,7 @@ export class CreatebookingComponent implements OnInit {
    GetAllLeadOrigin(): any {
     this.stateprovinanceService.GetAllLeadOrigin().subscribe(state => {    
     for (let i = 0; i < state.length; ++i) {
-      this.dropdownListLeadOrigin.push({ item_id: state[i].regionId, item_text: state[i].name });      
+      this.dropdownListLeadOrigin.push({ item_id: state[i].leadOfOriginId, item_text: state[i].name });      
     }
      });
    }
@@ -154,14 +154,14 @@ export class CreatebookingComponent implements OnInit {
      });
    }
    GetAllTableSetting(): any {
-    this.choiceService.GetAllpurposes().subscribe(ResponceData => {    
-    for (let i = 0; i < ResponceData.length; ++i) {
-      this.dropdownListTableSetting.push({ item_id: ResponceData[i].tableTypeId, item_text: ResponceData[i].tableTypeName });      
+    this.choiceService.GetAlltableSets().subscribe(ResponceData => {    
+      for (let i = 0; i < ResponceData.length; ++i) {
+      this.dropdownListTableSetting.push({ item_id: ResponceData[i].tableSetId, item_text: ResponceData[i].tableSetName });      
     }
      });
    }
    GetAllParticipants(): any {
-    this.choiceService.GetAllpurposes().subscribe(ResponceData => {    
+    this.choiceService.GetAllparticipantTypes().subscribe(ResponceData => {    
     for (let i = 0; i < ResponceData.length; ++i) {
       this.dropdownListPParticipants.push({ item_id: ResponceData[i].participantTypeId, item_text: ResponceData[i].participantTypeName });      
     }
@@ -180,7 +180,7 @@ export class CreatebookingComponent implements OnInit {
      });
    }
   GetReferredbyDDL(): any {
-    this.zipcodeService.GetAllZipCodes().subscribe(res => {    
+    this.choiceService.Getpartners().subscribe(res => {    
      this.Referred=res;    
      });
    }
@@ -194,6 +194,7 @@ export class CreatebookingComponent implements OnInit {
       console.log(this.addr );
     });
   }
+  
 
   GetAllcampaigns(): any {
     this.choiceService.GetAllcampaigns().subscribe(state => {    
