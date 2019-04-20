@@ -46,6 +46,11 @@ import { AwaitingDKBSComponent } from './pages/agent/booking/provision/awaiting-
 import { AwaitingeconomyComponent } from './pages/agent/booking/provision/awaitingeconomy/awaitingeconomy.component';
 import { NumberOnlyDirective } from './number.directive';
 
+
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -86,6 +91,8 @@ import { NumberOnlyDirective } from './number.directive';
   ],
   imports: [
     BrowserModule,
+   
+        
     AppRoutingModule,
     FormsModule, 
     ReactiveFormsModule,
@@ -97,8 +104,10 @@ import { NumberOnlyDirective } from './number.directive';
     TypeaheadModule.forRoot(),
     HttpModule,
     NgxEditorModule,
-    AgGridModule.withComponents(null) 
-  ],
+   
+
+    AgGridModule.withComponents(null),
+     ],
   providers: [],
   bootstrap: [AppComponent]
 })

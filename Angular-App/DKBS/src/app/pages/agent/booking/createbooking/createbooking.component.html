@@ -112,7 +112,7 @@
 
                 <div class="form-group">
                   <label class="col-form-label">Refers</label>
-                  <input [(ngModel)]="selectedValueReferDDL" [typeahead]="ReferDDL" typeaheadOptionField="name"
+                  <input [(ngModel)]="selectedValueReferDDL" [typeahead]="ReferDDL" typeaheadOptionField="employeeName"
                   (typeaheadOnSelect)="onSelect($event)" [typeaheadScrollable]="true" class="form-control" name="ReferDDL" autocomplete="off">
                 </div>
                 <div class="form-group">
@@ -166,6 +166,7 @@
                   </div>
                   <div class="clear"></div>
                 </div>
+           
                 <div class="clear"></div>
                 <div class="form-group">
                   <label class="col-form-label">Depart</label>
@@ -211,8 +212,8 @@
                           <div class="col-sm-6 ">
                               <label class="col-form-label">Table setting</label>
                               <select id="inputState" class="form-control txtsize">
-                                <option  *ngFor="let ObjTableSettingof dropdownListTableSetting" [value]="ObjTableSettingof.item_id">
-                                 {{ObjTableSettingof.item_text}}
+                                <option  *ngFor="let ObjTableSetting of dropdownListTableSetting" [value]="ObjTableSetting.item_id">
+                                 {{ObjTableSetting.item_text}}
                                 </option>                   
                               </select>
                           </div>
@@ -289,19 +290,35 @@
                         <div class="lbl">No. of participants</div>
                         <input myNumberOnly class="form-control InlineInput" maxlength="8">
                       </li>
-                      <li style="width: 210px;">
+                      <!-- 210 -->
+                      <li style="width: 428px;">
                         <div class="lbl">From</div>
                         <!-- <input type="text" class="form-control"> -->
-                        <div class="datetimediv">                         
+                        <!-- <div class="datetimediv">                         
                           <timepicker  [(ngModel)]="mytime2" name="mytime2" class="widthtimepicker"></timepicker>
+                        </div> -->
+                        <div class="datetimediv">
+                          <input type="text" style=" width: 99px;" [(ngModel)]="ArrivalDate" name="ArrivalDate"  bsDatepicker class="form-control dpicker" autocomplete="off" />
+                          <timepicker [(ngModel)]="mytime1" name="mytime1" class="widthtimepicker"></timepicker>
                         </div>
                       </li>
-                      <li style="width: 217px;">
+                      <li style="width: 214px;">
+                        <div class="lbl">From</div>
+                        <!-- <input type="text" class="form-control"> -->
+                        <!-- <div class="datetimediv">                         
+                          <timepicker  [(ngModel)]="mytime2" name="mytime2" class="widthtimepicker"></timepicker>
+                        </div> -->
+                        <div class="datetimediv">
+                          <input type="text" style=" width: 99px;" [(ngModel)]="ArrivalDate" name="ArrivalDate"  bsDatepicker class="form-control dpicker" autocomplete="off" />
+                          <timepicker [(ngModel)]="mytime1" name="mytime1" class="widthtimepicker"></timepicker>
+                        </div>
+                      </li>
+                      <!-- <li style="width: 217px;">
                         <div class="lbl">To</div>
                         <div class="datetimediv">                         
                           <timepicker  [(ngModel)]="mytime2" name="mytime2" class="widthtimepicker"></timepicker>
                         </div>
-                      </li>
+                      </li> -->
                       <li>
                         <a (click)="addFieldValue()"><i class="fa fa-plus"></i>Add new row</a>
                         <!-- <button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button> -->
@@ -400,10 +417,11 @@
                       </li>
                       <li>
                         <div class="lbl">Table Set</div>
-                        <select id="Select1" class="form-control txtsize" style="width: 103px;">
-                          <option selected="selected">Choose...</option>
-                          <option>...</option>
-                        </select> 
+                        <select id="inputState" class="form-control txtsize">
+                          <option  *ngFor="let ObjTableSetting of dropdownListTableSetting" [value]="ObjTableSetting.item_id">
+                           {{ObjTableSetting.item_text}}
+                          </option>                   
+                        </select>
                       </li>
                       <li style="width: 210px;">
                         <div class="lbl">From</div>
