@@ -71,7 +71,6 @@
     <Build Include="Tables\ITProcedureStatuses.sql" />
     <Build Include="Tables\Flow.sql" />
     <Build Include="Tables\CrmStatuses.sql" />
-    <Build Include="Tables\CoursePackageTypes.sql" />
     <Build Include="Tables\ContactPersons.sql" />
     <Build Include="Tables\Campaigns.sql" />
     <Build Include="Tables\CenterTypes.sql" />
@@ -100,6 +99,7 @@
     <Build Include="Tables\BookingRegions.sql" />
     <Build Include="Tables\ParticipantType.sql" />
     <Build Include="Tables\IndustryCodes.sql" />
+    <Build Include="Tables\Refreshments.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DKBS.publish.xml" />
