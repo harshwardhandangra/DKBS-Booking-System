@@ -2,10 +2,13 @@
 (
 	[ServiceCatalogId] INT NOT NULL PRIMARY KEY IDENTITY, 
     [CoursePackage] NVARCHAR(255) NULL, 
+	[CoursePackageEng] NVARCHAR(255) NULL, 
     [Offered] BIT NULL,
 	[Price] DECIMAL(18, 2) NULL,
-	[CoursepackageTypeID] INT NULL, 
-    [LastModified] DATETIME NOT NULL, 
-    [LastModifiedBY] NVARCHAR(255) NOT NULL
-	CONSTRAINT FK_CoursepackageType_ID FOREIGN KEY ([CoursepackageTypeID]) REFERENCES CoursePackageTypes([CoursepackageTypeID]),
+	[CoursePackageType] nvarchar(200),
+	[CanBePurchased] BIT,
+ 	[CreatedDate] DATETIME NULL,
+	[CreatedBy] nvarchar(100),
+	[LastModified] DATETIME NULL, 
+	[LastModifiedBy] NVARCHAR(100) NULL
 )
