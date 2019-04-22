@@ -11,13 +11,20 @@ namespace DKBS.Repository
     {
         public ChoiceProfile()
         {
+
+            CreateMap<Booking, BookingViewModel>();
+            CreateMap<TableSet, TableSetViewModel>();
+            CreateMap<BookingRoom, BookingRoomViewModel>();
+            CreateMap<BookingArrangementType, BookingArrangementTypeViewModel>();
+            CreateMap<BookingAlternativeService, BookingAlternativeServiceViewModel>();
+            CreateMap<BookingArrangementType, BookingArrangementTypeViewModel>();
             CreateMap<BookingAlternativeService, BookingAlternativeServiceDTO>();
             CreateMap<BookingAndStatus, BookingAndStatusDTO>();
             CreateMap<BookingArrangementType, BookingArrangementTypeDTO>();
             CreateMap<Booking, BookingDTO>();
             CreateMap<BookingReference, BookingReferenceDTO>();
             CreateMap<BookingRegion, BookingRegionDTO>();
-            CreateMap<BookingRooms, BookingRoomsDTO>();
+            CreateMap<BookingRoom, BookingRoomDTO>();
             CreateMap<Campaign, CampaignDTO>();
             CreateMap<CancellationReason, CancellationReasonDTO>();
             CreateMap<CauseOfRemoval, CauseOfRemovalDTO>();
@@ -55,9 +62,9 @@ namespace DKBS.Repository
             CreateMap<Purpose, PurposeDTO>();
             CreateMap<Region, RegionDTO>();
             CreateMap<ServiceCatalog, ServiceCatalogDTO>();
-            CreateMap<ServiceRequestCommunications, ServiceRequestCommunicationsDTO>();
-            CreateMap<ServiceRequestNotes, ServiceRequestNotesDTO>();
-            CreateMap<SRConversationItems, SRConversationItemsDTO>();
+            CreateMap<ServiceRequestCommunication, ServiceRequestCommunicationDTO>();
+            CreateMap<ServiceRequestNote, ServiceRequestNoteDTO>();
+            CreateMap<SRConversationItem, SRConversationItemDTO>();
             CreateMap<TableSet, TableSetDTO>();
             CreateMap<TableType, TableTypeDTO>();
             CreateMap<TownZipCode, TownZipCodeDTO>();

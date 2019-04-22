@@ -2,9 +2,9 @@
 
 namespace DKBS.DTO
 {
-    public class SRConversationItemsDTO
+    public class SRConversationItemDTO
     {
-        public int SRConversationItemsId { get; set; }
+        public int SRConversationItemId { get; set; }
         public string SRConversationTitle { get; set; }
         public string ConversationMessage { get; set; }
         public string Sender { get; set; }

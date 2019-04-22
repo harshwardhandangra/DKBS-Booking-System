@@ -10,85 +10,84 @@ namespace DKBS.Data
     {
         public DKBSDbContext(DbContextOptions<DKBSDbContext> options) : base(options)
         {
-
         }
-        public DbSet<Region> Regions { get; set; }
+        public DbSet<Region> Region { get; set; }
 
-        public DbSet<TableSet> TableSets { get; set; }
+        public DbSet<TableSet> TableSet { get; set; }
 
         public DbSet<Purpose> Purpose { get; set; }
 
-        public DbSet<TableType> TableTypes { get; set; }
+        public DbSet<TableType> TableType { get; set; }
 
-        public DbSet<PartnerType> PartnerTypes { get; set; }
+        public DbSet<PartnerType> PartnerType { get; set; }
 
-        public DbSet<MailLanguage> MailLanguages { get; set; }
+        public DbSet<MailLanguage> MailLanguage { get; set; }
 
-        public DbSet<LeadOfOrigin> LeadOfOrigins { get; set; }
+        public DbSet<LeadOfOrigin> LeadOfOrigin { get; set; }
 
         public DbSet<Land> Land { get; set; }
 
-        public DbSet<ITProcedureStatus> ITProcedureStatuses { get; set; }
+        public DbSet<ITProcedureStatus> ITProcedureStatus { get; set; }
 
-        public DbSet<IndustryCode> IndustryCodes { get; set; }
+        public DbSet<IndustryCode> IndustryCode { get; set; }
 
         public DbSet<Flow> Flow { get; set; }
 
-        public DbSet<CrmStatus> CrmStatuses { get; set; }
+        public DbSet<CrmStatus> CrmStatus { get; set; }
 
-        public DbSet<CoursePackageType> CoursePackageTypes { get; set; }
+        public DbSet<CoursePackageType> CoursePackageType { get; set; }
 
-        public DbSet<ContactPerson> ContactPersons { get; set; }
+        public DbSet<ContactPerson> ContactPerson { get; set; }
 
-        public DbSet<Campaign> Campaigns { get; set; }
+        public DbSet<Campaign> Campaign { get; set; }
 
-        public DbSet<CenterType> CenterTypes { get; set; }
+        public DbSet<CenterType> CenterType { get; set; }
 
-        public DbSet<CenterMatching> CenterMatchings { get; set; }
+        public DbSet<CenterMatching> CenterMatching { get; set; }
 
-        public DbSet<CauseOfRemoval> CauseOfRemovals { get; set; }
+        public DbSet<CauseOfRemoval> CauseOfRemoval { get; set; }
 
-        public DbSet<CancellationReason> CancellationReasons { get; set; }
+        public DbSet<CancellationReason> CancellationReason { get; set; }
 
-        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Customer> Customer { get; set; }
 
-        public DbSet<Partner> Partners { get; set; }
+        public DbSet<Partner> Partner { get; set; }
 
-        public DbSet<PartnerEmployee> PartnerEmployees { get; set; }
+        public DbSet<PartnerEmployee> PartnerEmployee { get; set; }
 
-        public DbSet<TownZipCode> TownZipCodes { get; set; }
+        public DbSet<TownZipCode> TownZipCode { get; set; }
 
-        public DbSet<BookingRooms> BookingRooms { get; set; }
+        public DbSet<BookingRoom> BookingRoom { get; set; }
 
-        public DbSet<Provision> Provisions { get; set; }
+        public DbSet<Provision> Provision { get; set; }
 
-        public DbSet<ProcedureReviewType> ProcedureReviewTypes { get; set; }
+        public DbSet<ProcedureReviewType> ProcedureReviewType { get; set; }
 
-        public DbSet<Procedure> Procedures { get; set; }
+        public DbSet<Procedure> Procedure { get; set; }
 
-        public DbSet<ParticipantType> ParticipantTypes { get; set; }
+        public DbSet<ParticipantType> ParticipantType { get; set; }
 
-        public DbSet<MailGroup> MailGroups { get; set; }
+        public DbSet<MailGroup> MailGroup { get; set; }
 
         public DbSet<ContactPerson> ContactPeople { get; set; }
-        public DbSet<BookingRegion> BookingRegions { get; set; }
+        public DbSet<BookingRegion> BookingRegion { get; set; }
 
-        public DbSet<BookingReference> BookingReferences { get; set; }
+        public DbSet<BookingReference> BookingReference { get; set; }
 
-        public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Booking> Booking { get; set; }
 
-        public DbSet<BookingArrangementType> BookingArrangementTypes { get; set; }
+        public DbSet<BookingArrangementType> BookingArrangementType { get; set; }
 
-        public DbSet<BookingAlternativeService> BookingAlternativeServices { get; set; }
+        public DbSet<BookingAlternativeService> BookingAlternativeService { get; set; }
 
-        public DbSet<ProcedureInfo> ProcedureInfos { get; set; }
+        public DbSet<ProcedureInfo> ProcedureInfo { get; set; }
 
-        public DbSet<BookingAndStatus> BookingAndStatuses { get; set; }
+        public DbSet<BookingAndStatus> BookingAndStatus { get; set; }
 
-        public DbSet<ServiceCatalog> ServiceCatalogs { get; set; }
-        public DbSet<ServiceRequestCommunications> ServiceRequestCommunications { get; set; }
-        public DbSet<ServiceRequestNotes> ServiceRequestNotes { get; set; }
-        public DbSet<SRConversationItems> SRConversationItems { get; set; }
+        public DbSet<ServiceCatalog> ServiceCatalog { get; set; }
+        public DbSet<ServiceRequestCommunication> ServiceRequestCommunication { get; set; }
+        public DbSet<ServiceRequestNote> ServiceRequestNote { get; set; }
+        public DbSet<SRConversationItem> SRConversationItem { get; set; }
 
 
 
@@ -96,6 +95,7 @@ namespace DKBS.Data
         {
             base.OnConfiguring(optionsBuilder);
         }
+
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{

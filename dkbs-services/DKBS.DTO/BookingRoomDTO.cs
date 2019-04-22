@@ -2,9 +2,9 @@
 
 namespace DKBS.DTO
 {
-    public class BookingRoomsDTO
+    public class BookingRoomDTO
     {
-        public int BookingRoomsId { get; set; }
+        public int BookingRoomId { get; set; }
         public TableSetDTO TableSetDTO { get; set; }
         public string LocationAttraction { get; set; }
         public int NumberOfRooms { get; set; }

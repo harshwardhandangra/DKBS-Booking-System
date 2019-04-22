@@ -5,7 +5,6 @@ namespace DKBS.DTO
 {
     public class IndustryCodeDTO
     {
-        //[DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int IndustryCodeId { get; set; }
         public string IndustryCodeTitle { get; set; }
         public bool IsNewBranch { get; set; } 

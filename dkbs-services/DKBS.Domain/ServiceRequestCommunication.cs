@@ -2,9 +2,9 @@
 
 namespace DKBS.Domain
 {
-    public class ServiceRequestCommunications
+    public class ServiceRequestCommunication
     {
-        public int ServiceRequestCommunicationsId { get; set; }
+        public int ServiceRequestCommunicationId { get; set; }
         public string SRCTitle { get; set; }
         public Booking Booking { get; set; }
         public string Communications { get; set; }

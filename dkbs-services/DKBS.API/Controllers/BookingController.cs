@@ -38,7 +38,8 @@ namespace DKBS.API.Controllers
         [HttpGet("[action]/{bookingId}")]
         public ActionResult<BookingReferenceDTO> GetBookingReference(int bookingId)
         {
-            return _choiceRepoistory.GetBookingReferences().FirstOrDefault(c => c.BookingDTO.BookingId == bookingId);
+            var temp = _choiceRepoistory.GetBookingReferences().FirstOrDefault(c => c.BookingDTO.BookingId == bookingId);
+            return temp;
         }
 
 
@@ -92,7 +93,7 @@ namespace DKBS.API.Controllers
         /// <param name="bookingId"></param>
         /// <returns></returns>
         [HttpGet("[action]/{bookingId}")]
-        public ActionResult<BookingRoomsDTO> GetBookingRooms(int bookingId)
+        public ActionResult<BookingRoomDTO> GetBookingRooms(int bookingId)
         {
             return _choiceRepoistory.GetBookingRooms().FirstOrDefault(c => c.BookingDTO.BookingId == bookingId);
         }
@@ -105,173 +106,217 @@ namespace DKBS.API.Controllers
         [HttpGet("{bookingId}", Name = "GetBookingById")]
         public ActionResult<BookingDTO> GetBookingById(int bookingId)
         {
-            return _choiceRepoistory.GetBookings().FirstOrDefault(c => c.BookingId == bookingId);
+            return _choiceRepoistory.GetAllBookings().FirstOrDefault(c => c.BookingId == bookingId);
         }
 
 
         /// <summary>
-        /// update booking
+        /// 
         /// </summary>
         /// <param name="bookingId"></param>
-        /// <param name="bookingDto"></param>
+        /// <param name="bookingViewModel"></param>
         /// <returns></returns>
         [HttpPut("{bookingId}")]
-        public IActionResult UpdateBooking(int bookingId, [FromBody] BookingDTO bookingDto)
+        public IActionResult UpdateBooking(int bookingId, [FromBody] BookingDTO bookingDTO)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
 
-            if (bookingDto == null)
+            if (bookingDTO == null)
                 return BadRequest();
 
-            var booking = _choiceRepoistory.GetBookings().Find(c => c.BookingId == bookingId);
+            var booking = _choiceRepoistory.GetById<Booking>(bookingId);
 
             if (booking == null)
             {
                 return BadRequest();
             }
 
-            booking = bookingDto;
+            booking.PartnerId = bookingDTO.PartnerDTO.PartnerId;
+            booking.ArrivalDateTime = bookingDTO.ArrivalDateTime;
+            booking.BookingAndStatusId = bookingDTO.BookingAndStatusDTO.BookingAndStatusId;
+            booking.CampaignId = bookingDTO.CampaignDTO.CampaignId;
+            booking.CancellationReasonId = bookingDTO.CancellationReasonDTO.CancellationReasonId;
+            booking.CauseOfRemovalId = bookingDTO.CauseOfRemovalDTO.CauseOfRemovalId;
+            booking.ContactPersonId = bookingDTO.ContactPersonDTO.ContactPersonId;
+            booking.CustomerId = bookingDTO.CustomerDTO.CustomerId;
+            booking.DepartDateTime = bookingDTO.DepartDateTime;
+            booking.FlexibleDates = bookingDTO.FlexibleDates;
+            booking.FlowId = bookingDTO.FlowDTO.FlowId;
+            booking.InternalHistory = bookingDTO.InternalHistory;
+            booking.LeadOfOriginId = bookingDTO.LeadOfOriginDTO.LeadOfOriginId;
+            booking.MailLanguageId = bookingDTO.MailLanguageDTO.MailLanguageId;
+            booking.ParticipantTypeId = bookingDTO.ParticipantTypeDTO.ParticipantTypeId;
+            booking.PartnerTypeId = bookingDTO.PartnerTypeDTO.PartnerTypeId;
+            booking.PurposeId = bookingDTO.PurposeDTO.PurposeId;
+            booking.TableTypeId = bookingDTO.TableTypeDTO.TableTypeId;
 
-            _choiceRepoistory.Complete();
-            return NoContent();
+
+            foreach (var item in bookingDTO.BookingArrangementTypeDTO)
+            {
+                //CoursePackage
+               // var coursePackageType = _choiceRepoistory.GetById<CoursePackageType>(item.ServiceCatalogDTO.CoursePackageTypeDTO.CoursePackageTypeId);
+                var serviceCatalog = _choiceRepoistory.GetById<CoursePackageType>(item.ServiceCatalogDTO.ServiceCatalogId);
+                var arrangementType = _choiceRepoistory.GetById<BookingArrangementType>(item.BookingArrangementTypeId);
+
+
+
+                //    BookingArrangementType bookingArrangementType = new BookingArrangementType()
+                //    {
+                //        BookingId = booking.BookingId,
+                //        FromDate = item.FromDate,
+                //        NumberOfParticipants = item.NumberOfParticipants,
+                //        ServiceCatalog = serviceCatalog,
+                //        ToDate = item.ToDate
+                //    };
+
+                //    _choiceRepoistory.Set(bookingArrangementType);
+                //}
+
+                //foreach (var item in bookingViewModel.BookingAlternativeServiceViewModel)
+                //{
+                //    BookingAlternativeService bookingAlternativeService = new BookingAlternativeService()
+                //    {
+                //        CreatedBy = item.CreatedBy,
+                //        CreatedDate = item.CreatedDate,
+                //        Description = item.Description,
+                //        LastModifiedBy = item.LastModifiedBy,
+                //        NumberOfPieces = item.NumberOfPieces,
+                //        BookingId = booking.BookingId
+                //    };
+
+                //    _choiceRepoistory.Set(bookingAlternativeService);
+                //}
+
+                //_choiceRepoistory.Complete();
+
+                //foreach (var item in bookingViewModel.RegionIds)
+                //{
+                //    BookingRegion bookingRegion = new BookingRegion();
+                //    var region = _choiceRepoistory.GetById<Region>(item);
+                //    bookingRegion.BookingId = booking.BookingId;
+                //    bookingRegion.RegionId = region.RegionId;
+                //    _choiceRepoistory.Set(bookingRegion);
+                //}
+            }
+                //_choiceRepoistory.Complete();
+
+                //_choiceRepoistory.Complete();
+                return NoContent();
         }
 
+
         /// <summary>
-        /// Create booking
+        /// 
         /// </summary>
-        /// <param name="bookingDto"></param>
+        /// <param name="bookingViewModel"></param>
         /// <returns></returns>
         [HttpPost()]
-        public IActionResult CreateBooking([FromBody] BookingDTO bookingDto)
+        public IActionResult CreateBooking([FromBody] BookingViewModel bookingViewModel)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
 
-            if (bookingDto == null)
+            if (bookingViewModel == null)
                 return BadRequest();
 
-            var bookingEntry = _choiceRepoistory.GetBookings().Find(c => c.BookingId == bookingDto.BookingId);
+            Booking newlyCreatedBooking = _mapper.Map<BookingViewModel, Booking>(bookingViewModel);
+            _choiceRepoistory.SetBookings(newlyCreatedBooking);
+            _choiceRepoistory.Complete();
 
-            if (bookingEntry != null)
+            foreach (var item in bookingViewModel.BookingRoomViewModel)
             {
-                return BadRequest();
+                TableSet tableSet = new TableSet()
+                {
+                    LastModified = item.TableSetViewModel.LastModified,
+                    LastModifiedBy = item.TableSetViewModel.LastModifiedBy,
+                    TableSetName = item.TableSetViewModel.TableSetName,
+                };
+
+                BookingRoom bookingRoom = new BookingRoom()
+                {
+                    FromDate = item.FromDate,
+                    LocationAttraction = item.LocationAttraction,
+                    NumberOfRooms = item.NumberOfRooms,
+                    PerPerson = item.PerPerson,
+                    TableSet = tableSet,
+                    ToDate = item.ToDate,
+                    BookingId = newlyCreatedBooking.BookingId
+                };
+
+                _choiceRepoistory.Set(bookingRoom);
             }
 
-            IndustryCode industryCode = _mapper.Map<IndustryCodeDTO, IndustryCode>(bookingDto.CustomerDTO.IndustryCodeDTO);
+            //foreach (var item in bookingViewModel.BookingArrangementTypeViewModel)
+            //{
+            //    //CoursePackage
+            //    CoursePackageType coursePackageType = new CoursePackageType()
+            //    {
+            //        CoursePackageTypeTitle = item.ServiceCatalogViewModel.CoursePackageTypeViewModel.CoursePackageTypeTitle,
+            //        CreatedBy = item.ServiceCatalogViewModel.CoursePackageTypeViewModel.CreatedBy,
+            //        CreatedDate = item.ServiceCatalogViewModel.CoursePackageTypeViewModel.CreatedDate,
+            //        LastModified = item.ServiceCatalogViewModel.CoursePackageTypeViewModel.LastModified,
+            //        LastModifiedBy = item.ServiceCatalogViewModel.CoursePackageTypeViewModel.LastModifiedBy
+            //    };
 
-            _choiceRepoistory.AttachIndustryCode(industryCode);
+            //    //ServiceCatalog
+            //    ServiceCatalog serviceCatalog = new ServiceCatalog()
+            //    {
+            //        CoursePackage = item.ServiceCatalogViewModel.CoursePackage,
+            //        //CoursePackageType = coursePackageType,
+            //        LastModifiedBY = item.ServiceCatalogViewModel.LastModifiedBY,
+            //        Offered = item.ServiceCatalogViewModel.Offered,
+            //        Price = item.ServiceCatalogViewModel.Price,
+            //        LastModified = item.ServiceCatalogViewModel.LastModified
+            //    };
+            //    _choiceRepoistory.Complete();
+            //    BookingArrangementType bookingArrangementType = new BookingArrangementType()
+            //    {
+            //        BookingId = newlyCreatedBooking.BookingId,
+            //        FromDate = item.FromDate,
+            //        NumberOfParticipants = item.NumberOfParticipants,
+            //        ServiceCatalog = serviceCatalog,
+            //        ToDate = item.ToDate
+            //    };
 
-            TableType newlyCreatedtableType = _mapper.Map<TableTypeDTO, TableType>(bookingDto.TableTypeDTO);
-            _choiceRepoistory.SetTableType(newlyCreatedtableType);
+            //    _choiceRepoistory.Set(bookingArrangementType);
+            //    _choiceRepoistory.Complete();
 
+            //}
 
-            CancellationReason newlyCreatedCancellationReason = _mapper.Map<CancellationReasonDTO, CancellationReason>(bookingDto.CancellationReasonDTO);
-            _choiceRepoistory.SetCancellationReason(newlyCreatedCancellationReason);
+            //foreach (var item in bookingViewModel.BookingAlternativeServiceViewModel)
+            //{
+            //    BookingAlternativeService bookingAlternativeService = new BookingAlternativeService()
+            //    {
+            //        CreatedBy = item.CreatedBy,
+            //        CreatedDate = DateTime.Now,// item.CreatedDate,
+            //        Description = item.Description,
+            //        LastModifiedBy = item.LastModifiedBy,
+            //        NumberOfPieces = item.NumberOfPieces,
+            //        BookingId = newlyCreatedBooking.BookingId,
+            //        LastModified = DateTime.Now// item.CreatedDate
+            //    };
 
+            //    _choiceRepoistory.Set(bookingAlternativeService);
+            //    _choiceRepoistory.Complete();
+            //}
 
-            CauseOfRemoval newlyCreatedCauseOfRemoval = _mapper.Map<CauseOfRemovalDTO, CauseOfRemoval>(bookingDto.CauseOfRemovalDTO);
-            _choiceRepoistory.SetCauseOfRemoval(newlyCreatedCauseOfRemoval);
+           
 
-            ContactPerson newlyCreatedContactPerson = _mapper.Map<ContactPersonDTO, ContactPerson>(bookingDto.ContactPersonDTO);
-            _choiceRepoistory.SetContactPerson(newlyCreatedContactPerson);
+            //foreach (var item in bookingViewModel.RegionIds)
+            //{
+            //    BookingRegion bookingRegion = new BookingRegion();
+            //    var region = _choiceRepoistory.GetById<Region>(item);
+            //    bookingRegion.BookingId = newlyCreatedBooking.BookingId;
+            //    bookingRegion.RegionId = region.RegionId;
+            //    _choiceRepoistory.Set(bookingRegion);
+            //}
 
-
-            BookingAndStatus newlyCreatedBookingAndStatus = _mapper.Map<BookingAndStatusDTO, BookingAndStatus>(bookingDto.BookingAndStatusDTO);
-            _choiceRepoistory.SetBookingAndStatus(newlyCreatedBookingAndStatus);
-
-
-            Flow newlyCreatedFlow = _mapper.Map<FlowDTO, Flow>(bookingDto.FlowDTO);
-            _choiceRepoistory.SetFlow(newlyCreatedFlow);
-
-
-            MailLanguage newlyCreatedmailLanguage = _mapper.Map<MailLanguageDTO, MailLanguage>(bookingDto.MailLanguageDTO);
-            _choiceRepoistory.SetMailLanguage(newlyCreatedmailLanguage);
-
-
-            ParticipantType newlyCreatedParticipantType = _mapper.Map<ParticipantTypeDTO, ParticipantType>(bookingDto.ParticipantTypeDTO);
-            _choiceRepoistory.SetParticipantType(newlyCreatedParticipantType);
-
-
-            Purpose newlyCreatedPurpose = _mapper.Map<PurposeDTO, Purpose>(bookingDto.PurposeDTO);
-            _choiceRepoistory.SetPurpose(newlyCreatedPurpose);
-
-
-            LeadOfOrigin newlyCreatedLeadOfOrigin = _mapper.Map<LeadOfOriginDTO, LeadOfOrigin>(bookingDto.LeadOfOriginDTO);
-            _choiceRepoistory.SetLeadOfOrigin(newlyCreatedLeadOfOrigin);
-
-
-            Campaign newlyCreatedCampaign = _mapper.Map<CampaignDTO, Campaign>(bookingDto.CampaignDTO);
-            _choiceRepoistory.SetCampaign(newlyCreatedCampaign);
-
-            // TODO Create all the properties accordingly : Find some other good way to map
-
-            CenterType centerTypeMapped = _mapper.Map<CenterTypeDTO, CenterType>(bookingDto.PartnerDTO.CenterTypeDTO);
-            _choiceRepoistory.SetCenterType(centerTypeMapped);
-
-            PartnerType partnerTypeMapped = _mapper.Map<PartnerTypeDTO, PartnerType>(bookingDto.PartnerDTO.PartnerTypeDTO);
-            _choiceRepoistory.SetPartnerType(partnerTypeMapped);
-
-            var newlyCreatedCustomer = new Customer()
-            {
-                City = bookingDto.CustomerDTO.City,
-                IndustryCode = industryCode,
-                CreatedBy = bookingDto.CustomerDTO.CreatedBy,
-                Country = bookingDto.CustomerDTO.Country,
-                CreatedDate = bookingDto.CustomerDTO.CreatedDate,
-                CustomerName = bookingDto.CustomerDTO.CustomerName,
-                EmailId = bookingDto.CustomerDTO.EmailId,
-                LastModifiedBY = bookingDto.CustomerDTO.LastModifiedBY,
-                LastModifiedDate = bookingDto.CustomerDTO.LastModifiedDate,
-                PhoneNumber = bookingDto.CustomerDTO.PhoneNumber
-            };
-
-            _choiceRepoistory.SetCreatedCustomer(newlyCreatedCustomer);
-
-            var newlyCreatedPartner = new Partner()
-            {
-                PartnerId = bookingDto.PartnerDTO.PartnerId,
-                CenterType = centerTypeMapped,
-                PartnerType = partnerTypeMapped,
-                EmailId = bookingDto.PartnerDTO.EmailId,
-                LastModified = bookingDto.PartnerDTO.LastModified,
-                LastModifiedBy = bookingDto.PartnerDTO.LastModifiedBy,
-                PartnerName = bookingDto.PartnerDTO.PartnerName,
-                PhoneNumber = bookingDto.PartnerDTO.PhoneNumber
-            };
-
-            _choiceRepoistory.SetPartner(newlyCreatedPartner);
-
-            var newlyCreatedBooking = new Booking()
-            {
-                Partner = newlyCreatedPartner,
-                PartnerType = partnerTypeMapped,
-                Customer = newlyCreatedCustomer,
-                TableType = newlyCreatedtableType,
-                CancellationReason = newlyCreatedCancellationReason,
-                CauseOfRemoval = newlyCreatedCauseOfRemoval,
-                ContactPerson = newlyCreatedContactPerson,
-                BookingAndStatus = newlyCreatedBookingAndStatus,
-                Flow = newlyCreatedFlow,
-                MailLanguage = newlyCreatedmailLanguage,
-                ParticipantType = newlyCreatedParticipantType,
-                Purpose = newlyCreatedPurpose,
-                LeadOfOrigin = newlyCreatedLeadOfOrigin,
-                Campaign = newlyCreatedCampaign,
-                ArrivalDateTime = bookingDto.ArrivalDateTime,
-                DepartDateTime = bookingDto.DepartDateTime,
-                FlexibleDates = bookingDto.FlexibleDates,
-                InternalHistory = bookingDto.InternalHistory
-            };
-
-            _choiceRepoistory.SetBookings(newlyCreatedBooking);
-
-
-            _choiceRepoistory.Complete();
+            //_choiceRepoistory.Complete();
 
             return CreatedAtRoute("GetBookingById", new { bookingId = newlyCreatedBooking.BookingId }, newlyCreatedBooking);
         }

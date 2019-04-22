@@ -389,7 +389,7 @@ namespace DKBS.API.Controllers
         /// <returns></returns>
         [Route("BookingRooms")]
         [HttpGet()]
-        public ActionResult<BookingRoomsDTO> GetBookingRooms()
+        public ActionResult<BookingRoomDTO> GetBookingRooms()
         {
             return Ok(_choiceRepoistory.GetBookingRooms());
         }
@@ -433,7 +433,7 @@ namespace DKBS.API.Controllers
         /// <returns></returns>
         [Route("ServiceRequestCommunications")]
         [HttpGet()]
-        public ActionResult<ServiceRequestCommunicationsDTO> GetServiceRequestCommunications()
+        public ActionResult<ServiceRequestCommunicationDTO> GetServiceRequestCommunications()
         {
             return Ok(_choiceRepoistory.GetServiceRequestCommunications());
         }
@@ -444,7 +444,7 @@ namespace DKBS.API.Controllers
         /// <returns></returns>
         [Route("ServiceRequestNotes")]
         [HttpGet()]
-        public ActionResult<ServiceRequestNotesDTO> GetServiceRequestNotes()
+        public ActionResult<ServiceRequestNoteDTO> GetServiceRequestNotes()
         {
             return Ok(_choiceRepoistory.GetServiceRequestNotes());
         }
@@ -455,7 +455,7 @@ namespace DKBS.API.Controllers
         /// <returns></returns>
         [Route("SRConversationItems")]
         [HttpGet()]
-        public ActionResult<SRConversationItemsDTO> GetSRConversationItems()
+        public ActionResult<SRConversationItemDTO> GetSRConversationItems()
         {
             return Ok(_choiceRepoistory.GetSRConversationItems());
         }

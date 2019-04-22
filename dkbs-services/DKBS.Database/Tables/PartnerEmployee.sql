@@ -11,8 +11,8 @@
 	[ParticipantTypeId] INT NOT NULL,
     [LastModified] DATETIME NOT NULL, 
     [LastModifiedBY] NVARCHAR(255) NOT NULL, 
-    CONSTRAINT [FK_PartnerEmployee_Partner] FOREIGN KEY (PartnerId) REFERENCES Partners(PartnerId), 
-    CONSTRAINT [FK_PartnerEmployee_MailGroup] FOREIGN KEY (MailGroupId) REFERENCES MailGroups(MailGroupId), 
-    CONSTRAINT [FK_PartnerEmployee_PartnerType] FOREIGN KEY (PartnerTypeId) REFERENCES PartnerTypes(PartnerTypeId), 
+    CONSTRAINT [FK_PartnerEmployee_Partner] FOREIGN KEY (PartnerId) REFERENCES Partner(PartnerId), 
+    CONSTRAINT [FK_PartnerEmployee_MailGroup] FOREIGN KEY (MailGroupId) REFERENCES MailGroup(MailGroupId), 
+    CONSTRAINT [FK_PartnerEmployee_PartnerType] FOREIGN KEY (PartnerTypeId) REFERENCES PartnerType(PartnerTypeId), 
     CONSTRAINT [FK_PartnerEmployee_ParticipantType] FOREIGN KEY ([ParticipantTypeId]) REFERENCES ParticipantType(ParticipantTypeId) 
 )

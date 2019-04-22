@@ -1,9 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace DKBS.DTO
 {
     public class BookingDTO
     {
+
+        public BookingDTO()
+        {
+            RegionDTO = new List<RegionDTO>();
+            BookingRoomDTO = new List<BookingRoomDTO>();
+            BookingArrangementTypeDTO = new List<BookingArrangementTypeDTO>();
+            BookingAlternativeServiceDTO = new List<BookingAlternativeServiceDTO>();
+        }
         public int BookingId { get; set; }
         public PartnerDTO PartnerDTO { get; set; }
         public CustomerDTO CustomerDTO { get; set; }
@@ -23,5 +32,9 @@ namespace DKBS.DTO
         public DateTime DepartDateTime { get; set; }
         public bool FlexibleDates { get; set; }
         public string InternalHistory { get; set; }
+        public List<RegionDTO> RegionDTO { get; set; }
+        public List<BookingRoomDTO> BookingRoomDTO { get; set; }
+        public List<BookingArrangementTypeDTO> BookingArrangementTypeDTO { get; set; }
+        public List<BookingAlternativeServiceDTO> BookingAlternativeServiceDTO { get; set; }
     }
 }

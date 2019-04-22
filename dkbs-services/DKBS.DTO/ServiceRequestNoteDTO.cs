@@ -2,9 +2,9 @@
 
 namespace DKBS.DTO
 {
-    public class ServiceRequestNotesDTO
+    public class ServiceRequestNoteDTO
     {
-        public int ServiceRequestNotesId { get; set; }
+        public int ServiceRequestNoteId { get; set; }
         public string SRNotesTitle { get; set; }
         public BookingDTO BookingDTO { get; set; }
         public string Action { get; set; }
