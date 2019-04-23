@@ -44,7 +44,7 @@ namespace DKBS.API.Controllers
         /// </summary>
         /// <param name="PartnerId"></param>
         /// <returns></returns>
-        [HttpGet("{Id}", Name = "GetPartnerEmployeesByPartnerId")]
+        [HttpGet("{PartnerId}", Name = "GetPartnerEmployeesByPartnerId")]
         public ActionResult<IEnumerable<PartnerEmployeeDTO>> GetPartnerEmployeesByPartnerId(int PartnerId)
         {
             return _choiceRepoistory.GetPartnerEmployees().FindAll(c => c.PartnerDTO.PartnerId == PartnerId);
