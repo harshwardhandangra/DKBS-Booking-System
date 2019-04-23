@@ -461,10 +461,10 @@ namespace DKBS.API.Controllers
         }
 
         /// <summary>
-        /// Get All SRConversationItems
+        /// Get All Refreshments
         /// </summary>
         /// <returns></returns>
-        [Route("SRConversationItems")]
+        [Route("Refreshments")]
         [HttpGet()]
         public ActionResult<RefreshmentsDTO>GetRefreshments()
         {
