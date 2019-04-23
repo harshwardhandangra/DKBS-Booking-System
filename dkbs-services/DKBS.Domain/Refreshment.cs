@@ -2,7 +2,7 @@
 
 namespace DKBS.Domain
 {
-    public class Refreshments
+    public class Refreshment
     {
         public int RefreshmentId { get; set; }
         public string Name { get; set; }

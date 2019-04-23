@@ -30,6 +30,27 @@ namespace DKBS.API.Controllers
         }
 
         /// <summary>
+        /// Get All partnerEmployees details.
+        /// </summary>
+        /// <returns>List of partnerEmployees.</returns>        
+        [HttpGet()]
+        public ActionResult<PartnerEmployeeDTO> GetPartnerEmployes()
+        {
+            return Ok(_choiceRepoistory.GetPartnerEmployees());
+        }
+
+        /// <summary>
+        /// Get GetPartnerEmployeesByPartnerId List based on PartnerId
+        /// </summary>
+        /// <param name="PartnerId"></param>
+        /// <returns></returns>
+        [HttpGet("{Id}", Name = "GetPartnerEmployeesByPartnerId")]
+        public ActionResult<IEnumerable<PartnerEmployeeDTO>> GetPartnerEmployeesByPartnerId(int PartnerId)
+        {
+            return _choiceRepoistory.GetPartnerEmployees().FindAll(c => c.PartnerDTO.PartnerId == PartnerId);
+        }
+
+        /// <summary>
         /// Get PartnerEmployee List based on some character entered by user in Partner name
         /// </summary>
         /// <param name="name"></param>

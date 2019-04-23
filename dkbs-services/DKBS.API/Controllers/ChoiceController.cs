@@ -159,16 +159,16 @@ namespace DKBS.API.Controllers
             return Ok(_choiceRepoistory.GetCrmStatusDetails());
         }
 
-        /// <summary>
-        /// Get All CoursePackageType details.
-        /// </summary>
-        /// <returns>List of CoursePackageTypes.</returns>
-        [Route("coursepackagetype")]
-        [HttpGet()]
-        public ActionResult<CoursePackageTypeDTO> GetCoursePackageTypes()
-        {
-            return Ok(_choiceRepoistory.GetCoursePackageTypes());
-        }
+        ///// <summary>
+        ///// Get All CoursePackageType details.
+        ///// </summary>
+        ///// <returns>List of CoursePackageTypes.</returns>
+        //[Route("coursepackagetype")]
+        //[HttpGet()]
+        //public ActionResult<CoursePackageTypeDTO> GetCoursePackageTypes()
+        //{
+        //    return Ok(_choiceRepoistory.GetCoursePackageTypes());
+        //}
 
         /// <summary>
         /// Get All ContactPersons details.
@@ -458,6 +458,17 @@ namespace DKBS.API.Controllers
         public ActionResult<SRConversationItemDTO> GetSRConversationItems()
         {
             return Ok(_choiceRepoistory.GetSRConversationItems());
+        }
+
+        /// <summary>
+        /// Get All SRConversationItems
+        /// </summary>
+        /// <returns></returns>
+        [Route("SRConversationItems")]
+        [HttpGet()]
+        public ActionResult<RefreshmentsDTO>GetRefreshments()
+        {
+            return Ok(_choiceRepoistory.GetRefreshments());
         }
 
     }

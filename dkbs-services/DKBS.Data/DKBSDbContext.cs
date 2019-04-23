@@ -88,6 +88,7 @@ namespace DKBS.Data
         public DbSet<ServiceRequestCommunication> ServiceRequestCommunication { get; set; }
         public DbSet<ServiceRequestNote> ServiceRequestNote { get; set; }
         public DbSet<SRConversationItem> SRConversationItem { get; set; }
+        public DbSet<Refreshment> Refreshments { get; set; }
 
 
 

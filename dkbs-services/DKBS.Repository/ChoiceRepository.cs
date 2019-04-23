@@ -55,7 +55,7 @@ namespace DKBS.Repository
         List<ServiceRequestNoteDTO> GetServiceRequestNotes();
         List<SRConversationItemDTO> GetSRConversationItems();
         List<BookingDTO> GetAllBookings();
-
+        List<RefreshmentsDTO> GetRefreshments();
         TEntity GetById<TEntity>(int id) where TEntity : class;
 
         void Set<TEntity>(TEntity entity) where TEntity : class;
@@ -221,6 +221,11 @@ namespace DKBS.Repository
         public List<BookingArrangementTypeDTO> GetBookingArrangementTypes()
         {
             return _mapper.Map<List<BookingArrangementTypeDTO>>(_dbContext.BookingArrangementType.ToList());
+        }
+
+        public List<RefreshmentsDTO> GetRefreshments()
+        {
+            return _mapper.Map<List<RefreshmentsDTO>>(_dbContext.Refreshments.ToList());
         }
 
         public TEntity GetById<TEntity>(int id) where TEntity: class

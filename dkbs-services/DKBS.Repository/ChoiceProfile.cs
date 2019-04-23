@@ -68,6 +68,7 @@ namespace DKBS.Repository
             CreateMap<TableSet, TableSetDTO>();
             CreateMap<TableType, TableTypeDTO>();
             CreateMap<TownZipCode, TownZipCodeDTO>();
+            CreateMap<Refreshment, RefreshmentsDTO>();
 
         }
     }
