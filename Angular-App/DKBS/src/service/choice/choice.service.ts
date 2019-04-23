@@ -158,4 +158,15 @@ export class ChoiceService {
     var url = '/choice/partners';
     return this.commonService.get(url);
   }
+
+  GetAllServiceCatalogs(): any {
+    var url = '/choice/ServiceCatalogs';
+    return this.commonService.get(url);
+  }
+
+  
+  // GetAllCentermatchings(): any {
+  //   var url = '/choice/centermatchings';
+  //   return this.commonService.get(url);
+  // }
 }

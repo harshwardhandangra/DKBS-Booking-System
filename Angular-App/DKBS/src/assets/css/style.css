@@ -1016,7 +1016,7 @@ ul {
 .dbkstabs .tab-content {
     width: 100%;
     max-width: 1000px;
-    padding: 50px 20px 30px;
+    padding: 50px 20px 100px;
     margin: -1px auto 40px;
     border: 1px #ccc solid;
 }
