@@ -15,6 +15,7 @@ export class CreatebookingComponent implements OnInit {
   public title = 'Places';
   public addrKeys: string[];
   public addr: object;  
+  public CreateBooking:[];
   mytime1: Date | undefined = new Date();
   mytime2: Date | undefined = new Date();
   ArrivalDate = new Date();
@@ -30,10 +31,11 @@ export class CreatebookingComponent implements OnInit {
   dropdownListforSearchType = [];
   dropdownListforPartnerType = [];
   selectedItems = [];
+  dropdownListforCenterMatching = [];
   dropdownSettings = {}; 
 
   ngOnInit() {
-
+    this.CreateBooking;
     const time = new Date();
     time.setHours(9);
     time.setMinutes(0);
@@ -64,8 +66,9 @@ export class CreatebookingComponent implements OnInit {
     this.GetAllParticipants();
     this.GetAllRefer();
     this.GetReferredbyDDL();
-    this.GetPackageType();
+    this.GetAllServiceCatalogs();
     this.GetAllcampaigns();
+    this.GetAllCeterMatching();
   }
 
   selectedValue: string;
@@ -132,6 +135,14 @@ export class CreatebookingComponent implements OnInit {
     }
      });
    }
+   GetAllCeterMatching(): any {
+    this.choiceService.GetAllcentermatchings().subscribe(state => {   
+      
+    for (let i = 0; i < state.length; ++i) {
+      this.dropdownListforCenterMatching.push({ item_id: state[i].centerMatchingId, item_text: state[i].matchingCenter });
+    }
+     });
+   }
    GetSearchType(): any {
     this.stateprovinanceService.GetSearchType().subscribe(state => {   
     for (let i = 0; i < state.length; ++i) {
@@ -172,10 +183,10 @@ export class CreatebookingComponent implements OnInit {
      this.ReferDDL=res;    
      });
    }  
-   GetPackageType(): any {
-    this.choiceService.GetAllcoursepackagetype().subscribe(state => {    
+   GetAllServiceCatalogs(): any {
+    this.choiceService.GetAllServiceCatalogs().subscribe(state => {    
     for (let i = 0; i < state.length; ++i) {
-      this.dropdownPackageType.push({ item_id: state[i].coursePackageTypeId, item_text: state[i].coursePackageTypeTitle });      
+      this.dropdownPackageType.push({ item_id: state[i].serviceCatalogId, item_text: state[i].coursePackage });      
     }
      });
    }
