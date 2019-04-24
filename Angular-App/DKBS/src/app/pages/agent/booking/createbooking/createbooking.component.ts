@@ -15,7 +15,7 @@ export class CreatebookingComponent implements OnInit {
   public title = 'Places';
   public addrKeys: string[];
   public addr: object;  
-  public CreateBooking:[];
+  CreateBookingModel: any = {};
   mytime1: Date | undefined = new Date();
   mytime2: Date | undefined = new Date();
   ArrivalDate = new Date();
@@ -35,7 +35,7 @@ export class CreatebookingComponent implements OnInit {
   dropdownSettings = {}; 
 
   ngOnInit() {
-    this.CreateBooking;
+   
     const time = new Date();
     time.setHours(9);
     time.setMinutes(0);
@@ -101,7 +101,13 @@ export class CreatebookingComponent implements OnInit {
     }
     
  
-  constructor(private zipcodeService:ZipcodeService, private stateprovinanceService:StateprovinanceService,private zone: NgZone,private choiceService:ChoiceService) {}
+  constructor(private zipcodeService:ZipcodeService, private stateprovinanceService:StateprovinanceService,private zone: NgZone,private choiceService:ChoiceService) {
+    
+  }
+  onSubmit() {
+    debugger
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.CreateBookingModel))
+  }
   GetAllZipCodes(): any {
     this.zipcodeService.GetAllZipCodes().subscribe(res => {    
      this.states=res;    
