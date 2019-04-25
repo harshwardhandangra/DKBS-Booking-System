@@ -28,6 +28,16 @@ namespace DKBS.API.Controllers
         }
 
         /// <summary>
+        /// Get All Procedures
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet()]
+        public ActionResult<ProcedureDTO> GetProcedures()
+        {
+            return Ok(_choiceRepoistory.GetProcedures());
+        }
+
+        /// <summary>
         /// Get procedure by id
         /// </summary>
         /// <param name="procedureId"></param>

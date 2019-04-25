@@ -12,9 +12,9 @@ namespace DKBS.Domain
         //public CoursePackageType CoursePackageType { get; set; }
         public string CoursePackageType { get; set; }
         public bool CanBePurchased { get; set; }
-        public DateTime CreatedDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
         public string CreatedBy { get; set; }
-        public DateTime LastModified { get; set; }
+        public DateTime? LastModified { get; set; }
         public string LastModifiedBY { get; set; }
             
     }

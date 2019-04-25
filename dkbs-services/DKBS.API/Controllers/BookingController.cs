@@ -31,6 +31,16 @@ namespace DKBS.API.Controllers
         }
 
         /// <summary>
+        /// Get All Bookings
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet()]
+        public ActionResult<BookingDTO> GetBookings()
+        {
+            return Ok(_choiceRepoistory.GetBookings());
+        }
+
+        /// <summary>
         /// Get bookingReference by booking id
         /// </summary>
         /// <param name="bookingId"></param>
@@ -158,7 +168,7 @@ namespace DKBS.API.Controllers
             {
                 //CoursePackage
                // var coursePackageType = _choiceRepoistory.GetById<CoursePackageType>(item.ServiceCatalogDTO.CoursePackageTypeDTO.CoursePackageTypeId);
-                var serviceCatalog = _choiceRepoistory.GetById<CoursePackageType>(item.ServiceCatalogDTO.ServiceCatalogId);
+                var serviceCatalog = _choiceRepoistory.GetById<CoursePackageType>(item.ServiceCatalogId);
                 var arrangementType = _choiceRepoistory.GetById<BookingArrangementType>(item.BookingArrangementTypeId);
 
 
@@ -250,73 +260,76 @@ namespace DKBS.API.Controllers
 
                 _choiceRepoistory.Set(bookingRoom);
             }
+            _choiceRepoistory.Complete();
+            foreach (var item in bookingViewModel.BookingArrangementTypeViewModel)
+            {
+                //CoursePackage
+                //CoursePackageType coursePackageType = new CoursePackageType()
+                //{
+                //    CoursePackageTypeTitle = item.ServiceCatalogViewModel.CoursePackageTypeViewModel.CoursePackageTypeTitle,
+                //    CreatedBy = item.ServiceCatalogViewModel.CoursePackageTypeViewModel.CreatedBy,
+                //    CreatedDate = item.ServiceCatalogViewModel.CoursePackageTypeViewModel.CreatedDate,
+                //    LastModified = item.ServiceCatalogViewModel.CoursePackageTypeViewModel.LastModified,
+                //    LastModifiedBy = item.ServiceCatalogViewModel.CoursePackageTypeViewModel.LastModifiedBy
+                //};
 
-            //foreach (var item in bookingViewModel.BookingArrangementTypeViewModel)
-            //{
-            //    //CoursePackage
-            //    CoursePackageType coursePackageType = new CoursePackageType()
-            //    {
-            //        CoursePackageTypeTitle = item.ServiceCatalogViewModel.CoursePackageTypeViewModel.CoursePackageTypeTitle,
-            //        CreatedBy = item.ServiceCatalogViewModel.CoursePackageTypeViewModel.CreatedBy,
-            //        CreatedDate = item.ServiceCatalogViewModel.CoursePackageTypeViewModel.CreatedDate,
-            //        LastModified = item.ServiceCatalogViewModel.CoursePackageTypeViewModel.LastModified,
-            //        LastModifiedBy = item.ServiceCatalogViewModel.CoursePackageTypeViewModel.LastModifiedBy
-            //    };
+                //ServiceCatalog
+                //ServiceCatalog serviceCatalog = new ServiceCatalog()
+                //{
+                //    CoursePackage = item.ServiceCatalogViewModel.CoursePackage,
+                //    //CoursePackageType = coursePackageType,
+                //    LastModifiedBY = item.ServiceCatalogViewModel.LastModifiedBY,
+                //    Offered = item.ServiceCatalogViewModel.Offered,
+                //    Price = item.ServiceCatalogViewModel.Price,
+                //    //LastModified = item.ServiceCatalogViewModel.LastModified
+                //};
+                // _choiceRepoistory.Complete();
+                BookingArrangementType bookingArrangementType = new BookingArrangementType()
+                {
+                   
+                    BookingId = newlyCreatedBooking.BookingId,
+                    
+                    FromDate = item.FromDate,
+                    NumberOfParticipants = item.NumberOfParticipants,
+                    ServiceCatalogId = item.ServiceCatalogId,
+                    ToDate = item.ToDate
+                };
 
-            //    //ServiceCatalog
-            //    ServiceCatalog serviceCatalog = new ServiceCatalog()
-            //    {
-            //        CoursePackage = item.ServiceCatalogViewModel.CoursePackage,
-            //        //CoursePackageType = coursePackageType,
-            //        LastModifiedBY = item.ServiceCatalogViewModel.LastModifiedBY,
-            //        Offered = item.ServiceCatalogViewModel.Offered,
-            //        Price = item.ServiceCatalogViewModel.Price,
-            //        LastModified = item.ServiceCatalogViewModel.LastModified
-            //    };
-            //    _choiceRepoistory.Complete();
-            //    BookingArrangementType bookingArrangementType = new BookingArrangementType()
-            //    {
-            //        BookingId = newlyCreatedBooking.BookingId,
-            //        FromDate = item.FromDate,
-            //        NumberOfParticipants = item.NumberOfParticipants,
-            //        ServiceCatalog = serviceCatalog,
-            //        ToDate = item.ToDate
-            //    };
+                _choiceRepoistory.Set(bookingArrangementType);
+               
 
-            //    _choiceRepoistory.Set(bookingArrangementType);
-            //    _choiceRepoistory.Complete();
+            }
+            _choiceRepoistory.Complete();
+            foreach (var item in bookingViewModel.BookingAlternativeServiceViewModel)
+            {
+                BookingAlternativeService bookingAlternativeService = new BookingAlternativeService()
+                {
+                    CreatedBy = item.CreatedBy,
+                    CreatedDate = item.CreatedDate,
+                    Description = item.Description,
+                    LastModifiedBy = item.LastModifiedBy,
+                    NumberOfPieces = item.NumberOfPieces,
+                    BookingId = newlyCreatedBooking.BookingId,
+                    LastModified =  item.LastModified,
+                    
+                };
 
-            //}
+                _choiceRepoistory.Set(bookingAlternativeService);
+                
+            }
+            _choiceRepoistory.Complete();
 
-            //foreach (var item in bookingViewModel.BookingAlternativeServiceViewModel)
-            //{
-            //    BookingAlternativeService bookingAlternativeService = new BookingAlternativeService()
-            //    {
-            //        CreatedBy = item.CreatedBy,
-            //        CreatedDate = DateTime.Now,// item.CreatedDate,
-            //        Description = item.Description,
-            //        LastModifiedBy = item.LastModifiedBy,
-            //        NumberOfPieces = item.NumberOfPieces,
-            //        BookingId = newlyCreatedBooking.BookingId,
-            //        LastModified = DateTime.Now// item.CreatedDate
-            //    };
 
-            //    _choiceRepoistory.Set(bookingAlternativeService);
-            //    _choiceRepoistory.Complete();
-            //}
+            foreach (var item in bookingViewModel.RegionIds)
+            {
+                BookingRegion bookingRegion = new BookingRegion();
+                var region = _choiceRepoistory.GetById<Region>(item);
+                bookingRegion.BookingId = newlyCreatedBooking.BookingId;
+                bookingRegion.RegionId = region.RegionId;
+                _choiceRepoistory.Set(bookingRegion);
+            }
 
-           
-
-            //foreach (var item in bookingViewModel.RegionIds)
-            //{
-            //    BookingRegion bookingRegion = new BookingRegion();
-            //    var region = _choiceRepoistory.GetById<Region>(item);
-            //    bookingRegion.BookingId = newlyCreatedBooking.BookingId;
-            //    bookingRegion.RegionId = region.RegionId;
-            //    _choiceRepoistory.Set(bookingRegion);
-            //}
-
-            //_choiceRepoistory.Complete();
+            _choiceRepoistory.Complete();
 
             return CreatedAtRoute("GetBookingById", new { bookingId = newlyCreatedBooking.BookingId }, newlyCreatedBooking);
         }

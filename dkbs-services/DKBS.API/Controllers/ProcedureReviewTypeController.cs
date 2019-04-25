@@ -27,6 +27,15 @@ namespace DKBS.API.Controllers
             _choiceRepoistory = choiceRepoistory;
         }
 
+        /// <summary>
+        /// Get All ProcedureReviewTypes
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet()]
+        public ActionResult<ProcedureReviewTypeDTO> GetProcedureReviewTypes()
+        {
+            return Ok(_choiceRepoistory.GetProcedureReviewTypes());
+        }
 
         /// <summary>
         /// Get procedure reviewType by Id

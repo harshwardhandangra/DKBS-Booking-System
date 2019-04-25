@@ -33,6 +33,15 @@ namespace DKBS.API.Controllers
         }
 
         /// <summary>
+        /// Get All ContactPersons details.
+        /// </summary>
+        /// <returns>List of ContactPersons.</returns>
+        [HttpGet()]
+        public ActionResult<ContactPersonDTO> GetContactPersons()
+        {
+            return Ok(_choiceRepoistory.GetContactPersons());
+        }
+        /// <summary>
         /// Get ContactPerson list based on user input of some characters
         /// </summary>
         /// <param name="name"></param>
