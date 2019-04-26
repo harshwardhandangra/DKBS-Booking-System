@@ -28,6 +28,16 @@ namespace DKBS.API.Controllers
         }
 
         /// <summary>
+        /// Get All Provisions
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet()]
+        public ActionResult<ProvisionDTO> GetProvisions()
+        {
+            return Ok(_choiceRepoistory.GetProvisions());
+        }
+
+        /// <summary>
         /// Get provision by id
         /// </summary>
         /// <param name="provisionId"></param>

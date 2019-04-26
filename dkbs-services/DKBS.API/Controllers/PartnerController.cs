@@ -30,6 +30,15 @@ namespace DKBS.API.Controllers
         }
 
         /// <summary>
+        /// Get All partner details.
+        /// </summary>
+        /// <returns>List of partners.</returns>
+        [HttpGet()]
+        public ActionResult<PartnerEmployeeDTO> GetPartners()
+        {
+            return Ok(_choiceRepoistory.GetPartners());
+        }
+        /// <summary>
         /// Get Partner by id
         /// </summary>
         /// <param name="id"></param>
