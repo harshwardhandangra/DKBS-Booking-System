@@ -256,7 +256,7 @@
                       </div>
                       <div class="form-group">
                         <div class="form-group">
-                          <label class="col-form-label">Participants</label>
+                          <label class="col-form-label mt-3">Participants</label>
                           <div class="width80per">
                             <div class="row">
                               <div class="col-sm-6 ">
@@ -281,7 +281,7 @@
                         <input type="text" class="form-control">
                       </div> -->
                       <div class="form-group">
-                        <label class="col-form-label">Rooms</label>
+                        <label class="col-form-label mt-3">Rooms</label>
                         <div class="width80per">
                           <div class="row">
                             <div class="col-sm-6 ">
@@ -566,26 +566,26 @@
                       </div>
 
 
-                      <div class="form-group">
+                      <div class="form-group mt-5 pt-5">
                         <label class="col-form-label">Rooms</label>
 
 
                         <div class="width80per">
                           <ul>
                             <li>
-                              <div class="lbl">local Attraction</div>
+                              <div class="lbl pb-2">local Attraction</div>
                               <input type="text" class="form-control">
                             </li>
-                            <li style="width: 66px;">
-                              <div class="lbl">No. of rooms</div>
+                            <li style="width: 76px;">
+                              <div class="lbl pb-2">No. of rooms</div>
                               <input type="text" class="form-control">
                             </li>
-                            <li style="width: 66px;">
-                              <div class="lbl">Per persons</div>
+                            <li style="width: 76px;">
+                              <div class="lbl pb-2">Per persons</div>
                               <input type="text" class="form-control">
                             </li>
                             <li>
-                              <div class="lbl">Table Set</div>
+                              <div class="lbl pb-2">Table Set</div>
                               <select id="inputState" class="form-control txtsize">
                                 <option *ngFor="let ObjTableSetting of dropdownListTableSetting"
                                   [value]="ObjTableSetting.item_id">
@@ -597,12 +597,12 @@
                               <!-- <div class="lbl">From</div> -->
                               <!-- <input type="text" class="form-control"> -->
                               <div class="datetimediv">
-                                  <div class="lbl">From</div>
+                                  <div class="lbl pb-2" style="padding-left:10px;">From</div>
                                 <timepicker [(ngModel)]="mytime2" name="mytime2" class="widthtimepicker"></timepicker>
                               </div>
                             </li>
                             <li style="width: 217px;">
-                              <div class="lbl">To</div>
+                              <div class="lbl pb-2" style="padding-left:10px;">To</div>
                               <div class="datetimediv">
                                 <timepicker [(ngModel)]="mytime2" name="mytime2" class="widthtimepicker"></timepicker>
                               </div>
@@ -617,19 +617,19 @@
                           <div class="width80per">
                             <ul>
                               <li>
-                                <div class="lbl">local Attraction</div>
+                                <div class="lbl pb-2">local Attraction</div>
                                 <input type="text" class="form-control">
                               </li>
-                              <li style="width: 66px;">
-                                <div class="lbl">No. of rooms</div>
+                              <li style="width: 76px;">
+                                <div class="lbl pb-2">No. of rooms</div>
                                 <input type="text" class="form-control">
                               </li>
-                              <li style="width: 66px;">
-                                <div class="lbl">Per persons</div>
+                              <li style="width: 76px;">
+                                <div class="lbl pb-2">Per persons</div>
                                 <input type="text" class="form-control">
                               </li>
                               <li>
-                                <div class="lbl">Table Set</div>
+                                <div class="lbl pb-2">Table Set</div>
                                 <select id="inputState" class="form-control txtsize">
                                   <option *ngFor="let ObjTableSetting of dropdownListTableSetting"
                                     [value]="ObjTableSetting.item_id">
@@ -638,14 +638,14 @@
                                 </select>
                               </li>
                               <li style="width: 210px;">
-                                <div class="lbl">From</div>
+                                <div class="lbl pb-2" style="padding-left:10px;">From</div>
                                 <!-- <input type="text" class="form-control"> -->
                                 <div class="datetimediv">
                                   <timepicker [(ngModel)]="mytime2" name="mytime2" class="widthtimepicker"></timepicker>
                                 </div>
                               </li>
                               <li style="width: 217px;">
-                                <div class="lbl">To</div>
+                                <div class="lbl pb-2" style="padding-left:10px;">To</div>
                                 <div class="datetimediv">
                                   <timepicker [(ngModel)]="mytime2" name="mytime2" class="widthtimepicker"></timepicker>
                                 </div>
@@ -661,20 +661,20 @@
                             </div>
                         </div>
 
-                        <a (click)="addRoomFieldValue()" class="btn btn-outline-secondary float-right" ><i class="fa fa-plus"></i> Add new row</a>
+                        <a (click)="addRoomFieldValue()" class="btn btn-outline-secondary float-right" style="margin-top: -10px;" ><i class="fa fa-plus"></i> Add new row</a>
                       </div>
 
                       
-                      <div class="form-group">
+                      <div class="form-group mt-5 pt-5">
                         <label class="col-form-label"> Also give up your prize</label>
                         <div class="width80per">
                           <ul>
                             <li>
-                              <div class="lbl">Description</div>
+                              <div class="lbl pb-2">Description</div>
                               <input type="text" class="form-control">
                             </li>
                             <li>
-                              <div class="lbl">Anta (pcs.)</div>
+                              <div class="lbl pb-2">Anta (pcs.)</div>
                               <input type="text" class="form-control">
                             </li>
                             

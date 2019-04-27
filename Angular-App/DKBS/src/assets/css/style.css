@@ -1413,3 +1413,7 @@ form h4 {
     display: block;
     padding-left: 0rem;
 }
+
+.bs-chevron {
+    display: none !important;
+}
