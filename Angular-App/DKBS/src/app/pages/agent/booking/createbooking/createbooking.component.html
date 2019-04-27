@@ -6,11 +6,11 @@
       <div class="row">
         <div class="col-md-12 dbkstabs">
           <ul class=" nav nav-tabs" role="tablist">
-           
+
             <li [class]="selectedwallet === 'Eventdetaljer'?'active':'inactive'"><a
                 (click)="selectedwallet = 'Eventdetaljer'" class="nav-link">Event Details</a></li>
-                <li [class]="selectedwallet === 'Kundeoplysniger'?'active':'inactive'"><a
-                  (click)="selectedwallet = 'Kundeoplysniger'" class="nav-link">Company Information</a></li>
+            <li [class]="selectedwallet === 'Kundeoplysniger'?'active':'inactive'"><a
+                (click)="selectedwallet = 'Kundeoplysniger'" class="nav-link">Company Information</a></li>
             <li [class]="selectedwallet === 'Matching'?'active':'inactive'"> <a (click)="selectedwallet = 'Matching'"
                 class="nav-link">Matching</a></li>
           </ul>
@@ -20,11 +20,11 @@
               <form class="formboxadditional">
                 <h4 class="pull-left">Company Information
                 </h4>
-                <div class="pull-right padright75">
-                    <button type="button" class="btn btn-outline-info" (click)="selectedwallet = 'Eventdetaljer'" >Previous</button>
-                  <button type="button" class="btn btn-outline-info" (click)="selectedwallet = 'Matching'" style="text-align: left; margin: 0px 11px;">Next</button>
+                <!-- <div class="pull-right">
+                    <button type="button"  style="padding-right:50px; padding-left:50px; margin-right:10px; border: 1px solid #8e8e8e; color: #8e8e8e;" class="btn btn-outline-info" (click)="selectedwallet = 'Eventdetaljer'" >Previous</button>
+                  <button type="button" class="btn"  style="padding-right:50px; padding-left:50px; background-color: #eb6100; color: #ffffff;" (click)="selectedwallet = 'Matching'">Next</button>
                   <button type="button" class="btn btn-outline-info">Cancle</button>
-                </div>
+                </div> -->
                 <!-- <div class="form-group mtop40 text-right padright75">
                     <button type="submit" class="btn btn-danger mright50">Next</button>
                     <button type="submit" class="btn btn-success">Cancel</button>
@@ -35,9 +35,10 @@
                   <label class="col-form-label">Company</label>
                   <!-- <input type="text" class="form-control txtsize"> -->
                   <input [(ngModel)]="selectedValuestates" [typeahead]="states" typeaheadOptionField="name"
-                    (typeaheadOnSelect)="onSelect($event)" [typeaheadScrollable]="true" class="form-control" name="kp" autocomplete="off">
+                    (typeaheadOnSelect)="onSelect($event)" [typeaheadScrollable]="true" class="form-control" name="kp"
+                    autocomplete="off">
 
-                
+
                   <!-- <app-addcustomer></app-addcustomer> -->
                 </div>
                 <!-- <div class="form-group">
@@ -73,8 +74,9 @@
                 <div class="form-group">
                   <label class="col-form-label">Contact Person</label>
                   <!-- <input type="text" class="form-control"> -->
-                  <input [(ngModel)]="selectedValueContactPerson" [typeahead]="ContactPerson" typeaheadOptionField="name"
-                    (typeaheadOnSelect)="onSelect($event)" [typeaheadScrollable]="true" class="form-control" name="ContactPerson" autocomplete="off">
+                  <input [(ngModel)]="selectedValueContactPerson" [typeahead]="ContactPerson"
+                    typeaheadOptionField="name" (typeaheadOnSelect)="onSelect($event)" [typeaheadScrollable]="true"
+                    class="form-control" name="ContactPerson" autocomplete="off">
                   <!-- <app-contactperson></app-contactperson> -->
                 </div>
                 <!-- <div class="form-group">
@@ -102,46 +104,52 @@
                 <hr class="style2">
 
                 <div class="form-group">
-                  <label class="col-form-label">Referred by</label> 
+                  <label class="col-form-label">Referred by</label>
                   <!-- <label class="col-form-label">Searchable Lookup</label> -->
-               
+
                   <input [(ngModel)]="selectedValueReferred" [typeahead]="Referred" typeaheadOptionField="name"
-                  (typeaheadOnSelect)="onSelect($event)" [typeaheadScrollable]="true" class="form-control" name="Referred" autocomplete="off">
-                  
+                    (typeaheadOnSelect)="onSelect($event)" [typeaheadScrollable]="true" class="form-control"
+                    name="Referred" autocomplete="off">
+
                 </div>
 
                 <div class="form-group">
                   <label class="col-form-label">Refers</label>
                   <input [(ngModel)]="selectedValueReferDDL" [typeahead]="ReferDDL" typeaheadOptionField="employeeName"
-                  (typeaheadOnSelect)="onSelect($event)" [typeaheadScrollable]="true" class="form-control" name="ReferDDL" autocomplete="off">
+                    (typeaheadOnSelect)="onSelect($event)" [typeaheadScrollable]="true" class="form-control"
+                    name="ReferDDL" autocomplete="off">
                 </div>
                 <div class="form-group">
                   <label class="col-form-label">Where do you know us?</label>
                   <select id="inputState" class="form-control txtsize">
-                      <option  *ngFor="let ObjdropdownCampaign of dropdownCampaign" [value]="ObjdropdownCampaign.item_id">
-                       {{ObjdropdownCampaign.item_text}}
-                      </option>                   
-                    </select>
+                    <option *ngFor="let ObjdropdownCampaign of dropdownCampaign" [value]="ObjdropdownCampaign.item_id">
+                      {{ObjdropdownCampaign.item_text}}
+                    </option>
+                  </select>
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="margin-bottom:55px;">
                   <label class="col-form-label">Lead Origin</label>
                   <select id="inputState" class="form-control txtsize">
-                    <option  *ngFor="let ObjLeadOrigin of dropdownListLeadOrigin" [value]="ObjLeadOrigin.item_id">
-                     {{ObjLeadOrigin.item_text}}
-                    </option>                   
+                    <option *ngFor="let ObjLeadOrigin of dropdownListLeadOrigin" [value]="ObjLeadOrigin.item_id">
+                      {{ObjLeadOrigin.item_text}}
+                    </option>
                   </select>
                 </div>
                 <!-- <div class="form-group mtop40 text-right padright75">
                     <button type="submit" class="btn btn-danger mright50">Next</button>
                     <button type="submit" class="btn btn-success">Cancel</button>
                 </div> -->
-                <div class="pull-right padright75">
-                    <button type="button" class="btn btn-outline-info" (click)="selectedwallet = 'Eventdetaljer'" >Previous</button>
-                  <button type="button" class="btn btn-outline-info" (click)="selectedwallet = 'Matching'" style="text-align: left; margin: 0px 11px;">Next</button>
-                  <button type="button" class="btn btn-outline-info">Cancle</button>
+                <div class="pull-right">
+                  <button type="button"
+                    style="padding-right:50px; padding-left:50px; margin-right:10px; border: 1px solid #8e8e8e; color: #8e8e8e;"
+                    class="btn btn-outline-info" (click)="selectedwallet = 'Eventdetaljer'">Previous</button>
+                  <button type="button" class="btn"
+                    style="padding-right:50px; padding-left:50px; background-color: #eb6100; color: #ffffff;"
+                    (click)="selectedwallet = 'Matching'">Next</button>
+                  <!-- <button type="button" class="btn btn-outline-info">Cancle</button> -->
                 </div>
                 <br>
-                
+
 
               </form>
 
@@ -149,349 +157,600 @@
             <div role="tabpane2" *ngIf="selectedwallet === 'Eventdetaljer'">
 
               <form class="formbox">
-                  <div class="pull-right padright75">
-                      <button type="button" class="btn btn-outline-info" (click)="selectedwallet = 'Kundeoplysniger'" >Next</button>
-                    </div>
-                    <br>
+                <!-- <div class="pull-right">
+                      <button type="button" style="padding-left: 50px; padding-right:50px;" class="btn btn-outline-info" (click)="selectedwallet = 'Kundeoplysniger'" >Next</button>
+                    </div> -->
+                <br>
                 <h6 class="FormH6">Date and time</h6>
-               
+
 
                 <hr class="style2">
                 <div class="height20"></div>
-                <div class="form-group">
-                  <label class="col-form-label">Arrival</label>
-                  <div class="datetimediv">
-                    <input type="text" [(ngModel)]="ArrivalDate" name="ArrivalDate"  bsDatepicker class="form-control dpicker" autocomplete="off" />
-                    <timepicker [(ngModel)]="mytime1" name="mytime1" class="widthtimepicker"></timepicker>
-                  </div>
-                  <div class="clear"></div>
-                </div>
-           
-                <div class="clear"></div>
-                <div class="form-group">
-                  <label class="col-form-label">Depart</label>
-                  <div class="datetimediv">
-                    <input type="text" [(ngModel)]="DepartDate" name="DepartDate" bsDatepicker class="form-control dpicker" autocomplete="off" />
-                    <timepicker  [(ngModel)]="mytime2" name="mytime2" class="widthtimepicker"></timepicker>
-                  </div>
-                  <div class="clear"></div>
-                </div>
-                <div class="clear"></div>
-                <div class="form-group">
-                  <label class="col-form-label">The dates are flexible</label>
-                  <input type="checkbox">
 
-                </div>
-                <div class="form-group">
-                  <label class="col-form-label">Internal history</label>
-                  <!-- <textarea class="form-control" rows="5" id="comment"></textarea>     -->
-                  <input type="text" class="form-control InlineInput">             
-                </div>
-                <br>  <br>
-              
+                <section>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label class="col-form-label">Arrival</label>
+                        <div class="datetimediv mt-2">
+                          <input type="text" [(ngModel)]="ArrivalDate" name="ArrivalDate" bsDatepicker
+                            class="form-control dpicker" autocomplete="off" />
+                          <timepicker [(ngModel)]="mytime1" name="mytime1" class="widthtimepicker"></timepicker>
+                        </div>
+                        <div class="clear"></div>
+                      </div>
+                    </div>
 
-                <h6 class="FormH6">Event type and purpose</h6>
-                <hr class="style2">
-                <div class="form-group">
-                  <div class="form-group">
-                    <label class="col-form-label">Purpose</label>
-                    <!-- <select id="Select1" class="form-control txtsize">
-                      <option selected="selected">Choose...</option>
-                      <option>...</option>
-                    </select> -->
-                    <div class="width80per">
-                        <div class="row">
-                          <div class="col-sm-6 ">
-                              <label class="col-form-label">Purpose</label>
-                              <select id="inputState" class="form-control txtsize">
-                                <option  *ngFor="let ObjPurpose of dropdownListPurpose" [value]="ObjPurpose.item_id">
-                                 {{ObjPurpose.item_text}}
-                                </option>                   
-                              </select>
-                          </div>
-                          <div class="col-sm-6 ">
-                              <label class="col-form-label">Table setting</label>
-                              <select id="inputState" class="form-control txtsize">
-                                <option  *ngFor="let ObjTableSetting of dropdownListTableSetting" [value]="ObjTableSetting.item_id">
-                                 {{ObjTableSetting.item_text}}
-                                </option>                   
-                              </select>
-                          </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label class="col-form-label">Depart</label>
+                        <div class="datetimediv mt-2">
+                          <input type="text" [(ngModel)]="DepartDate" name="DepartDate" bsDatepicker
+                            class="form-control dpicker" autocomplete="off" />
+                          <timepicker [(ngModel)]="mytime2" name="mytime2" class="widthtimepicker"></timepicker>
                         </div>
-                      </div>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="form-group">
-                    <label class="col-form-label">Participants</label>
-                    <div class="width80per">
-                        <div class="row">
-                          <div class="col-sm-6 ">
-                            <label>Participants</label>
-                            <select id="inputState" class="form-control txtsize">
-                              <option  *ngFor="let ObjParticipants of dropdownListPParticipants" [value]="ObjParticipants.item_id">
-                               {{ObjParticipants.item_text}}
-                              </option>                   
-                            </select>
-                          </div>
-                          <div class="col-sm-6 ">
-                            <label>Number of participants</label>
-                            <input myNumberOnly class="form-control InlineInput" style="width:366px" maxlength="8">
-                          </div>
-                        </div>
-                      </div>
-                  </div>
-                </div>
-                <!-- <div class="form-group">
-                  <label class="col-form-label">Number of participants</label>
-                  <input type="text" class="form-control">
-                </div> -->
-                <div class="form-group">
-                  <label class="col-form-label">Rooms</label>
-                  <div class="width80per">
-                    <div class="row">
-                      <div class="col-sm-6 ">
-                        <label>Number of single rooms</label>
-                        <input myNumberOnly class="form-control InlineInput" style="width:366px" maxlength="8">
-                      </div>
-                      <div class="col-sm-6 ">
-                        <label>Number of double rooms</label>
-                        <input myNumberOnly class="form-control InlineInput" style="width:366px" maxlength="8">
                       </div>
                     </div>
                   </div>
-                </div>
-                <!-- <div class="form-group">
-                  <label class="col-form-label">Table setting in plenary</label>
-                  <select id="Select3" class="form-control txtsize">
-                    <option selected="selected">Choose...</option>
-                    <option>...</option>
-                  </select>
-                </div> -->
-             
-                <h6 class="FormH6">Course packages and rooms</h6>
-                <hr class="style2">
-                <div class="form-group">
-                  <label class="col-form-label">Event type</label>
-                  <div class="width80per">
-                    <ul>
-                      <li>
-                        <div class="lbl"> Course Packages</div>
-                      
+                </section>
 
-                        <select id="inputState" class="form-control txtsize"  style="width: 103px;">
-                            <option  *ngFor="let ObjdropdownPackageType of dropdownPackageType" [value]="ObjdropdownPackageType.item_id">
-                             {{ObjdropdownPackageType.item_text}}
-                            </option>                   
-                          </select>
-                        
-                      </li>
-                      <li>
-                        <div class="lbl">No. of participants</div>
-                        <input myNumberOnly class="form-control InlineInput" maxlength="8">
-                      </li>
-                      <!-- 210 -->
-                      <li style="width: 428px;">
-                        <div class="lbl">From</div>
-                        <!-- <input type="text" class="form-control"> -->
-                        <!-- <div class="datetimediv">                         
-                          <timepicker  [(ngModel)]="mytime2" name="mytime2" class="widthtimepicker"></timepicker>
-                        </div> -->
-                        <div class="datetimediv">
-                          <input type="text" style=" width: 99px;" [(ngModel)]="ArrivalDate" name="ArrivalDate"  bsDatepicker class="form-control dpicker" autocomplete="off" />
-                          <timepicker [(ngModel)]="mytime1" name="mytime1" class="widthtimepicker"></timepicker>
-                        </div>
-                      </li>
-                      <li style="width: 214px;">
-                        <div class="lbl">From</div>
-                        <!-- <input type="text" class="form-control"> -->
-                        <!-- <div class="datetimediv">                         
-                          <timepicker  [(ngModel)]="mytime2" name="mytime2" class="widthtimepicker"></timepicker>
-                        </div> -->
-                        <div class="datetimediv">
-                          <input type="text" style=" width: 99px;" [(ngModel)]="ArrivalDate" name="ArrivalDate"  bsDatepicker class="form-control dpicker" autocomplete="off" />
-                          <timepicker [(ngModel)]="mytime1" name="mytime1" class="widthtimepicker"></timepicker>
-                        </div>
-                      </li>
-                      <!-- <li style="width: 217px;">
-                        <div class="lbl">To</div>
-                        <div class="datetimediv">                         
-                          <timepicker  [(ngModel)]="mytime2" name="mytime2" class="widthtimepicker"></timepicker>
-                        </div>
-                      </li> -->
-                      <li>
-                        <a (click)="addFieldValue()"><i class="fa fa-plus"></i>Add new row</a>
-                        <!-- <button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button> -->
-                      </li>
-                    </ul>
+                <section>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label class="col-form-label">The dates are flexible</label>
+                        <input type="checkbox">
 
-                    <ul *ngFor="let ObjArrangementtype of Arrangementtype; let i = index">
-                      <li>
-
-                        <input type="text" class="form-control">
-                      </li>
-                      <li>
-
-                        <input type="text" class="form-control">
-                      </li>
-                      <li>
-
-                        <input type="text" class="form-control">
-                      </li>
-                      <li>
-
-                        <input type="text" class="form-control">
-                      </li>
-                      <li>
-                        <button class="btn btn-default" type="button" (click)="deleteFieldValue(i)">Delete</button>
-
-                      </li>
-                    </ul>
+                      </div>
+                    </div>
                   </div>
-                  <!-- <div class="width80per">
-                      <table class="table table-bordered">
-                          <thead>
-                              <tr>
-                                  <th>Kursuspakke</th>
-                                  <th>Antal deltagere</th>
-                                  <th>Fra</th>
-                                  <th>Til</th>
-                                  <th>Action</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                            
-                              <tr *ngFor="let ObjArrangementtype of Arrangementtype; let i = index">
-                                  <td>
-                                      <input [(ngModel)]="ObjArrangementtype.Kursuspakke" class="form-control" type="text" name="{{ObjArrangementtype.Kursuspakke}}" />
-                                  </td>
-                                  <td>
-                                      <input [(ngModel)]="ObjArrangementtype.Antaldeltagere" class="form-control" type="text" name="{{ObjArrangementtype.Antaldeltagere}}" />
-                                  </td>
-                                  <td>
-                                      <input [(ngModel)]="ObjArrangementtype.Fra" class="form-control" type="text" name="{{ObjArrangementtype.Fra}}" />
-                                  </td>
-                                  <td>
-                                      <input [(ngModel)]="ObjArrangementtype.Til" class="form-control" type="text" name="{{ObjArrangementtype.Til}}" />
-                                  </td>
-                                  <td>
-                                      <button class="btn btn-default"  type="button" (click)="deleteFieldValue(i)">Delete</button>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      <input class="form-control" type="text" id="newAttributeCode" [(ngModel)]="newAttribute.Kursuspakke" name="newAttributeKursuspakke" />
-                                  </td>
-                                  <td>
-                                      <input class="form-control" type="text" id="newAttributeName" [(ngModel)]="newAttribute.Antaldeltagere" name="newAttributeAntaldeltagere" />
-                                  </td>
-                                  <td>
-                                      <input class="form-control" type="text" id="newAttributePrice" [(ngModel)]="newAttribute.Fra" name="newAttributeFra" />
-                                  </td>
-                                  <td>
-                                      <input class="form-control" type="text" id="newAttributePrice" [(ngModel)]="newAttribute.Til" name="newAttributeTil" />
-                                  </td>
-                                  <td>
-                                      <button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button>
-                                  </td>
-                              </tr>
-                          </tbody>
-                      </table>
-                    </div> -->
-                </div>
-                <div class="form-group">
-                  <label class="col-form-label">Rooms</label>
-                  <div class="width80per">
-                    <ul>
-                      <li>
-                        <div class="lbl">local Attraction</div>
+                </section>
+
+                <section>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label class="col-form-label">Internal history</label>
+                        <!-- <textarea class="form-control" rows="3" id="comment"></textarea>     -->
+                        <input type="text" class="form-control InlineInput">
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+
+                <section class="mt-5 pt-4">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h6 class="FormH6">Event type and purpose</h6>
+                      <hr class="style2">
+                      <div class="form-group">
+                        <div class="form-group">
+                          <label class="col-form-label">Purpose</label>
+                          <!-- <select id="Select1" class="form-control txtsize">
+                            <option selected="selected">Choose...</option>
+                            <option>...</option>
+                          </select> -->
+                          <div class="width80per">
+                            <div class="row">
+                              <div class="col-sm-6 ">
+                                <label class="col-form-label">Purpose</label>
+                                <select id="inputState" class="form-control txtsize">
+                                  <option *ngFor="let ObjPurpose of dropdownListPurpose" [value]="ObjPurpose.item_id">
+                                    {{ObjPurpose.item_text}}
+                                  </option>
+                                </select>
+                              </div>
+                              <div class="col-sm-6 ">
+                                <label class="col-form-label">Table setting</label>
+                                <select id="inputState" class="form-control txtsize">
+                                  <option *ngFor="let ObjTableSetting of dropdownListTableSetting"
+                                    [value]="ObjTableSetting.item_id">
+                                    {{ObjTableSetting.item_text}}
+                                  </option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="form-group">
+                          <label class="col-form-label">Participants</label>
+                          <div class="width80per">
+                            <div class="row">
+                              <div class="col-sm-6 ">
+                                <label>Participants</label>
+                                <select id="inputState" class="form-control txtsize">
+                                  <option *ngFor="let ObjParticipants of dropdownListPParticipants"
+                                    [value]="ObjParticipants.item_id">
+                                    {{ObjParticipants.item_text}}
+                                  </option>
+                                </select>
+                              </div>
+                              <div class="col-sm-6 ">
+                                <label>Number of participants</label>
+                                <input myNumberOnly class="form-control InlineInput" maxlength="8">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- <div class="form-group">
+                        <label class="col-form-label">Number of participants</label>
                         <input type="text" class="form-control">
-                      </li>
-                      <li style="width: 66px;">
-                        <div class="lbl">No. of rooms</div>
-                        <input type="text" class="form-control">
-                      </li>
-                      <li style="width: 66px;">
-                        <div class="lbl">Per persons</div>
-                        <input type="text" class="form-control">
-                      </li>
-                      <li>
-                        <div class="lbl">Table Set</div>
-                        <select id="inputState" class="form-control txtsize">
-                          <option  *ngFor="let ObjTableSetting of dropdownListTableSetting" [value]="ObjTableSetting.item_id">
-                           {{ObjTableSetting.item_text}}
-                          </option>                   
+                      </div> -->
+                      <div class="form-group">
+                        <label class="col-form-label">Rooms</label>
+                        <div class="width80per">
+                          <div class="row">
+                            <div class="col-sm-6 ">
+                              <label>Number of single rooms</label>
+                              <input myNumberOnly class="form-control InlineInput" maxlength="8">
+                            </div>
+                            <div class="col-sm-6 ">
+                              <label>Number of double rooms</label>
+                              <input myNumberOnly class="form-control InlineInput" maxlength="8">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- <div class="form-group">
+                        <label class="col-form-label">Table setting in plenary</label>
+                        <select id="Select3" class="form-control txtsize">
+                          <option selected="selected">Choose...</option>
+                          <option>...</option>
                         </select>
-                      </li>
-                      <li style="width: 210px;">
-                        <div class="lbl">From</div>
-                        <!-- <input type="text" class="form-control"> -->
-                        <div class="datetimediv">                         
-                          <timepicker  [(ngModel)]="mytime2" name="mytime2" class="widthtimepicker"></timepicker>
-                        </div>
-                      </li>
-                      <li style="width: 217px;">
-                        <div class="lbl">To</div>
-                        <div class="datetimediv">                         
-                          <timepicker  [(ngModel)]="mytime2" name="mytime2" class="widthtimepicker"></timepicker>
-                        </div>
-                      </li>
-                      <li>
-                        <i class="fa fa-plus"></i>Add new row
-                      </li>
-                    </ul>
+                      </div> -->
+                    </div>
                   </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-form-label"> Also give up your prize</label>
-                  <div class="width80per">
-                    <ul>
-                      <li>
-                        <div class="lbl">Description</div>
-                        <input type="text" class="form-control">
-                      </li>
-                      <li>
-                        <div class="lbl">Anta (pcs.)</div>
-                        <input type="text" class="form-control">
-                      </li>
-                      <li>
-                        <i class="fa fa-plus"></i>Add new row
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-               
+                </section>
 
-                <h6 class="FormH6">comments</h6>
-                <hr class="style2">
-                <div class="form-group">
-                  <label class="col-form-label">Supplementary Wishes / Comments </label>
-                  <textarea class="form-control" rows="5" id="Textarea1"></textarea>
-                  <span class="clear"></span>
-                </div>
-                <div class="form-group">
-                    <label class="col-form-label">Booking Responsibility</label>
-                    <input type="text" class="form-control">
+
+
+                <section class="mt-5 pt-3">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h6 class="FormH6">Course packages and rooms</h6>
+                      <hr class="style2">
+
+                      <div class="form-group">
+
+                        <div class="row no-gutters">
+                          <div class="col-md-12">
+                            <label class="col-form-label">Event type</label>
+                          </div>
+
+                          <div class="col-md-2" style="margin-right:-35px;">
+                            <div class="lbl pb-2"> Course Packages</div>
+
+
+                            <select id="inputState" style="max-width:100px;" class="form-control txtsize">
+                              <option *ngFor="let ObjdropdownPackageType of dropdownPackageType"
+                                [value]="ObjdropdownPackageType.item_id">
+                                {{ObjdropdownPackageType.item_text}}
+                              </option>
+                            </select>
+                          </div>
+
+                          <div class="col-md-2">
+                            <div class="lbl pb-2">No. of participants</div>
+                            <input style="max-width:110px;" myNumberOnly class="form-control InlineInput" maxlength="8">
+                          </div>
+
+                          <div class="col-md-4">
+                            <div class="lbl pb-2">From</div>
+                            <!-- <input type="text" class="form-control"> -->
+                            <!-- <div class="datetimediv">                         
+                                    <timepicker  [(ngModel)]="mytime2" name="mytime2" class="widthtimepicker"></timepicker>
+                                  </div> -->
+                            <div class="datetimediv">
+                              <input type="text" style=" width: 99px;" [(ngModel)]="ArrivalDate" name="ArrivalDate"
+                                bsDatepicker class="form-control dpicker" autocomplete="off" />
+                              <timepicker [(ngModel)]="mytime1" name="mytime1" class="widthtimepicker"></timepicker>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="lbl pb-2">To</div>
+                            <!-- <input type="text" class="form-control"> -->
+                            <!-- <div class="datetimediv">                         
+                                    <timepicker  [(ngModel)]="mytime2" name="mytime2" class="widthtimepicker"></timepicker>
+                                  </div> -->
+                            <div class="datetimediv">
+                              <input type="text" style=" width: 99px;" [(ngModel)]="ArrivalDate" name="ArrivalDate"
+                                bsDatepicker class="form-control dpicker" autocomplete="off" />
+                              <timepicker [(ngModel)]="mytime1" name="mytime1" class="widthtimepicker"></timepicker>
+                            </div>
+
+                            
+
+
+
+
+
+                          </div>
+                        </div>
+
+                        <div *ngFor="let ObjArrangementtype of Arrangementtype; let i = index">
+
+                          <div class="row no-gutters">
+
+
+                            <div class="col-md-2" style="margin-right:-35px;">
+                              <div class="lbl pb-2"> Course Packages</div>
+
+
+                              <select id="inputState" style="max-width:100px;" class="form-control txtsize">
+                                <option *ngFor="let ObjdropdownPackageType of dropdownPackageType"
+                                  [value]="ObjdropdownPackageType.item_id">
+                                  {{ObjdropdownPackageType.item_text}}
+                                </option>
+                              </select>
+                            </div>
+
+                            <div class="col-md-2">
+                              <div class="lbl pb-2">No. of participants</div>
+                              <input style="max-width:110px;" myNumberOnly class="form-control InlineInput"
+                                maxlength="8">
+                            </div>
+
+                            <div class="col-md-4">
+                              <div class="lbl pb-2">From</div>
+                              <!-- <input type="text" class="form-control"> -->
+                              <!-- <div class="datetimediv">                         
+                                                  <timepicker  [(ngModel)]="mytime2" name="mytime2" class="widthtimepicker"></timepicker>
+                                                </div> -->
+                              <div class="datetimediv">
+                                <input type="text" style=" width: 99px;" [(ngModel)]="ArrivalDate" name="ArrivalDate"
+                                  bsDatepicker class="form-control dpicker" autocomplete="off" />
+                                <timepicker [(ngModel)]="mytime1" name="mytime1" class="widthtimepicker">
+                                </timepicker>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="lbl pb-2">To</div>
+                              <!-- <input type="text" class="form-control"> -->
+                              <!-- <div class="datetimediv">                         
+                                                  <timepicker  [(ngModel)]="mytime2" name="mytime2" class="widthtimepicker"></timepicker>
+                                                </div> -->
+                              <div class="datetimediv">
+                                <input type="text" style=" width: 99px;" [(ngModel)]="ArrivalDate" name="ArrivalDate"
+                                  bsDatepicker class="form-control dpicker" autocomplete="off" />
+                                <timepicker [(ngModel)]="mytime1" name="mytime1" class="widthtimepicker">
+                                </timepicker>
+                              </div>
+
+
+                            </div>
+                          </div>
+
+
+                          <div class="clearfix">
+                            <button class="btn btn-danger float-right  create-booking-event-type-delete" type="button" (click)="deleteFieldValue(i)"><i class="fa fa-trash"></i></button>
+
+                          </div>
+                        </div>
+
+                        <div >
+                          <a (click)="addFieldValue()" class="btn btn-outline-secondary float-right"><i class="fa fa-plus"></i> Add new row</a>
+                          <!-- <button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button> -->
+                        </div>
+
+
+                        <!-- <div class="width80per">
+                            <ul>
+                              <li>
+                                <div class="lbl"> Course Packages</div>
+                              
+        
+                                <select id="inputState" class="form-control txtsize"  style="width: 103px;">
+                                    <option  *ngFor="let ObjdropdownPackageType of dropdownPackageType" [value]="ObjdropdownPackageType.item_id">
+                                     {{ObjdropdownPackageType.item_text}}
+                                    </option>                   
+                                  </select>
+                                
+                              </li>
+                              <li>
+                                <div class="lbl">No. of participants</div>
+                                <input myNumberOnly class="form-control InlineInput" maxlength="8">
+                              </li>
+                              210
+                              <li style="width: 400px;">
+                                <div class="lbl">From</div>
+                                <input type="text" class="form-control">
+                                <div class="datetimediv">                         
+                                  <timepicker  [(ngModel)]="mytime2" name="mytime2" class="widthtimepicker"></timepicker>
+                                </div>
+                                <div class="datetimediv">
+                                  <input type="text" style=" width: 99px;" [(ngModel)]="ArrivalDate" name="ArrivalDate"  bsDatepicker class="form-control dpicker" autocomplete="off" />
+                                  <timepicker [(ngModel)]="mytime1" name="mytime1" class="widthtimepicker"></timepicker>
+                                </div>
+                              </li>
+                              <li style="width: 400px;">
+                                <div class="lbl">From</div>
+                                <input type="text" class="form-control">
+                                <div class="datetimediv">                         
+                                  <timepicker  [(ngModel)]="mytime2" name="mytime2" class="widthtimepicker"></timepicker>
+                                </div>
+                                <div class="datetimediv">
+                                  <input type="text" style=" width: 99px;" [(ngModel)]="ArrivalDate" name="ArrivalDate"  bsDatepicker class="form-control dpicker" autocomplete="off" />
+                                  <timepicker [(ngModel)]="mytime1" name="mytime1" class="widthtimepicker"></timepicker>
+                                </div>
+                              </li>
+                              <li style="width: 217px;">
+                                <div class="lbl">To</div>
+                                <div class="datetimediv">                         
+                                  <timepicker  [(ngModel)]="mytime2" name="mytime2" class="widthtimepicker"></timepicker>
+                                </div>
+                              </li>
+                              <li>
+                                <a (click)="addFieldValue()"><i class="fa fa-plus"></i>Add new row</a>
+                                <button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button>
+                              </li>
+                            </ul>
+        
+                            <ul *ngFor="let ObjArrangementtype of Arrangementtype; let i = index">
+                              <li>
+        
+                                <input type="text" class="form-control">
+                              </li>
+                              <li>
+        
+                                <input type="text" class="form-control">
+                              </li>
+                              <li>
+        
+                                <input type="text" class="form-control">
+                              </li>
+                              <li>
+        
+                                <input type="text" class="form-control">
+                              </li>
+                              <li>
+                                <button class="btn btn-default" type="button" (click)="deleteFieldValue(i)">Delete</button>
+        
+                              </li>
+                            </ul>
+                          </div> -->
+
+                        <!-- <div class="width80per">
+                              <table class="table table-bordered">
+                                  <thead>
+                                      <tr>
+                                          <th>Kursuspakke</th>
+                                          <th>Antal deltagere</th>
+                                          <th>Fra</th>
+                                          <th>Til</th>
+                                          <th>Action</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                    
+                                      <tr *ngFor="let ObjArrangementtype of Arrangementtype; let i = index">
+                                          <td>
+                                              <input [(ngModel)]="ObjArrangementtype.Kursuspakke" class="form-control" type="text" name="{{ObjArrangementtype.Kursuspakke}}" />
+                                          </td>
+                                          <td>
+                                              <input [(ngModel)]="ObjArrangementtype.Antaldeltagere" class="form-control" type="text" name="{{ObjArrangementtype.Antaldeltagere}}" />
+                                          </td>
+                                          <td>
+                                              <input [(ngModel)]="ObjArrangementtype.Fra" class="form-control" type="text" name="{{ObjArrangementtype.Fra}}" />
+                                          </td>
+                                          <td>
+                                              <input [(ngModel)]="ObjArrangementtype.Til" class="form-control" type="text" name="{{ObjArrangementtype.Til}}" />
+                                          </td>
+                                          <td>
+                                              <button class="btn btn-default"  type="button" (click)="deleteFieldValue(i)">Delete</button>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                              <input class="form-control" type="text" id="newAttributeCode" [(ngModel)]="newAttribute.Kursuspakke" name="newAttributeKursuspakke" />
+                                          </td>
+                                          <td>
+                                              <input class="form-control" type="text" id="newAttributeName" [(ngModel)]="newAttribute.Antaldeltagere" name="newAttributeAntaldeltagere" />
+                                          </td>
+                                          <td>
+                                              <input class="form-control" type="text" id="newAttributePrice" [(ngModel)]="newAttribute.Fra" name="newAttributeFra" />
+                                          </td>
+                                          <td>
+                                              <input class="form-control" type="text" id="newAttributePrice" [(ngModel)]="newAttribute.Til" name="newAttributeTil" />
+                                          </td>
+                                          <td>
+                                              <button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button>
+                                          </td>
+                                      </tr>
+                                  </tbody>
+                              </table>
+                            </div> -->
+                      </div>
+
+
+                      <div class="form-group">
+                        <label class="col-form-label">Rooms</label>
+
+
+                        <div class="width80per">
+                          <ul>
+                            <li>
+                              <div class="lbl">local Attraction</div>
+                              <input type="text" class="form-control">
+                            </li>
+                            <li style="width: 66px;">
+                              <div class="lbl">No. of rooms</div>
+                              <input type="text" class="form-control">
+                            </li>
+                            <li style="width: 66px;">
+                              <div class="lbl">Per persons</div>
+                              <input type="text" class="form-control">
+                            </li>
+                            <li>
+                              <div class="lbl">Table Set</div>
+                              <select id="inputState" class="form-control txtsize">
+                                <option *ngFor="let ObjTableSetting of dropdownListTableSetting"
+                                  [value]="ObjTableSetting.item_id">
+                                  {{ObjTableSetting.item_text}}
+                                </option>
+                              </select>
+                            </li>
+                            <li style="width: 210px;">
+                              <!-- <div class="lbl">From</div> -->
+                              <!-- <input type="text" class="form-control"> -->
+                              <div class="datetimediv">
+                                  <div class="lbl">From</div>
+                                <timepicker [(ngModel)]="mytime2" name="mytime2" class="widthtimepicker"></timepicker>
+                              </div>
+                            </li>
+                            <li style="width: 217px;">
+                              <div class="lbl">To</div>
+                              <div class="datetimediv">
+                                <timepicker [(ngModel)]="mytime2" name="mytime2" class="widthtimepicker"></timepicker>
+                              </div>
+                            </li>
+                            <!-- <li>
+                              <a (click)="addRoomFieldValue()" class="btn btn-outline-secondary"><i class="fa fa-plus"></i> Add new row</a>
+                            </li> -->
+                          </ul>
+                        </div>
+
+                        <div *ngFor="let ObjArrangementtype of rooms; let i = index">
+                          <div class="width80per">
+                            <ul>
+                              <li>
+                                <div class="lbl">local Attraction</div>
+                                <input type="text" class="form-control">
+                              </li>
+                              <li style="width: 66px;">
+                                <div class="lbl">No. of rooms</div>
+                                <input type="text" class="form-control">
+                              </li>
+                              <li style="width: 66px;">
+                                <div class="lbl">Per persons</div>
+                                <input type="text" class="form-control">
+                              </li>
+                              <li>
+                                <div class="lbl">Table Set</div>
+                                <select id="inputState" class="form-control txtsize">
+                                  <option *ngFor="let ObjTableSetting of dropdownListTableSetting"
+                                    [value]="ObjTableSetting.item_id">
+                                    {{ObjTableSetting.item_text}}
+                                  </option>
+                                </select>
+                              </li>
+                              <li style="width: 210px;">
+                                <div class="lbl">From</div>
+                                <!-- <input type="text" class="form-control"> -->
+                                <div class="datetimediv">
+                                  <timepicker [(ngModel)]="mytime2" name="mytime2" class="widthtimepicker"></timepicker>
+                                </div>
+                              </li>
+                              <li style="width: 217px;">
+                                <div class="lbl">To</div>
+                                <div class="datetimediv">
+                                  <timepicker [(ngModel)]="mytime2" name="mytime2" class="widthtimepicker"></timepicker>
+                                </div>
+                              </li>
+                              <!-- <li>
+                                <i class="fa fa-plus"></i>Add new row
+                              </li> -->
+                            </ul>
+                          </div>
+                          <div class="">
+                              <button class="btn btn-danger float-right  create-booking-event-type-delete" type="button" (click)="deleteRoomsFieldValue(i)"><i class="fa fa-trash"></i></button>
+  
+                            </div>
+                        </div>
+
+                        <a (click)="addRoomFieldValue()" class="btn btn-outline-secondary float-right" ><i class="fa fa-plus"></i> Add new row</a>
+                      </div>
+
+                      
+                      <div class="form-group">
+                        <label class="col-form-label"> Also give up your prize</label>
+                        <div class="width80per">
+                          <ul>
+                            <li>
+                              <div class="lbl">Description</div>
+                              <input type="text" class="form-control">
+                            </li>
+                            <li>
+                              <div class="lbl">Anta (pcs.)</div>
+                              <input type="text" class="form-control">
+                            </li>
+                            
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div *ngFor="let ObjArrangementtype of prize; let i = index">
+                          <div class="form-group">
+                              <div class="width80per">
+                                <ul>
+                                  <li>
+                                    <div class="lbl">Description</div>
+                                    <input type="text" class="form-control">
+                                  </li>
+                                  <li>
+                                    <div class="lbl">Anta (pcs.)</div>
+                                    <input type="text" class="form-control">
+                                  </li>
+                                  <li>
+                                <button class="btn btn-danger float-right " style="margin-top:40px;" type="button" (click)="deletePrizeFieldValue(i)"><i class="fa fa-trash"></i></button>
+
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                      </div>
+
+                      <a (click)="addPrizeFieldValue()" class="btn btn-outline-secondary" style="margin-top:20px;"><i class="fa fa-plus"></i> Add new row</a>
+
+                    </div>
                   </div>
+                </section>
+
+
+
+
+
+                <section class="mt-5 pt-3">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h6 class="FormH6">comments</h6>
+                      <hr class="style2">
+                      <div class="form-group">
+                        <label class="col-form-label">Supplementary Wishes / Comments </label>
+                        <textarea class="form-control" rows="5" id="Textarea1"></textarea>
+                        <span class="clear"></span>
+                      </div>
+                      <div class="form-group" style="margin-bottom:75px;">
+                        <label class="col-form-label">Booking Responsibility</label>
+                        <input type="text" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                </section>
 
                 <!-- <div class="form-group mtop40 text-right">
                   <button type="submit" class="btn btn-danger mright50">Previous</button>
                   <button type="submit" class="btn btn-success">Next</button>
                 </div> -->
-                <div class="pull-right padright75">
-                    <button type="button" class="btn btn-outline-info" (click)="selectedwallet = 'Kundeoplysniger'" >Next</button>
-                  </div>
-                  <br>
+                <div class="pull-right">
+                  <button type="button"
+                    style="padding-right:50px; padding-left:50px; background-color: #eb6100; color: #ffffff;"
+                    class="btn" (click)="selectedwallet = 'Kundeoplysniger'">Next</button>
+                </div>
+                <br>
               </form>
             </div>
-            
+
             <div role="tabpane3" *ngIf="selectedwallet === 'Matching'">
               <form class="formbox">
-                  <div class="pull-right padright75">
+                <!-- <div class="pull-right padright75">
                       <button type="button" class="btn btn-outline-info" (click)="selectedwallet = 'Eventdetaljer'" >Previous</button>
                     <button type="button" class="btn btn-outline-info" style="text-align: left; margin: 0px 11px;">Save</button>
-                  </div>
-                  <br>
+                  </div> -->
+                <br>
                 <h6 class="FormH6">Cener-matching</h6>
                 <hr class="style2">
                 <div class="form-group">
@@ -526,42 +785,51 @@
 
                   </div>
                 </div>
-                <h6 class="FormH6">Desired geographical area</h6>
-                <hr class="style2">
 
-                <div class="form-group">
-                  <label class="col-form-label">Region / Province</label>
-                  <div class="radiocheckbox">
-                    <div class="form-check">
-                      <ng-multiselect-dropdown [placeholder]="'custom placeholder'" [data]="dropdownList"
-                           name="Regions" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
-                        (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
+                <section class="mt-5 pt-5">
+                  <h6 class="FormH6">Desired geographical area</h6>
+                  <hr class="style2">
+
+                  <div class="form-group">
+                    <label class="col-form-label">Region / Province</label>
+                    <div class="radiocheckbox">
+                      <div class="form-check">
+                        <ng-multiselect-dropdown [placeholder]="'custom placeholder'" [data]="dropdownList"
+                          name="Regions" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+                          (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </section>
 
-                <br>
-                <h6 class="FormH6">Search Criteria</h6>
-                <hr class="style2">
-                <div class="form-group">
-                  <label class="col-form-label">Search Criteria</label>
-                  <div class="radiocheckbox">
-                    <div class="form-check">
-                      <ng-multiselect-dropdown [placeholder]="'custom placeholder'" [data]="dropdownList"
-                        [(ngModel)]="selectedItems" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
-                        (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
+
+                <section class="mt-5 pt-5">
+                  <h6 class="FormH6">Search Criteria</h6>
+                  <hr class="style2">
+                  <div class="form-group" style="margin-bottom: 75px;">
+                    <label class="col-form-label">Search Criteria</label>
+                    <div class="radiocheckbox">
+                      <div class="form-check">
+                        <ng-multiselect-dropdown [placeholder]="'custom placeholder'" [data]="dropdownList"
+                          [(ngModel)]="selectedItems" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+                          (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
+                      </div>
+
                     </div>
-
                   </div>
-                </div>
+                </section>
                 <!-- <div class="form-group mtop40 text-right">
                     <button type="submit" class="btn btn-danger mright50">Save</button>
                     <button type="submit" class="btn btn-success mright50">Save and Draft</button>
                     <button type="submit" class="btn btn-dark">Cancel</button>
                 </div> -->
-                <div class="pull-right padright75">
-                    <button type="button" class="btn btn-outline-info" (click)="selectedwallet = 'Kundeoplysniger'" style="text-align: left; margin: 0px 11px;">Previous</button>
-                  <button type="button" class="btn btn-outline-info">Save</button>
+                <div class="pull-right">
+                  <button type="button"
+                    style="padding-right:50px; padding-left:50px; margin-right:10px; border: 1px solid #8e8e8e; color: #8e8e8e;"
+                    class="btn btn-outline-info" (click)="selectedwallet = 'Kundeoplysniger'">Previous</button>
+                  <button type="button"
+                    style="padding-right:50px; padding-left:50px; background-color: #eb6100; color: #ffffff;"
+                    class="btn">Save</button>
                 </div>
                 <br>
               </form>

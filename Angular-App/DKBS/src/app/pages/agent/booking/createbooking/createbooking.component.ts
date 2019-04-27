@@ -86,16 +86,40 @@ export class CreatebookingComponent implements OnInit {
     console.log(items);
   }
   private Arrangementtype: Array<any> = [];
-    private newAttribute: any = {};
+  private newAttribute: any = {};
 
-    addFieldValue() {
-        this.Arrangementtype.push(this.newAttribute)
-        this.newAttribute = {};
-    }
+  addFieldValue() {
+      this.Arrangementtype.push(this.newAttribute)
+      this.newAttribute = {};
+  }
 
-    deleteFieldValue(index) {
-        this.Arrangementtype.splice(index, 1);
-    }
+  deleteFieldValue(index) {
+      this.Arrangementtype.splice(index, 1);
+  }
+
+  private rooms: Array<any> = [];
+  private newRoomsAttribute: any = {};
+
+  addRoomFieldValue() {
+      this.rooms.push(this.newRoomsAttribute)
+      this.newRoomsAttribute = {};
+  }
+
+  deleteRoomsFieldValue(index) {
+      this.rooms.splice(index, 1);
+  }
+
+   private prize: Array<any> = [];
+  private newPrizeAttribute: any = {};
+
+  addPrizeFieldValue() {
+      this.prize.push(this.newPrizeAttribute)
+      this.newPrizeAttribute = {};
+  }
+
+  deletePrizeFieldValue(index) {
+      this.prize.splice(index, 1);
+  }
     
  
   constructor(private zipcodeService:ZipcodeService, private stateprovinanceService:StateprovinanceService,private zone: NgZone,private choiceService:ChoiceService) {}

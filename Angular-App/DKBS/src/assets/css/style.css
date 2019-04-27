@@ -1016,7 +1016,7 @@ ul {
 .dbkstabs .tab-content {
     width: 100%;
     max-width: 1000px;
-    padding: 50px 20px 30px;
+    padding: 3%;
     margin: -1px auto 40px;
     border: 1px #ccc solid;
 }
@@ -1056,7 +1056,7 @@ form h4 {
 .formbox .form-group .width80per,
 .formbox .form-group .datetimediv {
     float: left;
-    width: 80%;
+    width: 100%;
     margin-right: 0px;
 }
 
@@ -1068,7 +1068,11 @@ form h4 {
 
 .widthtimepicker {
     margin: -28px 13px -5px 9px;
-    height: 133px;
+    height: 120px;
+}
+
+.create-booking-event-type-delete {
+    margin-top: -85px;
 }
 
 .formbox .form-group input[type="checkbox"],
@@ -1104,8 +1108,8 @@ form h4 {
 
 .formboxadditional .form-group input,
 .formboxadditional .form-group select {
-    float: left;
-    width: 72%;
+    
+    width: 80%;
     margin-right: 10px;
 }
 
@@ -1199,9 +1203,9 @@ form h4 {
     float: initial;
 }
 
-.formbox .form-group .width80per {
+/* .formbox .form-group .width80per {
     margin-bottom: 15px;
-}
+} */
 
 .formbox .form-group .width80per label,
 .formbox .form-group .width80per input[type="text"] {
@@ -1210,6 +1214,15 @@ form h4 {
 }
 
 .formbox .form-group .width80per .lbl {
+    font-size: 12px;
+    font-weight: 600;
+    color: #000;
+    height: 40px;
+    vertical-align: bottom;
+    display: table-cell;
+}
+
+.lbl {
     font-size: 12px;
     font-weight: 600;
     color: #000;
@@ -1240,7 +1253,6 @@ form h4 {
 }
 
 .formbox .form-group .width80per ul li:last-child {
-    margin-top: 50px;
     font-size: 14px;
 }
 
@@ -1308,7 +1320,7 @@ form h4 {
 }
 
 .formbox .form-group .datetimediv .widthtimepicker td input {
-    width: 65px;
+    width: 45px;
 }
 
 @media (max-width:1366px) {
@@ -1393,4 +1405,11 @@ form h4 {
 .IconDKBS {
     font-size: 21px;
     color: #eb6100;
+}
+
+
+.form-check {
+    position: relative;
+    display: block;
+    padding-left: 0rem;
 }
