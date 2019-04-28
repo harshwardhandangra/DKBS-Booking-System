@@ -93,6 +93,7 @@ a:hover {
 .collapsebtn .show-hide-sidebar.hide-sidebar {
     display: inline-block !important;
     color: #000;
+    background: #fafafa;
 }
 
 .collapsebtn {
