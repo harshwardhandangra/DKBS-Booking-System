@@ -184,6 +184,8 @@
 
                       <hr class="style2">
                       <div class="height20"></div>
+                      <div class="row arrivedepart">
+                      <div class="col-lg-6 col-md-12">
                       <div class="form-group">
                         <label class="col-form-label lblmtop20">Arrival</label>
                         <div class="datetimediv">
@@ -195,8 +197,8 @@
                         </div>
                         <div class="clear"></div>
                       </div>
-
-                      <div class="clear"></div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
                       <div class="form-group">
                         <label class="col-form-label lblmtop20">Depart</label>
                         <div class="datetimediv">
@@ -208,6 +210,9 @@
                         </div>
                         <div class="clear"></div>
                       </div>
+                     </div>
+                    </div>
+
                       <div class="clear"></div>
                       <div class="form-group">
                         <label class="col-form-label">The dates are flexible</label>
@@ -309,8 +314,14 @@
                       </div> -->
                       <h6 class="FormH6">Course packages and rooms</h6>
                       <hr class="style2">
-                      <div class="form-group">
+                      <div class="form-group mbtm0">
                         <label class="col-form-label">Event type</label>
+                        <div class="addrownew">
+                          <a (click)="addFieldValue()"><i class="fa fa-plus"></i>Add  new row</a>
+                        </div>
+                      </div>
+                        <div class="form-group">
+                        
                         <div class="fullpackages">
                           <ul>
                             <li>
@@ -360,14 +371,14 @@
                                 <timepicker  [(ngModel)]="mytime2" name="mytime2" class="widthtimepicker"></timepicker>
                               </div>
                             </li> -->
-                            <li>
+                            <!--<li>
                               <a (click)="addFieldValue()"><i class="fa fa-plus"></i>Add
                                 new row</a>
-                              <!-- <button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button> -->
-                            </li>
+                             
+                            </li>-->
                           </ul>
 
-                          <ul *ngFor="let ObjArrangementtype of Arrangementtype; let i=
+                          <ul class="repeatulrow" *ngFor="let ObjArrangementtype of Arrangementtype; let i=
                             index">
                             <li>
 
@@ -391,60 +402,18 @@
 
                             </li>
                           </ul>
+                        
                         </div>
-                        <!-- <div class="width80per">
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>Kursuspakke</th>
-                                        <th>Antal deltagere</th>
-                                        <th>Fra</th>
-                                        <th>Til</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                  
-                                    <tr *ngFor="let ObjArrangementtype of Arrangementtype; let i = index">
-                                        <td>
-                                            <input [(ngModel)]="ObjArrangementtype.Kursuspakke" class="form-control" type="text" name="{{ObjArrangementtype.Kursuspakke}}" />
-                                        </td>
-                                        <td>
-                                            <input [(ngModel)]="ObjArrangementtype.Antaldeltagere" class="form-control" type="text" name="{{ObjArrangementtype.Antaldeltagere}}" />
-                                        </td>
-                                        <td>
-                                            <input [(ngModel)]="ObjArrangementtype.Fra" class="form-control" type="text" name="{{ObjArrangementtype.Fra}}" />
-                                        </td>
-                                        <td>
-                                            <input [(ngModel)]="ObjArrangementtype.Til" class="form-control" type="text" name="{{ObjArrangementtype.Til}}" />
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-default"  type="button" (click)="deleteFieldValue(i)">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input class="form-control" type="text" id="newAttributeCode" [(ngModel)]="newAttribute.Kursuspakke" name="newAttributeKursuspakke" />
-                                        </td>
-                                        <td>
-                                            <input class="form-control" type="text" id="newAttributeName" [(ngModel)]="newAttribute.Antaldeltagere" name="newAttributeAntaldeltagere" />
-                                        </td>
-                                        <td>
-                                            <input class="form-control" type="text" id="newAttributePrice" [(ngModel)]="newAttribute.Fra" name="newAttributeFra" />
-                                        </td>
-                                        <td>
-                                            <input class="form-control" type="text" id="newAttributePrice" [(ngModel)]="newAttribute.Til" name="newAttributeTil" />
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                          </div> -->
+                        <div class="clearfix"></div>
+                       
                       </div>
-                      <div class="form-group">
+                      <div class="form-group mbtm0">
                         <label class="col-form-label">Rooms</label>
+                        <div class="addrownew">
+                          <i class="fa fa-plus"></i>Add new row
+                        </div>
+                      </div>
+                        <div class="form-group">
                         <div class="fullpackages roompkgs">
                           <ul>
                             <li>
@@ -486,11 +455,12 @@
                                   class="widthtimepicker"></timepicker>
                               </div>
                             </li>
-                            <li>
+                           <!-- <li>
                               <i class="fa fa-plus"></i>Add new row
-                            </li>
+                            </li>-->
                           </ul>
                         </div>
+                        <div class="clearfix"></div>
                       </div>
                       <div class="form-group">
                         <label class="col-form-label"> Also give up your prize</label>

@@ -1016,7 +1016,7 @@ ul {
 .dbkstabs .tab-content {
     width: 100%;
     max-width: 1000px;
-    padding: 50px 20px 100px;
+    padding: 50px 20px 35px;
     margin: -1px auto 40px;
     border: 1px #ccc solid;
 }
@@ -1207,34 +1207,41 @@ form h4 {
 .formbox .form-group .fullpackages ul { margin: 0px 0px 0px 0px; padding: 0px;list-style: none;}
 .formbox .form-group .fullpackages ul li {float: left; margin-left: 1%;}
 .formbox .form-group .fullpackages ul li:nth-child(1) {margin-left: 0px;}
-.formbox .form-group .fullpackages ul li:last-child { margin-top: 50px;font-size: 14px;}
+
 
 .formbox .form-group .fullpackages ul li input, 
 .formbox .form-group .fullpackages ul li select{width:100%;}
 .formbox .form-group .fullpackages ul li:nth-child(1){width:11%;}
 .formbox .form-group .fullpackages ul li:nth-child(2){width:11%;}
-.formbox .form-group .fullpackages ul li:nth-child(3){width:30%;}
-.formbox .form-group .fullpackages ul li:nth-child(4){width:30%;}
+.formbox .form-group .fullpackages ul li:nth-child(3){width:37%;}
+.formbox .form-group .fullpackages ul li:nth-child(4){width:38%;}
 .formbox .form-group .fullpackages ul li:nth-child(5){width:14%;}
 .formbox .form-group .fullpackages ul li .datetimediv{width:100%;}
-.formbox .form-group .fullpackages ul li .datetimediv .dpicker{width:85px;margin-top:0px;}
+.formbox .form-group .fullpackages ul li .datetimediv .dpicker{width:110px;margin-top:0px;}
 .formbox .form-group .fullpackages ul li .widthtimepicker { margin: -28px 0px -5px 9px; }
-.formbox .form-group .fullpackages ul li .widthtimepicker table td:nth-child(4){display: none;}
-.formbox .form-group .fullpackages ul li .datetimediv table td button{padding:0px;}
+.formbox .form-group .fullpackages ul li .widthtimepicker table td:nth-child(4),
+.arrivedepart .widthtimepicker table td:nth-child(4){display: none;}
+.formbox .form-group .fullpackages ul li .datetimediv table td button,
+.arrivedepart .datetimediv table td button{padding:0px;}
 .formbox .form-group .fullpackages ul li .widthtimepicker table td input{margin:0px;}
 
 .formbox .form-group .fullpackages.roompkgs ul li:nth-child(3){width:10%;}
 .formbox .form-group .fullpackages.roompkgs ul li:nth-child(4){width:10%;}
-.formbox .form-group .fullpackages.roompkgs ul li:nth-child(5){width:21%;}
-.formbox .form-group .fullpackages.roompkgs ul li:nth-child(6){width:21%;}
+.formbox .form-group .fullpackages.roompkgs ul li:nth-child(5){width:26%;}
+.formbox .form-group .fullpackages.roompkgs ul li:nth-child(6){width:27%;}
 .formbox .form-group .fullpackages.roompkgs ul li:nth-child(7){width:10%;}
 .formbox .form-group .fullpackages.yourprizefiled ul li:nth-child(1){width:40%;}
 .formbox .form-group .fullpackages.yourprizefiled ul li:nth-child(2){width:20%}
 .btnorange{background: #eb6100;color:#fff;}
 .btnorange:hover{background: #d45a04;color: #fff;}
 .formboxadditional .form-group .bookrespons{width:80%;margin:0px;}
-.formboxadditional .cominfotab .form-group .form-control,
-.formboxadditional .cominfotab .form-group .radiocheckbox{width:30%;}
+
+.addrownew{float:right;margin-top:10px;}
+.mbtm0{margin-bottom:0px !important;}
+.formbox .form-group .fullpackages ul.repeatulrow {width: 100%;display: block; clear: both; height: 40px;}
+.formbox .form-group .fullpackages ul.repeatulrow li{float: left;}
+.formbox .form-group .fullpackages ul.repeatulrow li:nth-child(3),
+.formbox .form-group .fullpackages ul.repeatulrow li:nth-child(4){width:20%;}
 
 
 
@@ -1320,7 +1327,7 @@ form h4 {
 .datetimediv table td button{height: 30px;line-height: 18px;}
 
 .formbox .form-group .datetimediv .dpicker {
-    width: 150px;height: 30px;margin-top:20px;
+    width: 120px;height: 30px;margin-top:20px;
 }
 .lblmtop20{margin-top:20px;}
 
