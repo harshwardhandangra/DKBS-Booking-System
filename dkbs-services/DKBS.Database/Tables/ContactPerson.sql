@@ -1,14 +1,15 @@
 ﻿CREATE TABLE [dbo].[ContactPerson]
 (
-	[ContactPersonId] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [Name] NVARCHAR(255) NULL, 
-    [Department] NVARCHAR(255) NULL, 
-    [Position] NVARCHAR(255) NULL, 
-    [Email] NVARCHAR(255) NULL, 
-    [Telephone] NVARCHAR(50) NULL, 
-    [Mobile] NVARCHAR(50) NULL,
-	[CreatedDate] DATETIME NULL,
-	[CreatedBy] nvarchar(100),
-	[LastModified] DATETIME NULL, 
-	[LastModifiedBy] NVARCHAR(100) NULL
+	[ContactPersonId] [int] PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](255) NULL,
+	[Department] [nvarchar](255) NULL,
+	[Position] [nvarchar](255) NULL,
+	[Email] [nvarchar](255) NULL,
+	[Telephone] [nvarchar](50) NULL,
+	[CustomerId] [int] NULL,
+	[MapId] [int] NULL,
+	[CreatedDate] [datetime] NULL,
+	[CreatedBy] [nvarchar](100) NULL,
+	[LastModified] [datetime] NULL,
+	[LastModifiedBy] [nvarchar](100) NULL
 )

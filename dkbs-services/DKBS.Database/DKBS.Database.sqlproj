@@ -101,7 +101,7 @@
     <Build Include="Tables\BookingRegion.sql" />
     <Build Include="Tables\ParticipantType.sql" />
     <Build Include="Tables\IndustryCode.sql" />
-    <Build Include="Tables\Refreshments.sql" />
+    <Build Include="Tables\Refreshment.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DKBS.publish.xml" />
