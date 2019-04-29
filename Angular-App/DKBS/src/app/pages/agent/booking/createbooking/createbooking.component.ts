@@ -4,6 +4,7 @@ import { TypeaheadMatch } from 'ngx-bootstrap/typeahead/typeahead-match.class';
 import { ZipcodeService } from 'src/service/zipcode/zipcode.service';
 import { StateprovinanceService } from 'src/service/stateprovinance/stateprovinance.service';
 import { ChoiceService } from 'src/service/Choice/Choice.service';
+import swal from 'sweetalert';
 
 
 @Component({
@@ -16,6 +17,11 @@ export class CreatebookingComponent implements OnInit {
   public addrKeys: string[];
   public addr: object;  
   CreateBookingModel: any = {};
+  
+  bookingRoomViewModel: any = {};
+  bookingArrangementTypeViewModel: any = {};
+  bookingAlternativeServiceViewModel: any = {};
+  tableSetViewModel: any = {};
   mytime1: Date | undefined = new Date();
   mytime2: Date | undefined = new Date();
   ArrivalDate = new Date();
@@ -79,8 +85,15 @@ export class CreatebookingComponent implements OnInit {
   Referred: any[];
   ReferDDL: any[]; 
   
+  onSelectReferredby(event: TypeaheadMatch): void {
+    debugger
+    // this.selectedOption = event.item;
+    this.CreateBookingModel.customerId= event.item.partnerId;
+  }
   onSelect(event: TypeaheadMatch): void {
-    this.selectedOption = event.item;
+    debugger
+    // this.selectedOption = event.item;
+    this.CreateBookingModel.partnerId= event.item.partnerId;
   }
   onItemSelect(item: any) {
     console.log(item);
@@ -89,13 +102,30 @@ export class CreatebookingComponent implements OnInit {
     console.log(items);
   }
   private Arrangementtype: Array<any> = [];
-    private newAttribute: any = {};
+  private locbookingRoomViewModel: Array<any> = [];
+  private locbAlternativeServiceView: Array<any> = [];
+  
+  private newAttribute: any = {};
 
     addFieldValue() {
-        this.Arrangementtype.push(this.newAttribute)
+      debugger;
+        this.Arrangementtype.push(this.bookingArrangementTypeViewModel)
         this.newAttribute = {};
+        console.log(this.Arrangementtype);
     }
 
+    addFieldValuebookingRoomViewModel() {
+      debugger;
+        this.locbookingRoomViewModel.push(this.bookingRoomViewModel)
+        this.newAttribute = {};
+        console.log(this.locbookingRoomViewModel);
+    }
+    baddookingAlternativeServiceViewModel() {
+      debugger;
+        this.locbAlternativeServiceView.push(this.bookingAlternativeServiceViewModel)
+        this.newAttribute = {};
+        console.log(this.locbAlternativeServiceView);
+    }
     deleteFieldValue(index) {
         this.Arrangementtype.splice(index, 1);
     }
@@ -105,8 +135,35 @@ export class CreatebookingComponent implements OnInit {
     
   }
   onSubmit() {
-    debugger
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.CreateBookingModel))
+    
+    
+
+    //swal("Good job!", "You clicked the button!", "success");
+    this.CreateBookingModel.partnerId=1;
+    this.CreateBookingModel.customerId=1;
+    this.CreateBookingModel.cancellationReasonId=1;
+    this.CreateBookingModel.causeOfRemovalId=1;
+    this.CreateBookingModel.contactPersonId=1;
+    this.CreateBookingModel.bookingAndStatusId=3;
+    this.CreateBookingModel.flowId=1;
+    this.CreateBookingModel.partnerTypeId=1;
+    this.CreateBookingModel.mailLanguageId=1;   
+    this.CreateBookingModel.otherCompaignName="Test from webapp_Vishal";  
+    this.CreateBookingModel.flexibleDates=true;
+debugger
+    this.Arrangementtype.push(this.bookingArrangementTypeViewModel)
+    this.CreateBookingModel.bookingArrangementTypeViewModel=[this.bookingArrangementTypeViewModel];
+    this.CreateBookingModel.bookingRoomViewModel=[this.bookingRoomViewModel]
+    this.CreateBookingModel.bookingAlternativeServiceViewModel=[this.bookingAlternativeServiceViewModel]  
+    this.CreateBookingModel.bookingRoomViewModel.tableSetViewModel=this.tableSetViewModel;
+    
+
+  alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.CreateBookingModel))
+  //  debugger
+    this.zipcodeService.SaveCreateBooking(JSON.stringify(this.CreateBookingModel)).subscribe(Responce => {    
+      debugger
+      this.states=Responce;    
+      });
   }
   GetAllZipCodes(): any {
     this.zipcodeService.GetAllZipCodes().subscribe(res => {    

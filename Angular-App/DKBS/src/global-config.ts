@@ -1,7 +1,7 @@
 export class GlobalConfig {
     //public static ApiUrl : string = 'http://api.irganalytics.com';   
-    public static ApiUrl : string = 'https://dkbs-api-dev.azurewebsites.net';   
+    public static ApiUrl : string = 'http://dkbs-api-dev.azurewebsites.net';   
     // public static LocalApiUrl : string = 'http://api.irganalytics.com';    
-    public static LocalApiUrl : string = 'https://dkbs-api-dev.azurewebsites.net';  
+    public static LocalApiUrl : string = 'http://dkbs-api-dev.azurewebsites.net';  
     public static itemPerPage: number = 10;
 }
