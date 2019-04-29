@@ -1,16 +1,16 @@
 ﻿CREATE TABLE [dbo].[Customer]
 (
-	[CustomerId] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [CustomerName] NVARCHAR(255) NULL,      
-    [EmailId] NVARCHAR(255) NULL, 
-    [PhoneNumber] NVARCHAR(255) NULL, 
-	[IndustryCodeId] INT NOT NULL,
-	[Country] NVARCHAR(200) NOT NULL,
-	[City] NVARCHAR(200) NOT NULL,
-	[CreatedBy] NVARCHAR(200) NOT NULL,	
-	[CreatedDate] DATETIME NOT NULL,  
-	[LastModifiedDate] DATETIME NOT NULL, 
-	[LastModifiedBY] NVARCHAR(255) NOT NULL
-	
-
+	[CustomerId] [int] PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	[CustomerName] [nvarchar](255) NULL,
+	[EmailId] [nvarchar](255) NULL,
+	[PhoneNumber] [nvarchar](255) NULL,
+	[IndustryCode] [nvarchar](1000) NULL,
+	[ZipCode] [nvarchar](100) NULL,
+	[Country] [nvarchar](200) NULL,
+	[City] [nvarchar](200) NULL,
+	[CreatedBy] [nvarchar](200) NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[LastModifiedDate] [datetime] NOT NULL,
+	[LastModifiedBY] [nvarchar](255) NOT NULL,
+	[MapId] [int] NULL
 )

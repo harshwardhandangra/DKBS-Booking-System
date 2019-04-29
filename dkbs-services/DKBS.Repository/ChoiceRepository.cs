@@ -225,7 +225,7 @@ namespace DKBS.Repository
 
         public List<RefreshmentsDTO> GetRefreshments()
         {
-            return _mapper.Map<List<RefreshmentsDTO>>(_dbContext.Refreshments.ToList());
+            return _mapper.Map<List<RefreshmentsDTO>>(_dbContext.Refreshment.ToList());
         }
 
         public TEntity GetById<TEntity>(int id) where TEntity: class

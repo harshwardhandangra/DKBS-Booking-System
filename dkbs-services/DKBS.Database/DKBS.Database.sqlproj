@@ -23,6 +23,7 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DacApplicationName>DKBS.Database</DacApplicationName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -100,6 +101,7 @@
     <Build Include="Tables\BookingRegion.sql" />
     <Build Include="Tables\ParticipantType.sql" />
     <Build Include="Tables\IndustryCode.sql" />
+    <Build Include="Tables\Refreshment.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DKBS.publish.xml" />

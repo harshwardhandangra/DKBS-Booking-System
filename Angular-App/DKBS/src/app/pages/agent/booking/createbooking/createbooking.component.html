@@ -21,15 +21,15 @@
           </ul>
           <!-- Tab panes -->
           <form name="form" class="formboxadditional formbox" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-                <div class="tab-content">
-                  <div role="tabpanel" *ngIf="selectedwallet === 'Kundeoplysniger'">
-                  
+                <div class="tab-content ">
+                  <div role="tabpanel " *ngIf="selectedwallet === 'Kundeoplysniger'">
+                  <div class="cominfotab">
                       <h4 class="pull-left">Company Information
                       </h4>
-                      <div class="pull-right padright75">
-                        <button type="button" class="btn btn-outline-info"
+                      <div class="pull-right ">
+                        <button type="button" class="btn btnorange"
                           (click)="selectedwallet= 'Eventdetaljer'">Previous</button>
-                        <button type="button" class="btn btn-outline-info"
+                        <button type="button" class="btn btn-success"
                           (click)="selectedwallet= 'Matching'" style="text-align:
                           left; margin: 0px 11px;">Next</button>
                         <button type="button" class="btn btn-outline-info">Cancle</button>
@@ -158,9 +158,9 @@
                           <button type="submit" class="btn btn-success">Cancel</button>
                       </div> -->
                       <div class="pull-right padright75">
-                        <button type="button" class="btn btn-outline-info"
+                        <button type="button" class="btn btnorange"
                           (click)="selectedwallet= 'Eventdetaljer'">Previous</button>
-                        <button type="button" class="btn btn-outline-info"
+                        <button type="button" class="btn btn-success"
                           (click)="selectedwallet= 'Matching'" style="text-align:
                           left; margin: 0px 11px;">Next</button>
                         <button type="button" class="btn btn-outline-info">Cancle</button>
@@ -168,13 +168,13 @@
                       <br>
 
 
-              
+                      </div>
 
                   </div>
                   <div role="tabpane2" *ngIf="selectedwallet === 'Eventdetaljer'">
                     
-                      <div class="pull-right padright75">
-                        <button type="button" class="btn btn-outline-info"
+                      <div class="pull-right">
+                        <button type="button" class="btn btn-success"
                           (click)="selectedwallet= 'Kundeoplysniger'">Next</button>
                       </div>
                       <br>
@@ -183,8 +183,10 @@
 
                       <hr class="style2">
                       <div class="height20"></div>
+                      <div class="row arrivedepart">
+                      <div class="col-lg-6 col-md-12">
                       <div class="form-group">
-                        <label class="col-form-label">Arrival</label>
+                        <label class="col-form-label lblmtop20">Arrival</label>
                         <div class="datetimediv">
                           <input type="text" [(ngModel)]="CreateBookingModel.arrivalDateTime"
                             name="ArrivalDate" bsDatepicker class="form-control
@@ -194,10 +196,10 @@
                         </div>
                         <div class="clear"></div>
                       </div>
-
-                      <div class="clear"></div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
                       <div class="form-group">
-                        <label class="col-form-label">Depart</label>
+                        <label class="col-form-label lblmtop20">Depart</label>
                         <div class="datetimediv">
                           <input type="text" [(ngModel)]="CreateBookingModel.departDateTime"
                             name="DepartDate" bsDatepicker class="form-control
@@ -207,6 +209,9 @@
                         </div>
                         <div class="clear"></div>
                       </div>
+                     </div>
+                    </div>
+
                       <div class="clear"></div>
                       <div class="form-group">
                         <label class="col-form-label">The dates are flexible</label>
@@ -219,9 +224,7 @@
                         <input type="text" name="Internalhistory" [(ngModel)]="CreateBookingModel.internalHistory" 
                         class="form-control InlineInput">
                       </div>
-                      <br> <br>
-
-
+                      
                       <h6 class="FormH6">Event type and purpose</h6>
                       <hr class="style2">
                       <div class="form-group">
@@ -307,15 +310,21 @@
                       </div> -->
                       <h6 class="FormH6">Course packages and rooms</h6>
                       <hr class="style2">
-                      <div class="form-group">
+                      <div class="form-group mbtm0">
                         <label class="col-form-label">Event type</label>
-                        <div class="width80per">
+                        <div class="addrownew">
+                          <a (click)="addFieldValue()"><i class="fa fa-plus"></i>Add  new row</a>
+                        </div>
+                      </div>
+                        <div class="form-group">
+                        
+                        <div class="fullpackages">
                           <ul>
                             <li>
                               <div class="lbl"> Course Packages</div>
                               <select id="inputState" name="PackageType" [(ngModel)]="test" class="form-control txtsize"
                                 style="width: 103px;">
-                                <option *ngFor="let ObjdropdownPackageType of
+                   <option *ngFor="let ObjdropdownPackageType of
                                   dropdownPackageType"
                                   [value]="ObjdropdownPackageType.item_id">
                                   {{ObjdropdownPackageType.item_text}}
@@ -328,18 +337,18 @@
                                 maxlength="8">
                             </li>
                             <!-- 210 -->
-                            <li style="width: 428px;">
+                            <li>
                               <div class="lbl">From</div>                       
                               <div class="datetimediv">
                                 <input type="text" style="width: 99px;"
                                   [(ngModel)]="bookingArrangementTypeViewModel.fromDate" name="bookingArrangementTypeViewModelFromArrivalDate"
-                                  bsDatepicker class="form-control dpicker"
+                                bsDatepicker class="form-control dpicker"
                                   autocomplete="off" />
                                 <timepicker [(ngModel)]="mytime1" name="mytime1"
                                   class="widthtimepicker"></timepicker>
                               </div>
                             </li>
-                            <li style="width: 214px;">
+                            <li >
                               <div class="lbl">To</div>
                               <!-- <input type="text" class="form-control"> -->
                               <!-- <div class="datetimediv">                         
@@ -360,14 +369,14 @@
                                 <timepicker  [(ngModel)]="mytime2" name="mytime2" class="widthtimepicker"></timepicker>
                               </div>
                             </li> -->
-                            <li>
+                            <!--<li>
                               <a (click)="addFieldValue()"><i class="fa fa-plus"></i>Add
                                 new row</a>
-                              <!-- <button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button> -->
-                            </li>
+                             
+                            </li>-->
                           </ul>
 
-                          <ul *ngFor="let ObjArrangementtype of Arrangementtype; let i=
+                          <ul class="repeatulrow" *ngFor="let ObjArrangementtype of Arrangementtype; let i=
                             index">
                             <li>
 
@@ -409,72 +418,30 @@
 
                             </li>
                           </ul>
+                        
                         </div>
-                        <!-- <div class="width80per">
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>Kursuspakke</th>
-                                        <th>Antal deltagere</th>
-                                        <th>Fra</th>
-                                        <th>Til</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                  
-                                    <tr *ngFor="let ObjArrangementtype of Arrangementtype; let i = index">
-                                        <td>
-                                            <input [(ngModel)]="ObjArrangementtype.Kursuspakke" class="form-control" type="text" name="{{ObjArrangementtype.Kursuspakke}}" />
-                                        </td>
-                                        <td>
-                                            <input [(ngModel)]="ObjArrangementtype.Antaldeltagere" class="form-control" type="text" name="{{ObjArrangementtype.Antaldeltagere}}" />
-                                        </td>
-                                        <td>
-                                            <input [(ngModel)]="ObjArrangementtype.Fra" class="form-control" type="text" name="{{ObjArrangementtype.Fra}}" />
-                                        </td>
-                                        <td>
-                                            <input [(ngModel)]="ObjArrangementtype.Til" class="form-control" type="text" name="{{ObjArrangementtype.Til}}" />
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-default"  type="button" (click)="deleteFieldValue(i)">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input class="form-control" type="text" id="newAttributeCode" [(ngModel)]="newAttribute.Kursuspakke" name="newAttributeKursuspakke" />
-                                        </td>
-                                        <td>
-                                            <input class="form-control" type="text" id="newAttributeName" [(ngModel)]="newAttribute.Antaldeltagere" name="newAttributeAntaldeltagere" />
-                                        </td>
-                                        <td>
-                                            <input class="form-control" type="text" id="newAttributePrice" [(ngModel)]="newAttribute.Fra" name="newAttributeFra" />
-                                        </td>
-                                        <td>
-                                            <input class="form-control" type="text" id="newAttributePrice" [(ngModel)]="newAttribute.Til" name="newAttributeTil" />
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                          </div> -->
+                        <div class="clearfix"></div>
+                       
                       </div>
-                      <div class="form-group">
+                      <div class="form-group mbtm0">
                         <label class="col-form-label">Rooms</label>
-                        <div class="width80per">
+                        <div class="addrownew">
+                          <i class="fa fa-plus"></i>Add new row
+                        </div>
+                      </div>
+                        <div class="form-group">
+                        <div class="fullpackages roompkgs">
                           <ul>
                             <li>
                               <div class="lbl">local Attraction</div>
                            
                               <input type="text" name="locationAttraction" [(ngModel)]="bookingRoomViewModel.locationAttraction" class="form-control">
                             </li>
-                            <li style="width: 66px;">
+                            <li >
                               <div class="lbl">No. of rooms</div>
                               <input type="number" name="Rooms" [(ngModel)]="bookingRoomViewModel.numberOfRooms" class="form-control">
                             </li>
-                            <li style="width: 66px;">
+                            <li >
                               <div class="lbl">Per persons</div>
                               <input type="number" name="Perpersons" [(ngModel)]="bookingRoomViewModel.perPerson" class="form-control">
                             </li>
@@ -489,7 +456,7 @@
                                 </option>
                               </select>
                             </li>
-                            <li style="width: 210px;">
+                            <li>
                               <div class="lbl">From</div>
                               <!-- <input type="text" class="form-control"> -->
                               <div class="datetimediv">
@@ -500,7 +467,7 @@
                                   class="widthtimepicker"></timepicker>
                               </div>
                             </li>
-                            <li style="width: 217px;">
+                            <li>
                               <div class="lbl">To</div>
                               <div class="datetimediv">
                                 <input type="text" [(ngModel)]="bookingRoomViewModel.toDate"
@@ -517,10 +484,11 @@
                             </li>
                           </ul>
                         </div>
+                        <div class="clearfix"></div>
                       </div>
                       <div class="form-group">
                         <label class="col-form-label"> Also give up your prize</label>
-                        <div class="width80per">
+                        <div class="fullpackages yourprizefiled">
                           <ul>
                             <li>
                               <div class="lbl">Description</div>
@@ -556,8 +524,8 @@
                         <button type="submit" class="btn btn-danger mright50">Previous</button>
                         <button type="submit" class="btn btn-success">Next</button>
                       </div> -->
-                      <div class="pull-right padright75">
-                        <button type="button" class="btn btn-outline-info"
+                      <div class="pull-right">
+                        <button type="button" class="btn btn-success"
                           (click)="selectedwallet= 'Kundeoplysniger'">Next</button>
                       </div>
                       <br>
@@ -565,11 +533,11 @@
                   </div>
 
                   <div role="tabpane3" *ngIf="selectedwallet === 'Matching'">
-                    
-                      <div class="pull-right padright75">
-                        <button type="button" class="btn btn-outline-info"
+                    <div class="cominfotab">
+                      <div class="pull-right">
+                        <button type="button" class="btn btnorange"
                           (click)="selectedwallet= 'Eventdetaljer'">Previous</button>
-                        <button class="btn btn-outline-info"
+                        <button class="btn btn-info"
                           style="text-align: left; margin: 0px 11px;">Save</button>
                       </div>
                       <br>
@@ -610,6 +578,7 @@
 
                         </div>
                       </div>
+                      <div class="clearfix"></div>
                       <h6 class="FormH6">Desired geographical area</h6>
                       <hr class="style2">
 
@@ -627,7 +596,7 @@
                         </div>
                       </div>
 
-                      <br>
+                      <div class="clearfix"></div>
                       <h6 class="FormH6">Search Criteria</h6>
                       <hr class="style2">
                       <div class="form-group">
@@ -645,7 +614,7 @@
                           <button type="button" style=" float: right; " class="btn btn-outline-info"
                           >Find Center</button>
                         </div>
-                        <br> <br> <br> <br>
+                        <div class="clearfix"></div>
                       
                       </div>
                       <!-- <div class="form-group mtop40 text-right">
@@ -653,14 +622,14 @@
                           <button type="submit" class="btn btn-success mright50">Save and Draft</button>
                           <button type="submit" class="btn btn-dark">Cancel</button>
                       </div> -->
-                      <div class="pull-right padright75">
-                        <button type="button" class="btn btn-outline-info"
+                      <div class="pull-right" style="margin-top:30px;">
+                        <button type="button" class="btn btnorange"
                           (click)="selectedwallet= 'Kundeoplysniger'"
                           style="text-align: left; margin: 0px 11px;">Previous</button>
-                        <button class="btn btn-outline-info">Save</button>
+                        <button class="btn btn-info">Save</button>
                       </div>
-                      <br>
-                
+                      
+                      </div>
                   </div>           
                 </div>
           </form>

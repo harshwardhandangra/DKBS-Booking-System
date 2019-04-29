@@ -59,7 +59,6 @@
     <Folder Include="Scripts" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Scripts\PartnerTypes.sql" />
     <PostDeploy Include="Script.PostDeployment1.sql" />
   </ItemGroup>
   <ItemGroup>
