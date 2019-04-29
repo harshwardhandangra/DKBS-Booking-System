@@ -77,7 +77,7 @@ namespace DKBS.API.Controllers
                 return BadRequest();
             }
 
-            ContactPerson newlyCreatedContactPerson = new ContactPerson() { Name = contactPersonDTO.Name, /*Department = contactPersonDTO.Department,*/ Email = contactPersonDTO.Email, ContactPersonId = contactPersonDTO.ContactPersonId, Mobile = contactPersonDTO.Mobile,/* Position = contactPersonDTO.Position, */Telephone = contactPersonDTO.Telephone };
+            ContactPerson newlyCreatedContactPerson = new ContactPerson() { Name = contactPersonDTO.Name, /*Department = contactPersonDTO.Department,*/ Email = contactPersonDTO.Email, ContactPersonId = contactPersonDTO.ContactPersonId, /*Mobile = contactPersonDTO.Mobile, Position = contactPersonDTO.Position, */Telephone = contactPersonDTO.Telephone };
             var destination = _mapper.Map<ContactPerson, ContactPersonDTO>(newlyCreatedContactPerson);
 
 

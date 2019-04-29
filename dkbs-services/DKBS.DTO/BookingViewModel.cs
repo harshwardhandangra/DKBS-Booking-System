@@ -42,5 +42,6 @@ namespace DKBS.DTO
         public List<BookingRoomViewModel> BookingRoomViewModel { get; set; }
         public List<BookingArrangementTypeViewModel> BookingArrangementTypeViewModel { get; set; }
         public List<BookingAlternativeServiceViewModel> BookingAlternativeServiceViewModel { get; set; }
+        public List<PartnerDTO> Partners { get; set; }
     }
 }
