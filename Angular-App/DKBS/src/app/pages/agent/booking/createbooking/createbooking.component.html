@@ -119,7 +119,7 @@
                       <div class="form-group">
                         <label class="col-form-label">Referred by</label>
                         <!-- <label class="col-form-label">Searchable Lookup</label> -->
-                        <input [(ngModel)]="CreateBookingModel.selectedValueReferred"
+                        <input [(ngModel)]="TEST"
                           [typeahead]="Referred" typeaheadOptionField="partnerName"
                           (typeaheadOnSelect)="onSelect($event)"
                           [typeaheadScrollable]="true" class="form-control"
@@ -129,7 +129,7 @@
 
                       <div class="form-group">
                         <label class="col-form-label">Refers</label>
-                        <input [(ngModel)]="CreateBookingModel.selectedValueReferDDL"
+                        <input [(ngModel)]="TEST2"
                           [typeahead]="ReferDDL" typeaheadOptionField="partnerName"
                           (typeaheadOnSelect)="onSelect($event)"
                           [typeaheadScrollable]="true" class="form-control"
@@ -137,19 +137,19 @@
                       </div>
                       <div class="form-group">
                         <label class="col-form-label">Where do you know us?</label>
-                        <select id="inputState"  name="Campaign" [(ngModel)]="CreateBookingModel.Campaign"   class="form-control txtsize">
+                        <select id="inputState"  name="Campaign" [(ngModel)]="CreateBookingModel.campaignId"   class="form-control txtsize">
                           <option *ngFor="let ObjdropdownCampaign of dropdownCampaign"
-                            [value]="ObjdropdownCampaign.item_id">
+                          [ngValue]="ObjdropdownCampaign.item_id">
                             {{ObjdropdownCampaign.item_text}}
                           </option>
                         </select>
                       </div>
                       <div class="form-group">
                         <label class="col-form-label">Lead Origin</label>
-                        <select id="inputState" name="LeadOrigin" [(ngModel)]="CreateBookingModel.LeadOrigin"  class="form-control txtsize">
+                        <select id="inputState" name="LeadOrigin" [(ngModel)]="CreateBookingModel.leadOfOriginId"  class="form-control txtsize">
                         
                           <option *ngFor="let ObjLeadOrigin of dropdownListLeadOrigin"
-                            [value]="ObjLeadOrigin.item_id">
+                          [ngValue]="ObjLeadOrigin.item_id">
                             {{ObjLeadOrigin.item_text}}
                           </option>
                         </select>
@@ -189,10 +189,10 @@
                       <div class="form-group">
                         <label class="col-form-label lblmtop20">Arrival</label>
                         <div class="datetimediv">
-                          <input type="text" [(ngModel)]="CreateBookingModel.ArrivalDate"
+                          <input type="text" [(ngModel)]="CreateBookingModel.arrivalDateTime"
                             name="ArrivalDate" bsDatepicker class="form-control
                             dpicker" autocomplete="off" />
-                          <timepicker [(ngModel)]="mytime1" name="mytime1"
+                          <timepicker [(ngModel)]="mytime1ss" name="CreateBookingModelmytime1s"
                             class="widthtimepicker"></timepicker>
                         </div>
                         <div class="clear"></div>
@@ -202,10 +202,10 @@
                       <div class="form-group">
                         <label class="col-form-label lblmtop20">Depart</label>
                         <div class="datetimediv">
-                          <input type="text" [(ngModel)]="CreateBookingModel.DepartDate"
+                          <input type="text" [(ngModel)]="CreateBookingModel.departDateTime"
                             name="DepartDate" bsDatepicker class="form-control
                             dpicker" autocomplete="off" />
-                          <timepicker [(ngModel)]="mytime2" name="mytime2"
+                          <timepicker [(ngModel)]="mytime2" name="CreateBookingModelmytime2"
                             class="widthtimepicker"></timepicker>
                         </div>
                         <div class="clear"></div>
@@ -216,13 +216,13 @@
                       <div class="clear"></div>
                       <div class="form-group">
                         <label class="col-form-label">The dates are flexible</label>
-                        <input type="checkbox">
+                        <input type="checkbox" value="true" [(ngModel)]="CreateBookingModel.flexibleDates">
 
                       </div>
                       <div class="form-group">
                         <label class="col-form-label">Internal history</label>
                         <!-- <textarea class="form-control" rows="5" id="comment"></textarea>     -->
-                        <input type="text" name="Internalhistory" [(ngModel)]="CreateBookingModel.Internalhistory" 
+                        <input type="text" name="Internalhistory" [(ngModel)]="CreateBookingModel.internalHistory" 
                         class="form-control InlineInput">
                       </div>
                       
@@ -231,27 +231,24 @@
                       <div class="form-group">
                         <div class="form-group">
                           <label class="col-form-label">Purpose</label>
-                          <!-- <select id="Select1" class="form-control txtsize">
-                            <option selected="selected">Choose...</option>
-                            <option>...</option>
-                          </select> -->
+                        
                           <div class="width80per">
                             <div class="row">
                               <div class="col-sm-6">
                                 <label class="col-form-label">Purpose</label>
-                                <select id="inputState" name="Purpose" [(ngModel)]="CreateBookingModel.Purpose" class="form-control txtsize">
+                                <select id="inputState" name="Purpose" [(ngModel)]="CreateBookingModel.purposeId" class="form-control txtsize">
                                   <option *ngFor="let ObjPurpose of
-                                    dropdownListPurpose" [value]="ObjPurpose.item_id">
+                                    dropdownListPurpose" [ngValue]="ObjPurpose.item_id">
                                     {{ObjPurpose.item_text}}
                                   </option>
                                 </select>
                               </div>
                               <div class="col-sm-6">
                                 <label class="col-form-label">Table setting</label>
-                                <select id="inputState" name="TableSetting" [(ngModel)]="CreateBookingModel.TableSetting"  class="form-control txtsize">
+                                <select id="inputState" name="TableSetting" [(ngModel)]="CreateBookingModel.tableTypeId"  class="form-control txtsize">
                                   <option *ngFor="let ObjTableSetting of
                                     dropdownListTableSetting"
-                                    [value]="ObjTableSetting.item_id">
+                                    [ngValue]="ObjTableSetting.item_id">
                                     {{ObjTableSetting.item_text}}
                                   </option>
                                 </select>
@@ -267,17 +264,17 @@
                             <div class="row">
                               <div class="col-sm-6">
                                 <label>Participants</label>
-                                <select id="inputState" name="Participants" [(ngModel)]="CreateBookingModel.Participants"  class="form-control txtsize">
+                                <select id="inputState" name="Participants" [(ngModel)]="CreateBookingModel.participantTypeId"  class="form-control txtsize">
                                   <option *ngFor="let ObjParticipants of
                                     dropdownListPParticipants"
-                                    [value]="ObjParticipants.item_id">
+                                    [ngValue]="ObjParticipants.item_id">
                                     {{ObjParticipants.item_text}}
                                   </option>
                                 </select>
                               </div>
                               <div class="col-sm-6">
                                 <label>Number of participants</label>
-                                <input myNumberOnly name="Noofparticipants" [(ngModel)]="CreateBookingModel.Noofparticipants"   class="form-control InlineInput"
+                                <input  type="number" myNumberOnly name="Noofparticipants" [(ngModel)]="CreateBookingModel.numberOfPerticipants"   class="form-control InlineInput"
                                   style="width:366px" maxlength="8">
                               </div>
                             </div>
@@ -294,12 +291,12 @@
                           <div class="row">
                             <div class="col-sm-6">
                               <label>Number of single rooms</label>
-                              <input myNumberOnly name="NoOfRooms" [(ngModel)]="CreateBookingModel.NoOfRooms" class="form-control InlineInput"
+                              <input type="number" myNumberOnly name="NoOfRooms" [(ngModel)]="CreateBookingModel.numberOfRooms" class="form-control InlineInput"
                                 style="width:366px" maxlength="8">
                             </div>
                             <div class="col-sm-6">
                               <label>Number of double rooms</label>
-                              <input myNumberOnly  name="NoOfDoubleRooms" [(ngModel)]="CreateBookingModel.NoOfDoubleRooms" class="form-control InlineInput"
+                              <input myNumberOnly  name="NoOfDoubleRooms" [(ngModel)]="test" class="form-control InlineInput"
                                 style="width:366px" maxlength="8">
                             </div>
                           </div>
@@ -326,27 +323,27 @@
                           <ul>
                             <li>
                               <div class="lbl"> Course Packages</div>
-                              <select id="inputState" name="PackageType" [(ngModel)]="CreateBookingModel.PackageType" class="form-control txtsize"  >
+                              <select id="inputState" name="PackageType" [(ngModel)]="test" class="form-control txtsize"  >
                                 <option *ngFor="let ObjdropdownPackageType of
                                   dropdownPackageType"
-                                  [value]="ObjdropdownPackageType.item_id">
+                                  [ngValue]="ObjdropdownPackageType.item_id">
                                   {{ObjdropdownPackageType.item_text}}
                                 </option>
                               </select>
                             </li>
                             <li>
                               <div class="lbl">No. of participants</div>
-                              <input myNumberOnly name="NoOfPart" [(ngModel)]="CreateBookingModel.NoOfPart" class="form-control InlineInput"   maxlength="8">
+                              <input myNumberOnly name="NoOfPart" [(ngModel)]="bookingArrangementTypeViewModel.numberOfParticipants" class="form-control InlineInput"   maxlength="8">
                             </li>
                             <!-- 210 -->
                             <li>
                               <div class="lbl">From</div>                       
                               <div class="datetimediv">
                                 <input type="text" 
-                                  [(ngModel)]="CreateBookingModel.FromArrivalDate" name="FromArrivalDate"
+                                [(ngModel)]="bookingArrangementTypeViewModel.fromDate" name="FromArrivalDate"
                                   bsDatepicker class="form-control dpicker"
                                   autocomplete="off" />
-                                <timepicker [(ngModel)]="mytime1" name="mytime1"
+                                <timepicker [(ngModel)]="bookingArrangementTypeViewModelmytime1" name="bookingArrangementTypeViewModelmytime1"
                                   class="widthtimepicker"></timepicker>
                               </div>
                             </li>
@@ -358,10 +355,10 @@
                               </div> -->
                               <div class="datetimediv">
                                 <input type="text" 
-                                  [(ngModel)]="CreateBookingModel.ToArrivalDate" name="ToArrivalDate"
+                                [(ngModel)]="bookingArrangementTypeViewModel.toDate" name="ToArrivalDate"
                                   bsDatepicker class="form-control dpicker"
                                   autocomplete="off" />
-                                <timepicker [(ngModel)]="mytime1" name="mytime1"
+                                <timepicker [(ngModel)]="mytime1s" name="bookingArrangementTypeViewModel"
                                   class="widthtimepicker"></timepicker>
                               </div>
                             </li>
@@ -382,19 +379,37 @@
                             index">
                             <li>
 
-                              <input type="text" class="form-control">
+                              <select id="inputState" name="PackageType" [(ngModel)]="test" class="form-control txtsize"
+                                style="width: 103px;">
+                                <option *ngFor="let ObjdropdownPackageType of
+                                  dropdownPackageType"
+                                  [value]="ObjdropdownPackageType.item_id">
+                                  {{ObjdropdownPackageType.item_text}}
+                                </option>
+                              </select>
                             </li>
                             <li>
 
-                              <input type="text" class="form-control">
+                              <input myNumberOnly name="NoOfPart" [(ngModel)]="bookingArrangementTypeViewModel.numberOfParticipants" class="form-control InlineInput"
+                              maxlength="8">
                             </li>
                             <li>
 
-                              <input type="text" class="form-control">
+                              <input type="text" style="width: 99px;"
+                                  [(ngModel)]="bookingArrangementTypeViewModel.fromDate" name="bookingArrangementTypeViewModelFromArrivalDate"
+                                  bsDatepicker class="form-control dpicker"
+                                  autocomplete="off" />
+                                <timepicker [(ngModel)]="mytime1" name="mytime1"
+                                  class="widthtimepicker"></timepicker>
                             </li>
                             <li>
 
-                              <input type="text" class="form-control">
+                              <input type="text" style="width: 99px;"
+                              [(ngModel)]="bookingArrangementTypeViewModel.toDate" name="bookingArrangementTypeViewModeltoDate"
+                              bsDatepicker class="form-control dpicker"
+                              autocomplete="off" />
+                            <timepicker [(ngModel)]="mytime1" name="mytime1"
+                              class="widthtimepicker"></timepicker>
                             </li>
                             <li>
                               <button class="btn btn-default" type="button"
@@ -418,24 +433,24 @@
                           <ul>
                             <li>
                               <div class="lbl">local Attraction</div>
-                              <input type="text"  name="localAttraction" [(ngModel)]="CreateBookingModel.localAttraction" 
+                              <input type="text"  name="localAttraction"  [(ngModel)]="bookingRoomViewModel.locationAttraction"
                               class="form-control">
                             </li>
                             <li >
                               <div class="lbl">No. of rooms</div>
-                              <input type="text" name="Rooms" [(ngModel)]="CreateBookingModel.Rooms" class="form-control">
+                              <input type="number" name="Rooms" [(ngModel)]="bookingRoomViewModel.numberOfRooms" class="form-control">
                             </li>
                             <li >
                               <div class="lbl">Per persons</div>
-                              <input type="text" name="Perpersons" [(ngModel)]="CreateBookingModel.Perpersons" class="form-control">
+                              <input type="number" name="Perpersons" [(ngModel)]="bookingRoomViewModel.perPerson"  class="form-control">
                             </li>
                             <li>
                               <div class="lbl">Table Set</div>
-                              <select id="inputState" name="TableSets" [(ngModel)]="CreateBookingModel.TableSets" class="form-control txtsize">
+                              <select id="inputState" name="TableSets" [(ngModel)]="tableSetViewModel.tableSetName" class="form-control txtsize">
                               
                                 <option *ngFor="let ObjTableSetting of
                                   dropdownListTableSetting"
-                                  [value]="ObjTableSetting.item_id">
+                                  [ngValue]="ObjTableSetting.item_id">
                                   {{ObjTableSetting.item_text}}
                                 </option>
                               </select>
@@ -444,20 +459,25 @@
                               <div class="lbl">From</div>
                               <!-- <input type="text" class="form-control"> -->
                               <div class="datetimediv">
-                                <timepicker [(ngModel)]="CreateBookingModel.mytime2" name="mytime2"
+                                <timepicker [(ngModel)]="bookingRoomViewModel.fromDate" name="bookingRoomViewModelmytime1fromDate"
                                   class="widthtimepicker"></timepicker>
                               </div>
                             </li>
                             <li>
                               <div class="lbl">To</div>
                               <div class="datetimediv">
-                                <timepicker [(ngModel)]="CreateBookingModel.mytime2" name="mytime2"
+                                <input type="text" [(ngModel)]="bookingRoomViewModel.toDate"
+                                  name="bookingRoomViewModeltoDate" bsDatepicker class="form-control
+                                  dpicker" autocomplete="off" />
+                                <timepicker [(ngModel)]="mytime1" name="bookingRoomViewModelmytime1toDate"
                                   class="widthtimepicker"></timepicker>
                               </div>
                             </li>
-                           <!-- <li>
-                              <i class="fa fa-plus"></i>Add new row
-                            </li>-->
+                            <li>
+                              <!-- <i class="fa fa-plus"></i>Add new row -->
+                              <a (click)="addFieldValuebookingRoomViewModel()"><i class="fa fa-plus"></i>Add
+                                new row</a>
+                            </li>
                           </ul>
                         </div>
                         <div class="clearfix"></div>
@@ -468,11 +488,11 @@
                           <ul>
                             <li>
                               <div class="lbl">Description</div>
-                              <input type="text" [(ngModel)]="CreateBookingModel.Description" name="Description" class="form-control">
+                              <input type="text" [(ngModel)]="bookingAlternativeServiceViewModel.description" name="Description" class="form-control">
                             </li>
                             <li>
                               <div class="lbl">Anta (pcs.)</div>
-                              <input type="text"  [(ngModel)]="CreateBookingModel.Anta" name="Anta" class="form-control">
+                              <input type="number" [(ngModel)]="bookingAlternativeServiceViewModel.numberOfPieces" name="Anta" class="form-control">
                             </li>
                             <li>
                               <i class="fa fa-plus"></i>Add new row
@@ -487,13 +507,13 @@
                       <div class="form-group">
                         <label class="col-form-label">Supplementary Wishes / Comments
                         </label>
-                        <textarea class="form-control"  name="Supplementary" [(ngModel)]="CreateBookingModel.Supplementary" 
+                        <textarea class="form-control"  name="Supplementary" [(ngModel)]="test" 
                         rows="5" id="Textarea1"></textarea>
                         <span class="clear"></span>
                       </div>
                       <div class="form-group">
                         <label class="col-form-label">Booking Responsibility</label>
-                        <input type="text" name="CreateBookingModel.BookingResponsiblity" [(ngModel)]="CreateBookingModel.BookingResponsiblity" class="form-control bookrespons">
+                        <input type="text" name="CreateBookingModel.BookingResponsiblity" [(ngModel)]="test" class="form-control bookrespons">
                       </div>
 
                       <!-- <div class="form-group mtop40 text-right">
@@ -527,7 +547,7 @@
                               '" [data]="dropdownListforSearchType"
                               [settings]="dropdownSettings"
                               (onSelect)="onItemSelect($event)"
-                              name="CreateBookingModel.PartnerType" [(ngModel)]="CreateBookingModel.PartnerType"
+                              name="CreateBookingModel.PartnerType" [(ngModel)]="test"
                               (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
                           </div>
 
@@ -548,7 +568,7 @@
                             <ng-multiselect-dropdown [placeholder]="'Center Matchings'" [data]="dropdownListforCenterMatching"
                               [settings]="dropdownSettings"
                               (onSelect)="onItemSelect($event)"
-                              name="CreateBookingModel.CenterMatchings" [(ngModel)]="CreateBookingModel.CenterMatchings"
+                              name="CreateBookingModel.CenterMatchings" [(ngModel)]="test"
                               (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
                           </div>
 
@@ -566,7 +586,7 @@
                               '" [data]="dropdownList"
                               name="Regions" [settings]="dropdownSettings"
                               (onSelect)="onItemSelect($event)"
-                              name="CreateBookingModel.RegionProvinance" [(ngModel)]="CreateBookingModel.RegionProvinance"
+                              name="CreateBookingModel.RegionProvinance" [(ngModel)]="test"
                               (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
                           </div>
                         </div>
@@ -584,7 +604,7 @@
                               [(ngModel)]="selectedItems"
                               [settings]="dropdownSettings"
                               (onSelect)="onItemSelect($event)"
-                              name="CreateBookingModel.Refreshment" [(ngModel)]="CreateBookingModel.Refreshment"
+                              name="CreateBookingModel.Refreshment" [(ngModel)]="test"
                               (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
                           </div>
                           <button type="button" style=" float: right; " class="btn btn-outline-info"
