@@ -187,7 +187,9 @@ a:hover {
     width: 100%;
     position: relative;
 }
-
+timepicker tr.text-center{
+    display: none;
+}
 #sidebar a {
     display: block;
     width: 100%;
@@ -1017,9 +1019,13 @@ ul {
 .dbkstabs .tab-content {
     width: 100%;
     max-width: 1000px;
-    padding: 50px 20px 35px;
+    padding: 20px 20px;
     margin: -1px auto 40px;
     border: 1px #ccc solid;
+}
+.style2{
+    margin-bottom: 3px;
+    margin-top: 3px;
 }
 
 .formbox {
@@ -1068,8 +1074,8 @@ form h4 {
 }
 
 .widthtimepicker {
-    margin: -10px 13px -5px 9px;
-    height: 100px;
+    margin: -4px 13px -5px 9px;
+    /* height: 100px; */
 }
 
 .formbox .form-group input[type="checkbox"],
@@ -1093,8 +1099,11 @@ form h4 {
     position: relative;
     width: 100%;
     min-height: 37px;
+    margin-bottom: 0px;
 }
-
+.formbox .form-group textarea{
+    margin-bottom: 10px;
+}
 .formboxadditional .form-group label {
     float: left;
     width: 20%;
@@ -1106,8 +1115,13 @@ form h4 {
 .formboxadditional .form-group input,
 .formboxadditional .form-group select {
     float: left;
-    width: 72%;
-    margin-right: 10px;height: 30px;;
+    /* width: 72%; */
+    height: 30px;
+    padding: 3px 8px;
+    font-size: 13px;
+}
+.width80per select {
+    width: 100% !important;
 }
 
 .formboxadditional .form-group input[type="checkbox"],
@@ -1115,6 +1129,7 @@ form h4 {
     float: left;
     width: auto;
     margin-right: 0px;
+    margin-top: 0;
 }
 
 .modal-body .formbox {
@@ -1202,42 +1217,56 @@ form h4 {
 .formbox .form-group .fullpackages {width:100%;float:left;margin-bottom: 15px;}
 .formbox .form-group  .fullpackages label,
 .formbox .form-group .fullpackages input[type="text"] {width: 100%; font-size: 12px;}
-.formbox .form-group .fullpackages .lbl { font-size: 12px;  font-weight: 600; color: #000; height: 40px;vertical-align: bottom; display: table-cell;}
+.formbox .form-group .fullpackages .lbl { font-size: 12px;  font-weight: 600; color: #000; vertical-align: bottom; display: table-cell;}
 .formbox .form-group .fullpackages .col-sm-2,
 .formbox .form-group .fullpackages .col-sm-3 { padding: 0 5px;}
 .formbox .form-group .fullpackages ul { margin: 0px 0px 0px 0px; padding: 0px;list-style: none;}
-.formbox .form-group .fullpackages ul li {float: left; margin-left: 1%;}
+.formbox .form-group .fullpackages ul li {float: left; margin-left: 1%;
+    margin-bottom: 10px;}
 .formbox .form-group .fullpackages ul li:nth-child(1) {margin-left: 0px;}
-
 
 .formbox .form-group .fullpackages ul li input, 
 .formbox .form-group .fullpackages ul li select{width:100%;}
 .formbox .form-group .fullpackages ul li:nth-child(1){width:11%;}
 .formbox .form-group .fullpackages ul li:nth-child(2){width:11%;}
-.formbox .form-group .fullpackages ul li:nth-child(3){width:37%;}
-.formbox .form-group .fullpackages ul li:nth-child(4){width:38%;}
-.formbox .form-group .fullpackages ul li:nth-child(5){width:14%;}
+.formbox .form-group .fullpackages ul li:nth-child(3){width:34%;}
+.formbox .form-group .fullpackages ul li:nth-child(4){width:34%;}
 .formbox .form-group .fullpackages ul li .datetimediv{width:100%;}
-.formbox .form-group .fullpackages ul li .datetimediv .dpicker{width:110px;margin-top:0px;}
-.formbox .form-group .fullpackages ul li .widthtimepicker { margin: -28px 0px -5px 9px; }
+.formbox .form-group .fullpackages ul li .datetimediv .dpicker{width:110px;margin-top:0px;
+    margin-right: 10px;}
+.formbox .form-group .fullpackages ul li .widthtimepicker { margin: -1px 0px -5px 0px; }
 .formbox .form-group .fullpackages ul li .widthtimepicker table td:nth-child(4),
 .arrivedepart .widthtimepicker table td:nth-child(4){display: none;}
 .formbox .form-group .fullpackages ul li .datetimediv table td button,
-.arrivedepart .datetimediv table td button{padding:0px;}
+.arrivedepart .datetimediv table td button{padding:0px 10px;}
 .formbox .form-group .fullpackages ul li .widthtimepicker table td input{margin:0px;}
 
 .formbox .form-group .fullpackages.roompkgs ul li:nth-child(3){width:10%;}
 .formbox .form-group .fullpackages.roompkgs ul li:nth-child(4){width:10%;}
-.formbox .form-group .fullpackages.roompkgs ul li:nth-child(5){width:26%;}
-.formbox .form-group .fullpackages.roompkgs ul li:nth-child(6){width:27%;}
+.formbox .form-group .fullpackages.roompkgs ul li:nth-child(5){width:19%;}
+.formbox .form-group .fullpackages.roompkgs ul li:nth-child(6){width:34%;}
 .formbox .form-group .fullpackages.roompkgs ul li:nth-child(7){width:10%;}
 .formbox .form-group .fullpackages.yourprizefiled ul li:nth-child(1){width:40%;}
 .formbox .form-group .fullpackages.yourprizefiled ul li:nth-child(2){width:20%}
 .btnorange{background: #eb6100;color:#fff;}
 .btnorange:hover{background: #d45a04;color: #fff;}
 .formboxadditional .form-group .bookrespons{width:80%;margin:0px;}
-
-.addrownew{float:right;margin-top:10px;}
+button.btn {
+    border-radius: 25px;
+    padding: 5px 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.addrownew{float: right;
+    margin-top: 10px;
+    border: 1px solid #eb6100;
+    border-radius: 25px;
+    font-size: 14px;
+    padding: 5px 10px;
+    color: #eb6100;}
+    .addrownew i {
+        margin-right: 5px;
+    }
 .mbtm0{margin-bottom:0px !important;}
 .formbox .form-group .fullpackages ul.repeatulrow {width: 100%;display: block; clear: both; height: 40px;}
 .formbox .form-group .fullpackages ul.repeatulrow li{float: left;}
@@ -1325,10 +1354,12 @@ form h4 {
     font-size: 14px;
 }
 
-.datetimediv table td button{height: 30px;line-height: 18px;}
+.datetimediv table td button{height: 30px;line-height: 18px;
+    font-size: 12px;
+    font-weight: 500;}
 
 .formbox .form-group .datetimediv .dpicker {
-    width: 120px;height: 30px;margin-top:20px;
+    width: 120px;height: 30px;
 }
 .lblmtop20{margin-top:20px;}
 
@@ -1341,7 +1372,7 @@ form h4 {
 }
 
 .formbox .form-group .datetimediv .widthtimepicker td input {
-    width: 65px;height: 30px;
+    width: 65px;height: 30px; margin-top: 3px;
 }
 
 @media (max-width:1366px) {
