@@ -151,19 +151,22 @@ export class CreatebookingComponent implements OnInit {
     this.CreateBookingModel.otherCompaignName="Test from webapp_Vishal";  
     this.CreateBookingModel.flexibleDates=true;
 debugger
-    this.Arrangementtype.push(this.bookingArrangementTypeViewModel)
-    this.CreateBookingModel.bookingArrangementTypeViewModel=[this.bookingArrangementTypeViewModel];
+
+   // this.Arrangementtype.push(this.bookingArrangementTypeViewModel)
+   this.CreateBookingModel.bookingArrangementTypeViewModel=[this.bookingArrangementTypeViewModel];
     this.CreateBookingModel.bookingRoomViewModel=[this.bookingRoomViewModel]
     this.CreateBookingModel.bookingAlternativeServiceViewModel=[this.bookingAlternativeServiceViewModel]  
     this.CreateBookingModel.bookingRoomViewModel.tableSetViewModel=this.tableSetViewModel;
     
-
-  alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.CreateBookingModel))
+console.log(this.tableSetViewModel);
+  //alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.CreateBookingModel))
+  console.log(JSON.stringify(this.CreateBookingModel));
   //  debugger
-    this.zipcodeService.SaveCreateBooking(JSON.stringify(this.CreateBookingModel)).subscribe(Responce => {    
-      debugger
-      this.states=Responce;    
-      });
+    // this.zipcodeService.SaveCreateBooking(JSON.stringify(this.CreateBookingModel)).subscribe(Responce => {    
+    //   debugger
+    //   this.states=Responce;    
+    //   });
+
   }
   GetAllZipCodes(): any {
     this.zipcodeService.GetAllZipCodes().subscribe(res => {    
