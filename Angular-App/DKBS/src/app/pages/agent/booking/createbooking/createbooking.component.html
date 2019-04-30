@@ -312,7 +312,7 @@
                     <ul>
                       <li>
                         <div class="lbl"> Course Packages</div>
-                        <select id="inputState" name="PackageType" [(ngModel)]="test" class="form-control txtsize">
+                        <select id="inputState" name="PackageType" [(ngModel)]="bookingArrangementTypeViewModel.serviceCatalogId" class="form-control txtsize">
                           <option *ngFor="let ObjdropdownPackageType of
                                   dropdownPackageType" [ngValue]="ObjdropdownPackageType.item_id">
                             {{ObjdropdownPackageType.item_text}}
@@ -429,7 +429,7 @@
                       </li>
                       <li>
                         <div class="lbl">Table Set</div>
-                        <select id="inputState" name="TableSets" [(ngModel)]="tableSetViewModel.tableSetName"
+                        <select id="inputState" name="TableSets" [(ngModel)]="bookingRoomViewModel.tableSetViewModel.tableSetName"
                           class="form-control txtsize">
 
                           <option *ngFor="let ObjTableSetting of
@@ -452,7 +452,7 @@
                           <input type="text" [(ngModel)]="bookingRoomViewModel.toDate" name="bookingRoomViewModeltoDate"
                             bsDatepicker class="form-control
                                   dpicker" autocomplete="off" />
-                          <timepicker [(ngModel)]="mytime1" name="bookingRoomViewModelmytime1toDate"
+                          <timepicker [(ngModel)]="bookingRoomViewModel.toDate" name="bookingRoomViewModelmytime1toDate"
                             class="widthtimepicker"></timepicker>
                         </div>
                       </li>

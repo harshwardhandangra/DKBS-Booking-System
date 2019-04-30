@@ -15,11 +15,62 @@ export class CreatebookingComponent implements OnInit {
   public title = 'Places';
   public addrKeys: string[];
   public addr: object;
-  CreateBookingModel: any = {};
+  CreateBookingModel: any = {
+    "bookingId": 0,
+    "partnerId": 0,
+    "customerId": 0,
+    "tableTypeId": 0,
+    "cancellationReasonId": 0,
+    "causeOfRemovalId": 0,
+    "contactPersonId": 0,
+    "bookingAndStatusId": 0,
+    "flowId": 0,
+    "mailLanguageId": 0,
+    "partnerTypeId": 0,
+    "participantTypeId": 0,
+    "purposeId": 0,
+    "leadOfOriginId": 0,
+    "campaignId": 0,
+    "arrivalDateTime": "",
+    "departDateTime": "",
+    "flexibleDates": true,
+    "internalHistory": "",
+    "numberOfRooms": 0,
+    "otherCompaignName": "",
+    "numberOfPerticipants": 0,
+    "regionIds": [],
+    "bookingRoomViewModel": [],
+    "bookingArrangementTypeViewModel": [],
+    "bookingAlternativeServiceViewModel": [],
+    "partners": []
+  }
 
-  bookingRoomViewModel: any = {};
-  bookingArrangementTypeViewModel: any = {};
-  bookingAlternativeServiceViewModel: any = {};
+  bookingRoomViewModel: any = {
+    "tableSetViewModel": {
+      "tableSetName": 0,
+      "lastModified": "",
+      "lastModifiedBy": ""
+    },
+    "locationAttraction": "",
+    "numberOfRooms": "",
+    "perPerson": "",
+    "toDate": "",
+    "fromDate": ""
+  };
+  bookingArrangementTypeViewModel: any = {
+    "serviceCatalogId": 0,
+    "numberOfParticipants": "",
+    "toDate": "",
+    "fromDate": ""
+  };
+  bookingAlternativeServiceViewModel: any = {
+    "numberOfPieces": "",
+    "description": "",
+    "createdDate": "",
+    "createdBy": "",
+    "lastModified": "",
+    "lastModifiedBy": ""
+  };
   tableSetViewModel: any = {};
   mytime1: Date | undefined = new Date();
   mytime2: Date | undefined = new Date();
@@ -158,7 +209,6 @@ export class CreatebookingComponent implements OnInit {
   }
   GetAllStateProvinance(): any {
     this.stateprovinanceService.GetAllStateProvinance().subscribe(state => {
-
       for (let i = 0; i < state.length; ++i) {
         this.dropdownList.push({ item_id: state[i].regionId, item_text: state[i].name });
       }
@@ -173,7 +223,6 @@ export class CreatebookingComponent implements OnInit {
   }
   GetAllCeterMatching(): any {
     this.choiceService.GetAllcentermatchings().subscribe(state => {
-
       for (let i = 0; i < state.length; ++i) {
         this.dropdownListforCenterMatching.push({ item_id: state[i].centerMatchingId, item_text: state[i].matchingCenter });
       }
@@ -188,6 +237,7 @@ export class CreatebookingComponent implements OnInit {
   }
   GetAllLeadOrigin(): any {
     this.stateprovinanceService.GetAllLeadOrigin().subscribe(state => {
+      this.dropdownListLeadOrigin.push({ item_id: 0, item_text: 'Select' })
       for (let i = 0; i < state.length; ++i) {
         this.dropdownListLeadOrigin.push({ item_id: state[i].leadOfOriginId, item_text: state[i].name });
       }
@@ -195,6 +245,7 @@ export class CreatebookingComponent implements OnInit {
   }
   GetAllPurpose(): any {
     this.choiceService.GetAllpurposes().subscribe(ResponceData => {
+      this.dropdownListPurpose.push({ item_id: 0, item_text: 'Select' })
       for (let i = 0; i < ResponceData.length; ++i) {
         this.dropdownListPurpose.push({ item_id: ResponceData[i].purposeId, item_text: ResponceData[i].purposeName });
       }
@@ -202,6 +253,7 @@ export class CreatebookingComponent implements OnInit {
   }
   GetAllTableSetting(): any {
     this.choiceService.GetAlltableSets().subscribe(ResponceData => {
+      this.dropdownListTableSetting.push({ item_id: 0, item_text: 'Select' })
       for (let i = 0; i < ResponceData.length; ++i) {
         this.dropdownListTableSetting.push({ item_id: ResponceData[i].tableSetId, item_text: ResponceData[i].tableSetName });
       }
@@ -209,6 +261,7 @@ export class CreatebookingComponent implements OnInit {
   }
   GetAllParticipants(): any {
     this.choiceService.GetAllparticipantTypes().subscribe(ResponceData => {
+      this.dropdownListPParticipants.push({ item_id: 0, item_text: 'Select' })
       for (let i = 0; i < ResponceData.length; ++i) {
         this.dropdownListPParticipants.push({ item_id: ResponceData[i].participantTypeId, item_text: ResponceData[i].participantTypeName });
       }
@@ -221,6 +274,7 @@ export class CreatebookingComponent implements OnInit {
   }
   GetAllServiceCatalogs(): any {
     this.choiceService.GetAllServiceCatalogs().subscribe(state => {
+      this.dropdownPackageType.push({ item_id: 0, item_text: 'Select' })
       for (let i = 0; i < state.length; ++i) {
         this.dropdownPackageType.push({ item_id: state[i].serviceCatalogId, item_text: state[i].coursePackage });
       }
@@ -245,6 +299,7 @@ export class CreatebookingComponent implements OnInit {
 
   GetAllcampaigns(): any {
     this.choiceService.GetAllcampaigns().subscribe(state => {
+      this.dropdownCampaign.push({ item_id: 0, item_text: 'Select' })
       for (let i = 0; i < state.length; ++i) {
         this.dropdownCampaign.push({ item_id: state[i].campaignId, item_text: state[i].name });
       }
