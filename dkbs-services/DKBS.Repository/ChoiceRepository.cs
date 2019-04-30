@@ -174,7 +174,7 @@ namespace DKBS.Repository
 
         public List<ContactPersonDTO> GetContactPersons()
         {
-            return _dbContext.ContactPerson.Select(p => new ContactPersonDTO { Name = p.Name, ContactPersonId = p.ContactPersonId, /*Department = p.Department,*/ Email = p.Email, /*Mobile = p.Mobile,Position = p.Position,*/ Telephone = p.Telephone }).ToList();
+            return _dbContext.ContactPerson.Select(p => new ContactPersonDTO { Name = p.Name, ContactPersonId = p.ContactPersonId, CustomerId = p.CustomerId, /*Department = p.Department,*/ Email = p.Email, /*Mobile = p.Mobile,Position = p.Position,*/ Telephone = p.Telephone }).ToList();
         }
 
         public List<CampaignDTO> GetCampaigns()
