@@ -30,7 +30,15 @@ namespace DKBS.API.Controllers
             _choiceRepoistory = choiceReposiroty;
             _mapper = mapper;
         }
-
+        /// <summary>
+        /// Get All Customers
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet()]
+        public ActionResult<CustomerDTO> GetCustomers()
+        {
+            return Ok(_choiceRepoistory.GetCustomers());
+        }
         /// <summary>
         /// Get Customer List based on some character entered by user in Customer name
         /// </summary>
