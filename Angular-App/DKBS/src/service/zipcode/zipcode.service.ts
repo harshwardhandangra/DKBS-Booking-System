@@ -11,6 +11,12 @@ export class ZipcodeService {
 
    }
 
+   SaveCreateBooking( model: any): any {
+     debugger
+    var url = '/BookingController';
+    return this.commonService.post(url,model);
+}
+
    GetAllZipCodes(): any {
        var url = '/choice/regions';
     return this.commonService.get(url);

@@ -54,13 +54,17 @@ namespace DKBS.Repository
         List<ServiceRequestCommunicationDTO> GetServiceRequestCommunications();
         List<ServiceRequestNoteDTO> GetServiceRequestNotes();
         List<SRConversationItemDTO> GetSRConversationItems();
-        List<BookingDTO> GetAllBookings();
+        List<BookingDTO> GetAllBookings(int bookingId = -1);
         List<RefreshmentsDTO> GetRefreshments();
         TEntity GetById<TEntity>(int id) where TEntity : class;
 
-        void Set<TEntity>(TEntity entity) where TEntity : class;
+        List<TEntity> GetAll<TEntity>() where TEntity : class;
+
+        void Attach<TEntity>(TEntity entity) where TEntity : class;
 
         void Update<TEntity>(TEntity entity) where TEntity : class;
+
+        void Remove<TEntity>(TEntity entity) where TEntity : class;
 
         void SetBookings(Booking booking);
         void SetPartner(Partner newlyCreatedPartner);
@@ -85,7 +89,7 @@ namespace DKBS.Repository
     {
         DKBSDbContext _dbContext;
         IMapper _mapper;
-        public ChoiceRepository(DKBSDbContext dbContext,IMapper mapper)
+        public ChoiceRepository(DKBSDbContext dbContext, IMapper mapper)
         {
             _dbContext = dbContext;
             _mapper = mapper;
@@ -145,7 +149,7 @@ namespace DKBS.Repository
 
         public List<ITProcedureStatusDTO> GetITProcedureStatuses()
         {
-            return _dbContext.ITProcedureStatus.Select(p => new ITProcedureStatusDTO { ITProcedureStatusTitle = p.ITProcedureStatusTitle, ITProcedureStatusId = p.ITProcedureStatusId, InternalName = p.InternalName}).ToList();
+            return _dbContext.ITProcedureStatus.Select(p => new ITProcedureStatusDTO { ITProcedureStatusTitle = p.ITProcedureStatusTitle, ITProcedureStatusId = p.ITProcedureStatusId, InternalName = p.InternalName }).ToList();
         }
 
         public List<IndustryCodeDTO> GetIndustryCodes()
@@ -170,7 +174,7 @@ namespace DKBS.Repository
 
         public List<ContactPersonDTO> GetContactPersons()
         {
-            return _dbContext.ContactPerson.Select(p => new ContactPersonDTO { Name = p.Name, ContactPersonId = p.ContactPersonId, /*Department = p.Department,*/ Email = p.Email, Mobile = p.Mobile,/*Position = p.Position,*/ Telephone = p.Telephone }).ToList();
+            return _dbContext.ContactPerson.Select(p => new ContactPersonDTO { Name = p.Name, ContactPersonId = p.ContactPersonId, CustomerId = p.CustomerId, /*Department = p.Department,*/ Email = p.Email, /*Mobile = p.Mobile,Position = p.Position,*/ Telephone = p.Telephone }).ToList();
         }
 
         public List<CampaignDTO> GetCampaigns()
@@ -228,12 +232,12 @@ namespace DKBS.Repository
             return _mapper.Map<List<RefreshmentsDTO>>(_dbContext.Refreshment.ToList());
         }
 
-        public TEntity GetById<TEntity>(int id) where TEntity: class
+        public TEntity GetById<TEntity>(int id) where TEntity : class
         {
             return _dbContext.Set<TEntity>().Find(id);
         }
 
-        public void Set<TEntity>(TEntity entity) where TEntity : class
+        public void Attach<TEntity>(TEntity entity) where TEntity : class
         {
             _dbContext.Set<TEntity>().Attach(entity);
         }
@@ -344,11 +348,10 @@ namespace DKBS.Repository
         //}
 
 
-        public List<BookingDTO> GetAllBookings()
+        public List<BookingDTO> GetAllBookings(int bookingId = -1)
         {
 
-            var booking = _dbContext.Booking;
-
+            var booking = bookingId!=-1 ? _dbContext.Booking.Where(x => x.BookingId == bookingId).ToList() : _dbContext.Booking.ToList();
             List<BookingDTO> bookingDtoList = new List<BookingDTO>();
 
             foreach (var item in booking)
@@ -373,13 +376,13 @@ namespace DKBS.Repository
                     PhoneNumber = partner.PhoneNumber
                 };
 
-                var customer = _dbContext.Customer.Where(x => x.CustomerId == item.CustomerId).Include(x => x.IndustryCode).FirstOrDefault();
-                var industryCode = _dbContext.IndustryCode.Where(x => x.IndustryCodeId == customer.IndustryCode.IndustryCodeId).FirstOrDefault();
-                IndustryCodeDTO industryCodeDto = _mapper.Map<IndustryCode, IndustryCodeDTO>(industryCode);
+                var customer = _dbContext.Customer.Where(x => x.CustomerId == item.CustomerId).FirstOrDefault();//.Include(x => x.IndustryCode).FirstOrDefault();
+                //var industryCode = _dbContext.IndustryCode.Where(x => x.IndustryCodeId == customer.IndustryCode.IndustryCodeId).FirstOrDefault();
+                //IndustryCodeDTO industryCodeDto = _mapper.Map<IndustryCode, IndustryCodeDTO>(industryCode);
                 var customerDto = new CustomerDTO()
                 {
                     City = customer.City,
-                    IndustryCodeDTO = industryCodeDto,
+                    //IndustryCodeDTO = industryCodeDto,
                     CreatedBy = customer.CreatedBy,
                     Country = customer.Country,
                     CreatedDate = customer.CreatedDate,
@@ -422,12 +425,12 @@ namespace DKBS.Repository
 
                 var mailLanguage = GetById<MailLanguage>(item.MailLanguageId);
                 MailLanguageDTO mailLanguageDTO = _mapper.Map<MailLanguageDTO>(mailLanguage);
-               
+
                 var bookingRegions = _dbContext.BookingRegion.Where(x => x.BookingId == item.BookingId);
                 foreach (var bookingRegion in bookingRegions)
                 {
                     var region = GetById<Region>(bookingRegion.RegionId);
-                    RegionDTO regionDTO = _mapper.Map<Region,RegionDTO>(region);
+                    RegionDTO regionDTO = _mapper.Map<Region, RegionDTO>(region);
                     bookingDto.RegionDTO.Add(regionDTO);
                 }
 
@@ -435,7 +438,7 @@ namespace DKBS.Repository
                 var bookingRooms = _dbContext.BookingRoom.Where(x => x.BookingId == item.BookingId);
                 foreach (var bookingRoom in bookingRooms)
                 {
-                    BookingRoomDTO bookingRoomDTO  = _mapper.Map<BookingRoom, BookingRoomDTO>(bookingRoom);
+                    BookingRoomDTO bookingRoomDTO = _mapper.Map<BookingRoom, BookingRoomDTO>(bookingRoom);
                     bookingDto.BookingRoomDTO.Add(bookingRoomDTO);
                 }
 
@@ -469,6 +472,19 @@ namespace DKBS.Repository
                 bookingDto.LeadOfOriginDTO = leadOfOriginDTO;
                 bookingDto.CampaignDTO = campaignDTO;
                 bookingDto.MailLanguageDTO = mailLanguageDTO;
+                bookingDto.ArrivalDateTime = item.ArrivalDateTime;
+
+                //public DateTime DepartDateTime { get; set; }
+                //public bool FlexibleDates { get; set; }
+                //public string InternalHistory { get; set; }
+                //public List<RegionDTO> RegionDTO { get; set; }
+                //public List<BookingRoomDTO> BookingRoomDTO { get; set; }
+                //public List<BookingArrangementTypeDTO> BookingArrangementTypeDTO { get; set; }
+                //public List<BookingAlternativeServiceDTO> BookingAlternativeServiceDTO { get; set; }
+
+                bookingDto.DepartDateTime = item.DepartDateTime;
+                bookingDto.FlexibleDates = item.FlexibleDates;
+                bookingDto.InternalHistory = item.InternalHistory;
                 bookingDtoList.Add(bookingDto);
 
             }
@@ -479,7 +495,7 @@ namespace DKBS.Repository
 
         public List<BookingDTO> GetBookings()
         {
-            
+
             var booking = _dbContext.Booking;
 
             List<BookingDTO> bookingDtoList = new List<BookingDTO>();
@@ -488,7 +504,7 @@ namespace DKBS.Repository
             {
                 BookingDTO bookingDto = new BookingDTO();
 
-                var partner = _dbContext.Partner.Where(x => x.PartnerId == item.PartnerId).Include(x=>x.CenterType).Include(x => x.PartnerType).ToList().FirstOrDefault();
+                var partner = _dbContext.Partner.Where(x => x.PartnerId == item.PartnerId).Include(x => x.CenterType).Include(x => x.PartnerType).ToList().FirstOrDefault();
                 var centerType = _dbContext.CenterType.Where(x => x.CenterTypeId == partner.CenterType.CenterTypeId).ToList().FirstOrDefault();
                 CenterTypeDTO centerTypeDto = _mapper.Map<CenterTypeDTO>(centerType);
                 var partnerType = _dbContext.PartnerType.Where(x => x.PartnerTypeId == partner.PartnerType.PartnerTypeId).FirstOrDefault();
@@ -506,13 +522,13 @@ namespace DKBS.Repository
                     PhoneNumber = partner.PhoneNumber
                 };
 
-                var customer = _dbContext.Customer.Where(x => x.CustomerId == item.CustomerId).Include(x=>x.IndustryCode).FirstOrDefault();
-                var industryCode = _dbContext.IndustryCode.Where(x => x.IndustryCodeId == customer.IndustryCode.IndustryCodeId).FirstOrDefault();
-                IndustryCodeDTO industryCodeDto = _mapper.Map<IndustryCode, IndustryCodeDTO>(industryCode);
+                var customer = _dbContext.Customer.Where(x => x.CustomerId == item.CustomerId).FirstOrDefault();//.Include(x => x.IndustryCode).FirstOrDefault();
+                //var industryCode = _dbContext.IndustryCode.Where(x => x.IndustryCodeId == customer.IndustryCode.IndustryCodeId).FirstOrDefault();
+               // IndustryCodeDTO industryCodeDto = _mapper.Map<IndustryCode, IndustryCodeDTO>(industryCode);
                 var customerDto = new CustomerDTO()
                 {
                     City = customer.City,
-                    IndustryCodeDTO = industryCodeDto,
+                    IndustryCode = customer.IndustryCode,
                     CreatedBy = customer.CreatedBy,
                     Country = customer.Country,
                     CreatedDate = customer.CreatedDate,
@@ -551,7 +567,7 @@ namespace DKBS.Repository
                 LeadOfOriginDTO leadOfOriginDTO = _mapper.Map<LeadOfOrigin, LeadOfOriginDTO>(leadOfOrigin);
 
                 var campaign = GetById<Campaign>(item.CampaignId);
-                 CampaignDTO campaignDTO = _mapper.Map<Campaign, CampaignDTO>(campaign);
+                CampaignDTO campaignDTO = _mapper.Map<Campaign, CampaignDTO>(campaign);
 
                 var mailLanguage = GetById<MailLanguage>(item.MailLanguageId);
                 MailLanguageDTO mailLanguageDTO = _mapper.Map<MailLanguageDTO>(mailLanguage);
@@ -685,12 +701,12 @@ namespace DKBS.Repository
 
         public void SetCreatedCustomer(Customer newlyCreatedCustomer)
         {
-               _dbContext.Customer.Add(newlyCreatedCustomer);
+            _dbContext.Customer.Add(newlyCreatedCustomer);
         }
 
         public void SetTableType(TableType newlyCreatedtableType)
         {
-             _dbContext.TableType.Add(newlyCreatedtableType);
+            _dbContext.TableType.Add(newlyCreatedtableType);
         }
 
         public void SetCancellationReason(CancellationReason newlyCreatedCancellationReason)
@@ -725,7 +741,7 @@ namespace DKBS.Repository
 
         public void SetParticipantType(ParticipantType newlyCreatedParticipantType)
         {
-            _dbContext.ParticipantType.Add(newlyCreatedParticipantType);      
+            _dbContext.ParticipantType.Add(newlyCreatedParticipantType);
         }
 
         public void SetPurpose(Purpose newlyCreatedPurpose)
@@ -735,12 +751,22 @@ namespace DKBS.Repository
 
         public void SetCampaign(Campaign newlyCreatedCampaign)
         {
-             _dbContext.Campaign.Add(newlyCreatedCampaign);
+            _dbContext.Campaign.Add(newlyCreatedCampaign);
         }
 
         public void SetLeadOfOrigin(LeadOfOrigin newlyCreatedLeadOfOrigin)
         {
             _dbContext.LeadOfOrigin.Add(newlyCreatedLeadOfOrigin);
+        }
+
+        List<TEntity> IChoiceRepository.GetAll<TEntity>()
+        {
+            return _dbContext.Set<TEntity>().ToList();
+        }
+
+        void IChoiceRepository.Remove<TEntity>(TEntity entity)
+        {
+            _dbContext.Set<TEntity>().Remove(entity);
         }
     }
 }

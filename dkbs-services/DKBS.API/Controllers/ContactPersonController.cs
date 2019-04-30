@@ -53,6 +53,17 @@ namespace DKBS.API.Controllers
         }
 
         /// <summary>
+        /// Get ContactPersonByCustomerId List based on CustomerId
+        /// </summary>
+        /// <param name="CustomerId"></param>
+        /// <returns></returns>
+        [HttpGet("{CustomerId}", Name = "GetContactPersonByCustomerId")]
+        public ActionResult<IEnumerable<ContactPersonDTO>> GetContactPersonByCustomerId(int CustomerId)
+        {
+            return _choiceRepoistory.GetContactPersons().FindAll(c => c.CustomerId == CustomerId);
+        }
+
+        /// <summary>
         /// Creating ContactPerson
         /// </summary>
         /// <param name="contactPersonDTO"></param>
@@ -77,7 +88,7 @@ namespace DKBS.API.Controllers
                 return BadRequest();
             }
 
-            ContactPerson newlyCreatedContactPerson = new ContactPerson() { Name = contactPersonDTO.Name, /*Department = contactPersonDTO.Department,*/ Email = contactPersonDTO.Email, ContactPersonId = contactPersonDTO.ContactPersonId, Mobile = contactPersonDTO.Mobile,/* Position = contactPersonDTO.Position, */Telephone = contactPersonDTO.Telephone };
+            ContactPerson newlyCreatedContactPerson = new ContactPerson() { Name = contactPersonDTO.Name, CustomerId = contactPersonDTO.CustomerId, /*Department = contactPersonDTO.Department,*/ Email = contactPersonDTO.Email, ContactPersonId = contactPersonDTO.ContactPersonId, /*Mobile = contactPersonDTO.Mobile, Position = contactPersonDTO.Position, */Telephone = contactPersonDTO.Telephone };
             var destination = _mapper.Map<ContactPerson, ContactPersonDTO>(newlyCreatedContactPerson);
 
 

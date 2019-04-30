@@ -60,6 +60,7 @@ export class CommonService {
   
 
   post(url: string, model: any): Observable<any> {
+    debugger
     var response = this._http.post(this.baseUrl + url, model, this.getHeader())
     .pipe(map((response: any) => response.json()),
     catchError(this.handleError('getData')));
