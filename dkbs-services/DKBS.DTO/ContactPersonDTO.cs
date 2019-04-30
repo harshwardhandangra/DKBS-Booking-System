@@ -8,6 +8,7 @@ namespace DKBS.DTO
         public string Name { get; set; }
         //public string Department { get; set; }
         //public string Position { get; set; }
+        public int CustomerId { get; set; }
         public string Email { get; set; }
         public string Telephone { get; set; }
         //public string Mobile { get; set; }
