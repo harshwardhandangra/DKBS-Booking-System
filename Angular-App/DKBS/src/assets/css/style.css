@@ -1078,7 +1078,7 @@ form h4 {
     margin-right: 0px;
     margin-top: 12px;
 }
-
+.dbkstabs{margin:15px auto 50px;}
 .formboxadditional {
     display: block;
     width: 100%;
@@ -1088,14 +1088,17 @@ form h4 {
 .formboxadditional .card{box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03); background-color: #fff; border-radius: 3px;  border: none; position: relative;margin-bottom: 30px;}
 .formboxadditional .card-header{ background: #fff;border-bottom-color: #f9f9f9; color: #eb6100; font-weight: 700;padding: 1.25rem;}
 .formboxadditional .card-body label{display: block;width: 100%;    font-weight: 600; color: #34395e; font-size: 12px;letter-spacing: .5px;}
-.formboxadditional .arrivedepart .form-group .dpicker{width:140px;margin-right:10px;}
+.formboxadditional .arrivedepart .form-group .dpicker{width:180px;margin-right:10px;}
 .formboxadditional .arrivedepart .widthtimepicker {}
-.formboxadditional .arrivedepart .widthtimepicker table td:nth-child(4){display: none;}
-.formboxadditional .arrivedepart  table td button{padding:0px 10px;}
+.formboxadditional .arrivedepart .widthtimepicker table td:nth-child(4),
+.fullpackages ul li .widthtimepicker table td:nth-child(4){display: none;}
+.formboxadditional .arrivedepart  table td button,
+.fullpackages ul li table td button{padding:0px 10px;}
 .formboxadditional  .checkboxlabel{margin:20px 0px !important;}
 .formboxadditional  .internalhistory label,
 .formboxadditional  .checkboxlabel label{ display: inline-block;width: auto;float: left;margin-right: 40px;padding: 9px 0;}
 .formboxadditional  .internalhistory input{width:80%;}
+.formboxadditional .form-row{margin-bottom: 30px;}
 
 
 .formboxadditional .form-group {
@@ -1116,17 +1119,46 @@ form h4 {
 .formboxadditional .form-group input,
 .formboxadditional .form-group select {
     float: left;
-    height: 40px;
+    height: 37px;
     padding: 3px 8px;
     font-size: 13px;
 }
+.fullpackages ul{min-height:72px;clear: both;}
+.fullpackages ul li{float: left;margin-left:2%;}
+.fullpackages ul li:nth-child(1){margin-left:0px;}
+.fullpackages ul li:nth-child(1),
+.fullpackages ul li:nth-child(2){width:15%;}
+.fullpackages ul li:nth-child(3),
+.fullpackages ul li:nth-child(4){width:32%;}
+.fullpackages ul li input,
+.fullpackages ul li select{padding:0.375rem 8px;}
+.fullpackages ul li .lbl,
+.yourprizefiled  ul li .lbl{font-weight: 600;color: #34395e;font-size: 12px;}
+.fullpackages ul li .dpicker {width: 100px; float: left; margin-right: 5px;}
+.fullpackages.roompkgs ul li:nth-child(1){width:12%;}
+.fullpackages.roompkgs ul li:nth-child(2),
+.fullpackages.roompkgs ul li:nth-child(3){width:10%;}
+.fullpackages.roompkgs ul li:nth-child(4){width:12%;}
+.fullpackages.roompkgs ul li:nth-child(5),
+.fullpackages.roompkgs ul li:nth-child(6){width:23%;}
+.formboxadditional .bs-timepicker-field { width: 34px;  padding: 3px 1px !important;}
+.fullpackages.roompkgs ul li .dpicker{width:34px;}
+.delbtn{padding: 0px !important;}
+.yourprizefiled{margin-top:50px;}
+.yourprizefiled .sidelbl{width:25%;float: left;}
+.yourprizefiled  ul{margin-left: 25%;width:75%;min-height:70px;}
+.yourprizefiled  ul.repeatul{min-height: 50px;}
+.yourprizefiled  ul li{width:40%;margin-left: 2%;float: left;}
+.yourprizefiled  ul li:nth-child(3){width:8%;}
+.yourprizefiled  ul .li:first-child{margin-left:0px;}
+.yourprizefiled .addrownew{width:88%;}
+.compinfosec .row{margin-bottom: 30px;}
+.nextpreviousbtn{display: block;width:100%;clear: both; text-align:right;}
+.nextpreviousbtn .btn{ padding: 0.375rem 0.75rem; font-size: 1rem;  line-height: 1.5; border-radius: 0.25rem; font-weight: 400; width: 100px;  text-align-last: center;}
+.card-body .form-group .radiocheckbox .form-check {padding-left: 0;}
 
 
-
-
-.formbox .form-group textarea{
-    margin-bottom: 10px;
-}
+.formbox .form-group textarea{ margin-bottom: 10px;}
 
 
 
@@ -1364,16 +1396,10 @@ button.btn {
     font-size: 14px;
     font-weight: 500;
 }
-.addrownew{float: right;
-    margin-top: 10px;
-    border: 1px solid #eb6100;
-    border-radius: 25px;
-    font-size: 14px;
-    padding: 5px 10px;
-    color: #eb6100;}
-    .addrownew i {
-        margin-right: 5px;
-    }
+.addrownew{display:block;width:100%;margin-top: 10px;clear: both;text-align:right;}
+.addrownew i {margin-right: 5px; }
+.addrownew a.btn{border-color:#eb6100;color:#eb6100;}
+.addrownew a.btn:hover{background: #eb6100;color:#fff;}
 .mbtm0{margin-bottom:0px !important;}
 
 @media (max-width:1366px) {
