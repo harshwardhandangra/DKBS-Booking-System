@@ -159,12 +159,49 @@ export class ChoiceService {
     return this.commonService.get(url);
   }
 
+  
+
   GetAllServiceCatalogs(): any {
     var url = '/choice/ServiceCatalogs';
     return this.commonService.get(url);
   }
+  GetAllcustomerCompany(): any {
+    var url = '/customer';
+    return this.commonService.get(url);
+  }
 
+  GetContactbyCompany(partnerID: BigInteger): any {
+    var url = 'api/ContactPerson/921';
+    return this.commonService.get(url);
+  }
+
+  GetpartnersEmployee(): any {
+    var url = '/api/PartnerEmployee';
+    return this.commonService.get(url);
+  }
+
+  GetpartnersEmployeebyID(PartnerEMpID: BigInteger): any {
+    var url = '/api/PartnerEmployee/1';
+    return this.commonService.get(url);
+  }
+
+
+  GetAllcases(): any {
+    var url = '/BookingController';
+    return this.commonService.get(url);
+  }
+  GetPartnerforFindCenter(): any {
+    var url = '/PartnerEmployee';
+    return this.commonService.get(url);
+  }
+
+  GetCenterbyfilter(partnerID: BigInteger,centermatchings:string,partnertypes:string,datetime:string): any {
+    var url = '/PartnerEmployee';
+    return this.commonService.get(url);
+  }
   
+  
+
   // GetAllCentermatchings(): any {
   //   var url = '/choice/centermatchings';
   //   return this.commonService.get(url);
