@@ -691,7 +691,7 @@ label {
     left: 250px;
     right: 0px;
     min-height: 100%;
-    background: #fff;
+    background: #f4f6f9;
     padding-top: 50px;
     padding-bottom: 5px;
 }
@@ -990,8 +990,8 @@ ul {
 }
 
 .dbkstabs .nav-tabs li {
-    /* width: 25%; */
-    width: 333px;
+    width: 33.33%; 
+   line-height: 28px;
     text-align: center;
 }
 .dbkbsNuminput {
@@ -1001,27 +1001,23 @@ ul {
 .dbkstabs .nav-tabs li a {
     font-size: 14px;
     cursor: pointer;
-    background: #fafafa;
+    background: transparent;
     color: #000;
     border-radius: 0;
-    border-color: #e4e4e4;
+    border-color: #e4e4e4;border-bottom: 0;
 }
 
 .dbkstabs .nav-tabs li.active a {
-    color: #495057;
-    background-color: #fff;
-    border-color: #dee2e6 #dee2e6 #fff;
-    border-bottom-color: #292961;
-    border-bottom-width: 2px;
-    font-weight: bold;
+    color: #fff;
+    background-color: #eb6100;
+    border-color: #eb6100 #eb6100 #fff;
+   
+    font-weight: normal;
 }
 
 .dbkstabs .tab-content {
     width: 100%;
-    max-width: 1000px;
-    padding: 20px 20px;
-    margin: -1px auto 40px;
-    border: 1px #ccc solid;
+   
 }
 .style2{
     margin-bottom: 3px;
@@ -1073,10 +1069,7 @@ form h4 {
     margin-right: 0px;
 }
 
-.widthtimepicker {
-    margin: -4px 13px -5px 9px;
-    /* height: 100px; */
-}
+
 
 .formbox .form-group input[type="checkbox"],
 .formbox .form-group input[type="radio"] {
@@ -1090,8 +1083,20 @@ form h4 {
     display: block;
     width: 100%;
     margin: auto;
-    background: #fff;
+   
 }
+.formboxadditional .card{box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03); background-color: #fff; border-radius: 3px;  border: none; position: relative;margin-bottom: 30px;}
+.formboxadditional .card-header{ background: #fff;border-bottom-color: #f9f9f9; color: #eb6100; font-weight: 700;padding: 1.25rem;}
+.formboxadditional .card-body label{display: block;width: 100%;    font-weight: 600; color: #34395e; font-size: 12px;letter-spacing: .5px;}
+.formboxadditional .arrivedepart .form-group .dpicker{width:140px;margin-right:10px;}
+.formboxadditional .arrivedepart .widthtimepicker {}
+.formboxadditional .arrivedepart .widthtimepicker table td:nth-child(4){display: none;}
+.formboxadditional .arrivedepart  table td button{padding:0px 10px;}
+.formboxadditional  .checkboxlabel{margin:20px 0px !important;}
+.formboxadditional  .internalhistory label,
+.formboxadditional  .checkboxlabel label{ display: inline-block;width: auto;float: left;margin-right: 40px;padding: 9px 0;}
+.formboxadditional  .internalhistory input{width:80%;}
+
 
 .formboxadditional .form-group {
     display: block;
@@ -1101,29 +1106,6 @@ form h4 {
     min-height: 37px;
     margin-bottom: 0px;
 }
-.formbox .form-group textarea{
-    margin-bottom: 10px;
-}
-.formboxadditional .form-group label {
-    float: left;
-    width: 20%;
-    font-size: 14px;
-    font-weight: 600;
-    color: #000;
-}
-
-.formboxadditional .form-group input,
-.formboxadditional .form-group select {
-    float: left;
-    /* width: 72%; */
-    height: 30px;
-    padding: 3px 8px;
-    font-size: 13px;
-}
-.width80per select {
-    width: 100% !important;
-}
-
 .formboxadditional .form-group input[type="checkbox"],
 .formboxadditional .form-group input[type="radio"] {
     float: left;
@@ -1131,6 +1113,28 @@ form h4 {
     margin-right: 0px;
     margin-top: 0;
 }
+.formboxadditional .form-group input,
+.formboxadditional .form-group select {
+    float: left;
+    height: 40px;
+    padding: 3px 8px;
+    font-size: 13px;
+}
+
+
+
+
+.formbox .form-group textarea{
+    margin-bottom: 10px;
+}
+
+
+
+.width80per select {
+    width: 100% !important;
+}
+
+
 
 .modal-body .formbox {
     display: block;
@@ -1209,7 +1213,7 @@ form h4 {
 .form-group .radiocheckbox input[type="radio"] {
     margin-top: 0.3rem;
 }
-
+/*
 .formbox .form-group .radiocheckbox label {
     width: auto;
     float: initial;
@@ -1250,36 +1254,11 @@ form h4 {
 .formbox .form-group .fullpackages.yourprizefiled ul li:nth-child(2){width:20%}
 .btnorange{background: #eb6100;color:#fff;}
 .btnorange:hover{background: #d45a04;color: #fff;}
-.formboxadditional .form-group .bookrespons{width:80%;margin:0px;}
-button.btn {
-    border-radius: 25px;
-    padding: 5px 20px;
-    font-size: 14px;
-    font-weight: 500;
-}
-.addrownew{float: right;
-    margin-top: 10px;
-    border: 1px solid #eb6100;
-    border-radius: 25px;
-    font-size: 14px;
-    padding: 5px 10px;
-    color: #eb6100;}
-    .addrownew i {
-        margin-right: 5px;
-    }
-.mbtm0{margin-bottom:0px !important;}
+
 .formbox .form-group .fullpackages ul.repeatulrow {width: 100%;display: block; clear: both; height: 40px;}
 .formbox .form-group .fullpackages ul.repeatulrow li{float: left;}
 .formbox .form-group .fullpackages ul.repeatulrow li:nth-child(3),
 .formbox .form-group .fullpackages ul.repeatulrow li:nth-child(4){width:20%;}
-
-
-
-
-
-
-
-
 .formbox .form-group .width80per {
     margin-bottom: 15px;
 }
@@ -1303,6 +1282,29 @@ button.btn {
 .formbox .form-group .width80per .col-sm-3 {
     padding: 0 5px;
 }
+
+.datetimediv table td button{height: 30px;line-height: 18px;
+    font-size: 12px;
+    font-weight: 500;}
+
+.formbox .form-group .datetimediv .dpicker {
+    width: 120px;height: 30px;
+}
+.lblmtop20{margin-top:20px;}
+
+.formbox .form-group .datetimediv .widthtimepicker {
+    float: left;
+}
+
+.formbox .form-group .datetimediv .widthtimepicker td.form-group {
+    margin-bottom: 0px;
+}
+
+.formbox .form-group .datetimediv .widthtimepicker td input {
+    width: 65px;height: 30px; margin-top: 3px;
+}
+*/
+
 
 
 .accordion .card .card-header {
@@ -1354,26 +1356,25 @@ button.btn {
     font-size: 14px;
 }
 
-.datetimediv table td button{height: 30px;line-height: 18px;
-    font-size: 12px;
-    font-weight: 500;}
 
-.formbox .form-group .datetimediv .dpicker {
-    width: 120px;height: 30px;
+.formboxadditional .form-group .bookrespons{width:80%;margin:0px;}
+button.btn {
+    border-radius: 25px;
+    padding: 5px 20px;
+    font-size: 14px;
+    font-weight: 500;
 }
-.lblmtop20{margin-top:20px;}
-
-.formbox .form-group .datetimediv .widthtimepicker {
-    float: left;
-}
-
-.formbox .form-group .datetimediv .widthtimepicker td.form-group {
-    margin-bottom: 0px;
-}
-
-.formbox .form-group .datetimediv .widthtimepicker td input {
-    width: 65px;height: 30px; margin-top: 3px;
-}
+.addrownew{float: right;
+    margin-top: 10px;
+    border: 1px solid #eb6100;
+    border-radius: 25px;
+    font-size: 14px;
+    padding: 5px 10px;
+    color: #eb6100;}
+    .addrownew i {
+        margin-right: 5px;
+    }
+.mbtm0{margin-bottom:0px !important;}
 
 @media (max-width:1366px) {
     #sidebar .nav-submenu,
