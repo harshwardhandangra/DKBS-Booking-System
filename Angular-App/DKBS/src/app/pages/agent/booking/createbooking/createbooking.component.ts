@@ -15,6 +15,10 @@ export class CreatebookingComponent implements OnInit {
   public title = 'Places';
   public addrKeys: string[];
   public addr: object;
+  public LocCompanyCustId:any;
+  public LocPartnerEmpID:any;
+  public LocCreateBookingCustModel: any = {};
+  DivFindCenter: boolean;
   CreateBookingModel: any = {
     "bookingId": 0,
     "partnerId": 0,
@@ -88,6 +92,7 @@ export class CreatebookingComponent implements OnInit {
   dropdownListforPartnerType = [];
   selectedItems = [];
   dropdownListforCenterMatching = [];
+  dropdownListCenter= [];
   dropdownSettings = {};
 
   ngOnInit() {
@@ -120,7 +125,7 @@ export class CreatebookingComponent implements OnInit {
     this.GetAllPurpose();
     this.GetAllTableSetting();
     this.GetAllParticipants();
-    this.GetAllRefer();
+    //this.GetAllRefer();
     this.GetReferredbyDDL();
     this.GetAllServiceCatalogs();
     this.GetAllcampaigns();
@@ -136,11 +141,22 @@ export class CreatebookingComponent implements OnInit {
   ReferDDL: any[];
 
   onSelectReferredby(event: TypeaheadMatch): void {
-    this.CreateBookingModel.customerId = event.item.partnerId;
+    this.CreateBookingModel.customerId = event.item.partnerEmployeeId;
+    this.LocPartnerEmpID=1;
+    this.GetAllRefer(this.LocPartnerEmpID);
+
   }
   onSelect(event: TypeaheadMatch): void {
     this.CreateBookingModel.partnerId = event.item.partnerId;
   }
+  onSelectCompany(event: TypeaheadMatch): void {
+    debugger
+   
+  //  this.LocCompanyCustId= event.item.customerId;
+    this.LocCompanyCustId=921;
+    this.GetContactbyCompany(this.LocCompanyCustId);
+  }
+  
   onItemSelect(item: any) {
     console.log(item);
   }
@@ -148,6 +164,8 @@ export class CreatebookingComponent implements OnInit {
     console.log(items);
   }
   private Arrangementtype: Array<any> = [];
+  private RoomMultilstType: Array<any> = [];
+  private GiveprizeMultilstType: Array<any> = [];
   private locbookingRoomViewModel: Array<any> = [];
   private locbAlternativeServiceView: Array<any> = [];
 
@@ -157,7 +175,15 @@ export class CreatebookingComponent implements OnInit {
     this.Arrangementtype.push(this.bookingArrangementTypeViewModel)
     this.newAttribute = {};
   }
+  addRoomMultilstType() {
+    this.RoomMultilstType.push(this.bookingRoomViewModel)
+    this.newAttribute = {};
+  }
 
+  addgiveprizeMultilstType() {
+    this.GiveprizeMultilstType.push(this.bookingAlternativeServiceViewModel)
+    this.newAttribute = {};
+  }
   addFieldValuebookingRoomViewModel() {
     this.locbookingRoomViewModel.push(this.bookingRoomViewModel)
     this.newAttribute = {};
@@ -169,8 +195,13 @@ export class CreatebookingComponent implements OnInit {
   deleteFieldValue(index) {
     this.Arrangementtype.splice(index, 1);
   }
-
-
+  
+  deleteFieldRoomMultilstType(index) {
+    this.RoomMultilstType.splice(index, 1);
+  }
+  deleteFieldgiveprizeMultilstType(index) {
+    this.GiveprizeMultilstType.splice(index, 1);
+  }
   constructor(private zipcodeService: ZipcodeService, private stateprovinanceService: StateprovinanceService, private zone: NgZone, private choiceService: ChoiceService) {
 
   }
@@ -198,15 +229,51 @@ export class CreatebookingComponent implements OnInit {
     });
   }
   GetCompany(): any {
-    this.zipcodeService.GetAllZipCodes().subscribe(res => {
-      this.company = res;
+    
+   // this.choiceService.GetAllcustomerCompany().subscribe(res => {
+    this.zipcodeService.GetAllZipCodes().subscribe(ress => {
+      console.log(ress);
+      this.company = ress;
     });
   }
+
+  GetContactbyCompany(partnerID): any {
+    debugger
+    this.choiceService.GetContactbyCompany(partnerID).subscribe(res => {
+      this.ContactPerson=res;
+      // debugger
+      // console.log(res);
+      // this.LocCreateBookingCustModel.ContactPerson=res[0].name;
+      // this.LocCreateBookingCustModel.Email=res[0].email;
+      // this.LocCreateBookingCustModel.Telephone=res[0].telephone;      
+    });
+  }
+
+  
+
   GetContactPerson(): any {
     this.zipcodeService.GetAllcontactpersons().subscribe(res => {
       this.ContactPerson = res;
     });
   }
+  GetPartnerforFindCenter(): any {
+    this.choiceService.GetPartnerforFindCenter().subscribe(res => {
+      
+      for (let i = 0; i < res.length; ++i) {
+        this.dropdownListCenter.push({ item_id: res[i].centerMatchingId, item_text: res[i].matchingCenter });
+      }
+    });
+  }
+
+  // OnclickFindCenter(): void {
+  //   this.CreateBookingModel.customerId;
+  //   //pass ids.string to get centers
+  //   this.choiceService.GetCenterbyfilter().subscribe(res => {
+  //     this.ContactPerson = res;
+  //     console.log(res);      
+  //   });
+ // }
+
   GetAllStateProvinance(): any {
     this.stateprovinanceService.GetAllStateProvinance().subscribe(state => {
       for (let i = 0; i < state.length; ++i) {
@@ -267,8 +334,8 @@ export class CreatebookingComponent implements OnInit {
       }
     });
   }
-  GetAllRefer(): any {
-    this.choiceService.Getpartners().subscribe(res => {
+  GetAllRefer(PartnerEMpID): any {
+    this.choiceService.GetpartnersEmployeebyID(PartnerEMpID).subscribe(res => {
       this.ReferDDL = res;
     });
   }
@@ -281,7 +348,7 @@ export class CreatebookingComponent implements OnInit {
     });
   }
   GetReferredbyDDL(): any {
-    this.choiceService.Getpartners().subscribe(res => {
+    this.choiceService.GetpartnersEmployee().subscribe(res => {
       this.Referred = res;
     });
   }
