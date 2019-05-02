@@ -115,7 +115,7 @@
                   <div class="card-header">Date and time</div>
                   <div class="card-body">
                     <div class="row arrivedepart">
-                      <div class="col-lg-6 col-md-12">
+                      <div class="col-lg-6 col-md-6">
                         <div class="form-group">
                           <label class="col-form-label">Arrival</label>
                           <input type="text" [(ngModel)]="CreateBookingModel.arrivalDateTime" name="ArrivalDate"
@@ -124,7 +124,7 @@
                           </timepicker>
                         </div>
                       </div>
-                      <div class="col-lg-6 col-md-12">
+                      <div class="col-lg-6 col-md-6">
                         <div class="form-group">
                           <label class="col-form-label">Depart</label>
                           <input type="text" [(ngModel)]="CreateBookingModel.departDateTime" name="DepartDate"
@@ -292,11 +292,10 @@
                     </div>
                     <div class="clearfix"></div>
                 
-                  <div class="form-group mbtm0">
-                    <label class="col-form-label">Rooms</label>
-                  </div>
+                 
                   <div class="form-group">
                     <div class="fullpackages roompkgs">
+                        <label class="col-form-label">Rooms</label>
                       <ul>
                         <li>
                           <div class="lbl">local Attraction</div>
@@ -347,7 +346,7 @@
                       </ul>
                       
                       <div class="clearfix"></div>
-                      <ul *ngFor="let ObjRoomMultilstType of RoomMultilstType; let i=
+                      <ul class="repeatul" *ngFor="let ObjRoomMultilstType of RoomMultilstType; let i=
                             index">
                         <li>
                           <input type="text" name="localAttraction"
