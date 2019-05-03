@@ -4,6 +4,7 @@ import { TypeaheadMatch } from 'ngx-bootstrap/typeahead/typeahead-match.class';
 import { ZipcodeService } from 'src/service/zipcode/zipcode.service';
 import { StateprovinanceService } from 'src/service/stateprovinance/stateprovinance.service';
 import { ChoiceService } from 'src/service/Choice/Choice.service';
+import { element } from '@angular/core/src/render3';
 
 
 @Component({
@@ -15,9 +16,11 @@ export class CreatebookingComponent implements OnInit {
   public title = 'Places';
   public addrKeys: string[];
   public addr: object;
-  public LocCompanyCustId:any;
-  public LocPartnerEmpID:any;
+  public LocCompanyCustId: any;
+  public LocPartnerEmpID: any;
   public LocCreateBookingCustModel: any = {};
+  arrivalDate: Date = new Date();
+  departDate: Date;
   DivFindCenter: boolean;
   CreateBookingModel: any = {
     "bookingId": 0,
@@ -80,7 +83,7 @@ export class CreatebookingComponent implements OnInit {
   mytime2: Date | undefined = new Date();
   ArrivalDate = new Date();
   DepartDate = new Date();
-  selectedwallet = 'Eventdetaljer';
+  selectedwallet: number;
   dropdownList = [];
   dropdownListLeadOrigin = [];
   dropdownPackageType = [];
@@ -92,11 +95,17 @@ export class CreatebookingComponent implements OnInit {
   dropdownListforPartnerType = [];
   selectedItems = [];
   dropdownListforCenterMatching = [];
-  dropdownListCenter= [];
+  dropdownListCenter = [];
   dropdownSettings = {};
+  arrivalTime: Date;
+  departTime: Date;
 
   ngOnInit() {
-
+    this.selectedwallet = 1;
+    var departDate = new Date();
+    this.departDate = new Date(departDate.setDate(departDate.getDate() + 1))
+    this.arrivalTime = new Date();
+    this.departTime = new Date();
     const time = new Date();
     time.setHours(9);
     time.setMinutes(0);
@@ -141,29 +150,29 @@ export class CreatebookingComponent implements OnInit {
   ReferDDL: any[];
 
   onSelectReferredby(event: TypeaheadMatch): void {
-    this.CreateBookingModel.customerId = event.item.partnerEmployeeId;
-    this.LocPartnerEmpID=1;
-    this.GetAllRefer(this.LocPartnerEmpID);
+    this.CreateBookingModel.partnerId = event.item.partnerEmployeeId;
+    // this.LocPartnerEmpID = 1;
+    this.GetAllRefer(event.item.partnerEmployeeId);
 
   }
   onSelect(event: TypeaheadMatch): void {
-    this.CreateBookingModel.partnerId = event.item.partnerId;
+    this.CreateBookingModel.customerId = event.item.partnerId;
+    this.GetContactbyCompany(event.item.partnerId);
   }
   onSelectCompany(event: TypeaheadMatch): void {
-    debugger
-   
-  //  this.LocCompanyCustId= event.item.customerId;
-    this.LocCompanyCustId=921;
-    this.GetContactbyCompany(this.LocCompanyCustId);
+    // debugger
+    this.CreateBookingModel.customerId = event.item.customerId;
+    // this.CreateBookingModel.customerId = 921;
+    this.GetContactbyCompany(this.CreateBookingModel.customerId);
   }
-  
+
   onItemSelect(item: any) {
     console.log(item);
   }
   onSelectAll(items: any) {
     console.log(items);
   }
-  private Arrangementtype: Array<any> = [];
+  private Arrangementtype: any = [];
   private RoomMultilstType: Array<any> = [];
   private GiveprizeMultilstType: Array<any> = [];
   private locbookingRoomViewModel: Array<any> = [];
@@ -172,30 +181,30 @@ export class CreatebookingComponent implements OnInit {
   private newAttribute: any = {};
 
   addFieldValue() {
-    this.Arrangementtype.push(this.bookingArrangementTypeViewModel)
+    this.Arrangementtype.push(this.newAttribute);
     this.newAttribute = {};
   }
   addRoomMultilstType() {
-    this.RoomMultilstType.push(this.bookingRoomViewModel)
+    this.RoomMultilstType.push(this.newAttribute);
     this.newAttribute = {};
   }
 
   addgiveprizeMultilstType() {
-    this.GiveprizeMultilstType.push(this.bookingAlternativeServiceViewModel)
+    this.GiveprizeMultilstType.push(this.newAttribute);
     this.newAttribute = {};
   }
   addFieldValuebookingRoomViewModel() {
-    this.locbookingRoomViewModel.push(this.bookingRoomViewModel)
+    this.locbookingRoomViewModel.push(this.newAttribute);
     this.newAttribute = {};
   }
   baddookingAlternativeServiceViewModel() {
-    this.locbAlternativeServiceView.push(this.bookingAlternativeServiceViewModel)
+    this.locbAlternativeServiceView.push(this.newAttribute);
     this.newAttribute = {};
   }
   deleteFieldValue(index) {
     this.Arrangementtype.splice(index, 1);
   }
-  
+
   deleteFieldRoomMultilstType(index) {
     this.RoomMultilstType.splice(index, 1);
   }
@@ -207,21 +216,89 @@ export class CreatebookingComponent implements OnInit {
   }
 
   onSubmit() {
-    this.CreateBookingModel.partnerId = 1;
-    this.CreateBookingModel.customerId = 1;
-    this.CreateBookingModel.cancellationReasonId = 1;
-    this.CreateBookingModel.causeOfRemovalId = 1;
-    this.CreateBookingModel.contactPersonId = 1;
-    this.CreateBookingModel.bookingAndStatusId = 3;
-    this.CreateBookingModel.flowId = 1;
-    this.CreateBookingModel.partnerTypeId = 1;
-    this.CreateBookingModel.mailLanguageId = 1;
-    this.CreateBookingModel.otherCompaignName = "Test from webapp_Vishal";
-    this.CreateBookingModel.flexibleDates = true;
-    this.CreateBookingModel.bookingArrangementTypeViewModel = [this.bookingArrangementTypeViewModel];
-    this.CreateBookingModel.bookingRoomViewModel = [this.bookingRoomViewModel]
-    this.CreateBookingModel.bookingAlternativeServiceViewModel = [this.bookingAlternativeServiceViewModel]
-    this.CreateBookingModel.bookingRoomViewModel.tableSetViewModel = this.tableSetViewModel;
+    // this.CreateBookingModel.partnerId = 1;
+    // this.CreateBookingModel.customerId = 1;
+    // this.CreateBookingModel.cancellationReasonId = 1;
+    // this.CreateBookingModel.causeOfRemovalId = 1;
+    // this.CreateBookingModel.contactPersonId = 1;
+    // this.CreateBookingModel.bookingAndStatusId = 3;
+    // this.CreateBookingModel.flowId = 1;
+    // this.CreateBookingModel.partnerTypeId = 1;
+    // this.CreateBookingModel.mailLanguageId = 1;
+    // this.CreateBookingModel.otherCompaignName = "Test from webapp_Vishal";
+    // this.CreateBookingModel.flexibleDates = true;
+    // this.CreateBookingModel.bookingArrangementTypeViewModel = [this.bookingArrangementTypeViewModel];
+    // this.CreateBookingModel.bookingRoomViewModel = [this.bookingRoomViewModel]
+    // this.CreateBookingModel.bookingAlternativeServiceViewModel = [this.bookingAlternativeServiceViewModel]
+    // this.CreateBookingModel.bookingRoomViewModel.tableSetViewModel = this.tableSetViewModel;
+    // this.CreateBookingModel.arrivalDateTime = this.ar
+    var arrivalDateTime = (this.arrivalDate.getMonth() + 1) + "/" + this.arrivalDate.getDate() + "/" + this.arrivalDate.getFullYear() + " " + this.arrivalTime.getHours() + ":" + this.arrivalTime.getMinutes();
+    this.CreateBookingModel.arrivalDateTime = new Date(arrivalDateTime);
+    var departDateTime = (this.departDate.getMonth() + 1) + "/" + this.departDate.getDate() + "/" + this.departDate.getFullYear() + " " + this.departTime.getHours() + ":" + this.departTime.getMinutes();
+    this.CreateBookingModel.departDateTime = new Date(departDateTime);
+    console.log(this.bookingArrangementTypeViewModel)
+    var bookingArrangementTypeViewModel = [];
+    var bookingArrangementTypeViewModelfromDateTime = this.bookingArrangementTypeViewModel.fromDate != "" ? (this.bookingArrangementTypeViewModel.fromDate.getMonth() + 1) + "/" + this.bookingArrangementTypeViewModel.fromDate.getDate() + "/" + this.bookingArrangementTypeViewModel.fromDate.getFullYear() + " " + this.bookingArrangementTypeViewModel.fromTime.getHours() + ":" + this.bookingArrangementTypeViewModel.fromTime.getMinutes() : "";
+    var bookingArrangementTypeViewModeltoDateTime = this.bookingArrangementTypeViewModel.toDate != "" ? (this.bookingArrangementTypeViewModel.toDate.getMonth() + 1) + "/" + this.bookingArrangementTypeViewModel.toDate.getDate() + "/" + this.bookingArrangementTypeViewModel.toDate.getFullYear() + " " + this.bookingArrangementTypeViewModel.toTime.getHours() + ":" + this.bookingArrangementTypeViewModel.toTime.getMinutes() : "";
+    bookingArrangementTypeViewModel.push({
+      "serviceCatalogId": this.bookingArrangementTypeViewModel.serviceCatalogId,
+      "numberOfParticipants": this.bookingArrangementTypeViewModel.numberOfParticipants,
+      "toDateTime": new Date(bookingArrangementTypeViewModelfromDateTime),
+      "fromDateTime": new Date(bookingArrangementTypeViewModeltoDateTime)
+    });
+    this.Arrangementtype.forEach(element => {
+      var elementfromDateTime = element.fromDate != "" ? (element.fromDate.getMonth() + 1) + "/" + element.fromDate.getDate() + "/" + element.fromDate.getFullYear() + " " + element.fromTime.getHours() + ":" + element.fromTime.getMinutes() : "";
+      var elementtoDateTime = element.toDate != "" ? (element.toDate.getMonth() + 1) + "/" + element.toDate.getDate() + "/" + element.toDate.getFullYear() + " " + element.toTime.getHours() + ":" + element.toTime.getMinutes() : "";
+      bookingArrangementTypeViewModel.push({
+        "serviceCatalogId": element.serviceCatalogId,
+        "numberOfParticipants": element.numberOfParticipants,
+        "toDate": new Date(elementfromDateTime),
+        "fromDate": new Date(elementtoDateTime)
+      });
+    });
+    var bookingRoomViewModel = [];
+    var bookingRoomViewModelfromDateTime = this.bookingRoomViewModel.toDate != "" ? (this.bookingRoomViewModel.fromDate.getMonth() + 1) + "/" + this.bookingRoomViewModel.fromDate.getDate() + "/" + this.bookingRoomViewModel.fromDate.getFullYear() + " " + this.bookingRoomViewModel.fromTime.getHours() + ":" + this.bookingRoomViewModel.fromTime.getMinutes() : "";
+    var bookingRoomViewModeltoDateTime = this.bookingRoomViewModel.toDate != "" ? (this.bookingRoomViewModel.toDate.getMonth() + 1) + "/" + this.bookingRoomViewModel.toDate.getDate() + "/" + this.bookingRoomViewModel.toDate.getFullYear() + " " + this.bookingRoomViewModel.toTime.getHours() + ":" + this.bookingRoomViewModel.toTime.getMinutes() : "";
+    bookingRoomViewModel.push({
+      "tableSetViewModel": {
+        "tableSetName": this.bookingRoomViewModel.tableSetName,
+        "lastModified": "",
+        "lastModifiedBy": ""
+      },
+      "locationAttraction": this.bookingRoomViewModel.locationAttraction,
+      "numberOfRooms": this.bookingRoomViewModel.numberOfRooms,
+      "perPerson": this.bookingRoomViewModel.perPerson,
+      "toDate": new Date(bookingRoomViewModeltoDateTime),
+      "fromDate": new Date(bookingRoomViewModelfromDateTime)
+    });
+
+    this.RoomMultilstType.forEach(element => {
+      var elementfromDateTime = element.fromDate != null ? (element.fromDate.getMonth() + 1) + "/" + element.fromDate.getDate() + "/" + element.fromDate.getFullYear() + " " + element.fromTime.getHours() + ":" + element.fromTime.getMinutes() : "";
+      var elementtoDateTime = element.toDate != null ? (element.toDate.getMonth() + 1) + "/" + element.toDate.getDate() + "/" + element.toDate.getFullYear() + " " + element.toTime.getHours() + ":" + element.toTime.getMinutes() : "";
+      bookingRoomViewModel.push({
+        "tableSetViewModel": {
+          "tableSetName": element.tableSetName,
+          "lastModified": "",
+          "lastModifiedBy": ""
+        },
+        "locationAttraction": element.locationAttraction,
+        "numberOfRooms": element.numberOfRooms,
+        "perPerson": element.perPerson,
+        "toDate": new Date(elementtoDateTime),
+        "fromDate": new Date(elementfromDateTime)
+      });
+    });
+
+    var bookingAlternativeServiceViewModel = [];
+    bookingAlternativeServiceViewModel.push(this.bookingAlternativeServiceViewModel)
+    this.GiveprizeMultilstType.forEach(element => {
+      bookingAlternativeServiceViewModel.push(element)
+    })
+
+    this.CreateBookingModel.bookingArrangementTypeViewModel = bookingArrangementTypeViewModel;
+    this.CreateBookingModel.bookingRoomViewModel = bookingRoomViewModel;
+    this.CreateBookingModel.bookingAlternativeServiceViewModel = bookingAlternativeServiceViewModel;
+    console.log(this.CreateBookingModel);
   }
   GetAllZipCodes(): any {
     this.zipcodeService.GetAllZipCodes().subscribe(res => {
@@ -229,27 +306,23 @@ export class CreatebookingComponent implements OnInit {
     });
   }
   GetCompany(): any {
-    
-   // this.choiceService.GetAllcustomerCompany().subscribe(res => {
-    this.zipcodeService.GetAllZipCodes().subscribe(ress => {
-      console.log(ress);
-      this.company = ress;
+
+    this.choiceService.GetAllcustomerCompany().subscribe(res => {
+      this.company = res;
     });
   }
 
   GetContactbyCompany(partnerID): any {
     debugger
     this.choiceService.GetContactbyCompany(partnerID).subscribe(res => {
-      this.ContactPerson=res;
-      // debugger
-      // console.log(res);
-      // this.LocCreateBookingCustModel.ContactPerson=res[0].name;
-      // this.LocCreateBookingCustModel.Email=res[0].email;
-      // this.LocCreateBookingCustModel.Telephone=res[0].telephone;      
+      this.ContactPerson = res;
+      // this.LocCreateBookingCustModel.Mobile=res[0].telephone;
+      this.LocCreateBookingCustModel.Email = res[0].email;
+      this.LocCreateBookingCustModel.Telephone = res[0].telephone;
     });
   }
 
-  
+
 
   GetContactPerson(): any {
     this.zipcodeService.GetAllcontactpersons().subscribe(res => {
@@ -258,7 +331,7 @@ export class CreatebookingComponent implements OnInit {
   }
   GetPartnerforFindCenter(): any {
     this.choiceService.GetPartnerforFindCenter().subscribe(res => {
-      
+
       for (let i = 0; i < res.length; ++i) {
         this.dropdownListCenter.push({ item_id: res[i].centerMatchingId, item_text: res[i].matchingCenter });
       }
@@ -272,7 +345,7 @@ export class CreatebookingComponent implements OnInit {
   //     this.ContactPerson = res;
   //     console.log(res);      
   //   });
- // }
+  // }
 
   GetAllStateProvinance(): any {
     this.stateprovinanceService.GetAllStateProvinance().subscribe(state => {

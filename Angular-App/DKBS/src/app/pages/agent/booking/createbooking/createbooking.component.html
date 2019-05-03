@@ -6,111 +6,111 @@
       <div class="row">
         <div class="col-md-9 dbkstabs">
           <ul class="nav nav-tabs" role="tablist">
-            <li [class]="selectedwallet ===
-              'Eventdetaljer'?'active':'inactive'"><a (click)="selectedwallet= 'Eventdetaljer'" class="nav-link">Event
+            <li [class]="selectedwallet === 1||selectedwallet===null?'active':'inactive'">
+              <a (click)="selectedwallet = 1" class="nav-link">Event
                 Details</a></li>
-            <li [class]="selectedwallet ===
-              'Kundeoplysniger'?'active':'inactive'"><a (click)="selectedwallet= 'Kundeoplysniger'"
+            <li [class]="selectedwallet === 2?'active':'inactive'"><a (click)="selectedwallet= 2"
                 class="nav-link">Company
                 Information</a></li>
-            <li [class]="selectedwallet === 'Matching'?'active':'inactive'"> <a (click)="selectedwallet= 'Matching'"
+            <li [class]="selectedwallet=== 3?'active':'inactive'"> <a (click)="selectedwallet= 3"
                 class="nav-link">Matching</a></li>
           </ul>
           <!-- Tab panes -->
           <form name="form" class="formboxadditional" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
             <div class="tab-content">
-              <div role="tabpanel" *ngIf="selectedwallet === 'Kundeoplysniger'">
-                  
-                  <div class="card">
-                      <div class="card-header">Company Information</div>
-                      <div class="card-body compinfosec">
-                          <div class="row">
-                              <div class="col-md-12">
-                                  <label class="lbl">Company</label>
-                    <input [(ngModel)]="selectedValuestates" [typeahead]="company" typeaheadOptionField="name"
-                      (typeaheadOnSelect)="onSelectCompany($event)" [typeaheadScrollable]="true" class="form-control"
-                      name="kp" autocomplete="off">
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="form-group col-md-6">
-                                  <label class="lbl">Contact Person</label>
-                    <input [(ngModel)]="selectedValueContactPerson" [typeahead]="ContactPerson"
-                      typeaheadOptionField="name" (typeaheadOnSelect)="onSelect($event)" [typeaheadScrollable]="true"
-                      class="form-control" name="ContactPerson" autocomplete="off">
-                              </div>
-                              <div class="form-group col-md-6">
-                                  <label class="lbl">Email</label>
-                                  <input type="text" name="Email" [(ngModel)]="LocCreateBookingCustModel.Email" class="form-control">
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="form-group col-md-6">
-                                  <label  class="lbl">Telephone</label>
-                                 <input type="text" name="Telephone" [(ngModel)]="LocCreateBookingCustModel.Telephone"
-                      class="form-control">
-                              </div>
-                              <div class="form-group col-md-6">
-                                  <label class="lbl">Mobile</label>
-                                  <input type="text" name="Mobile" [(ngModel)]="CreateBookingModel.Mobile" class="form-control">
-                              </div>
-                          </div>
-                      </div>
-                  </div>
+              <div role="tabpanel" *ngIf="selectedwallet=== 2">
 
-                  <div class="card">
-                      <div class="card-header">Reference</div>
-                      <div class="card-body compinfosec">
-                          <div class="row">
-                              <div class="form-group col-md-6">
-                                  <label class="col-form-label">Referred by</label>
-                    <input [(ngModel)]="TEST" [typeahead]="Referred" typeaheadOptionField="employeeName"
-                      (typeaheadOnSelect)="onSelect($event)" [typeaheadScrollable]="true" class="form-control"
-                      name="Referred" autocomplete="off">
-                              </div>
-                              <div class="form-group col-md-6">
-                                  <label class="col-form-label">Refers</label>
-                    <input [(ngModel)]="TEST2" [typeahead]="ReferDDL" typeaheadOptionField="partnerName"
-                      (typeaheadOnSelect)="onSelect($event)" [typeaheadScrollable]="true" class="form-control"
-                      name="ReferDDL" autocomplete="off">
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="form-group col-md-6">
-                                  <label class="col-form-label">Where do you know us?</label>
-                    <select id="inputState" name="Campaign" [(ngModel)]="CreateBookingModel.campaignId"
-                      class="form-control txtsize">
-                      <option *ngFor="let ObjdropdownCampaign of dropdownCampaign"
-                        [ngValue]="ObjdropdownCampaign.item_id">
-                        {{ObjdropdownCampaign.item_text}}
-                      </option>
-                    </select>
-                              </div>
-                              <div class="form-group col-md-6">
-                                  <label class="col-form-label">Lead Origin</label>
-                    <select id="inputState" name="LeadOrigin" [(ngModel)]="CreateBookingModel.leadOfOriginId"
-                      class="form-control txtsize">
-                      <option *ngFor="let ObjLeadOrigin of dropdownListLeadOrigin" [ngValue]="ObjLeadOrigin.item_id">
-                        {{ObjLeadOrigin.item_text}}
-                      </option>
-                    </select>
-                              </div>
-                          </div>
+                <div class="card">
+                  <div class="card-header">Company Information</div>
+                  <div class="card-body compinfosec">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <label class="lbl">Company</label>
+                        <input [(ngModel)]="selectedValuestates" [typeahead]="company"
+                          typeaheadOptionField="customerName" (typeaheadOnSelect)="onSelectCompany($event)"
+                          [typeaheadScrollable]="true" class="form-control" name="kp" autocomplete="off">
                       </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-group col-md-6">
+                        <label class="lbl">Contact Person</label>
+                        <input [(ngModel)]="selectedValueContactPerson" [typeahead]="ContactPerson"
+                          typeaheadOptionField="name" (typeaheadOnSelect)="onSelect($event)"
+                          [typeaheadScrollable]="true" class="form-control" name="ContactPerson" autocomplete="off">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label class="lbl">Email</label>
+                        <input type="text" name="Email" [(ngModel)]="LocCreateBookingCustModel.Email"
+                          class="form-control">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-group col-md-6">
+                        <label class="lbl">Telephone</label>
+                        <input type="text" name="Telephone" [(ngModel)]="LocCreateBookingCustModel.Telephone"
+                          class="form-control">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label class="lbl">Mobile</label>
+                        <input type="text" name="Mobile" [(ngModel)]="LocCreateBookingCustModel.Mobile"
+                          class="form-control">
+                      </div>
+                    </div>
                   </div>
+                </div>
 
-                   <div class="nextpreviousbtn">
-                    <button type="button" class="btn btn-outline-warning "
-                      (click)="selectedwallet= 'Eventdetaljer'">Previous</button>
-                    <button type="button" class="btn btn-outline-primary" (click)="selectedwallet= 'Matching'" style="text-align:
+                <div class="card">
+                  <div class="card-header">Reference</div>
+                  <div class="card-body compinfosec">
+                    <div class="row">
+                      <div class="form-group col-md-6">
+                        <label class="col-form-label">Referred by</label>
+                        <input [(ngModel)]="TEST" [typeahead]="Referred" typeaheadOptionField="employeeName"
+                          (typeaheadOnSelect)="onSelectReferredby($event)" [typeaheadScrollable]="true"
+                          class="form-control" name="Referred" autocomplete="off">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label class="col-form-label">Refers</label>
+                        <input [(ngModel)]="TEST2" [typeahead]="ReferDDL" typeaheadOptionField="partnerName"
+                          [typeaheadScrollable]="true" class="form-control" name="ReferDDL" autocomplete="off">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-group col-md-6">
+                        <label class="col-form-label">Where do you know us?</label>
+                        <select id="inputState" name="Campaign" [(ngModel)]="CreateBookingModel.campaignId"
+                          class="form-control txtsize">
+                          <option *ngFor="let ObjdropdownCampaign of dropdownCampaign"
+                            [ngValue]="ObjdropdownCampaign.item_id">
+                            {{ObjdropdownCampaign.item_text}}
+                          </option>
+                        </select>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label class="col-form-label">Lead Origin</label>
+                        <select id="inputState" name="LeadOrigin" [(ngModel)]="CreateBookingModel.leadOfOriginId"
+                          class="form-control txtsize">
+                          <option *ngFor="let ObjLeadOrigin of dropdownListLeadOrigin"
+                            [ngValue]="ObjLeadOrigin.item_id">
+                            {{ObjLeadOrigin.item_text}}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="nextpreviousbtn">
+                  <button type="button" class="btn btn-outline-warning " (click)="selectedwallet= 1">Previous</button>
+                  <button type="button" class="btn btn-outline-primary" (click)="selectedwallet= 3" style="text-align:
                           left; margin: 0px 11px;">Next</button>
-                    <button type="button" class="btn btn-outline-dark">Cancel</button>
-                  </div>
-                 
-               
+                  <button type="button" class="btn btn-outline-dark">Cancel</button>
+                </div>
+
+
               </div>
 
-              <div role="tabpane2" *ngIf="selectedwallet === 'Eventdetaljer'">
+              <div role="tabpane2" *ngIf="selectedwallet=== 1 || selectedwallet === null">
                 <div class="card">
                   <div class="card-header">Date and time</div>
                   <div class="card-body">
@@ -118,18 +118,19 @@
                       <div class="col-lg-6 col-md-6">
                         <div class="form-group">
                           <label class="col-form-label">Arrival</label>
-                          <input type="text" [(ngModel)]="CreateBookingModel.arrivalDateTime" name="ArrivalDate"
-                            bsDatepicker class="form-control dpicker" autocomplete="off" />
-                          <timepicker [(ngModel)]="mytime1ss" name="CreateBookingModelmytime1s" class="widthtimepicker">
+                          <input type="text" [(ngModel)]="arrivalDate" name="ArrivalDate" bsDatepicker
+                            class="form-control dpicker" autocomplete="off" />
+                          <timepicker [(ngModel)]="arrivalTime" name="CreateBookingModelmytime1s"
+                            class="widthtimepicker">
                           </timepicker>
                         </div>
                       </div>
                       <div class="col-lg-6 col-md-6">
                         <div class="form-group">
                           <label class="col-form-label">Depart</label>
-                          <input type="text" [(ngModel)]="CreateBookingModel.departDateTime" name="DepartDate"
-                            bsDatepicker class="form-control dpicker" autocomplete="off" />
-                          <timepicker [(ngModel)]="mytime2" name="CreateBookingModelmytime2" class="widthtimepicker">
+                          <input type="text" [(ngModel)]="departDate" name="DepartDate" bsDatepicker
+                            class="form-control dpicker" autocomplete="off" />
+                          <timepicker [(ngModel)]="departTime" name="CreateBookingModelmytime2" class="widthtimepicker">
                           </timepicker>
                         </div>
                       </div>
@@ -191,7 +192,7 @@
                         <label>Number of participants</label>
                         <input type="number" myNumberOnly name="Noofparticipants"
                           [(ngModel)]="CreateBookingModel.numberOfPerticipants" class="form-control InlineInput"
-                           maxlength="8">
+                          maxlength="8">
                       </div>
                     </div>
                     <div class="form-row">
@@ -201,13 +202,12 @@
                       <div class="form-group col-md-5">
                         <label>Number of single rooms</label>
                         <input type="number" myNumberOnly name="NoOfRooms"
-                          [(ngModel)]="CreateBookingModel.numberOfRooms" class="form-control InlineInput"
-                           maxlength="8">
+                          [(ngModel)]="CreateBookingModel.numberOfRooms" class="form-control InlineInput" maxlength="8">
                       </div>
                       <div class="form-group col-md-5">
                         <label>Number of double rooms</label>
-                        <input myNumberOnly name="NoOfDoubleRooms" [(ngModel)]="test" class="form-control InlineInput"
-                           maxlength="8">
+                        <input myNumberOnly name="CreateBookingModel.numberOfDoubleRooms" [(ngModel)]="test"
+                          class="form-control InlineInput" maxlength="8">
                       </div>
                     </div>
                   </div>
@@ -239,8 +239,8 @@
                           <div class="datetimediv">
                             <input type="text" [(ngModel)]="bookingArrangementTypeViewModel.fromDate"
                               name="FromArrivalDate" bsDatepicker class="form-control dpicker" autocomplete="off" />
-                            <timepicker [(ngModel)]="bookingArrangementTypeViewModelmytime1"
-                              name="bookingArrangementTypeViewModelmytime1" class="widthtimepicker"></timepicker>
+                            <timepicker [(ngModel)]="bookingArrangementTypeViewModel.fromTime"
+                              name="bookingArrangementTypeViewModelfromTime" class="widthtimepicker"></timepicker>
                           </div>
                         </li>
                         <li>
@@ -248,7 +248,7 @@
                           <div class="datetimediv">
                             <input type="text" [(ngModel)]="bookingArrangementTypeViewModel.toDate" name="ToArrivalDate"
                               bsDatepicker class="form-control dpicker" autocomplete="off" />
-                            <timepicker [(ngModel)]="mytime1s" name="bookingArrangementTypeViewModel"
+                            <timepicker [(ngModel)]="bookingArrangementTypeViewModel.toTime" name="bookingArrangementTypeViewModel"
                               class="widthtimepicker"></timepicker>
                           </div>
                         </li>
@@ -256,7 +256,8 @@
                       <ul *ngFor="let ObjArrangementtype of Arrangementtype; let i=
                             index">
                         <li>
-                          <select id="inputState" name="PackageType" [(ngModel)]="test" class="form-control txtsize">
+                          <select id="inputState" name="PackageType_{{i}}"
+                            [(ngModel)]="ObjArrangementtype.serviceCatalogId" class="form-control txtsize">
                             <option *ngFor="let ObjdropdownPackageType of
                                   dropdownPackageType" [value]="ObjdropdownPackageType.item_id">
                               {{ObjdropdownPackageType.item_text}}
@@ -264,24 +265,25 @@
                           </select>
                         </li>
                         <li>
-                          <input myNumberOnly name="NoOfPart"
-                            [(ngModel)]="bookingArrangementTypeViewModel.numberOfParticipants"
+                          <input myNumberOnly name="NoOfPart_{{i}}" [(ngModel)]="ObjArrangementtype.numberOfParticipants"
                             class="form-control InlineInput" maxlength="8">
                         </li>
                         <li>
                           <div class="datetimediv">
-                            <input type="text" [(ngModel)]="bookingArrangementTypeViewModel.fromDate"
-                              name="bookingArrangementTypeViewModelFromArrivalDate" bsDatepicker
+                            <input type="text" [(ngModel)]="ObjArrangementtype.fromDate"
+                              name="bookingArrangementTypeViewModelFromArrivalDate_{{i}}" bsDatepicker
                               class="form-control dpicker" autocomplete="off" />
-                            <timepicker [(ngModel)]="mytime1" name="mytime1" class="widthtimepicker"></timepicker>
+                            <timepicker [(ngModel)]="ObjArrangementtype.fromTime" name="fromTime_{{i}}"
+                              class="widthtimepicker"></timepicker>
                           </div>
                         </li>
                         <li>
                           <div class="datetimediv">
-                            <input type="text" [(ngModel)]="bookingArrangementTypeViewModel.toDate"
-                              name="bookingArrangementTypeViewModeltoDate" bsDatepicker class="form-control dpicker"
-                              autocomplete="off" />
-                            <timepicker [(ngModel)]="mytime1" name="mytime1" class="widthtimepicker"></timepicker>
+                            <input type="text" [(ngModel)]="ObjArrangementtype.toDate"
+                              name="bookingArrangementTypeViewModeltoDate_{{i}}" bsDatepicker
+                              class="form-control dpicker" autocomplete="off" />
+                            <timepicker [(ngModel)]="ObjArrangementtype.toTime" name="toTime_{{i}}"
+                              class="widthtimepicker"></timepicker>
                           </div>
                         </li>
                         <li>
@@ -289,121 +291,128 @@
                               class="fa fa-trash"></i></button>
                         </li>
                       </ul>
-                    </div>
-                    <div class="clearfix"></div>
-                
-                 
-                  <div class="form-group">
-                    <div class="fullpackages roompkgs">
-                        <label class="col-form-label">Rooms</label>
-                      <ul>
-                        <li>
-                          <div class="lbl">local Attraction</div>
-                          <input type="text" name="localAttraction"
-                            [(ngModel)]="bookingRoomViewModel.locationAttraction" class="form-control">
-                        </li>
-                        <li>
-                          <div class="lbl">No. of rooms</div>
-                          <input type="number" name="Rooms" [(ngModel)]="bookingRoomViewModel.numberOfRooms"
-                            class="form-control">
-                        </li>
-                        <li>
-                          <div class="lbl">Per persons</div>
-                          <input type="number" name="Perpersons" [(ngModel)]="bookingRoomViewModel.perPerson"
-                            class="form-control">
-                        </li>
-                        <li>
-                          <div class="lbl">Table Set</div>
-                          <select id="inputState" name="TableSets"
-                            [(ngModel)]="bookingRoomViewModel.tableSetViewModel.tableSetName"
-                            class="form-control txtsize">
-                            <option *ngFor="let ObjTableSetting of
-                                  dropdownListTableSetting" [ngValue]="ObjTableSetting.item_id">
-                              {{ObjTableSetting.item_text}}
-                            </option>
-                          </select>
-                        </li>
-                        <li>
-                          <div class="lbl">From</div>
-                          <div class="datetimediv">
-                            <input type="text" [(ngModel)]="bookingRoomViewModel.toDate"
-                              name="bookingRoomViewModeltoDate" bsDatepicker class="form-control
-                                  dpicker" autocomplete="off" />
-                            <timepicker [(ngModel)]="bookingRoomViewModel.fromDate"
-                              name="bookingRoomViewModelmytime1fromDate" class="widthtimepicker"></timepicker>
-                          </div>
-                        </li>
-                        <li>
-                          <div class="lbl">To</div>
-                          <div class="datetimediv">
-                            <input type="text" [(ngModel)]="bookingRoomViewModel.toDate"
-                              name="bookingRoomViewModeltoDate" bsDatepicker class="form-control
-                                  dpicker" autocomplete="off" />
-                            <timepicker [(ngModel)]="bookingRoomViewModel.toDate"
-                              name="bookingRoomViewModelmytime1toDate" class="widthtimepicker"></timepicker>
-                          </div>
-                        </li>
-                      </ul>
-                      
-                      <div class="clearfix"></div>
-                      <ul class="repeatul" *ngFor="let ObjRoomMultilstType of RoomMultilstType; let i=
-                            index">
-                        <li>
-                          <input type="text" name="localAttraction"
-                            [(ngModel)]="bookingRoomViewModel.locationAttraction" class="form-control">
-                        </li>
-                        <li>
-                          <input type="number" name="Rooms" [(ngModel)]="bookingRoomViewModel.numberOfRooms"
-                            class="form-control">
-                        </li>
-                        <li>
-                          <input type="number" name="Perpersons" [(ngModel)]="bookingRoomViewModel.perPerson"
-                            class="form-control">
-                        </li>
-                        <li>
-                          <select id="inputState" name="TableSets"
-                            [(ngModel)]="bookingRoomViewModel.tableSetViewModel.tableSetName"
-                            class="form-control txtsize">
-                            <option *ngFor="let ObjTableSetting of
-                                dropdownListTableSetting" [ngValue]="ObjTableSetting.item_id">
-                              {{ObjTableSetting.item_text}}
-                            </option>
-                          </select>
-                        </li>
-                        <li>
-                          <div class="datetimediv">
-                            <input type="text" [(ngModel)]="bookingRoomViewModel.toDate"
-                              name="bookingRoomViewModeltoDate" bsDatepicker class="form-control
-                                  dpicker" autocomplete="off" />
-                            <timepicker [(ngModel)]="bookingRoomViewModel.fromDate"
-                              name="bookingRoomViewModelmytime1fromDate" class="widthtimepicker"></timepicker>
-                          </div>
-                        </li>
-                        <li>
-                          <div class="datetimediv">
-                            <input type="text" [(ngModel)]="bookingRoomViewModel.toDate"
-                              name="bookingRoomViewModeltoDate" bsDatepicker class="form-control
-                                  dpicker" autocomplete="off" />
-                            <timepicker [(ngModel)]="bookingRoomViewModel.toDate"
-                              name="bookingRoomViewModelmytime1toDate" class="widthtimepicker"></timepicker>
-                          </div>
-                        </li>
-                        <li>
-                          <button class="btn btn-default delbtn" type="button" (click)="deleteFieldRoomMultilstType(i)"><i
-                              class="fa fa-trash"></i></button>
-                        </li>
-                      </ul>
                       <div class="clearfix"></div>
                       <div class="addrownew">
-                        <a (click)="addRoomMultilstType()"  class="btn btn-outline-warning"><i class="fa fa-plus"></i>Add
-                          new row</a>
+                        <a (click)="addFieldValue()" class="btn btn-outline-warning"><i class="fa fa-plus"></i>Add
+                        </a>
                       </div>
                       <div class="clearfix"></div>
                     </div>
-                  </div>
-                  <div class="form-group yourprizefiled">
-                    <div class="sidelbl"> Also give up your prize</div>
-                    <ul>
+                    <div class="clearfix"></div>
+
+
+                    <div class="form-group">
+                      <div class="fullpackages roompkgs">
+                        <label class="col-form-label">Rooms</label>
+                        <ul>
+                          <li>
+                            <div class="lbl">local Attraction</div>
+                            <input type="text" name="localAttraction"
+                              [(ngModel)]="bookingRoomViewModel.locationAttraction" class="form-control">
+                          </li>
+                          <li>
+                            <div class="lbl">No. of rooms</div>
+                            <input type="number" name="Rooms" [(ngModel)]="bookingRoomViewModel.numberOfRooms"
+                              class="form-control">
+                          </li>
+                          <li>
+                            <div class="lbl">Per persons</div>
+                            <input type="number" name="Perpersons" [(ngModel)]="bookingRoomViewModel.perPerson"
+                              class="form-control">
+                          </li>
+                          <li>
+                            <div class="lbl">Table Set</div>
+                            <select id="inputState" name="TableSets"
+                              [(ngModel)]="bookingRoomViewModel.tableSetName"
+                              class="form-control txtsize">
+                              <option *ngFor="let ObjTableSetting of
+                                  dropdownListTableSetting" [ngValue]="ObjTableSetting.item_id">
+                                {{ObjTableSetting.item_text}}
+                              </option>
+                            </select>
+                          </li>
+                          <li>
+                            <div class="lbl">From</div>
+                            <div class="datetimediv">
+                              <input type="text" [(ngModel)]="bookingRoomViewModel.fromDate"
+                                name="ObjRoomMultilstTypetoDate" bsDatepicker class="form-control
+                                  dpicker" autocomplete="off" />
+                              <timepicker [(ngModel)]="bookingRoomViewModel.fromTime"
+                                name="ObjRoomMultilstTypemytime1fromDate" class="widthtimepicker"></timepicker>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="lbl">To</div>
+                            <div class="datetimediv">
+                              <input type="text" [(ngModel)]="bookingRoomViewModel.toDate"
+                                name="ObjRoomMultilstTypetoDate" bsDatepicker class="form-control
+                                  dpicker" autocomplete="off" />
+                              <timepicker [(ngModel)]="bookingRoomViewModel.toTime"
+                                name="ObjRoomMultilstTypemytime1toDate" class="widthtimepicker"></timepicker>
+                            </div>
+                          </li>
+                        </ul>
+
+                        <div class="clearfix"></div>
+                        <ul class="repeatul" *ngFor="let ObjRoomMultilstType of RoomMultilstType; let i=
+                            index">
+                          <li>
+                            <input type="text" name="localAttraction_{{i}}"
+                              [(ngModel)]="ObjRoomMultilstType.locationAttraction" class="form-control">
+                          </li>
+                          <li>
+                            <input type="number" name="Rooms_{{i}}" [(ngModel)]="ObjRoomMultilstType.numberOfRooms"
+                              class="form-control">
+                          </li>
+                          <li>
+                            <input type="number" name="Perpersons_{{i}}" [(ngModel)]="ObjRoomMultilstType.perPerson"
+                              class="form-control">
+                          </li>
+                          <li>
+                            <select id="inputState" name="TableSets_{{i}}"
+                              [(ngModel)]="ObjRoomMultilstType.tableSetName"
+                              class="form-control txtsize">
+                              <option *ngFor="let ObjTableSetting of
+                                dropdownListTableSetting" [ngValue]="ObjTableSetting.item_id">
+                                {{ObjTableSetting.item_text}}
+                              </option>
+                            </select>
+                          </li>
+                          <li>
+                            <div class="datetimediv">
+                              <input type="text" [(ngModel)]="ObjRoomMultilstType.fromDate"
+                                name="ObjRoomMultilstTypetoDate_{{i}}" bsDatepicker class="form-control
+                                  dpicker" autocomplete="off" />
+                              <timepicker [(ngModel)]="ObjRoomMultilstType.fromTime"
+                                name="ObjRoomMultilstTypemytime1fromDate_{{i}}" class="widthtimepicker"></timepicker>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="datetimediv">
+                              <input type="text" [(ngModel)]="ObjRoomMultilstType.toDate"
+                                name="ObjRoomMultilstTypetoDate_{{i}}" bsDatepicker class="form-control
+                                  dpicker" autocomplete="off" />
+                              <timepicker [(ngModel)]="ObjRoomMultilstType.toTime"
+                                name="ObjRoomMultilstTypemytime1toDate_{{i}}" class="widthtimepicker"></timepicker>
+                            </div>
+                          </li>
+                          <li>
+                            <button class="btn btn-default delbtn" type="button"
+                              (click)="deleteFieldRoomMultilstType(i)"><i class="fa fa-trash"></i></button>
+                          </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                        <div class="addrownew">
+                          <a (click)="addRoomMultilstType()" class="btn btn-outline-warning"><i
+                              class="fa fa-plus"></i>Add
+                          </a>
+                        </div>
+                        <div class="clearfix"></div>
+                      </div>
+                    </div>
+                    <div class="form-group yourprizefiled">
+                      <div class="sidelbl"> Also give up your prize</div>
+                      <ul>
                         <li>
                           <div class="lbl">Description</div>
                           <input type="text" [(ngModel)]="bookingAlternativeServiceViewModel.description"
@@ -418,12 +427,12 @@
                       <div class="clearfix"></div>
                       <ul class="repeatul" *ngFor="let ObjGiveprizeMultilstType of GiveprizeMultilstType; let i=index">
                         <li>
-                          <input type="text" [(ngModel)]="bookingAlternativeServiceViewModel.description"
-                            name="Description" class="form-control">
+                          <input type="text" [(ngModel)]="ObjGiveprizeMultilstType.description" name="Description_{{i}}"
+                            class="form-control">
                         </li>
                         <li>
-                          <input type="number" [(ngModel)]="bookingAlternativeServiceViewModel.numberOfPieces"
-                            name="Anta" class="form-control">
+                          <input type="number" [(ngModel)]="ObjGiveprizeMultilstType.numberOfPieces" name="Anta_{{i}}"
+                            class="form-control">
                         </li>
                         <li>
                           <button class="btn btn-default" type="button" (click)="deleteFieldgiveprizeMultilstType(i)"><i
@@ -432,123 +441,125 @@
                       </ul>
                       <div class="clearfix"></div>
                       <div class="addrownew">
-                        <a (click)="addgiveprizeMultilstType()" class="btn btn-outline-warning"><i class="fa fa-plus"></i>Add
-                          new row</a>
+                        <a (click)="addgiveprizeMultilstType()" class="btn btn-outline-warning"><i
+                            class="fa fa-plus"></i>Add
+                        </a>
                       </div>
                       <div class="clearfix"></div>
+                    </div>
                   </div>
-                </div>
 
-                  
+
                 </div>
                 <div class="pull-right">
-                  <button type="button" class="btn btn-success"
-                    (click)="selectedwallet= 'Kundeoplysniger'">Next</button>
+                  <button type="button" class="btn btn-outline-primary" (click)="selectedwallet= 2">Next</button>
                 </div>
               </div>
 
-              <div role="tabpane3" *ngIf="selectedwallet === 'Matching'">
-                  <div class="card">
-                    <div class="card-header">Cener-matching</div>
-                    <div class="card-body compinfosec">
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <label class="col-form-label">Partner Type</label>
-                                <div class="radiocheckbox">
-                                  <div class="form-check">
-                                    <ng-multiselect-dropdown [placeholder]="'Partner Type 
+              <div role="tabpane3" *ngIf="selectedwallet=== 3">
+                <div class="card">
+                  <div class="card-header">Cener-matching</div>
+                  <div class="card-body compinfosec">
+                    <div class="row">
+                      <div class="form-group col-md-6">
+                        <label class="col-form-label">Partner Type</label>
+                        <div class="radiocheckbox">
+                          <div class="form-check">
+                            <ng-multiselect-dropdown [placeholder]="'Partner Type 
                                           '" [data]="dropdownListforSearchType" [settings]="dropdownSettings"
-                                      (onSelect)="onItemSelect($event)" name="CreateBookingModel.PartnerType" [(ngModel)]="test"
-                                      (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
-                                  </div>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label class="col-form-label">Center Matchings</label>
-                                <div class="radiocheckbox">
-                                  <div class="form-check">
-                                    <ng-multiselect-dropdown [placeholder]="'Center Matchings'"
-                                      [data]="dropdownListforCenterMatching" [settings]="dropdownSettings"
-                                      (onSelect)="onItemSelect($event)" name="CreateBookingModel.CenterMatchings" [(ngModel)]="test"
-                                      (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
-                                  </div>
-                                </div> 
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div class="card-header">Desired geographical area</div>
-                    <div class="card-body compinfosec">
-                        <div class="row">
-                            <label class="col-sm-3 col-form-label">
-                                <label class="col-form-label">Region / Province</label>
-                            </label>
-                            <div class="form-group col-sm-9">
-                                
-                              <div class="radiocheckbox">
-                                <div class="form-check">
-                                  <ng-multiselect-dropdown [placeholder]="'Region / Province
-                                        '" [data]="dropdownList" name="Regions" [settings]="dropdownSettings"
-                                    (onSelect)="onItemSelect($event)" name="CreateBookingModel.RegionProvinance"
-                                    [(ngModel)]="test" (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
-                                </div>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div class="card-header">Search Criteria</div>
-                    <div class="card-body compinfosec">
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <label class="col-form-label">Refreshment</label>
-                            </div>
-                            <div class="form-group col-sm-9">
-                                <div class="radiocheckbox">
-                                    <div class="form-check">
-                                      <ng-multiselect-dropdown [placeholder]="'custom
-                                            placeholder'" [data]="dropdownList" [(ngModel)]="selectedItems"
-                                        [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
-                                        name="CreateBookingModel.Refreshment" [(ngModel)]="test" (onSelectAll)="onSelectAll($event)">
-                                      </ng-multiselect-dropdown>
-                                    </div>
-                                    <button type="button" (click)="DivFindCenter=!DivFindCenter" style=" float: right; "
-                                      class="btn btn-outline-info">Find Center</button>
-                                  </div>
-                            </div>
-                        </div>
-                        
-                            
-                       
-                        <div class="form-group" *ngIf="DivFindCenter">
-                            <div class="row">
-                            <label class=" col-sm-3 col-form-label">Center</label>
-                            <div class="form-group col-sm-9">
-                            <div class="radiocheckbox">
-                              <div class="form-check">
-                                <ng-multiselect-dropdown [placeholder]="'Centers'" [data]="dropdownListCenter"
-                                  [(ngModel)]="selectedItems" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
-                                  name="CreateBookingModel.Refreshment" [(ngModel)]="test" (onSelectAll)="onSelectAll($event)">
-                                </ng-multiselect-dropdown>
-                              </div>
-                            </div>
-                          </div>
+                              (onSelect)="onItemSelect($event)" name="CreateBookingModel.PartnerType" [(ngModel)]="test"
+                              (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
                           </div>
                         </div>
-                    </div>
-                  </div>
-                 
-                     
-                      <div class="nextpreviousbtn">
-                        <button type="button" class="btn btn-outline-warning" (click)="selectedwallet= 'Kundeoplysniger'"
-                          style="text-align: left; margin: 0px 11px;">Previous</button>
-                        <button class="btn btn-outline-primary">Save</button>
                       </div>
-                     
-                   
-                
+                      <div class="form-group col-md-6">
+                        <label class="col-form-label">Center Matchings</label>
+                        <div class="radiocheckbox">
+                          <div class="form-check">
+                            <ng-multiselect-dropdown [placeholder]="'Center Matchings'"
+                              [data]="dropdownListforCenterMatching" [settings]="dropdownSettings"
+                              (onSelect)="onItemSelect($event)" name="CreateBookingModel.CenterMatchings"
+                              [(ngModel)]="test" (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header">Desired geographical area</div>
+                  <div class="card-body compinfosec">
+                    <div class="row">
+                      <label class="col-sm-3 col-form-label">
+                        <label class="col-form-label">Region / Province</label>
+                      </label>
+                      <div class="form-group col-sm-9">
+
+                        <div class="radiocheckbox">
+                          <div class="form-check">
+                            <ng-multiselect-dropdown [placeholder]="'Region / Province
+                                        '" [data]="dropdownList" name="Regions" [settings]="dropdownSettings"
+                              (onSelect)="onItemSelect($event)" name="CreateBookingModel.RegionProvinance"
+                              [(ngModel)]="test" (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header">Search Criteria</div>
+                  <div class="card-body compinfosec">
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <label class="col-form-label">Refreshment</label>
+                      </div>
+                      <div class="form-group col-sm-9">
+                        <div class="radiocheckbox">
+                          <div class="form-check">
+                            <ng-multiselect-dropdown [placeholder]="'custom
+                                            placeholder'" [data]="dropdownList" [(ngModel)]="selectedItems"
+                              [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+                              name="CreateBookingModel.Refreshment" [(ngModel)]="test"
+                              (onSelectAll)="onSelectAll($event)">
+                            </ng-multiselect-dropdown>
+                          </div>
+                          <button type="button" (click)="DivFindCenter=!DivFindCenter" style=" float: right; "
+                            class="btn btn-outline-info">Find Center</button>
+                        </div>
+                      </div>
+                    </div>
+
+
+
+                    <div class="form-group" *ngIf="DivFindCenter">
+                      <div class="row">
+                        <label class=" col-sm-3 col-form-label">Center</label>
+                        <div class="form-group col-sm-9">
+                          <div class="radiocheckbox">
+                            <div class="form-check">
+                              <ng-multiselect-dropdown [placeholder]="'Centers'" [data]="dropdownListCenter"
+                                [(ngModel)]="selectedItems" [settings]="dropdownSettings"
+                                (onSelect)="onItemSelect($event)" name="CreateBookingModel.Refreshment"
+                                [(ngModel)]="test" (onSelectAll)="onSelectAll($event)">
+                              </ng-multiselect-dropdown>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="nextpreviousbtn">
+                  <button type="button" class="btn btn-outline-warning" (click)="selectedwallet= 2"
+                    style="text-align: left; margin: 0px 11px;">Previous</button>
+                  <button class="btn btn-outline-primary">Save</button>
+                </div>
+
+
+
               </div>
             </div>
           </form>

@@ -1129,7 +1129,7 @@ form h4 {
 .fullpackages ul li:nth-child(1),
 .fullpackages ul li:nth-child(2){width:15%;}
 .fullpackages ul li:nth-child(3),
-.fullpackages ul li:nth-child(4){width:32%;}
+.fullpackages ul li:nth-child(4){width:28%;}
 .fullpackages ul li input,
 .fullpackages ul li select{padding:0.375rem 8px;}
 .fullpackages ul li .lbl,
@@ -1140,7 +1140,7 @@ form h4 {
 .fullpackages.roompkgs ul li:nth-child(3){width:10%;}
 .fullpackages.roompkgs ul li:nth-child(4){width:12%;}
 .fullpackages.roompkgs ul li:nth-child(5),
-.fullpackages.roompkgs ul li:nth-child(6){width:23%;}
+.fullpackages.roompkgs ul li:nth-child(6){width:20%;}
 .formboxadditional .bs-timepicker-field { width: 34px;  padding: 3px 1px !important;}
 .fullpackages.roompkgs ul li .dpicker{width:34px;}
 .delbtn{padding: 0px !important;}
@@ -1392,12 +1392,7 @@ form h4 {
 
 
 .formboxadditional .form-group .bookrespons{width:80%;margin:0px;}
-button.btn {
-    border-radius: 25px;
-    padding: 5px 20px;
-    font-size: 14px;
-    font-weight: 500;
-}
+
 .addrownew{display:block;width:100%;margin-top: 10px;clear: both;text-align:right;}
 .addrownew i {margin-right: 5px; }
 .addrownew a.btn{border-color:#eb6100;color:#eb6100;}
