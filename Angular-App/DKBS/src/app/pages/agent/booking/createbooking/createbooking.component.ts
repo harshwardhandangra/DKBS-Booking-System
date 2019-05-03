@@ -5,6 +5,7 @@ import { ZipcodeService } from 'src/service/zipcode/zipcode.service';
 import { StateprovinanceService } from 'src/service/stateprovinance/stateprovinance.service';
 import { ChoiceService } from 'src/service/Choice/Choice.service';
 import { element } from '@angular/core/src/render3';
+import { BookingService } from 'src/service/booking/booking.service';
 
 
 @Component({
@@ -211,32 +212,16 @@ export class CreatebookingComponent implements OnInit {
   deleteFieldgiveprizeMultilstType(index) {
     this.GiveprizeMultilstType.splice(index, 1);
   }
-  constructor(private zipcodeService: ZipcodeService, private stateprovinanceService: StateprovinanceService, private zone: NgZone, private choiceService: ChoiceService) {
+  constructor(private zipcodeService: ZipcodeService, private stateprovinanceService: StateprovinanceService, private zone: NgZone,
+     private choiceService: ChoiceService, private bookingService:BookingService) {
 
   }
 
   onSubmit() {
-    // this.CreateBookingModel.partnerId = 1;
-    // this.CreateBookingModel.customerId = 1;
-    // this.CreateBookingModel.cancellationReasonId = 1;
-    // this.CreateBookingModel.causeOfRemovalId = 1;
-    // this.CreateBookingModel.contactPersonId = 1;
-    // this.CreateBookingModel.bookingAndStatusId = 3;
-    // this.CreateBookingModel.flowId = 1;
-    // this.CreateBookingModel.partnerTypeId = 1;
-    // this.CreateBookingModel.mailLanguageId = 1;
-    // this.CreateBookingModel.otherCompaignName = "Test from webapp_Vishal";
-    // this.CreateBookingModel.flexibleDates = true;
-    // this.CreateBookingModel.bookingArrangementTypeViewModel = [this.bookingArrangementTypeViewModel];
-    // this.CreateBookingModel.bookingRoomViewModel = [this.bookingRoomViewModel]
-    // this.CreateBookingModel.bookingAlternativeServiceViewModel = [this.bookingAlternativeServiceViewModel]
-    // this.CreateBookingModel.bookingRoomViewModel.tableSetViewModel = this.tableSetViewModel;
-    // this.CreateBookingModel.arrivalDateTime = this.ar
     var arrivalDateTime = (this.arrivalDate.getMonth() + 1) + "/" + this.arrivalDate.getDate() + "/" + this.arrivalDate.getFullYear() + " " + this.arrivalTime.getHours() + ":" + this.arrivalTime.getMinutes();
     this.CreateBookingModel.arrivalDateTime = new Date(arrivalDateTime);
     var departDateTime = (this.departDate.getMonth() + 1) + "/" + this.departDate.getDate() + "/" + this.departDate.getFullYear() + " " + this.departTime.getHours() + ":" + this.departTime.getMinutes();
     this.CreateBookingModel.departDateTime = new Date(departDateTime);
-    console.log(this.bookingArrangementTypeViewModel)
     var bookingArrangementTypeViewModel = [];
     var bookingArrangementTypeViewModelfromDateTime = this.bookingArrangementTypeViewModel.fromDate != "" ? (this.bookingArrangementTypeViewModel.fromDate.getMonth() + 1) + "/" + this.bookingArrangementTypeViewModel.fromDate.getDate() + "/" + this.bookingArrangementTypeViewModel.fromDate.getFullYear() + " " + this.bookingArrangementTypeViewModel.fromTime.getHours() + ":" + this.bookingArrangementTypeViewModel.fromTime.getMinutes() : "";
     var bookingArrangementTypeViewModeltoDateTime = this.bookingArrangementTypeViewModel.toDate != "" ? (this.bookingArrangementTypeViewModel.toDate.getMonth() + 1) + "/" + this.bookingArrangementTypeViewModel.toDate.getDate() + "/" + this.bookingArrangementTypeViewModel.toDate.getFullYear() + " " + this.bookingArrangementTypeViewModel.toTime.getHours() + ":" + this.bookingArrangementTypeViewModel.toTime.getMinutes() : "";
@@ -294,11 +279,12 @@ export class CreatebookingComponent implements OnInit {
     this.GiveprizeMultilstType.forEach(element => {
       bookingAlternativeServiceViewModel.push(element)
     })
-
     this.CreateBookingModel.bookingArrangementTypeViewModel = bookingArrangementTypeViewModel;
     this.CreateBookingModel.bookingRoomViewModel = bookingRoomViewModel;
     this.CreateBookingModel.bookingAlternativeServiceViewModel = bookingAlternativeServiceViewModel;
-    console.log(this.CreateBookingModel);
+    this.bookingService.SaveBooking(this.CreateBookingModel).subscribe(res=>{
+
+    });
   }
   GetAllZipCodes(): any {
     this.zipcodeService.GetAllZipCodes().subscribe(res => {

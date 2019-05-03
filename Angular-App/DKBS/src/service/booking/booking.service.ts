@@ -5,6 +5,7 @@ import { CommonService } from '../common/common.service';
   providedIn: 'root'
 })
 export class BookingService {
+  
   bookingAssignmentTasks = [
     {SRM_id: 1, Case: 'Booking', Queries: 'Rooms Available', Role: 'Admin'
     , Booking_Responsible: 'Mack', Assigned_to_team: 'Bravo', Contact: '+44789', Company_old_look_up: 'Previous'
@@ -55,5 +56,10 @@ export class BookingService {
 
   getIncidentUnAssignedTask(): any{
     return this.incidentUnAssignmentTasks;
+  }
+
+  SaveBooking(CreateBookingModel: any) {
+    var url = 'BookingController';
+    return this.commonService.post(url,CreateBookingModel);
   }
 }
