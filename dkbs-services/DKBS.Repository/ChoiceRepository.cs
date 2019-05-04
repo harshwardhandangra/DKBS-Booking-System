@@ -458,6 +458,50 @@ namespace DKBS.Repository
                     bookingDto.BookingAlternativeServiceDTO.Add(bookingAlternativeServiceDTO);
                 }
 
+                var procedures = _dbContext.Procedure.Where(x => x.BookingId == item.BookingId).ToList();
+
+
+                //TODO: Code has to refactor, wiil add as navigation property avoid to many mapping
+                if (procedures != null)
+                {
+                    foreach (var procedure in procedures)
+                    {
+                        //ProcedureDTO
+                        var customerInfo = GetById<Customer>(procedure.CustomerId);
+                        var customerInfoDto = _mapper.Map<Customer, CustomerDTO>(customerInfo);
+                        var CauseOfRemoval = GetById<CauseOfRemoval>(procedure.CauseOfRemovalId);
+                        var CauseOfRemovalDto = _mapper.Map<CauseOfRemoval, CauseOfRemovalDTO>(CauseOfRemoval);
+                        var ProcedureReviewType = GetById<ProcedureReviewType>(procedure.ProcedureReviewTypeId);
+                        var ProcedureReviewTypeDto = _mapper.Map<ProcedureReviewType, ProcedureReviewTypeDTO>(ProcedureReviewType);
+                        var procedureDto = _mapper.Map<Procedure, ProcedureDTO>(procedure);
+                        procedureDto.CauseOfRemovalDTO = CauseOfRemovalDto;
+                        procedureDto.ProcedureReviewTypeDTO = ProcedureReviewTypeDto;
+                        procedureDto.CustomerDTO = customerInfoDto;
+                        var procedureInfo = _dbContext.ProcedureInfo.Where(x => x.ProcedureId == procedure.ProcedureId).FirstOrDefault();
+
+                        if (procedureInfo != null)
+                        {
+                            var partnerDtoInfo = _dbContext.Partner.Include(x => x.CenterType).FirstOrDefault();
+                            //var centerTypeDtoInfo = _mapper.Map<CenterType, CenterTypeDTO>(partnerDtoInfo.CenterType);
+                            var procedureInfoDto = new ProcedureInfoDTO()
+                            {
+                                //CenterTypeDTO = centerTypeDtoInfo,
+                                Chat = procedureInfo.Chat,
+                                Comment = procedureInfo.Comment,
+                                EmailOffer = procedureInfo.EmailOffer,
+                                PartnerDTO = partnerDto,
+                                Price = procedureInfo.Price,
+                                ProcedureInfoId = procedureInfo.ProcedureInfoId,
+                                Reply = procedureInfo.Reply,
+                                ProcedureDTO = procedureDto,                               
+                            };
+
+                            bookingDto.ProcedureInfoDTO.Add(procedureInfoDto);
+                        }
+                    }
+                }
+
+
                 bookingDto.BookingId = item.BookingId;
                 bookingDto.PartnerDTO = partnerDto;
                 bookingDto.CustomerDTO = customerDto;
@@ -523,8 +567,8 @@ namespace DKBS.Repository
                 };
 
                 var customer = _dbContext.Customer.Where(x => x.CustomerId == item.CustomerId).FirstOrDefault();//.Include(x => x.IndustryCode).FirstOrDefault();
-                //var industryCode = _dbContext.IndustryCode.Where(x => x.IndustryCodeId == customer.IndustryCode.IndustryCodeId).FirstOrDefault();
-               // IndustryCodeDTO industryCodeDto = _mapper.Map<IndustryCode, IndustryCodeDTO>(industryCode);
+                                                                                                                //var industryCode = _dbContext.IndustryCode.Where(x => x.IndustryCodeId == customer.IndustryCode.IndustryCodeId).FirstOrDefault();
+                                                                                                                // IndustryCodeDTO industryCodeDto = _mapper.Map<IndustryCode, IndustryCodeDTO>(industryCode);
                 var customerDto = new CustomerDTO()
                 {
                     City = customer.City,
