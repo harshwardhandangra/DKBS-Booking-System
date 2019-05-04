@@ -10,8 +10,8 @@ namespace DKBS.DTO
         public ProcedureReviewTypeDTO ProcedureReviewTypeDTO { get; set; }
         public DateTime LastModified { get; set; }
         public string LastModifiedBy { get; set; }
-        public BookingDTO BookingDTO { get; set; }
-        public PartnerDTO PartnerDTO { get; set; }
         public CustomerDTO CustomerDTO { get; set; }
+        //public BookingDTO BookingDTO { get; set; }
+        //public PartnerDTO PartnerDTO { get; set; }       
     }
 }

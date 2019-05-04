@@ -631,7 +631,38 @@ label {
 #record-demo-video .modal-dialog {
     width: 518px;
 }
+.content-header {
+    position: relative;
+    padding: 40px 15px 0 15px;
+}
+.content-header>.breadcrumb {
+    float: right;
+    background: transparent;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 14px;
+    padding: 7px 5px;
+    position: absolute;
+    top: 15px;
+    /* right: 10px; */
+    border-radius: 2px;
+}
+.content-header>.breadcrumb>li+li:before {
+    content: '>\00a0';
+}
+.breadcrumb>li+li:before {
+    padding: 0 5px;
+    color: #ccc;
+    content: "/\00a0";
+}
 
+.breadcrumb>.active {
+    color: #777;
+}
+
+.breadcrumb>li {
+    display: inline-block;
+}
 .breadcrumb {
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
@@ -639,6 +670,8 @@ label {
     -moz-background-clip: padding;
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
+
+    
 }
 
 .list-group {
@@ -1140,22 +1173,17 @@ form h4 {
 .fullpackages ul li:nth-child(1),
 .fullpackages ul li:nth-child(2){width:15%;}
 .fullpackages ul li:nth-child(3),
-.fullpackages ul li:nth-child(4){width:31%;}
+.fullpackages ul li:nth-child(4){width:30%;}
 .fullpackages ul li input,
 .fullpackages ul li select{padding:0.375rem 8px;}
 .fullpackages ul li .lbl,
 .yourprizefiled  ul li .lbl{font-weight: 600;color: #34395e;font-size: 12px;}
-.fullpackages ul li .dpicker {width: 100px; float: left; margin-right: 5px;}
-.fullpackages.roompkgs ul li{margin-left:1%;}
-.fullpackages.roompkgs ul li:nth-child(1){width:12%;}
-.fullpackages.roompkgs ul li:nth-child(2),
-.fullpackages.roompkgs ul li:nth-child(3){width:10%;}
 .fullpackages.roompkgs ul li:nth-child(4){width:12%;}
-.fullpackages.roompkgs ul li:nth-child(5),
-.fullpackages.roompkgs ul li:nth-child(6){width:23%;}
-.formboxadditional  .fullpackages.roompkg .bs-timepicker-field {width: 33px;}
+.fullpackages.roompkgs ul li:nth-child(6){width:22%;}
+.fullpackages.roompkgs ul li:nth-child(7){margin-left: 0}
 .formboxadditional .bs-timepicker-field { width: 34px;  padding: 3px 1px !important;}
-.fullpackages.roompkgs ul li .dpicker{width:34px;}
+.fullpackages.roompkgs ul li .dpicker{width:45%;} 
+.fullpackages ul li button{padding:0;}
 .delbtn{padding: 0px !important;}
 .yourprizefiled{margin-top:50px;}
 .yourprizefiled .sidelbl{width:25%;float: left;}

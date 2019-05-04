@@ -181,15 +181,15 @@ export class ChoiceService {
   }
 
   GetpartnersEmployeebyID(PartnerEMpID: BigInteger): any {
-    var url = '/api/PartnerEmployee/1';
+    var url = '/api/PartnerEmployee/'+PartnerEMpID;
     return this.commonService.get(url);
   }
-
 
   GetAllcases(): any {
     var url = '/BookingController';
     return this.commonService.get(url);
   }
+  
   GetPartnerforFindCenter(): any {
     var url = '/PartnerEmployee';
     return this.commonService.get(url);

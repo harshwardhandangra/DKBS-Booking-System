@@ -5,7 +5,7 @@
         public int ProcedureInfoId { get; set; }
         public ProcedureDTO ProcedureDTO  { get; set; }
         public PartnerDTO PartnerDTO { get; set; }
-        public CenterTypeDTO CenterTypeDTO { get; set; }
+        //public CenterTypeDTO CenterTypeDTO { get; set; }
         public string EmailOffer { get; set; }
         public string Reply { get; set; }
         public string Comment { get; set; }

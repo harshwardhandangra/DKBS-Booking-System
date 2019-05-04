@@ -12,6 +12,7 @@ namespace DKBS.DTO
             BookingRoomDTO = new List<BookingRoomDTO>();
             BookingArrangementTypeDTO = new List<BookingArrangementTypeDTO>();
             BookingAlternativeServiceDTO = new List<BookingAlternativeServiceDTO>();
+            ProcedureInfoDTO = new List<ProcedureInfoDTO>();
         }
         public int BookingId { get; set; }
         public PartnerDTO PartnerDTO { get; set; }
@@ -23,7 +24,7 @@ namespace DKBS.DTO
         public BookingAndStatusDTO BookingAndStatusDTO { get; set; }
         public FlowDTO FlowDTO { get; set; }
         public MailLanguageDTO MailLanguageDTO { get; set; }
-        public PartnerTypeDTO PartnerTypeDTO { get; set; }
+        //public PartnerTypeDTO PartnerTypeDTO { get; set; }
         public ParticipantTypeDTO ParticipantTypeDTO { get; set; }
         public PurposeDTO PurposeDTO { get; set; }
         public LeadOfOriginDTO LeadOfOriginDTO { get; set; }
@@ -36,5 +37,6 @@ namespace DKBS.DTO
         public List<BookingRoomDTO> BookingRoomDTO { get; set; }
         public List<BookingArrangementTypeDTO> BookingArrangementTypeDTO { get; set; }
         public List<BookingAlternativeServiceDTO> BookingAlternativeServiceDTO { get; set; }
+        public List<ProcedureInfoDTO> ProcedureInfoDTO { get; set; }
     }
 }

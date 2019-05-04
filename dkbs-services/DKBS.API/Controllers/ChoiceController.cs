@@ -35,7 +35,7 @@ namespace DKBS.API.Controllers
         [HttpGet()]
         public ActionResult<RegionDTO> GetRegions()
         {
-           return Ok(_choiceRepoistory.GetRegions());
+            return Ok(_choiceRepoistory.GetRegions());
         }
 
         /// <summary>
@@ -290,7 +290,7 @@ namespace DKBS.API.Controllers
         [HttpGet()]
         public ActionResult<BookingDTO> GetBookings()
         {
-            return Ok(_choiceRepoistory.GetBookings());
+            return Ok(_choiceRepoistory.GetAllBookings());
         }
 
         /// <summary>
