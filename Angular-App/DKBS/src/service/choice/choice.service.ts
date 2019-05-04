@@ -7,7 +7,7 @@ import { CommonService } from '../common/common.service';
 })
 export class ChoiceService {
 
-  constructor(private commonService:CommonService) {
+  constructor(private commonService: CommonService) {
 
   }
 
@@ -159,7 +159,7 @@ export class ChoiceService {
     return this.commonService.get(url);
   }
 
-  
+
 
   GetAllServiceCatalogs(): any {
     var url = '/choice/ServiceCatalogs';
@@ -171,7 +171,7 @@ export class ChoiceService {
   }
 
   GetContactbyCompany(partnerID: BigInteger): any {
-    var url = 'api/ContactPerson/921';
+    var url = 'api/ContactPerson/' + partnerID;
     return this.commonService.get(url);
   }
 
@@ -195,12 +195,12 @@ export class ChoiceService {
     return this.commonService.get(url);
   }
 
-  GetCenterbyfilter(partnerID: BigInteger,centermatchings:string,partnertypes:string,datetime:string): any {
+  GetCenterbyfilter(partnerID: BigInteger, centermatchings: string, partnertypes: string, datetime: string): any {
     var url = '/PartnerEmployee';
     return this.commonService.get(url);
   }
-  
-  
+
+
 
   // GetAllCentermatchings(): any {
   //   var url = '/choice/centermatchings';
