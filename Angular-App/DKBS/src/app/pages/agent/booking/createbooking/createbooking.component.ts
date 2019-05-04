@@ -25,16 +25,16 @@ export class CreatebookingComponent implements OnInit {
   DivFindCenter: boolean;
   CreateBookingModel: any = {
     "bookingId": 0,
-    "partnerId": 0,
-    "customerId": 0,
+    "partnerId": 1,
+    "customerId": 1,
     "tableTypeId": 0,
-    "cancellationReasonId": 0,
-    "causeOfRemovalId": 0,
-    "contactPersonId": 0,
-    "bookingAndStatusId": 0,
-    "flowId": 0,
-    "mailLanguageId": 0,
-    "partnerTypeId": 0,
+    "cancellationReasonId": 1,
+    "causeOfRemovalId": 1,
+    "contactPersonId": 1,
+    "bookingAndStatusId": 3,
+    "flowId": 1,
+    "mailLanguageId": 1,
+    "partnerTypeId": 1,
     "participantTypeId": 0,
     "purposeId": 0,
     "leadOfOriginId": 0,
@@ -44,8 +44,8 @@ export class CreatebookingComponent implements OnInit {
     "flexibleDates": true,
     "internalHistory": "",
     "numberOfRooms": 0,
-    "otherCompaignName": "",
-    "numberOfPerticipants": 0,
+    "otherCompaignName": "string",
+    "numberOfPerticipants": 0, 
     "regionIds": [],
     "bookingRoomViewModel": [],
     "bookingArrangementTypeViewModel": [],
@@ -74,7 +74,7 @@ export class CreatebookingComponent implements OnInit {
       "lastModified": "2019-04-29T13:28:34.024Z",
       "lastModifiedBy": "string"
     },
-	{
+    {
       "partnerId": 3,
       "partnerName": "string",
       "emailId": "string",
@@ -204,7 +204,6 @@ export class CreatebookingComponent implements OnInit {
 
   }
   onSelect(event: TypeaheadMatch): void {
-    this.CreateBookingModel.customerId = event.item.partnerId;
     this.GetContactbyCompany(event.item.partnerId);
   }
   onSelectCompany(event: TypeaheadMatch): void {
@@ -220,7 +219,7 @@ export class CreatebookingComponent implements OnInit {
   }
   onSelectAll(items: any) {
     items.forEach(element => {
-      this.CreateBookingModel.regionIds.push(element.item_id);      
+      this.CreateBookingModel.regionIds.push(element.item_id);
     });
     console.log(items);
   }
