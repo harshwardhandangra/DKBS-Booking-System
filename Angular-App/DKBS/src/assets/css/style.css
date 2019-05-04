@@ -631,7 +631,38 @@ label {
 #record-demo-video .modal-dialog {
     width: 518px;
 }
+.content-header {
+    position: relative;
+    padding: 15px 15px 0 15px;
+}
+.content-header>.breadcrumb {
+    float: right;
+    background: transparent;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 14px;
+    padding: 7px 5px;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    border-radius: 2px;
+}
+.content-header>.breadcrumb>li+li:before {
+    content: '>\00a0';
+}
+.breadcrumb>li+li:before {
+    padding: 0 5px;
+    color: #ccc;
+    content: "/\00a0";
+}
 
+.breadcrumb>.active {
+    color: #777;
+}
+
+.breadcrumb>li {
+    display: inline-block;
+}
 .breadcrumb {
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
@@ -639,6 +670,8 @@ label {
     -moz-background-clip: padding;
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
+
+    
 }
 
 .list-group {
