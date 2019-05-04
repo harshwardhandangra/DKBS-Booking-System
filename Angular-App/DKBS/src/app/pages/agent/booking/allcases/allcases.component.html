@@ -83,30 +83,38 @@
         </div>
     </section>
 </main> -->
-
 <app-navigation></app-navigation>
 <main id="playground">
     <app-header></app-header>
+    <section class="content-header">
+        <h1>
+           
+         
+        </h1>
+        <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li class="active">All Cases</li>
+        </ol>
+      </section>
     <section class="content-area">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>
-                        All Cases
-                    </h1>
-                    <div class="newbooking"> <a routerLink="/newbooking"><i class="fa fa-plus"></i> New Booking</a></div>
+                   
+                    <!-- <div class="newbooking"> <a routerLink="/newbooking"><i
+                                class="fa fa-plus"></i> New Booking</a></div> -->
                     <div class="container-fluid">
 
                         <!-- Breadcrumbs-->
-                        
-                
+
+
                         <!-- DataTables Example -->
                         <div class="card mb-3">
-                          <div class="card-header">
-                            <i class="fas fa-table"></i>
-                            All Cases</div>
-                          <div class="card-body">
-                            <div class="table-responsive">
+                            <!-- <div class="card-header">
+                                <a routerLink="/newbooking"><i
+                                    class="fa fa-plus"></i> New Booking</a></div> -->
+                            <div class="card-body">
+                                <!-- <div class="table-responsive">
                               <table class="table table-bordered table-striped" id="dataTable" >
                                 <thead>
                                   <tr>
@@ -140,19 +148,85 @@
                                   
                                 </tbody>
                               </table>
-                            </div>
-                          </div>
-                        
-                        </div>
-                
-                        <p class="small text-center text-muted my-5">
-                          <em>More table examples coming soon...</em>
-                        </p>
-                
-                      </div>
+                            </div> -->
+                                <div class="table-responsive" style="height: 500px;">
+                                    <table class="table table-hover"  style="width: 2633px;">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">SRM ID</th>
+                                                <th scope="col">Case</th>
+                                                <th scope="col">Contact person</th>
+                                                <th scope="col">Business</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">Telephone</th>
+                                                <th scope="col">Mobile</th>
+                                              
+                                                <th scope="col">Booking
+                                                    Responsible</th>
+                                                <th scope="col">Lead origin</th>
+                                                <th scope="col">Created</th>
+                                                <th scope="col">Arrival</th>
+                                                <th scope="col">Depart</th>
+                                                <th scope="col">status</th>
+                                                <th scope="col">Location</th>
+                                                <th scope="col">Referred by</th>
+                                                <th scope="col">Set by center in
+                                                    total</th>
+                                                <th scope="col">Location Date</th>
+                                                <th scope="col">Number of
+                                                    participants</th>
+                                                <th scope="col">Estimated by
+                                                    DKBS in
+                                                    total</th>
+                                                <th scope="col">Cancellation
+                                                    Reason</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let p of Allcaseslst">
+                                                <th scope="row">1</th>
+                                                <td>{{p.bookingId}}</td>
+                                                <td>Refrence from another partner     
+                                                    <a routerLink="/allcases" style="
+                                                    color: #eb6100;
+                                                    text-decoration: underline;
+                                                " > <span>SRM{{p.bookingId}}</span>&nbsp;<i class="fa fa-external-link"></i> </a>
+                                                </td>
+                                                <td>{{p.partnerDTO.partnerName}}</td>
+                                                <td>Business</td>
+                                                <td>{{p.partnerDTO.emailId}}</td>
+                                                <td>{{p.partnerDTO.phoneNumber}}</td>
+                                                <td>456</td>
+                                               
+                                                <td>Hall Booking</td>
+                                                <td>{{p.leadOfOriginDTO.name}}</td>
+                                                <td>{{p.partnerDTO.centerTypeDTO.createdDate}}</td>
+                                                <td>{{p.arrivalDateTime}}</td>
+                                                <td>{{p.departDateTime}}</td>
+                                                <td><span class="label label-success">Approved</span></td>
+                                                <td>location</td>
+                                                <td>Referredby</td>
+                                                <td>set by</td>
+                                                <td>location date</td>
+                                                <td>No of parti</td>
+                                                <td>estimated</td>
+                                                <td>{{p.cancellationReasonDTO.cancellationReasonName}}</td>
 
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-</main>
+        </section>
+    </main>
