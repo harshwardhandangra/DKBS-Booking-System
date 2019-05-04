@@ -50,14 +50,61 @@ export class CreatebookingComponent implements OnInit {
     "bookingRoomViewModel": [],
     "bookingArrangementTypeViewModel": [],
     "bookingAlternativeServiceViewModel": [],
-    "partners": []
+    "partners": [{
+      "partnerId": 1,
+      "partnerName": "string",
+      "emailId": "string",
+      "centerTypeDTO": {
+        "centerTypeId": 1,
+        "centerTypeTitle": "string",
+        "lastModified": "2019-04-29T13:28:34.024Z",
+        "lastModifiedBy": "string",
+        "createdDate": "2019-04-29T13:28:34.024Z",
+        "createdBy": "string"
+      },
+      "partnerTypeDTO": {
+        "partnerTypeId": 1,
+        "partnerTypeTitle": "string",
+        "lastModified": "2019-04-29T13:28:34.024Z",
+        "lastModifiedBy": "string",
+        "createdDate": "2019-04-29T13:28:34.024Z",
+        "createdBy": "string"
+      },
+      "phoneNumber": "string",
+      "lastModified": "2019-04-29T13:28:34.024Z",
+      "lastModifiedBy": "string"
+    },
+	{
+      "partnerId": 3,
+      "partnerName": "string",
+      "emailId": "string",
+      "centerTypeDTO": {
+        "centerTypeId": 3,
+        "centerTypeTitle": "string",
+        "lastModified": "2019-04-29T13:28:34.024Z",
+        "lastModifiedBy": "string",
+        "createdDate": "2019-04-29T13:28:34.024Z",
+        "createdBy": "string"
+      },
+      "partnerTypeDTO": {
+        "partnerTypeId": 3,
+        "partnerTypeTitle": "string",
+        "lastModified": "2019-04-29T13:28:34.024Z",
+        "lastModifiedBy": "string",
+        "createdDate": "2019-04-29T13:28:34.024Z",
+        "createdBy": "string"
+      },
+      "phoneNumber": "string",
+      "lastModified": "2019-04-29T13:28:34.024Z",
+      "lastModifiedBy": "string"
+    }]
   }
 
   bookingRoomViewModel: any = {
     "tableSetViewModel": {
       "tableSetName": 0,
-      "lastModified": "",
-      "lastModifiedBy": ""
+      "lastModified": new Date(),
+      "lastModifiedBy": 1
     },
     "locationAttraction": "",
     "numberOfRooms": "",
@@ -74,10 +121,10 @@ export class CreatebookingComponent implements OnInit {
   bookingAlternativeServiceViewModel: any = {
     "numberOfPieces": "",
     "description": "",
-    "createdDate": "",
-    "createdBy": "",
-    "lastModified": "",
-    "lastModifiedBy": ""
+    "createdDate": new Date(),
+    "createdBy": 1,
+    "lastModified": new Date(),
+    "lastModifiedBy": 1
   };
   tableSetViewModel: any = {};
   mytime1: Date | undefined = new Date();
@@ -168,10 +215,18 @@ export class CreatebookingComponent implements OnInit {
   }
 
   onItemSelect(item: any) {
+    this.CreateBookingModel.regionIds.push(item.item_id)
     console.log(item);
   }
   onSelectAll(items: any) {
+    items.forEach(element => {
+      this.CreateBookingModel.regionIds.push(element.item_id);      
+    });
     console.log(items);
+  }
+  onItemDeSelect(item: any) {
+    // this.CreateBookingModel.regionIds.splice(item.item_id)
+    console.log(item);
   }
   private Arrangementtype: any = [];
   private RoomMultilstType: Array<any> = [];
@@ -213,7 +268,7 @@ export class CreatebookingComponent implements OnInit {
     this.GiveprizeMultilstType.splice(index, 1);
   }
   constructor(private zipcodeService: ZipcodeService, private stateprovinanceService: StateprovinanceService, private zone: NgZone,
-     private choiceService: ChoiceService, private bookingService:BookingService) {
+    private choiceService: ChoiceService, private bookingService: BookingService) {
 
   }
 
@@ -247,8 +302,8 @@ export class CreatebookingComponent implements OnInit {
     bookingRoomViewModel.push({
       "tableSetViewModel": {
         "tableSetName": this.bookingRoomViewModel.tableSetName,
-        "lastModified": "",
-        "lastModifiedBy": ""
+        "lastModified": new Date(),
+        "lastModifiedBy": "1"
       },
       "locationAttraction": this.bookingRoomViewModel.locationAttraction,
       "numberOfRooms": this.bookingRoomViewModel.numberOfRooms,
@@ -263,8 +318,8 @@ export class CreatebookingComponent implements OnInit {
       bookingRoomViewModel.push({
         "tableSetViewModel": {
           "tableSetName": element.tableSetName,
-          "lastModified": "",
-          "lastModifiedBy": ""
+          "lastModified": new Date(),
+          "lastModifiedBy": "1"
         },
         "locationAttraction": element.locationAttraction,
         "numberOfRooms": element.numberOfRooms,
@@ -282,7 +337,7 @@ export class CreatebookingComponent implements OnInit {
     this.CreateBookingModel.bookingArrangementTypeViewModel = bookingArrangementTypeViewModel;
     this.CreateBookingModel.bookingRoomViewModel = bookingRoomViewModel;
     this.CreateBookingModel.bookingAlternativeServiceViewModel = bookingAlternativeServiceViewModel;
-    this.bookingService.SaveBooking(this.CreateBookingModel).subscribe(res=>{
+    this.bookingService.SaveBooking(this.CreateBookingModel).subscribe(res => {
 
     });
   }

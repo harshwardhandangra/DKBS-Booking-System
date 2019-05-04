@@ -24,60 +24,69 @@
                   <div class="card-header">Company Information</div>
                   <div class="card-body compinfosec">
                     <div class="row">
-                      <div class="col-md-12">
-                        <label class="lbl">Company</label>
+                      <label class="col-sm-3 col-form-label">
+                        <label class="col-form-label">Company</label>
+                      </label>
+                      <div class="col-md-9">
                         <input [(ngModel)]="selectedValuestates" [typeahead]="company"
                           typeaheadOptionField="customerName" (typeaheadOnSelect)="onSelectCompany($event)"
                           [typeaheadScrollable]="true" class="form-control" name="kp" autocomplete="off">
                       </div>
-                    </div>
-                    <div class="row">
-                      <div class="form-group col-md-6">
-                        <label class="lbl">Contact Person</label>
+                      <label class="col-sm-3 col-form-label">
+                        <label class="col-form-label">Contact Person</label>
+                      </label>
+                      <div class="form-group col-md-9">
                         <input [(ngModel)]="selectedValueContactPerson" [typeahead]="ContactPerson"
                           typeaheadOptionField="name" (typeaheadOnSelect)="onSelect($event)"
                           [typeaheadScrollable]="true" class="form-control" name="ContactPerson" autocomplete="off">
                       </div>
-                      <div class="form-group col-md-6">
-                        <label class="lbl">Email</label>
+                      <label class="col-sm-3 col-form-label">
+                        <label class="col-form-label">Email</label>
+                      </label>
+                      <div class="form-group col-md-9">
                         <input type="text" name="Email" [(ngModel)]="LocCreateBookingCustModel.Email"
                           class="form-control">
                       </div>
-                    </div>
-                    <div class="row">
-                      <div class="form-group col-md-6">
-                        <label class="lbl">Telephone</label>
+                      <label class="col-sm-3 col-form-label">
+                        <label class="col-form-label">Telephone</label>
+                      </label>
+                      <div class="form-group col-md-9">
                         <input type="text" name="Telephone" [(ngModel)]="LocCreateBookingCustModel.Telephone"
                           class="form-control">
                       </div>
-                      <div class="form-group col-md-6">
-                        <label class="lbl">Mobile</label>
+                      <label class="col-sm-3 col-form-label">
+                        <label class="col-form-label">Mobile</label>
+                      </label>
+                      <div class="form-group col-md-9">
                         <input type="text" name="Mobile" [(ngModel)]="LocCreateBookingCustModel.Mobile"
                           class="form-control">
                       </div>
                     </div>
                   </div>
                 </div>
-
                 <div class="card">
                   <div class="card-header">Reference</div>
                   <div class="card-body compinfosec">
                     <div class="row">
-                      <div class="form-group col-md-6">
+                      <label class="col-sm-3 col-form-label">
                         <label class="col-form-label">Referred by</label>
-                        <input [(ngModel)]="TEST" [typeahead]="Referred" typeaheadOptionField="employeeName"
+                      </label>
+                      <div class="form-group col-md-9">
+                        <input [(ngModel)]="partnerId" [typeahead]="Referred" typeaheadOptionField="employeeName"
                           (typeaheadOnSelect)="onSelectReferredby($event)" [typeaheadScrollable]="true"
                           class="form-control" name="Referred" autocomplete="off">
                       </div>
-                      <div class="form-group col-md-6">
+                      <label class="col-sm-3 col-form-label">
                         <label class="col-form-label">Refers</label>
-                        <input [(ngModel)]="TEST2" [typeahead]="ReferDDL" typeaheadOptionField="partnerName"
+                      </label>
+                      <div class="form-group col-md-9">
+                        <input [(ngModel)]="partnerEmployeeId" [typeahead]="ReferDDL" typeaheadOptionField="partnerName"
                           [typeaheadScrollable]="true" class="form-control" name="ReferDDL" autocomplete="off">
                       </div>
-                    </div>
-                    <div class="row">
-                      <div class="form-group col-md-6">
+                      <label class="col-sm-3 col-form-label">
                         <label class="col-form-label">Where do you know us?</label>
+                      </label>
+                      <div class="form-group col-md-9">
                         <select id="inputState" name="Campaign" [(ngModel)]="CreateBookingModel.campaignId"
                           class="form-control txtsize">
                           <option *ngFor="let ObjdropdownCampaign of dropdownCampaign"
@@ -86,8 +95,10 @@
                           </option>
                         </select>
                       </div>
-                      <div class="form-group col-md-6">
+                      <label class="col-sm-3 col-form-label">
                         <label class="col-form-label">Lead Origin</label>
+                      </label>
+                      <div class="form-group col-md-9">
                         <select id="inputState" name="LeadOrigin" [(ngModel)]="CreateBookingModel.leadOfOriginId"
                           class="form-control txtsize">
                           <option *ngFor="let ObjLeadOrigin of dropdownListLeadOrigin"
@@ -248,8 +259,8 @@
                           <div class="datetimediv">
                             <input type="text" [(ngModel)]="bookingArrangementTypeViewModel.toDate" name="ToArrivalDate"
                               bsDatepicker class="form-control dpicker" autocomplete="off" />
-                            <timepicker [(ngModel)]="bookingArrangementTypeViewModel.toTime" name="bookingArrangementTypeViewModel"
-                              class="widthtimepicker"></timepicker>
+                            <timepicker [(ngModel)]="bookingArrangementTypeViewModel.toTime"
+                              name="bookingArrangementTypeViewModel" class="widthtimepicker"></timepicker>
                           </div>
                         </li>
                       </ul>
@@ -265,8 +276,9 @@
                           </select>
                         </li>
                         <li>
-                          <input myNumberOnly name="NoOfPart_{{i}}" [(ngModel)]="ObjArrangementtype.numberOfParticipants"
-                            class="form-control InlineInput" maxlength="8">
+                          <input myNumberOnly name="NoOfPart_{{i}}"
+                            [(ngModel)]="ObjArrangementtype.numberOfParticipants" class="form-control InlineInput"
+                            maxlength="8">
                         </li>
                         <li>
                           <div class="datetimediv">
@@ -322,8 +334,7 @@
                           </li>
                           <li>
                             <div class="lbl">Table Set</div>
-                            <select id="inputState" name="TableSets"
-                              [(ngModel)]="bookingRoomViewModel.tableSetName"
+                            <select id="inputState" name="TableSets" [(ngModel)]="bookingRoomViewModel.tableSetName"
                               class="form-control txtsize">
                               <option *ngFor="let ObjTableSetting of
                                   dropdownListTableSetting" [ngValue]="ObjTableSetting.item_id">
@@ -370,8 +381,7 @@
                           </li>
                           <li>
                             <select id="inputState" name="TableSets_{{i}}"
-                              [(ngModel)]="ObjRoomMultilstType.tableSetName"
-                              class="form-control txtsize">
+                              [(ngModel)]="ObjRoomMultilstType.tableSetName" class="form-control txtsize">
                               <option *ngFor="let ObjTableSetting of
                                 dropdownListTableSetting" [ngValue]="ObjTableSetting.item_id">
                                 {{ObjTableSetting.item_text}}
@@ -451,6 +461,26 @@
 
 
                 </div>
+
+                <div class="card">
+                  <div class="card-header">Comments</div>
+                  <div class="card-body compinfosec">
+                    <div class="row">
+                      <label class="col-sm-3 col-form-label">
+                        <label class="col-form-label">Supplementary Wishes/ Comments</label>
+                      </label>
+                      <div class="form-group col-md-9">
+                        <textarea style="width:100%" rows="4" [(ngModel)]="comments"></textarea>
+                      </div>
+                      <label class="col-sm-3 col-form-label">
+                        <label class="col-form-label">Booking Responsibility</label>
+                      </label>
+                      <div class="form-group col-md-9">
+                        <input type="text" name="Mobile" [(ngModel)]="bookingResponsibilty" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div class="pull-right">
                   <button type="button" class="btn btn-outline-primary" (click)="selectedwallet= 2">Next</button>
                 </div>
@@ -461,24 +491,30 @@
                   <div class="card-header">Cener-matching</div>
                   <div class="card-body compinfosec">
                     <div class="row">
-                      <div class="form-group col-md-6">
+                      <label class="col-sm-3 col-form-label">
                         <label class="col-form-label">Partner Type</label>
+                      </label>
+                      <div class="form-group col-md-9">
                         <div class="radiocheckbox">
                           <div class="form-check">
-                            <ng-multiselect-dropdown [placeholder]="'Partner Type'" [data]="dropdownListforSearchType" [settings]="dropdownSettings"
-                              (onSelect)="onItemSelect($event)" name="CreateBookingModel.PartnerType" [(ngModel)]="CreateBookingModel.PartnerType"
+                            <ng-multiselect-dropdown [placeholder]="'Partner Type'" [data]="dropdownListforSearchType"
+                              [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+                              name="CreateBookingModel.PartnerType" [(ngModel)]="PartnerType"
                               (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
                           </div>
                         </div>
                       </div>
-                      <div class="form-group col-md-6">
+                      <label class="col-sm-3 col-form-label">
                         <label class="col-form-label">Center Matchings</label>
+                      </label>
+                      <div class="form-group col-md-9">
                         <div class="radiocheckbox">
                           <div class="form-check">
                             <ng-multiselect-dropdown [placeholder]="'Center Matchings'"
                               [data]="dropdownListforCenterMatching" [settings]="dropdownSettings"
                               (onSelect)="onItemSelect($event)" name="CreateBookingModel.CenterMatchings"
-                              [(ngModel)]="CreateBookingModel.CenterMatchings" (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
+                              [(ngModel)]="CenterMatchings" (onSelectAll)="onSelectAll($event)">
+                            </ng-multiselect-dropdown>
                           </div>
                         </div>
                       </div>
@@ -499,7 +535,8 @@
                             <ng-multiselect-dropdown [placeholder]="'Region / Province
                                         '" [data]="dropdownList" name="Regions" [settings]="dropdownSettings"
                               (onSelect)="onItemSelect($event)" name="CreateBookingModel.RegionProvinance"
-                              [(ngModel)]="CreateBookingModel.RegionProvinance" (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
+                              [(ngModel)]="RegionProvinance" (onSelectAll)="onSelectAll($event)">
+                            </ng-multiselect-dropdown>
                           </div>
                         </div>
                       </div>
@@ -517,10 +554,9 @@
                         <div class="radiocheckbox">
                           <div class="form-check">
                             <ng-multiselect-dropdown [placeholder]="'custom
-                                            placeholder'" [data]="dropdownList" [(ngModel)]="selectedItems"
-                              [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
-                              name="CreateBookingModel.Refreshment" [(ngModel)]="CreateBookingModel.Refreshment"
-                              (onSelectAll)="onSelectAll($event)">
+                                            placeholder'" [data]="dropdownList" [settings]="dropdownSettings"
+                              (onSelect)="onItemSelect($event)" name="CreateBookingModel.Refreshment"
+                              [(ngModel)]="Refreshment" (onSelectAll)="onSelectAll($event)">
                             </ng-multiselect-dropdown>
                           </div>
                           <button type="button" (click)="DivFindCenter=!DivFindCenter" style=" float: right; "
@@ -528,9 +564,6 @@
                         </div>
                       </div>
                     </div>
-
-
-
                     <div class="form-group" *ngIf="DivFindCenter">
                       <div class="row">
                         <label class=" col-sm-3 col-form-label">Center</label>
@@ -538,9 +571,9 @@
                           <div class="radiocheckbox">
                             <div class="form-check">
                               <ng-multiselect-dropdown [placeholder]="'Centers'" [data]="dropdownListCenter"
-                                [(ngModel)]="selectedItems" [settings]="dropdownSettings"
-                                (onSelect)="onItemSelect($event)" name="CreateBookingModel.Refreshment"
-                                [(ngModel)]="test" (onSelectAll)="onSelectAll($event)">
+                                [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+                                name="CreateBookingModel.Partner" [(ngModel)]="Partners"
+                                (onSelectAll)="onSelectAll($event)">
                               </ng-multiselect-dropdown>
                             </div>
                           </div>
