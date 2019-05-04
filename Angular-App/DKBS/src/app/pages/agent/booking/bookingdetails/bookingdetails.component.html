@@ -11,6 +11,7 @@
                     <div class="note">
                         <p>Note: DKBS Info</p>
                     </div>
+                    <div class="widthtab">
                     <ul class=" nav nav-tabs" role="tablist">
                         <li [class]="selectedwallet === 'SAGSDETALJER'?'active':'inactive'"><a
                                 (click)="selectedwallet = 'SAGSDETALJER'" class="nav-link">Case Details</a></li>
@@ -27,6 +28,7 @@
                        <!-- <li [class]="selectedwallet === 'Power'?'active':'inactive'" class="nav-link"><a
                                             (click)="selectedwallet = 'Power'" class="nav-link">Power BI</a></li>-->
                     </ul>
+                </div>
                     <!-- Tab panes -->
                     <div class="tab-content"> 
                       
@@ -38,6 +40,7 @@
                                     <div class="card-body">
                                         <div class="form-group">
                                         <label class="col-form-label fulllabel">Procedure Info : </label>
+                                        <div class="table-responsive">
                                             <table class="table table-bordered">
                                                 <thead>
                                                 <tr style="background-color: #c7c7dc;">
@@ -69,6 +72,7 @@
                                                                                     
                                                 </tbody>
                                             </table>
+                                        </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-form-label">Center info Reason for removal</label>
@@ -190,7 +194,7 @@
                                 <div class="card">
                                     <div class="card-header">Desired geographical area</div>
                                     <div class="card-body">
-                                        <div class="form-group">
+                                        <div class="form-group chkbox">
                                             <label class="col-form-label">booking Responsible</label>
                                             <input type="checkbox">
                                         </div>
@@ -339,23 +343,23 @@
                                                 <label class="col-form-label">Fitness room</label>
                                                 <input type="text" value ="No" class="form-control">
                                              </div>
-                                             <div class="form-group">
+                                             <div class="form-group chkbox">
                                                 <label class="col-form-label">Casino</label>
                                                 <input type="checkbox">
                                              </div>
-                                             <div class="form-group">
+                                             <div class="form-group chkbox">
                                                 <label class="col-form-label">Gronne omrader</label>
                                                 <input type="checkbox">
                                              </div>
-                                             <div class="form-group">
+                                             <div class="form-group chkbox">
                                                 <label class="col-form-label">Aircondition</label>
                                                 <input type="checkbox">
                                              </div>
-                                             <div class="form-group">
+                                             <div class="form-group chkbox">
                                                 <label class="col-form-label">Kokkeskole</label>
                                                 <input type="checkbox">
                                              </div>
-                                             <div class="form-group">
+                                             <div class="form-group chkbox">
                                                 <label class="col-form-label">Golf</label>
                                                 <input type="checkbox">
                                              </div>
@@ -375,20 +379,22 @@
                                                 <label class="col-form-label">Related parent request</label>
                                                 <input type="text" class="form-control">
                                              </div>
-                                             <div class="form-group">
+                                             <div class="form-group chkbox">
                                                 <label class="col-form-label">Turn off notifcation</label>
                                                 <input type="checkbox">
                                              </div>
-                                             <div class="form-group">
+                                             <div class="form-group chkbox">
                                                 <label class="col-form-label">Ny Kunde</label>
                                                 <input type="checkbox">
                                              </div>
-                                             <button type="submit"  value="Submit"   >Save</button>
-                                             <button type="submit"  value="Submit"   >Save and exit</button>
-                                             <button type="submit"  value="Submit"  >Cancel</button>
+                                           
                                 </div>
                             </div>
-
+                            <div class="nextpreviousbtn">
+                                <button class="btn btn-outline-warning " type="submit"  value="Submit"   >Save</button>
+                                <button class="btn btn-outline-primary" type="submit"  value="Submit"   >Save and exit</button>
+                                <button class="btn btn-outline-dark" type="submit"  value="Submit"  >Cancel</button>
+                            </div>
                         </div>
                         <div role="tabpanel" *ngIf="selectedwallet === 'Log'">
                             <div class="card">
@@ -405,7 +411,7 @@
                                                 <label class="col-form-label">Interne noter</label>
                                                 <input type="text" class="form-control">
                                             </div>
-                                            <div class="form-group">
+                                            <div class="form-group  chkbox">
                                                 <label class="col-form-label"> Read</label>
                                                 <input type="checkbox">
                                             </div>
@@ -665,12 +671,12 @@
                                             
                                                
                                             </div>
-                                            <div class="form-group">
+                                            <div class="form-group chkbox">
                                                 <label class="col-form-label">Henvisning</label>
                                                 <input type="checkbox" >
                                             </div>
         
-                                            <div class="form-group">
+                                            <div class="form-group chkbox">
                                             
                                                 <label class="col-form-label">Tilbud accepteret</label>
                                                 <input type="checkbox">
