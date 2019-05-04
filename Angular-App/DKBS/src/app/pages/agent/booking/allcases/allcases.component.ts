@@ -32,7 +32,7 @@ export class AllcasesComponent implements OnInit {
     
     this.choiceService.GetAllcases().subscribe(ResponceData => {
       this.Allcaseslst=ResponceData;     
-      debugger
+      
     });
   }
 
