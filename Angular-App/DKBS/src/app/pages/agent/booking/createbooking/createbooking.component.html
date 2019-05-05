@@ -72,7 +72,7 @@
                         <label class="col-form-label">Referred by</label>
                       </label>
                       <div class="form-group col-md-9">
-                        <input [(ngModel)]="partnerId" [typeahead]="Referred" typeaheadOptionField="employeeName"
+                        <input [(ngModel)]="partnerId" [typeahead]="Referred" typeaheadOptionField="partnerName"
                           (typeaheadOnSelect)="onSelectReferredby($event)" [typeaheadScrollable]="true"
                           class="form-control" name="Referred" autocomplete="off">
                       </div>
@@ -80,7 +80,7 @@
                         <label class="col-form-label">Refers</label>
                       </label>
                       <div class="form-group col-md-9">
-                        <input [(ngModel)]="partnerEmployeeId" [typeahead]="ReferDDL" typeaheadOptionField="partnerName"
+                        <input [(ngModel)]="partnerEmployeeId" [typeahead]="ReferDDL" typeaheadOptionField="employeeName"
                           [typeaheadScrollable]="true" class="form-control" name="ReferDDL" autocomplete="off">
                       </div>
                       <label class="col-sm-3 col-form-label">
@@ -553,13 +553,13 @@
                       <div class="form-group col-sm-9">
                         <div class="radiocheckbox">
                           <div class="form-check">
-                            <ng-multiselect-dropdown [placeholder]="'custom
-                                            placeholder'" [data]="dropdownList" [settings]="dropdownSettings"
+                            <ng-multiselect-dropdown [placeholder]="'Refreshments'" [data]="dropdownListforRefreshment" [settings]="dropdownSettings"
                               (onSelect)="onItemSelect($event)" name="CreateBookingModel.Refreshment"
                               [(ngModel)]="Refreshment" (onSelectAll)="onSelectAll($event)">
                             </ng-multiselect-dropdown>
                           </div>
-                          <button type="button" (click)="DivFindCenter=!DivFindCenter" style=" float: right; "
+                          {{dropdownListCenter}}
+                          <button type="button" (click)="GetPartnerforFindCenter();" style=" float: right; "
                             class="btn btn-outline-info">Find Center</button>
                         </div>
                       </div>
@@ -572,7 +572,7 @@
                             <div class="form-check">
                               <ng-multiselect-dropdown [placeholder]="'Centers'" [data]="dropdownListCenter"
                                 [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
-                                name="CreateBookingModel.Partner" [(ngModel)]="Partners"
+                                name="CreateBookingModelPartner" [(ngModel)]="Partners"
                                 (onSelectAll)="onSelectAll($event)">
                               </ng-multiselect-dropdown>
                             </div>
