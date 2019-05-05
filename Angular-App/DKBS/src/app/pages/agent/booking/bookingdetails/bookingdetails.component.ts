@@ -1,6 +1,6 @@
 
 import { BookingdetailsService } from 'src/service/bookingdetails/bookingdetails.service';
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, OnInit, NgZone, ViewChild } from '@angular/core';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead/typeahead-match.class';
 import { ZipcodeService } from 'src/service/zipcode/zipcode.service';
@@ -8,7 +8,7 @@ import { StateprovinanceService } from 'src/service/stateprovinance/stateprovina
 import { ChoiceService } from 'src/service/Choice/Choice.service';
 import { element } from '@angular/core/src/render3';
 import { BookingService } from 'src/service/booking/booking.service';
-// import { jqxDateTimeInputComponent } from 'node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxdatetimeinput';
+import { jqxDateTimeInputComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxdatetimeinput';
 
 @Component({
   selector: 'app-bookingdetails',
@@ -17,9 +17,11 @@ import { BookingService } from 'src/service/booking/booking.service';
 })
 export class BookingdetailsComponent implements OnInit {
   selectedwallet = 'SAGSDETALJER';
+  @ViewChild('arrivaldate') arrivaldate: jqxDateTimeInputComponent;
+  @ViewChild('departdate') departdate: jqxDateTimeInputComponent;
   //constructor(private bookingdetailsService:BookingdetailsService) { }
 
-  constructor(private bookingdetailsService:BookingdetailsService, private zipcodeService: ZipcodeService, private stateprovinanceService: StateprovinanceService, private zone: NgZone,
+  constructor(private bookingdetailsService: BookingdetailsService, private zipcodeService: ZipcodeService, private stateprovinanceService: StateprovinanceService, private zone: NgZone,
     private choiceService: ChoiceService, private bookingService: BookingService) {
 
   }
@@ -30,10 +32,10 @@ export class BookingdetailsComponent implements OnInit {
 
   dropdownCampaign = [];
   Referred: any[];
-  ReferDDL: any[]; 
+  ReferDDL: any[];
   dropdownListLeadOrigin = [];
 
-  
+
   ngOnInit() {
     this.dropdownSettings = {
       singleSelection: false,
@@ -47,30 +49,31 @@ export class BookingdetailsComponent implements OnInit {
     this.GetSProvisionType();
     this.GetCenterInfoReason();
     this.GetBookingDetails();
+    this.GetAllcampaigns();
   }
-  
 
-   GetSProvisionType(): any {
+
+  GetSProvisionType(): any {
     this.bookingdetailsService.GetSProvisionType().subscribe(state => {
-     console.log(state);
-    for (let i = 0; i < state.length; ++i) {
-      this.dropdownListProvision.push({ item_id: state[i].Region_Id, item_text: state[i].Region_Name });
-    }
-     });
-   }
+      console.log(state);
+      for (let i = 0; i < state.length; ++i) {
+        this.dropdownListProvision.push({ item_id: state[i].Region_Id, item_text: state[i].Region_Name });
+      }
+    });
+  }
 
-   GetCenterInfoReason(): any {
+  GetCenterInfoReason(): any {
     this.bookingdetailsService.GetCenterInfoReason().subscribe(state => {
-      this.ddlCenterInfoReason=state;
-        console.log(state);
-    // for (let i = 0; i < state.length; ++i) {
-    //   this.dropdownListProvision.push({ item_id: state[i].Region_Id, item_text: state[i].Region_Name });
-    // }
-     });
-   }
+      this.ddlCenterInfoReason = state;
+      console.log(state);
+      // for (let i = 0; i < state.length; ++i) {
+      //   this.dropdownListProvision.push({ item_id: state[i].Region_Id, item_text: state[i].Region_Name });
+      // }
+    });
+  }
 
-   //for where do you know us dropdown
-   GetAllcampaigns(): any {
+  //for where do you know us dropdown
+  GetAllcampaigns(): any {
     this.choiceService.GetAllcampaigns().subscribe(state => {
       this.dropdownCampaign.push({ item_id: 0, item_text: 'Select' })
       for (let i = 0; i < state.length; ++i) {
@@ -79,12 +82,12 @@ export class BookingdetailsComponent implements OnInit {
     });
   }
 
-  
+
   GetBookingDetails(): any {
-    
+
     this.choiceService.GetBookingDetails().subscribe(ResponceData => {
-     console.log(ResponceData);
-      
+      console.log(ResponceData);
+
     });
   }
 
@@ -95,7 +98,7 @@ export class BookingdetailsComponent implements OnInit {
   }
 
   onSelectReferredby(event: TypeaheadMatch): void {
-   // this.CreateBookingModel.partnerId = event.item.partnerEmployeeId;
+    // this.CreateBookingModel.partnerId = event.item.partnerEmployeeId;
     // this.LocPartnerEmpID = 1;
     this.GetAllRefer(event.item.partnerEmployeeId);
   }
@@ -106,7 +109,7 @@ export class BookingdetailsComponent implements OnInit {
     });
   }
 
- GetAllLeadOrigin(): any {
+  GetAllLeadOrigin(): any {
     this.stateprovinanceService.GetAllLeadOrigin().subscribe(state => {
       this.dropdownListLeadOrigin.push({ item_id: 0, item_text: 'Select' })
       for (let i = 0; i < state.length; ++i) {

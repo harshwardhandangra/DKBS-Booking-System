@@ -20,9 +20,10 @@
     ]   
   },  
   "include": [
-    "src/**/*",
+    "src/**/*"
   ],
   "files": [
     "node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxdatetimeinput.ts",
+    "node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxdropdownlist.ts",
   ]
 }

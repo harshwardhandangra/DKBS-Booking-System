@@ -14,31 +14,23 @@
                     <div class="widthtab">
                         <ul class="nav nav-tabs" role="tablist">
                             <li [class]="selectedwallet ===
-                                'SAGSDETALJER'?'active':'inactive'"><a
-                                    (click)="selectedwallet= 'SAGSDETALJER'"
+                                'SAGSDETALJER'?'active':'inactive'"><a (click)="selectedwallet= 'SAGSDETALJER'"
                                     class="nav-link">Case Details</a></li>
                             <li [class]="selectedwallet ===
-                                'EVENTDETALJER'?'active':'inactive'"><a
-                                    (click)="selectedwallet= 'EVENTDETALJER'"
+                                'EVENTDETALJER'?'active':'inactive'"><a (click)="selectedwallet= 'EVENTDETALJER'"
                                     class="nav-link">Event Details</a></li>
                             <li [class]="selectedwallet ===
-                                'FIRMA-OG'?'active':'inactive'"
-                                class="nav-link"> <a
-                                    (click)="selectedwallet= 'FIRMA-OG'"
-                                    class="nav-link">Company Information</a></li>
+                                'FIRMA-OG'?'active':'inactive'" class="nav-link"> <a
+                                    (click)="selectedwallet= 'FIRMA-OG'" class="nav-link">Company Information</a></li>
                             <li [class]="selectedwallet ===
-                                'OTHER'?'active':'inactive'" class="nav-link"><a
-                                    (click)="selectedwallet= 'OTHER'"
+                                'OTHER'?'active':'inactive'" class="nav-link"><a (click)="selectedwallet= 'OTHER'"
                                     class="nav-link">Other</a></li>
                             <li [class]="selectedwallet ===
-                                'Log'?'active':'inactive'" class="nav-link"><a
-                                    (click)="selectedwallet= 'Log'"
+                                'Log'?'active':'inactive'" class="nav-link"><a (click)="selectedwallet= 'Log'"
                                     class="nav-link">Log</a></li>
                             <li [class]="selectedwallet ===
-                                'Commission'?'active':'inactive'"
-                                class="nav-link"><a
-                                    (click)="selectedwallet= 'Commission'"
-                                    class="nav-link">Commission</a></li>
+                                'Commission'?'active':'inactive'" class="nav-link"><a
+                                    (click)="selectedwallet= 'Commission'" class="nav-link">Commission</a></li>
                             <!-- <li [class]="selectedwallet === 'Power'?'active':'inactive'" class="nav-link"><a
                                             (click)="selectedwallet = 'Power'" class="nav-link">Power BI</a></li>-->
                         </ul>
@@ -61,19 +53,14 @@
                                                 <table class="table
                                                     table-bordered">
                                                     <thead>
-                                                        <tr
-                                                            style="background-color:
+                                                        <tr style="background-color:
                                                             #c7c7dc;">
                                                             <th scope="col">
-                                                                <input
-                                                                    type="checkbox"
-                                                                    aria-label="Select
+                                                                <input type="checkbox" aria-label="Select
                                                                     all items in
-                                                                    this table"
-                                                                    id="SelectAll"></th>
+                                                                    this table" id="SelectAll"></th>
                                                             <th scope="col">
-                                                                <span
-                                                                    class="glyphicon
+                                                                <span class="glyphicon
                                                                     glyphicon-paperclip"></span></th>
                                                             <th scope="col">Queries</th>
                                                             <th scope="col">Reply</th>
@@ -109,8 +96,8 @@
                                         <div class="form-group">
                                             <label class="col-form-label">Center
                                                 info Reason for removal</label>
-                                                <jqxDropDownList (onSelect)="listOnSelect($event)"
-                                                [width]="710" [height]="30" [source]="dataAdapter" [selectedIndex]="2"
+                                            <jqxDropDownList (onSelect)="listOnSelect($event)" [width]="710"
+                                                [height]="30" [source]="dataAdapter" [selectedIndex]="2"
                                                 [displayMember]="'ContactName'" [valueMember]="'CompanyName'">
                                             </jqxDropDownList>
                                         </div>
@@ -154,10 +141,7 @@
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="form-group">
                                                     <label class="lbl">Arrival</label>
-                                                    <jqxDateTimeInput
-                                                        [width]="300"
-                                                        [height]="30"
-                                                        [formatString]="'F'"
+                                                    <jqxDateTimeInput #arrivaldate [width]="300" [height]="30" [formatString]="'F'"
                                                         [showTimeButton]="true">
                                                     </jqxDateTimeInput>
                                                     <!-- <input type="text" placeholder="Datepicker" class="form-control"
@@ -167,10 +151,7 @@
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="form-group">
                                                     <label class="lbl">Depart</label>
-                                                    <jqxDateTimeInput
-                                                        [width]="300"
-                                                        [height]="30"
-                                                        [formatString]="'F'"
+                                                    <jqxDateTimeInput #departdate [width]="300" [height]="30" [formatString]="'F'"
                                                         [showTimeButton]="true">
                                                     </jqxDateTimeInput>
                                                 </div>
@@ -181,50 +162,43 @@
 
                                         <div class="form-group">
                                             <label class="col-form-label">Case</label>
-                                            <input type="text"
-                                                value="Foresporgsel fra DKBS
-                                                SRM7974"
-                                                class="form-control">
+                                            <input type="text" value="Foresporgsel fra DKBS
+                                                SRM7974" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label class="col-form-label">The
                                                 dates are flexible</label>
-                                                <input type="checkbox" value="true" [(ngModel)]="CreateBookingModel.flexibleDates">
+                                            <input type="checkbox" value="true"
+                                                [(ngModel)]="CreateBookingModel.flexibleDates">
                                         </div>
                                         <div class="form-group">
                                             <label class="col-form-label">Our
                                                 Notes</label>
-                                            <input type="text"
-                                                class="form-control">
+                                            <input type="text" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label class="col-form-label">Formal</label>
-                                            <input type="text"
-                                                class="form-control">
+                                            <input type="text" class="form-control">
                                         </div>
                                         <div class="form-group col-md-5">
                                             <label class="col-form-label">Number
                                                 of participants</label>
-                                            <input type="number"
-                                                class="form-control">
+                                            <input type="number" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label class="col-form-label">Number
                                                 of changes</label>
                                             <input type="text" value="Antal
-                                                enkeltvxelser"
-                                                class="form-control">
+                                                enkeltvxelser" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label class="col-form-label">participants</label>
-                                            <input type="text"
-                                                class="form-control">
+                                            <input type="text" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label class="col-form-label">Table
                                                 setting in plenary</label>
-                                            <input type="text"
-                                                class="form-control">
+                                            <input type="text" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -234,14 +208,12 @@
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label class="col-form-label">Lokarer</label>
-                                            <input type="text"
-                                                class="form-control">
+                                            <input type="text" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label class="col-form-label">Please
                                                 also indicate price</label>
-                                            <input type="text"
-                                                class="form-control">
+                                            <input type="text" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -266,13 +238,11 @@
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label class="col-form-label">Default</label>
-                                            <input type="text"
-                                                class="form-control">
+                                            <input type="text" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label class="col-form-label">Default</label>
-                                            <input type="text"
-                                                class="form-control">
+                                            <input type="text" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -282,15 +252,13 @@
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label class="col-form-label">Default</label>
-                                            <input type="text"
-                                                class="form-control">
+                                            <input type="text" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label class="col-form-label">state
                                                 agreement
                                             </label>
-                                            <input type="text"
-                                                class="form-control">
+                                            <input type="text" class="form-control">
                                         </div>
 
                                     </div>
@@ -307,8 +275,7 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label class="col-form-label">Business</label>
-                                        <input type="text" value="WinPoint A/s"
-                                            class="form-control">
+                                        <input type="text" value="WinPoint A/s" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Contact
@@ -318,10 +285,8 @@
                                     <div class="form-group">
                                         <label class="col-form-label">Where do
                                             you know us?</label>
-                                            <jqxDropDownList [theme]="'material'"
-                                            [width]="710" [height]="30"
-                                            [source]="source"
-                                            [selectedIndex]="1">
+                                        <jqxDropDownList [theme]="'bootstrap'" [width]="710" [height]="30"
+                                            [source]="dropdownCampaign" [selectedIndex]="0" [displayMember]="'item_text'" [valueMember]="'item_id'">
                                         </jqxDropDownList>
                                     </div>
                                     <div class="form-group">
@@ -361,8 +326,7 @@
                                     <div class="form-group">
                                         <label class="col-form-label">Business</label>
                                         <input type="text" value="IT og
-                                            telekommunikation"
-                                            class="form-control">
+                                            telekommunikation" class="form-control">
                                     </div>
 
                                 </div>
@@ -374,11 +338,9 @@
 
                                     <div class="form-group">
                                         <label class="col-form-label">Status</label>
-                                        <jqxDropDownList [theme]="'material'"
-                                        [width]="710" [height]="30"
-                                        [source]="source"
-                                        [selectedIndex]="1">
-                                    </jqxDropDownList>
+                                        <jqxDropDownList [theme]="'material'" [width]="710" [height]="30"
+                                            [source]="source" [selectedIndex]="1">
+                                        </jqxDropDownList>
                                     </div>
                                     <!-- <div class="form-group">
                                                 <label class="col-form-label">Placering</label>
@@ -389,89 +351,74 @@
                                                 <input type="text" value="Test case" class="form-control">
                                              </div> -->
 
-                                             
+
                                     <div class="form-group">
                                         <label class="col-form-label">Referred</label>
-                                        <jqxDropDownList [theme]="'material'"
-                                        [width]="710" [height]="30"
-                                        [source]="source"
-                                        [selectedIndex]="1">
-                                    </jqxDropDownList>
+                                        <jqxDropDownList [theme]="'material'" [width]="710" [height]="30"
+                                            [source]="source" [selectedIndex]="1">
+                                        </jqxDropDownList>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Referred
                                             By</label>
-                                            <jqxDropDownList [theme]="'material'"
-                                            [width]="710" [height]="30"
-                                            [source]="source"
-                                            [selectedIndex]="1">
+                                        <jqxDropDownList [theme]="'material'" [width]="710" [height]="30"
+                                            [source]="source" [selectedIndex]="1">
                                         </jqxDropDownList>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Lead
                                             origin</label>
 
-                                        <jqxDropDownList [theme]="'material'"
-                                            [width]="710" [height]="30"
-                                            [source]="source"
-                                            [selectedIndex]="1">
+                                        <jqxDropDownList [theme]="'material'" [width]="710" [height]="30"
+                                            [source]="source" [selectedIndex]="1">
                                         </jqxDropDownList>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Gron some</label>
-                                        <input type="text" value="No"
-                                            class="form-control">
+                                        <input type="text" value="No" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Acceptance
                                             for employees</label>
-                                        <input type="text" value="No"
-                                            class="form-control">
+                                        <input type="text" value="No" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Handicapvenlig</label>
-                                        <input type="text" value="No"
-                                            class="form-control">
+                                        <input type="text" value="No" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Bar</label>
-                                        <input type="text" value="No"
-                                            class="form-control">
+                                        <input type="text" value="No" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Launge</label>
-                                        <input type="text" value="No"
-                                            class="form-control">
+                                        <input type="text" value="No" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Bilard/dart/bordtennis/etc.</label>
-                                        <input type="text" value="No"
-                                            class="form-control">
+                                        <input type="text" value="No" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Spa</label>
-                                        <input type="text" value="No"
-                                            class="form-control">
+                                        <input type="text" value="No" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Pool</label>
-                                        <input type="text" value="No"
-                                            class="form-control">
+                                        <input type="text" value="No" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Fitness
                                             room</label>
-                                        <input type="text" value="No"
-                                            class="form-control">
+                                        <input type="text" value="No" class="form-control">
                                     </div>
                                     <div class="form-group chkbox">
                                         <label class="col-form-label">Refreshment</label>
-                                        <jqxDropDownList #myDropDownList (onSelect)="listOnSelect($event)"
-                                        [width]="710" [height]="30" [source]="dataAdapter" [checkboxes]="true"
-                                        [displayMember]="'ContactName'" [valueMember]="'CompanyName'">
-                                    </jqxDropDownList>
+                                        <jqxDropDownList #myDropDownList (onSelect)="listOnSelect($event)" [width]="710"
+                                            [height]="30" [source]="dataAdapter" [checkboxes]="true"
+                                            [displayMember]="'ContactName'" [valueMember]="'CompanyName'">
+                                        </jqxDropDownList>
                                     </div>
-                                   
+
                                     <!-- <div class="form-group">
                                                 <label class="col-form-label">Stilling</label>
                                                 <input type="text" class="form-control">
@@ -501,13 +448,10 @@
                                 </div>
                             </div>
                             <div class="nextpreviousbtn">
-                                <button class="btn btn-outline-warning"type="submit"
-                                    value="Submit">Save</button>
-                                <button class="btn btn-outline-primary"
-                                    type="submit" value="Submit">Save and
+                                <button class="btn btn-outline-warning" type="submit" value="Submit">Save</button>
+                                <button class="btn btn-outline-primary" type="submit" value="Submit">Save and
                                     exit</button>
-                                <button class="btn btn-outline-dark"
-                                    type="submit" value="Submit">Cancel</button>
+                                <button class="btn btn-outline-dark" type="submit" value="Submit">Cancel</button>
                             </div>
                         </div>
                         <div role="tabpanel" *ngIf="selectedwallet === 'Log'">
@@ -517,8 +461,7 @@
                                         <label class="col-form-label">Emails</label>
                                         <input type="text" value="Conversation
                                             subject: Foresporgal fra DKBS
-                                            SRM9081"
-                                            class="form-control">
+                                            SRM9081" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Communications</label>
@@ -538,13 +481,10 @@
                                 </div>
                             </div>
                             <div class="nextpreviousbtn">
-                                <button class="btn btn-outline-warning"type="submit"
-                                    value="Submit">Save</button>
-                                <button class="btn btn-outline-primary"
-                                    type="submit" value="Submit">Save and
+                                <button class="btn btn-outline-warning" type="submit" value="Submit">Save</button>
+                                <button class="btn btn-outline-primary" type="submit" value="Submit">Save and
                                     exit</button>
-                                <button class="btn btn-outline-dark"
-                                    type="submit" value="Submit">Cancel</button>
+                                <button class="btn btn-outline-dark" type="submit" value="Submit">Cancel</button>
                             </div>
                         </div>
 
@@ -560,63 +500,52 @@
                                                 <li>
                                                     <div class="lbl"> course
                                                         Packages</div>
-                                                    <input type="text"
-                                                        class="form-control">
+                                                    <input type="text" class="form-control">
                                                 </li>
                                                 <li>
                                                     <div class="lbl">Participants</div>
-                                                    <input type="text"
-                                                        class="form-control">
+                                                    <input type="text" class="form-control">
                                                 </li>
                                                 <li>
                                                     <div class="lbl">per ISK
                                                         (ISK)</div>
-                                                    <input type="text"
-                                                        class="form-control">
+                                                    <input type="text" class="form-control">
                                                 </li>
                                                 <li>
                                                     <div class="lbl">Total (kr.)</div>
-                                                    <input type="text"
-                                                        class="form-control">
+                                                    <input type="text" class="form-control">
                                                 </li>
 
                                             </ul>
 
-                                            <ul class="ulrepeat"
-                                                *ngFor="let ObjArrangementtype
+                                            <ul class="ulrepeat" *ngFor="let ObjArrangementtype
                                                 of Arrangementtype; let i=
                                                 index">
                                                 <li>
 
-                                                    <input type="text"
-                                                        class="form-control">
+                                                    <input type="text" class="form-control">
                                                 </li>
                                                 <li>
 
-                                                    <input type="text"
-                                                        class="form-control">
+                                                    <input type="text" class="form-control">
                                                 </li>
                                                 <li>
 
-                                                    <input type="text"
-                                                        class="form-control">
+                                                    <input type="text" class="form-control">
                                                 </li>
                                                 <li>
 
-                                                    <input type="text"
-                                                        class="form-control">
+                                                    <input type="text" class="form-control">
                                                 </li>
                                                 <li>
                                                     <button class="btn
-                                                        btn-default"
-                                                        type="button"
+                                                        btn-default" type="button"
                                                         (click)="deleteFieldValue(i)">Delete</button>
                                                 </li>
                                             </ul>
                                             <div class="addrownew">
                                                 <a class="btn
-                                                    btn-outline-warning"
-                                                    (click)="addFieldValue()"><i
+                                                    btn-outline-warning" (click)="addFieldValue()"><i
                                                         class="fa fa-plus"></i>Add
                                                     new row</a>
                                             </div>
@@ -629,68 +558,60 @@
                                             <ul>
                                                 <li>
                                                     <div class="lbl">Local type</div>
-                                                    <input type="text"
-                                                        class="form-control">
+                                                    <input type="text" class="form-control">
                                                 </li>
                                                 <li>
                                                     <div class="lbl">Number of
                                                         rooms</div>
-                                                        <input type="number" myNumberOnly name="Noofparticipants"
-                                                        [(ngModel)]="CreateBookingModel.numberOfPerticipants" class="form-control InlineInput"
-                                                        maxlength="8">
+                                                    <input type="number" myNumberOnly name="Noofparticipants"
+                                                        [(ngModel)]="CreateBookingModel.numberOfPerticipants"
+                                                        class="form-control InlineInput" maxlength="8">
                                                 </li>
                                                 <li>
                                                     <div class="lbl">per person</div>
                                                     <input type="number" myNumberOnly name="Noofparticipants"
-                                                    [(ngModel)]="CreateBookingModel.numberOfPerticipants" class="form-control InlineInput"
-                                                    maxlength="8">
+                                                        [(ngModel)]="CreateBookingModel.numberOfPerticipants"
+                                                        class="form-control InlineInput" maxlength="8">
                                                 </li>
                                                 <li>
                                                     <div class="lbl">Total price
                                                         (DKK))</div>
-                                                        <input type="number" myNumberOnly name="Noofparticipants"
-                                                        [(ngModel)]="CreateBookingModel.numberOfPerticipants" class="form-control InlineInput"
-                                                        maxlength="8">
+                                                    <input type="number" myNumberOnly name="Noofparticipants"
+                                                        [(ngModel)]="CreateBookingModel.numberOfPerticipants"
+                                                        class="form-control InlineInput" maxlength="8">
                                                 </li>
 
 
                                             </ul>
 
-                                            <ul class="ulrepeat"
-                                                *ngFor="let ObjArrangementtype
+                                            <ul class="ulrepeat" *ngFor="let ObjArrangementtype
                                                 of Arrangementtype; let i=
                                                 index">
                                                 <li>
 
-                                                    <input type="text"
-                                                        class="form-control">
+                                                    <input type="text" class="form-control">
                                                 </li>
                                                 <li>
 
-                                                    <input type="text"
-                                                        class="form-control">
+                                                    <input type="text" class="form-control">
                                                 </li>
                                                 <li>
 
-                                                    <input type="text"
-                                                        class="form-control">
+                                                    <input type="text" class="form-control">
                                                 </li>
                                                 <li>
 
-                                                    <input type="text"
-                                                        class="form-control">
+                                                    <input type="text" class="form-control">
                                                 </li>
                                                 <li>
                                                     <button class="btn
-                                                        btn-default"
-                                                        type="button"
+                                                        btn-default" type="button"
                                                         (click)="deleteFieldValue(i)">Delete</button>
                                                 </li>
                                             </ul>
                                             <div class="addrownew">
                                                 <a class="btn
-                                                    btn-outline-warning"
-                                                    (click)="addFieldValue()"><i
+                                                    btn-outline-warning" (click)="addFieldValue()"><i
                                                         class="fa fa-plus"></i>Add
                                                     new row</a>
                                             </div>
@@ -714,16 +635,14 @@
                                     <div class="form-group">
                                         <label class="col-form-label">Centres
                                             evt. kommentarer</label>
-                                        <textarea class="form-control" rows="5"
-                                            id="comment"></textarea>
+                                        <textarea class="form-control" rows="5" id="comment"></textarea>
                                         <div class="clearfix"></div>
                                     </div>
                                     <br>
                                     <div class="form-group">
                                         <label class="col-form-label">Bogholders
                                             evt. kommentarer</label>
-                                        <textarea class="form-control" rows="5"
-                                            id="comment"></textarea>
+                                        <textarea class="form-control" rows="5" id="comment"></textarea>
                                         <div class="clearfix"></div>
 
                                     </div>
@@ -737,8 +656,7 @@
 
                                         <label class="col-form-label">Estimeret
                                             af DKBS i alt</label>
-                                        <input type="text" value="No"
-                                            class="form-control">
+                                        <input type="text" value="No" class="form-control">
 
                                     </div>
                                     <div class="form-group">
@@ -784,12 +702,9 @@
                                             link</label>
                                         <div class="radiocheckbox">
                                             <div class="form-check">
-                                                <ng-multiselect-dropdown
-                                                    [placeholder]="'custom
-                                                    placeholder'"
-                                                    [data]="dropdownListProvision"
-                                                    [(ngModel)]="dropdownListProvision"
-                                                    [settings]="dropdownSettings"
+                                                <ng-multiselect-dropdown [placeholder]="'custom
+                                                    placeholder'" [data]="dropdownListProvision"
+                                                    [(ngModel)]="dropdownListProvision" [settings]="dropdownSettings"
                                                     (onSelect)="onItemSelect($event)"
                                                     (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
                                             </div>
@@ -812,13 +727,10 @@
 
                             </div>
                             <div class="nextpreviousbtn">
-                                <button class="btn btn-outline-warning"type="submit"
-                                    value="Submit">Save</button>
-                                <button class="btn btn-outline-primary"
-                                    type="submit" value="Submit">Save and
+                                <button class="btn btn-outline-warning" type="submit" value="Submit">Save</button>
+                                <button class="btn btn-outline-primary" type="submit" value="Submit">Save and
                                     exit</button>
-                                <button class="btn btn-outline-dark"
-                                    type="submit" value="Submit">Cancel</button>
+                                <button class="btn btn-outline-dark" type="submit" value="Submit">Cancel</button>
                             </div>
                         </div>
                         <div role="tabpanel" *ngIf="selectedwallet === 'Power'">

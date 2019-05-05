@@ -87,7 +87,6 @@ import { jqxDropDownListComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular
     NumberOnlyDirective,
     jqxDateTimeInputComponent,
     jqxDropDownListComponent
-
   ],
   imports: [
     BrowserModule,
@@ -102,8 +101,7 @@ import { jqxDropDownListComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular
     TypeaheadModule.forRoot(),
     HttpModule,
     NgxEditorModule,
-    // DateTimeInputModule,
-    AgGridModule.withComponents(null),
+    AgGridModule.withComponents(null)
   ],
   providers: [],
   bootstrap: [AppComponent]
