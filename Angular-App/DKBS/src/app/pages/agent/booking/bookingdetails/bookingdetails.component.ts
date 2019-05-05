@@ -8,6 +8,7 @@ import { StateprovinanceService } from 'src/service/stateprovinance/stateprovina
 import { ChoiceService } from 'src/service/Choice/Choice.service';
 import { element } from '@angular/core/src/render3';
 import { BookingService } from 'src/service/booking/booking.service';
+// import { jqxDateTimeInputComponent } from 'node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxdatetimeinput';
 
 @Component({
   selector: 'app-bookingdetails',
@@ -41,6 +42,7 @@ export class BookingdetailsComponent implements OnInit {
     };
     this.GetSProvisionType();
     this.GetCenterInfoReason();
+    this.GetBookingDetails();
   }
   
 
@@ -69,6 +71,15 @@ export class BookingdetailsComponent implements OnInit {
       for (let i = 0; i < state.length; ++i) {
         this.dropdownCampaign.push({ item_id: state[i].campaignId, item_text: state[i].name });
       }
+    });
+  }
+
+  
+  GetBookingDetails(): any {
+    
+    this.choiceService.GetBookingDetails().subscribe(ResponceData => {
+     console.log(ResponceData);
+      
     });
   }
 }

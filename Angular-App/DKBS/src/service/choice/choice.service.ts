@@ -209,4 +209,9 @@ export class ChoiceService {
   //   var url = '/choice/centermatchings';
   //   return this.commonService.get(url);
   // }
+
+  GetBookingDetails(): any {
+    var url = '/BookingController';
+    return this.commonService.get(url);
+  }
 }

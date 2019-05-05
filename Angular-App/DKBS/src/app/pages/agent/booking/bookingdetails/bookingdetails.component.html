@@ -8,9 +8,9 @@
             <div class="row">
             
                 <div class="col-md-10 offset-1 bookingdetailtabs">
-                    <div class="note">
+                    <!-- <div class="note">
                         <p>Note: DKBS Info</p>
-                    </div>
+                    </div> -->
                     <div class="widthtab">
                     <ul class=" nav nav-tabs" role="tablist">
                         <li [class]="selectedwallet === 'SAGSDETALJER'?'active':'inactive'"><a
@@ -18,13 +18,13 @@
                         <li [class]="selectedwallet === 'EVENTDETALJER'?'active':'inactive'"><a
                                 (click)="selectedwallet = 'EVENTDETALJER'" class="nav-link">Event Details</a></li>
                         <li [class]="selectedwallet === 'FIRMA-OG'?'active':'inactive'" class="nav-link"> <a
-                                (click)="selectedwallet = 'FIRMA-OG'" class="nav-link">Company & Contact Info</a></li>
+                                (click)="selectedwallet = 'FIRMA-OG'" class="nav-link">Company Information</a></li>
                         <li [class]="selectedwallet === 'OTHER'?'active':'inactive'" class="nav-link"><a
                                 (click)="selectedwallet = 'OTHER'" class="nav-link">Other</a></li>
                         <li [class]="selectedwallet === 'Log'?'active':'inactive'" class="nav-link"><a
                                     (click)="selectedwallet = 'Log'" class="nav-link">Log</a></li>
                         <li [class]="selectedwallet === 'Commission'?'active':'inactive'" class="nav-link"><a
-                                        (click)="selectedwallet = 'Commission'" class="nav-link">Commission & Loss Account</a></li>
+                                        (click)="selectedwallet = 'Commission'" class="nav-link">Commission</a></li>
                        <!-- <li [class]="selectedwallet === 'Power'?'active':'inactive'" class="nav-link"><a
                                             (click)="selectedwallet = 'Power'" class="nav-link">Power BI</a></li>-->
                     </ul>
@@ -99,10 +99,10 @@
                                             <label class="col-form-label">Select language</label>
                                             <div class="labeltext">Bind Data</div>
                                         </div>
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                             <label class="col-form-label">Attachments</label>
                                             <div class="labeltext">Bind Data</div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </form>
@@ -131,7 +131,10 @@
 
                                        
 
-
+                                        <div class="form-group">
+                                            <label class="col-form-label">Case</label>
+                                            <input type="text" value= "Foresporgsel fra DKBS SRM7974"class="form-control">
+                                         </div>
                                         <div class="form-group">
                                             <label class="col-form-label">The dates are flexible</label>
                                             <input type="text" value="No" class="form-control">
@@ -177,6 +180,18 @@
                                     </div>
                                 </div>
 
+                        
+
+                                <div class="card">
+                                    <div class="card-header">Desired geographical area</div>
+                                    <div class="card-body">
+                                        <div class="form-group chkbox">
+                                            <label class="col-form-label">booking Responsible</label>
+                                            <input type="checkbox">
+                                        </div>
+                                      
+                                    </div>
+                                </div>
                                 <div class="card">
                                     <div class="card-header">Additional wishes / comments</div>
                                     <div class="card-body">
@@ -190,24 +205,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="card">
-                                    <div class="card-header">Desired geographical area</div>
-                                    <div class="card-body">
-                                        <div class="form-group chkbox">
-                                            <label class="col-form-label">booking Responsible</label>
-                                            <input type="checkbox">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-form-label">Statsaftale</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-form-label">State Agreement</label>
-                                            <input type="text"  class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
                                 
                                 <div class="card">
                                     <div class="card-header">CenterMatching</div>
@@ -216,7 +213,14 @@
                                             <label class="col-form-label">Default</label>
                                             <input type="text"  class="form-control">
                                         </div>
+                                        <div class="form-group">
+                                            <label class="col-form-label">state agreement
+                                            </label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                       
                                     </div>
+                                    
                                 </div>
                             </form>
 
@@ -279,40 +283,37 @@
                         <div role="tabpanel" *ngIf="selectedwallet === 'OTHER'">
                             <div class="card">
                                 <div class="card-body">
-                                        <div class="form-group">
-                                                <label class="col-form-label">Sag</label>
-                                                <input type="text" value= "Foresporgsel fra DKBS SRM7974"class="form-control">
-                                             </div>
+                                       
                                              <div class="form-group">
                                                 <label class="col-form-label">Status</label>
                                                 <input type="text" value= "Ny" class="form-control">
                                              </div>
-                                             <div class="form-group">
+                                             <!-- <div class="form-group">
                                                 <label class="col-form-label">Placering</label>
                                                 <input type="text" class="form-control">
                                              </div>
                                              <div class="form-group">
                                                 <label class="col-form-label"> Placeringskommenter</label>
                                                 <input type="text" value="Test case" class="form-control">
-                                             </div>
+                                             </div> -->
                                              <div class="form-group">
-                                                <label class="col-form-label">Henvist af</label>
+                                                <label class="col-form-label">Referred</label>
                                                 <input type="text"  class="form-control">
                                              </div>
                                              <div class="form-group">
-                                                <label class="col-form-label">Henviser</label> 
+                                                <label class="col-form-label">Referred By</label> 
                                                 <input type="text"  class="form-control">					
                                              </div>
                                              <div class="form-group">
-                                                <label class="col-form-label">Leadoprindelse</label>
+                                                <label class="col-form-label">Lead origin</label>
                                                 <Input type ="text" value = "Direkte kontakt" class="form-control">
                                              </div>
                                              <div class="form-group">
-                                                <label class="col-form-label">Gron nogle</label>
+                                                <label class="col-form-label">Gron some</label>
                                                 <input type="text" value = "No" class="form-control">
                                              </div>
                                              <div class="form-group">
-                                                <label class="col-form-label">Ovrenskomst for medarbejdere</label>
+                                                <label class="col-form-label">Acceptance for employees</label>
                                                 <input type="text" value="No" class="form-control">
                                              </div>
                                              <div class="form-group">
@@ -348,7 +349,7 @@
                                                 <input type="checkbox">
                                              </div>
                                              <div class="form-group chkbox">
-                                                <label class="col-form-label">Gronne omrader</label>
+                                                <label class="col-form-label">Green areas</label>
                                                 <input type="checkbox">
                                              </div>
                                              <div class="form-group chkbox">
@@ -356,14 +357,14 @@
                                                 <input type="checkbox">
                                              </div>
                                              <div class="form-group chkbox">
-                                                <label class="col-form-label">Kokkeskole</label>
+                                                <label class="col-form-label">Cooking School</label>
                                                 <input type="checkbox">
                                              </div>
                                              <div class="form-group chkbox">
                                                 <label class="col-form-label">Golf</label>
                                                 <input type="checkbox">
                                              </div>
-                                             <div class="form-group">
+                                             <!-- <div class="form-group">
                                                 <label class="col-form-label">Stilling</label>
                                                 <input type="text" class="form-control">
                                              </div>
@@ -374,7 +375,7 @@
                                              <div class="form-group">
                                                 <label class="col-form-label">Hovedorganisation</label>
                                                 <input type="text" value = "Winpoint A/s" class="form-control">
-                                             </div>
+                                             </div> -->
                                              <div class="form-group">
                                                 <label class="col-form-label">Related parent request</label>
                                                 <input type="text" class="form-control">
@@ -383,10 +384,10 @@
                                                 <label class="col-form-label">Turn off notifcation</label>
                                                 <input type="checkbox">
                                              </div>
-                                             <div class="form-group chkbox">
+                                             <!-- <div class="form-group chkbox">
                                                 <label class="col-form-label">Ny Kunde</label>
                                                 <input type="checkbox">
-                                             </div>
+                                             </div> -->
                                            
                                 </div>
                             </div>
@@ -573,7 +574,7 @@
                                                     <input type="text" class="form-control">
                                             </div>
                                             
-                                            <div class="form-group">
+                                            <!-- <div class="form-group">
                                                 <label class="col-form-label">Placeringsdato</label>
                                                <input type="text" class="form-control">
                                             </div>
@@ -581,12 +582,12 @@
                                             <div class="form-group">
                                                 <label class="col-form-label">Ankomst</label>
                                                <input type="text" class="form-control">
-                                            </div>
+                                            </div> -->
                                             
-                                            <div class="form-group">
+                                            <!-- <div class="form-group">
                                                 <label class="col-form-label">Difference i dage</label>
                                                <input type="text" class="form-control">
-                                            </div>
+                                            </div> -->
                                             <div class="form-group">
                                                 <label class="col-form-label">Provisionssats</label>
                                                <input type="text"  class="form-control">
@@ -621,7 +622,7 @@
                                                <input type="text" class="form-control">
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-form-label">Evaluering dato</label>
+                                                <label class="col-form-label">Approve</label>
                                                 <input type="text" class="form-control">
                                             </div>
                                             
@@ -640,24 +641,24 @@
                                     <div class="card">
                                             <div class="card-body"> 
                                             <div class="form-group">
-                                                <label class="col-form-label">Status_s</label>
+                                                <label class="col-form-label">Status</label>
                                                 <input type="text" class="form-control">
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-form-label">Placering_s</label>
+                                                <label class="col-form-label">location</label>
                                                 <input type="text" class="form-control">
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-form-label">Leadoprindelse_S</label>
+                                                <label class="col-form-label">Lead origin</label>
                                                 <input type="text" value = "Direkte kontakt" class="form-control">
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-form-label"> Henvistaf_S</label>
+                                                <label class="col-form-label"> referred</label>
                                                 <input type="text" class="form-control">
                                             </div>
         
                                             <div class="form-group">
-                                                <label class="col-form-label">Afrejse_s</label>
+                                                <label class="col-form-label">Depart</label>
                                                 <input type="text"  class="form-control">
                                                 
                                             </div>
@@ -672,28 +673,28 @@
                                                
                                             </div>
                                             <div class="form-group chkbox">
-                                                <label class="col-form-label">Henvisning</label>
+                                                <label class="col-form-label">Reference</label>
                                                 <input type="checkbox" >
                                             </div>
         
                                             <div class="form-group chkbox">
                                             
-                                                <label class="col-form-label">Tilbud accepteret</label>
+                                                <label class="col-form-label">Offer accepted</label>
                                                 <input type="checkbox">
           
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-form-label">Interessetags_s</label>
+                                                <label class="col-form-label">interest Tags</label>
                                                     <input type="text" class="form-control">
                                             </div>
                                             
                                             <div class="form-group">
-                                                <label class="col-form-label">Firmald_S</label>
+                                                <label class="col-form-label">Company ld</label>
                                                <input type="text" class="form-control">
                                             </div>
                                             
                                             <div class="form-group">
-                                                <label class="col-form-label">KontakPersonId_S</label>
+                                                <label class="col-form-label">Contact Person</label>
                                                <input type="text" class="form-control">
                                             </div>
                                             

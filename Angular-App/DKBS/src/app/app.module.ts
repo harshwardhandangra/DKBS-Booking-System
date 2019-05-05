@@ -8,7 +8,7 @@ import { FooterComponent } from './pagescomponent/footer/footer.component';
 import { NavigationComponent } from './pagescomponent/navigation/navigation.component';
 import { BookingComponent } from './pages/agent/booking/booking.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ModalModule,TypeaheadModule  } from 'ngx-bootstrap';
+import { ModalModule, TypeaheadModule } from 'ngx-bootstrap';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
@@ -46,10 +46,7 @@ import { AwaitingDKBSComponent } from './pages/agent/booking/provision/awaiting-
 import { AwaitingeconomyComponent } from './pages/agent/booking/provision/awaitingeconomy/awaitingeconomy.component';
 import { NumberOnlyDirective } from './number.directive';
 
-
-
-
-
+// import { jqxDateTimeInputComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxdatetimeinput';
 
 
 @NgModule({
@@ -62,11 +59,11 @@ import { NumberOnlyDirective } from './number.directive';
     NavigationComponent,
     BookingComponent,
     AddcustomerComponent,
-    ContactpersonComponent, 
-    BookingdetailsComponent, 
-    BookinglistComponent, 
-    CustomerbookingComponent, 
-    GooglePlacesDirective, 
+    ContactpersonComponent,
+    BookingdetailsComponent,
+    BookinglistComponent,
+    CustomerbookingComponent,
+    GooglePlacesDirective,
     DashboardComponent,
     AllPartnersComponent,
     PartnerlistComponent,
@@ -88,14 +85,14 @@ import { NumberOnlyDirective } from './number.directive';
     AwaitingpartnerComponent,
     AwaitingDKBSComponent,
     AwaitingeconomyComponent,
-    NumberOnlyDirective
+    NumberOnlyDirective,
+    // jqxDateTimeInputComponent
+
   ],
   imports: [
     BrowserModule,
-   
-        
     AppRoutingModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
     ModalModule.forRoot(),
     BsDatepickerModule.forRoot(),
@@ -105,10 +102,9 @@ import { NumberOnlyDirective } from './number.directive';
     TypeaheadModule.forRoot(),
     HttpModule,
     NgxEditorModule,
-   
-
+    // DateTimeInputModule,
     AgGridModule.withComponents(null),
-     ],
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
