@@ -96,9 +96,9 @@
                                         <div class="form-group">
                                             <label class="col-form-label">Center
                                                 info Reason for removal</label>
-                                            <jqxDropDownList (onSelect)="listOnSelect($event)" [width]="710"
-                                                [height]="30" [source]="dataAdapter" [selectedIndex]="2"
-                                                [displayMember]="'ContactName'" [valueMember]="'CompanyName'">
+                                            <jqxDropDownList [theme]="'bootstrap'" (onSelect)="listOnSelect($event)" [width]="710"
+                                                [height]="30" [source]="dropdownListforCauseofRemoval"
+                                                [selectedIndex]="0" [displayMember]="'item_text'" [valueMember]="'item_id'">
                                             </jqxDropDownList>
                                         </div>
                                         <div class="form-group">
@@ -169,7 +169,7 @@
                                             <label class="col-form-label">The
                                                 dates are flexible</label>
                                             <input type="checkbox" value="true"
-                                                [(ngModel)]="CreateBookingModel.flexibleDates">
+                                                >
                                         </div>
                                         <div class="form-group">
                                             <label class="col-form-label">Our
@@ -180,10 +180,10 @@
                                             <label class="col-form-label">Formal</label>
                                             <input type="text" class="form-control">
                                         </div>
-                                        <div class="form-group col-md-5">
+                                        <div class="form-group">
                                             <label class="col-form-label">Number
                                                 of participants</label>
-                                            <input type="number" class="form-control">
+                                            <input type="text" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label class="col-form-label">Number
@@ -338,8 +338,8 @@
 
                                     <div class="form-group">
                                         <label class="col-form-label">Status</label>
-                                        <jqxDropDownList [theme]="'material'" [width]="710" [height]="30"
-                                            [source]="source" [selectedIndex]="1">
+                                        <jqxDropDownList [theme]="'bootstrap'" [width]="710" [height]="30"
+                                            [source]="dropdownListforBookingstatus"  [displayMember]="'item_text'" [valueMember]="'item_id'"  [selectedIndex]="0">
                                         </jqxDropDownList>
                                     </div>
                                     <!-- <div class="form-group">
@@ -354,24 +354,23 @@
 
                                     <div class="form-group">
                                         <label class="col-form-label">Referred</label>
-                                        <jqxDropDownList [theme]="'material'" [width]="710" [height]="30"
-                                            [source]="source" [selectedIndex]="1">
+                                        <jqxDropDownList [theme]="'bootstrap'"  (onSelect)="listOnSelectReferred($event)" [width]="710" [height]="30"
+                                        [source]="Referred" [selectedIndex]="0" [displayMember]="'item_text'" [valueMember]="'item_id'">
                                         </jqxDropDownList>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Referred
                                             By</label>
-                                        <jqxDropDownList [theme]="'material'" [width]="710" [height]="30"
-                                            [source]="source" [selectedIndex]="1">
-                                        </jqxDropDownList>
+                                            <jqxDropDownList [theme]="'bootstrap'" [width]="710" [height]="30"
+                                            [source]="ReferDDL" [selectedIndex]="0" [displayMember]="'item_text'" [valueMember]="'item_id'">
+                                            </jqxDropDownList>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Lead
                                             origin</label>
-
-                                        <jqxDropDownList [theme]="'material'" [width]="710" [height]="30"
-                                            [source]="source" [selectedIndex]="1">
-                                        </jqxDropDownList>
+                                            <jqxDropDownList [theme]="'bootstrap'" [width]="710" [height]="30"
+                                            [source]="dropdownListLeadOrigin" [selectedIndex]="0" [displayMember]="'item_text'" [valueMember]="'item_id'">
+                                            </jqxDropDownList>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Gron some</label>
@@ -414,8 +413,8 @@
                                     <div class="form-group chkbox">
                                         <label class="col-form-label">Refreshment</label>
                                         <jqxDropDownList #myDropDownList (onSelect)="listOnSelect($event)" [width]="710"
-                                            [height]="30" [source]="dataAdapter" [checkboxes]="true"
-                                            [displayMember]="'ContactName'" [valueMember]="'CompanyName'">
+                                            [height]="30"  [theme]="'bootstrap'"  [source]="dropdownListforRefreshment" [checkboxes]="true"
+                                         [selectedIndex]="0" [displayMember]="'item_text'" [valueMember]="'item_id'">
                                         </jqxDropDownList>
                                     </div>
 
@@ -564,20 +563,20 @@
                                                     <div class="lbl">Number of
                                                         rooms</div>
                                                     <input type="number" myNumberOnly name="Noofparticipants"
-                                                        [(ngModel)]="CreateBookingModel.numberOfPerticipants"
+                                                       
                                                         class="form-control InlineInput" maxlength="8">
                                                 </li>
                                                 <li>
                                                     <div class="lbl">per person</div>
                                                     <input type="number" myNumberOnly name="Noofparticipants"
-                                                        [(ngModel)]="CreateBookingModel.numberOfPerticipants"
+                                                      
                                                         class="form-control InlineInput" maxlength="8">
                                                 </li>
                                                 <li>
                                                     <div class="lbl">Total price
                                                         (DKK))</div>
                                                     <input type="number" myNumberOnly name="Noofparticipants"
-                                                        [(ngModel)]="CreateBookingModel.numberOfPerticipants"
+                                                        
                                                         class="form-control InlineInput" maxlength="8">
                                                 </li>
 

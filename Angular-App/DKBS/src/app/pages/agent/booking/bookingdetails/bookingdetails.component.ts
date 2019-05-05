@@ -31,9 +31,12 @@ export class BookingdetailsComponent implements OnInit {
   ddlCenterInfoReason: [];
 
   dropdownCampaign = [];
-  Referred: any[];
-  ReferDDL: any[];
+  Referred= [];
+  ReferDDL= [];
   dropdownListLeadOrigin = [];
+  dropdownListforRefreshment = [];
+  dropdownListforBookingstatus = [];
+  dropdownListforCauseofRemoval=[];
 
 
   ngOnInit() {
@@ -50,6 +53,11 @@ export class BookingdetailsComponent implements OnInit {
     this.GetCenterInfoReason();
     this.GetBookingDetails();
     this.GetAllcampaigns();
+    this.GetReferredbyDDL();
+    this.GetAllLeadOrigin();
+    this.GetAllRefreshments();
+    this.GetBookingAndStatuses();
+    this.GetAllCauseOfRemoval();
   }
 
 
@@ -93,19 +101,37 @@ export class BookingdetailsComponent implements OnInit {
 
   GetReferredbyDDL(): any {
     this.choiceService.GetpartnersEmployee().subscribe(res => {
-      this.Referred = res;
+     
+      this.Referred.push({ item_id: 0, item_text: 'Select' })
+      for (let i = 0; i < res.length; ++i) {
+        this.Referred.push({ item_id: res[i].partnerId, item_text: res[i].partnerName });
+      }
+      this.GetAllRefer('1');
     });
   }
+  
+  listOnSelectReferred(event: any): void {
+    let args = event.args;
+   
+    this.GetAllRefer(args.index);
+};
+
 
   onSelectReferredby(event: TypeaheadMatch): void {
     // this.CreateBookingModel.partnerId = event.item.partnerEmployeeId;
     // this.LocPartnerEmpID = 1;
-    this.GetAllRefer(event.item.partnerEmployeeId);
+    this.GetAllRefer(1);
   }
 
   GetAllRefer(PartnerEMpID): any {
+    debugger
     this.choiceService.GetpartnersEmployeebyID(PartnerEMpID).subscribe(res => {
-      this.ReferDDL = res;
+      //this.ReferDDL = res;
+
+      this.ReferDDL.push({ item_id: 0, item_text: 'Select' })
+      for (let i = 0; i < res.length; ++i) {
+        this.ReferDDL.push({ item_id: res[i].partnerEmployeeId, item_text: res[i].employeeName });
+      }
     });
   }
 
@@ -116,5 +142,32 @@ export class BookingdetailsComponent implements OnInit {
         this.dropdownListLeadOrigin.push({ item_id: state[i].leadOfOriginId, item_text: state[i].name });
       }
     });
+  }
+
+  GetAllRefreshments(): any {
+    this.choiceService.GetAllRefreshments().subscribe(res => {
+      this.dropdownListforRefreshment.push({ item_id: 0, item_text: 'Select' })
+      for (let i = 0; i < res.length; ++i) {
+        this.dropdownListforRefreshment.push({ item_id: res[i].refreshmentId, item_text: res[i].name });
+      }
+    })
+  }
+
+  GetBookingAndStatuses(): any {
+    this.choiceService.GetBookingAndStatuses().subscribe(res => {
+      this.dropdownListforBookingstatus.push({ item_id: 0, item_text: 'Select' })
+      for (let i = 0; i < res.length; ++i) {
+        this.dropdownListforBookingstatus.push({ item_id: res[i].bookingAndStatusId, item_text: res[i].bookingerIncidentTitle });
+      }
+    })
+  }
+
+  GetAllCauseOfRemoval(): any {
+    this.choiceService.GetAllcauseofremovals().subscribe(res => {
+      this.dropdownListforCauseofRemoval.push({ item_id: 0, item_text: 'Select' })
+      for (let i = 0; i < res.length; ++i) {
+        this.dropdownListforCauseofRemoval.push({ item_id: res[i].causeOfRemovalId, item_text: res[i].causeOfRemovalTitle });
+      }
+    })
   }
 }
