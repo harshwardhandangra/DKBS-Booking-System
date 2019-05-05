@@ -214,4 +214,9 @@ export class ChoiceService {
     var url = '/BookingController';
     return this.commonService.get(url);
   }
+
+  GetBookingAndStatuses(): any {
+    var url = '/choice/BookingAndStatuses';
+    return this.commonService.get(url);
+  }
 }
