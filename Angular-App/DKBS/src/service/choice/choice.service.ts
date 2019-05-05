@@ -176,12 +176,12 @@ export class ChoiceService {
   }
 
   GetpartnersEmployee(): any {
-    var url = '/api/PartnerEmployee';
+    var url = '/api/Partner';
     return this.commonService.get(url);
   }
 
   GetpartnersEmployeebyID(PartnerEMpID: BigInteger): any {
-    var url = '/api/PartnerEmployee/'+PartnerEMpID;
+    var url = '/api/PartnerEmployee';
     return this.commonService.get(url);
   }
 
@@ -189,9 +189,9 @@ export class ChoiceService {
     var url = '/BookingController';
     return this.commonService.get(url);
   }
-  
+
   GetPartnerforFindCenter(): any {
-    var url = '/PartnerEmployee';
+    var url = '/api/Partner';
     return this.commonService.get(url);
   }
 
@@ -200,7 +200,10 @@ export class ChoiceService {
     return this.commonService.get(url);
   }
 
-
+  GetAllRefreshments(): any {
+    var url = 'choice/Refreshments';
+    return this.commonService.get(url);
+  }
 
   // GetAllCentermatchings(): any {
   //   var url = '/choice/centermatchings';

@@ -6,6 +6,7 @@ import { StateprovinanceService } from 'src/service/stateprovinance/stateprovina
 import { ChoiceService } from 'src/service/Choice/Choice.service';
 import { element } from '@angular/core/src/render3';
 import { BookingService } from 'src/service/booking/booking.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -45,7 +46,7 @@ export class CreatebookingComponent implements OnInit {
     "internalHistory": "",
     "numberOfRooms": 0,
     "otherCompaignName": "string",
-    "numberOfPerticipants": 0, 
+    "numberOfPerticipants": 0,
     "regionIds": [],
     "bookingRoomViewModel": [],
     "bookingArrangementTypeViewModel": [],
@@ -143,6 +144,7 @@ export class CreatebookingComponent implements OnInit {
   dropdownListforPartnerType = [];
   selectedItems = [];
   dropdownListforCenterMatching = [];
+  dropdownListforRefreshment = [];
   dropdownListCenter = [];
   dropdownSettings = {};
   arrivalTime: Date;
@@ -182,7 +184,7 @@ export class CreatebookingComponent implements OnInit {
     this.GetAllPurpose();
     this.GetAllTableSetting();
     this.GetAllParticipants();
-    //this.GetAllRefer();
+    this.GetAllRefreshments();
     this.GetReferredbyDDL();
     this.GetAllServiceCatalogs();
     this.GetAllcampaigns();
@@ -215,12 +217,14 @@ export class CreatebookingComponent implements OnInit {
 
   onItemSelect(item: any) {
     this.CreateBookingModel.regionIds.push(item.item_id)
+    this.CreateBookingModel.regionIds = this.CreateBookingModel.regionIds.map(item => item)
     console.log(item);
   }
   onSelectAll(items: any) {
     items.forEach(element => {
       this.CreateBookingModel.regionIds.push(element.item_id);
     });
+    this.CreateBookingModel.regionIds = this.CreateBookingModel.regionIds.map(item => item)
     console.log(items);
   }
   onItemDeSelect(item: any) {
@@ -267,7 +271,7 @@ export class CreatebookingComponent implements OnInit {
     this.GiveprizeMultilstType.splice(index, 1);
   }
   constructor(private zipcodeService: ZipcodeService, private stateprovinanceService: StateprovinanceService, private zone: NgZone,
-    private choiceService: ChoiceService, private bookingService: BookingService) {
+    private choiceService: ChoiceService, private bookingService: BookingService, private router: Router) {
 
   }
 
@@ -337,7 +341,9 @@ export class CreatebookingComponent implements OnInit {
     this.CreateBookingModel.bookingRoomViewModel = bookingRoomViewModel;
     this.CreateBookingModel.bookingAlternativeServiceViewModel = bookingAlternativeServiceViewModel;
     this.bookingService.SaveBooking(this.CreateBookingModel).subscribe(res => {
-
+      if (res.bookingId != 0) {
+        this.router.navigate(['/allcases']);
+      }
     });
   }
   GetAllZipCodes(): any {
@@ -371,11 +377,13 @@ export class CreatebookingComponent implements OnInit {
   }
   GetPartnerforFindCenter(): any {
     this.choiceService.GetPartnerforFindCenter().subscribe(res => {
-
       for (let i = 0; i < res.length; ++i) {
         this.dropdownListCenter.push({ item_id: res[i].partnerId, item_text: res[i].partnerName });
       }
     });
+    setTimeout(function () {
+      this.DivFindCenter = true;
+    }.bind(this), 500);
   }
 
   // OnclickFindCenter(): void {
@@ -486,4 +494,11 @@ export class CreatebookingComponent implements OnInit {
     });
   }
 
+  GetAllRefreshments(): any {
+    this.choiceService.GetAllRefreshments().subscribe(res => {
+      for (let i = 0; i < res.length; ++i) {
+        this.dropdownListforRefreshment.push({ item_id: res[i].refreshmentId, item_text: res[i].name });
+      }
+    })
+  }
 }

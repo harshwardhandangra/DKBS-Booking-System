@@ -1031,7 +1031,8 @@ ul {
     width: 366px;
 }
 
-.dbkstabs .nav-tabs li a {
+.dbkstabs .nav-tabs li a,
+.bookingdetailtabs .nav-tabs li a {
     font-size: 14px;
     cursor: pointer;
     background: transparent;
@@ -1040,13 +1041,20 @@ ul {
     border-color: #e4e4e4;border-bottom: 0;
 }
 
-.dbkstabs .nav-tabs li.active a {
+.dbkstabs .nav-tabs li.active a,
+.bookingdetailtabs .nav-tabs li.active a{
     color: #fff;
     background-color: #eb6100;
     border-color: #eb6100 #eb6100 #fff;
    
     font-weight: normal;
 }
+.bookingdetailtabs .nav-tabs li{width:20%; line-height: 28px;text-align: center;}
+.bookingdetailtabs .nav-tabs li:nth-child(4),
+.bookingdetailtabs .nav-tabs li:nth-child(5){width:10%;}
+.bookingdetailtabs .nav-tabs li:nth-child(6) a{line-height: normal;padding: 3px 7px;}
+.bookingdetailtabs .nav-tabs li a{    padding: 0.5rem 5px;}
+.bookingdetailtabs .nav-tabs li.active a{}
 
 .dbkstabs .tab-content {
     width: 100%;
@@ -1111,22 +1119,25 @@ form h4 {
     margin-right: 0px;
     margin-top: 12px;
 }
-.dbkstabs{margin:15px auto 50px;}
+.dbkstabs,.bookingdetailtabs{margin:15px auto 50px;}
 .formboxadditional {
     display: block;
     width: 100%;
     margin: auto;
    
 }
-.formboxadditional .card{box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03); background-color: #fff; border-radius: 3px;  border: none; position: relative;margin-bottom: 30px;}
-.formboxadditional .card-header{ background: #fff;border-bottom-color: #f9f9f9; color: #eb6100; font-weight: 700;padding: 1.25rem;}
-.formboxadditional .card-body label{display: block;width: 100%;    font-weight: 600; color: #34395e; font-size: 12px;letter-spacing: .5px;}
+.formboxadditional .card,
+.bookingdetailtabs .card{box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03); background-color: #fff; border-radius: 3px;  border: none; position: relative;margin-bottom: 30px;}
+.formboxadditional .card-header,
+.bookingdetailtabs .card-header{ background: #fff;border-bottom-color: #f9f9f9; color: #eb6100; font-weight: 700;padding: 1.25rem;}
+.formboxadditional .card-body label,
+.bookingdetailtabs .card-body label{display: block;width: 100%;    font-weight: 600; color: #34395e; font-size: 12px;letter-spacing: .5px;}
 .formboxadditional .arrivedepart .form-group .dpicker{width:180px;margin-right:10px;}
 .formboxadditional .arrivedepart .widthtimepicker {}
 .formboxadditional .arrivedepart .widthtimepicker table td:nth-child(4),
 .fullpackages ul li .widthtimepicker table td:nth-child(4){display: none;}
 .formboxadditional .arrivedepart  table td button,
-.fullpackages ul li table td button{padding:0px 10px;}
+.fullpackages ul li table td button{padding:0px 5px;}
 .formboxadditional  .checkboxlabel{margin:20px 0px !important;}
 .formboxadditional  .internalhistory label,
 .formboxadditional  .checkboxlabel label{ display: inline-block;width: auto;float: left;margin-right: 40px;padding: 9px 0;}
@@ -1157,7 +1168,7 @@ form h4 {
     font-size: 13px;
 }
 .fullpackages ul{min-height:72px;clear: both;}
-.fullpackages ul li{float: left;margin-left:2%;}
+.fullpackages ul li{float: left;margin-left:1%;}
 .fullpackages ul li:nth-child(1){margin-left:0px;}
 .fullpackages ul li:nth-child(1),
 .fullpackages ul li:nth-child(2){width:15%;}
@@ -1167,12 +1178,7 @@ form h4 {
 .fullpackages ul li select{padding:0.375rem 8px;}
 .fullpackages ul li .lbl,
 .yourprizefiled  ul li .lbl{font-weight: 600;color: #34395e;font-size: 12px;}
-.fullpackages ul li .dpicker {width: 58%; float: left; margin-right: 5px;}
-.fullpackages.roompkgs ul li:nth-child(1){width:12%;}
-.fullpackages.roompkgs ul li:nth-child(2),
-.fullpackages.roompkgs ul li:nth-child(3){width:10%;}
 .fullpackages.roompkgs ul li:nth-child(4){width:12%;}
-.fullpackages.roompkgs ul li:nth-child(5),
 .fullpackages.roompkgs ul li:nth-child(6){width:22%;}
 .fullpackages.roompkgs ul li:nth-child(7){margin-left: 0}
 .formboxadditional .bs-timepicker-field { width: 34px;  padding: 3px 1px !important;}
@@ -1433,6 +1439,31 @@ form h4 {
 .addrownew a.btn{border-color:#eb6100;color:#eb6100;}
 .addrownew a.btn:hover{background: #eb6100;color:#fff;}
 .mbtm0{margin-bottom:0px !important;}
+.fulllabel{display: block;width: 100%;}
+.bookingdetailtabs .form-group{min-height: 40px;}
+.bookingdetailtabs .form-group label{width:25%;float: left;}
+.bookingdetailtabs .form-group input[type="text"],
+.bookingdetailtabs .form-group input[type="email"],
+.bookingdetailtabs .form-group input[type="tel"],
+.bookingdetailtabs .form-group select,
+.bookingdetailtabs .form-group textarea,
+.bookingdetailtabs .form-group .labeltext,
+.bookingdetailtabs .form-group  .radiocheckbox{width:75%;float: left;}
+.bookingdetailtabs .table thead th,
+.bookingdetailtabs .table tbody td,
+.bookingdetailtabs .table tbody th{padding:5px;}
+.packagediv{width: 100%;display: block;position: relative;}
+.packagediv ul{min-height: 60px;}
+.packagediv ul li{float: left;width: 24%;margin-left: 1.33%;}
+.packagediv ul li:first-child{margin-left:0px;}
+.packagediv ul li label,
+.packagediv ul li .lbl{display: block; width: 100%; font-weight: 600;color: #34395e;font-size: 12px; letter-spacing: .5px;}
+.bookingdetailtabs .form-group .packagediv ul li input,
+.bookingdetailtabs .form-group .packagediv ul li  select{width:100%;}
+.bookingdetailtabs .addrownew{margin-top:15px;}
+.bookingdetailtabs .nextpreviousbtn button{margin-left:15px;width:auto;}
+.widthtab{display:block;width:100%;position: relative;}
+
 
 @media (max-width:1366px) {
     #sidebar .nav-submenu,
@@ -1462,6 +1493,14 @@ form h4 {
     .fullpackages.roompkgs ul li:nth-child(7) .delbtn{margin-top:8px;}
     .yourprizefiled ul li {width: 43%;}
     .yourprizefiled .addrownew {width: 92%;}
+    .bookingdetailtabs .table thead th, 
+    .bookingdetailtabs .table tbody td, 
+    .bookingdetailtabs .table tbody th {font-size: 13px; }
+    .bookingdetailtabs .note[_ngcontent-c1] {margin: 0px 0 7px 0; padding-left: 10px;    }
+    .bookingdetailtabs .nav-tabs li:nth-child(3) a,
+    .bookingdetailtabs .nav-tabs li:nth-child(6) a{line-height: normal;   padding: 2px;   }
+
+
 }
 @media only screen and (min-width:992px) and (max-width:1199px) {
 
@@ -1520,6 +1559,23 @@ form h4 {
     .yourprizefiled ul li:nth-child(3)  button{padding: 0px;margin-top:8px;}
     .compinfosec .row,
     .compinfosec .row .col-md-6 {margin-bottom: 20px;}
+    .bookingdetailtabs .form-group label,
+    .bookingdetailtabs .form-group input[type="text"], 
+    .bookingdetailtabs .form-group input[type="email"], 
+    .bookingdetailtabs .form-group input[type="tel"], 
+    .bookingdetailtabs .form-group select, 
+    .bookingdetailtabs .form-group textarea, 
+    .bookingdetailtabs .form-group .labeltext, 
+    .bookingdetailtabs .form-group .radiocheckbox { width: 100%;}
+    .bookingdetailtabs .form-group {min-height: 70px; }
+    .bookingdetailtabs .form-group.chkbox{min-height: 40px;}
+    .bookingdetailtabs .form-group.chkbox label{width:50%;}
+    .bookingdetailtabs .form-group.chkbox input[type="checkbox"]{width:auto;margin-top:11px;}
+    .packagediv ul li {width: 49%;margin-bottom:10px;  }
+    .packagediv ul li:nth-child(3){margin-left:0px;}
+    .packagediv ul { min-height: 110px;    }
+    .widthtab{display:block;width:100%;position: relative;overflow:auto;}
+    .widthtab ul{width:700px;}
 }
 
 @media only screen and (max-width:375px) {}
