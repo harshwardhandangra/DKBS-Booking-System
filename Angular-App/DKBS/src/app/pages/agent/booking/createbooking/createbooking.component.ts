@@ -373,7 +373,7 @@ export class CreatebookingComponent implements OnInit {
     this.choiceService.GetPartnerforFindCenter().subscribe(res => {
 
       for (let i = 0; i < res.length; ++i) {
-        this.dropdownListCenter.push({ item_id: res[i].centerMatchingId, item_text: res[i].matchingCenter });
+        this.dropdownListCenter.push({ item_id: res[i].partnerId, item_text: res[i].partnerName });
       }
     });
   }
