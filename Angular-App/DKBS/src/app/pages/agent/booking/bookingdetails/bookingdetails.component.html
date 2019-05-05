@@ -2,83 +2,88 @@
 <main id="playground">
     <app-header></app-header>
     <section class="content-area">
-        
+
         <div class="container-fluid">
-            
+
             <div class="row">
-            
+
                 <div class="col-md-10 offset-1 bookingdetailtabs">
                     <!-- <div class="note">
                         <p>Note: DKBS Info</p>
                     </div> -->
                     <div class="widthtab">
-                    <ul class=" nav nav-tabs" role="tablist">
-                        <li [class]="selectedwallet === 'SAGSDETALJER'?'active':'inactive'"><a
-                                (click)="selectedwallet = 'SAGSDETALJER'" class="nav-link">Case Details</a></li>
-                        <li [class]="selectedwallet === 'EVENTDETALJER'?'active':'inactive'"><a
-                                (click)="selectedwallet = 'EVENTDETALJER'" class="nav-link">Event Details</a></li>
-                        <li [class]="selectedwallet === 'FIRMA-OG'?'active':'inactive'" class="nav-link"> <a
-                                (click)="selectedwallet = 'FIRMA-OG'" class="nav-link">Company Information</a></li>
-                        <li [class]="selectedwallet === 'OTHER'?'active':'inactive'" class="nav-link"><a
-                                (click)="selectedwallet = 'OTHER'" class="nav-link">Other</a></li>
-                        <li [class]="selectedwallet === 'Log'?'active':'inactive'" class="nav-link"><a
+                        <ul class=" nav nav-tabs" role="tablist">
+                            <li [class]="selectedwallet === 'SAGSDETALJER'?'active':'inactive'"><a
+                                    (click)="selectedwallet = 'SAGSDETALJER'" class="nav-link">Case Details</a></li>
+                            <li [class]="selectedwallet === 'EVENTDETALJER'?'active':'inactive'"><a
+                                    (click)="selectedwallet = 'EVENTDETALJER'" class="nav-link">Event Details</a></li>
+                            <li [class]="selectedwallet === 'FIRMA-OG'?'active':'inactive'" class="nav-link"> <a
+                                    (click)="selectedwallet = 'FIRMA-OG'" class="nav-link">Company Information</a></li>
+                            <li [class]="selectedwallet === 'OTHER'?'active':'inactive'" class="nav-link"><a
+                                    (click)="selectedwallet = 'OTHER'" class="nav-link">Other</a></li>
+                            <li [class]="selectedwallet === 'Log'?'active':'inactive'" class="nav-link"><a
                                     (click)="selectedwallet = 'Log'" class="nav-link">Log</a></li>
-                        <li [class]="selectedwallet === 'Commission'?'active':'inactive'" class="nav-link"><a
-                                        (click)="selectedwallet = 'Commission'" class="nav-link">Commission</a></li>
-                       <!-- <li [class]="selectedwallet === 'Power'?'active':'inactive'" class="nav-link"><a
+                            <li [class]="selectedwallet === 'Commission'?'active':'inactive'" class="nav-link"><a
+                                    (click)="selectedwallet = 'Commission'" class="nav-link">Commission</a></li>
+                            <!-- <li [class]="selectedwallet === 'Power'?'active':'inactive'" class="nav-link"><a
                                             (click)="selectedwallet = 'Power'" class="nav-link">Power BI</a></li>-->
-                    </ul>
-                </div>
+                        </ul>
+                    </div>
                     <!-- Tab panes -->
-                    <div class="tab-content"> 
-                      
+                    <div class="tab-content">
+
                         <div role="tabpanel" *ngIf="selectedwallet === 'SAGSDETALJER'">
-                           
+
                             <form class="">
                                 <div class="card">
                                     <div class="card-header">Case Details</div>
                                     <div class="card-body">
                                         <div class="form-group">
-                                        <label class="col-form-label fulllabel">Procedure Info : </label>
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered">
-                                                <thead>
-                                                <tr style="background-color: #c7c7dc;">
-                                                <th scope="col">  <input type="checkbox" aria-label="Select all items in this table"  id="SelectAll"></th>
-                                                    <th scope="col"> <span class="glyphicon glyphicon-paperclip"></span></th>
-                                                    <th scope="col">Queries</th>
-                                                    <th scope="col">Reply</th>
-                                                    <th scope="col">Email Offer</th>
-                                                    <th scope="col">Center</th>
-                                                    <th scope="col">Chat</th>
-                                                    <th scope="col">Comment</th>
-                                                    <th scope="col">Total Price</th>
-                                                    <th scope="col">System Price </th>          
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>Mark</td>
-                                                    <td>Otto</td>
-                                                    <td>@mdo</td>
-                                                    <td>@mdo</td>
-                                                    <td>@mdo</td>
-                                                    <td>Mark</td>
-                                                    <td>Otto</td>
-                                                    <td>@mdo</td>
-                                                    <td>@mdo</td>                                          
-                                                </tr>
-                                                                                    
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                            <label class="col-form-label fulllabel">Procedure Info : </label>
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                        <tr style="background-color: #c7c7dc;">
+                                                            <th scope="col"> <input type="checkbox"
+                                                                    aria-label="Select all items in this table"
+                                                                    id="SelectAll"></th>
+                                                            <th scope="col"> <span
+                                                                    class="glyphicon glyphicon-paperclip"></span></th>
+                                                            <th scope="col">Queries</th>
+                                                            <th scope="col">Reply</th>
+                                                            <th scope="col">Email Offer</th>
+                                                            <th scope="col">Center</th>
+                                                            <th scope="col">Chat</th>
+                                                            <th scope="col">Comment</th>
+                                                            <th scope="col">Total Price</th>
+                                                            <th scope="col">System Price </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th scope="row">1</th>
+                                                            <td>Mark</td>
+                                                            <td>Otto</td>
+                                                            <td>@mdo</td>
+                                                            <td>@mdo</td>
+                                                            <td>@mdo</td>
+                                                            <td>Mark</td>
+                                                            <td>Otto</td>
+                                                            <td>@mdo</td>
+                                                            <td>@mdo</td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-form-label">Center info Reason for removal</label>
-                                            <select id="ddlCenterInfoReason" name="ddlCenterInfoReason" [(ngModel)]="ddlCenterInfoReason" class="form-control">
-                                                <option *ngFor="let dept of ddlCenterInfoReason" [value]="dept.Region_Id">
-                                                {{dept.Region_Name }}
+                                            <select id="ddlCenterInfoReason" name="ddlCenterInfoReason"
+                                                [(ngModel)]="ddlCenterInfoReason" class="form-control">
+                                                <option *ngFor="let dept of ddlCenterInfoReason"
+                                                    [value]="dept.Region_Id">
+                                                    {{dept.Region_Name }}
                                                 </option>
                                             </select>
                                         </div>
@@ -93,7 +98,7 @@
                                         <div class="form-group">
                                             <label class="col-form-label">Is main series case</label>
                                             <div class="labeltext">Bind Data</div>
-                                            
+
                                         </div>
                                         <div class="form-group">
                                             <label class="col-form-label">Select language</label>
@@ -118,7 +123,12 @@
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="form-group">
                                                     <label class="lbl">Arrival</label>
-                                                    <input type="text" placeholder="Datepicker" class="form-control" bsDatepicker>  
+                                                    <jqxDateTimeInput [width]="300" [height]="30" [formatString]="'F'"
+                                                        [showTimeButton]="true">
+                                                    </jqxDateTimeInput>
+                                                    <!-- <input type="text" placeholder="Datepicker" class="form-control"
+                                                        bsDatepicker> -->
+
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-6">
@@ -129,12 +139,13 @@
                                             </div>
                                         </div>
 
-                                       
+
 
                                         <div class="form-group">
                                             <label class="col-form-label">Case</label>
-                                            <input type="text" value= "Foresporgsel fra DKBS SRM7974"class="form-control">
-                                         </div>
+                                            <input type="text" value="Foresporgsel fra DKBS SRM7974"
+                                                class="form-control">
+                                        </div>
                                         <div class="form-group">
                                             <label class="col-form-label">The dates are flexible</label>
                                             <input type="text" value="No" class="form-control">
@@ -180,7 +191,7 @@
                                     </div>
                                 </div>
 
-                        
+
 
                                 <div class="card">
                                     <div class="card-header">Desired geographical area</div>
@@ -189,7 +200,7 @@
                                             <label class="col-form-label">booking Responsible</label>
                                             <input type="checkbox">
                                         </div>
-                                      
+
                                     </div>
                                 </div>
                                 <div class="card">
@@ -205,22 +216,22 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="card">
                                     <div class="card-header">CenterMatching</div>
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label class="col-form-label">Default</label>
-                                            <input type="text"  class="form-control">
+                                            <input type="text" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label class="col-form-label">state agreement
                                             </label>
                                             <input type="text" class="form-control">
                                         </div>
-                                       
+
                                     </div>
-                                    
+
                                 </div>
                             </form>
 
@@ -228,67 +239,67 @@
                         </div>
                         <div role="tabpanel" *ngIf="selectedwallet === 'FIRMA-OG'">
                             <div class="card">
-                               
+
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label class="col-form-label">Business</label>
                                         <input type="text" value="WinPoint A/s" class="form-control">
                                     </div>
                                     <div class="form-group">
-                                            <label class="col-form-label">Contact person</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-form-label">Where do you know us?</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-form-label"> Referred contact person</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-        
-                                        <div class="form-group">
-                                            <label class="col-form-label">Email</label>
-                                            <input type="text" class="form-control">
-        
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-form-label">Mobil</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-form-label">Telephone</label>
-                                            <Input type="text" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-form-label">Referred firm</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-form-label">Addresse</label>
-                                            <input type="text" value="Holmekrogen 10" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-form-label">Postal code, city, country</label>
-                                            <input type="text" value="2830 - Virum, Denmark" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-form-label">Business</label>
-                                            <input type="text" value="IT og telekommunikation" class="form-control">
-                                        </div>
-                                        
+                                        <label class="col-form-label">Contact person</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Where do you know us?</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label"> Referred contact person</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-form-label">Email</label>
+                                        <input type="text" class="form-control">
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Mobil</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Telephone</label>
+                                        <Input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Referred firm</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Addresse</label>
+                                        <input type="text" value="Holmekrogen 10" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Postal code, city, country</label>
+                                        <input type="text" value="2830 - Virum, Denmark" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Business</label>
+                                        <input type="text" value="IT og telekommunikation" class="form-control">
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
                         <div role="tabpanel" *ngIf="selectedwallet === 'OTHER'">
                             <div class="card">
                                 <div class="card-body">
-                                       
-                                             <div class="form-group">
-                                                <label class="col-form-label">Status</label>
-                                                <input type="text" value= "Ny" class="form-control">
-                                             </div>
-                                             <!-- <div class="form-group">
+
+                                    <div class="form-group">
+                                        <label class="col-form-label">Status</label>
+                                        <input type="text" value="Ny" class="form-control">
+                                    </div>
+                                    <!-- <div class="form-group">
                                                 <label class="col-form-label">Placering</label>
                                                 <input type="text" class="form-control">
                                              </div>
@@ -296,75 +307,75 @@
                                                 <label class="col-form-label"> Placeringskommenter</label>
                                                 <input type="text" value="Test case" class="form-control">
                                              </div> -->
-                                             <div class="form-group">
-                                                <label class="col-form-label">Referred</label>
-                                                <input type="text"  class="form-control">
-                                             </div>
-                                             <div class="form-group">
-                                                <label class="col-form-label">Referred By</label> 
-                                                <input type="text"  class="form-control">					
-                                             </div>
-                                             <div class="form-group">
-                                                <label class="col-form-label">Lead origin</label>
-                                                <Input type ="text" value = "Direkte kontakt" class="form-control">
-                                             </div>
-                                             <div class="form-group">
-                                                <label class="col-form-label">Gron some</label>
-                                                <input type="text" value = "No" class="form-control">
-                                             </div>
-                                             <div class="form-group">
-                                                <label class="col-form-label">Acceptance for employees</label>
-                                                <input type="text" value="No" class="form-control">
-                                             </div>
-                                             <div class="form-group">
-                                                <label class="col-form-label">Handicapvenlig</label>
-                                                <input type="text" value="No" class="form-control">
-                                             </div>
-                                             <div class="form-group">
-                                                <label class="col-form-label">Bar</label>
-                                                <input type="text" value ="No" class="form-control">
-                                             </div>
-                                             <div class="form-group">
-                                                <label class="col-form-label">Launge</label>
-                                                <input type="text" value ="No" class="form-control">
-                                             </div>
-                                             <div class="form-group">
-                                                <label class="col-form-label">Bilard/dart/bordtennis/etc.</label>
-                                                <input type="text" value ="No" class="form-control">
-                                             </div>
-                                             <div class="form-group">
-                                                <label class="col-form-label">Spa</label>
-                                                <input type="text" value ="No" class="form-control">
-                                             </div>
-                                             <div class="form-group">
-                                                <label class="col-form-label">Pool</label>
-                                                <input type="text" value ="No" class="form-control">
-                                             </div>
-                                             <div class="form-group">
-                                                <label class="col-form-label">Fitness room</label>
-                                                <input type="text" value ="No" class="form-control">
-                                             </div>
-                                             <div class="form-group chkbox">
-                                                <label class="col-form-label">Casino</label>
-                                                <input type="checkbox">
-                                             </div>
-                                             <div class="form-group chkbox">
-                                                <label class="col-form-label">Green areas</label>
-                                                <input type="checkbox">
-                                             </div>
-                                             <div class="form-group chkbox">
-                                                <label class="col-form-label">Aircondition</label>
-                                                <input type="checkbox">
-                                             </div>
-                                             <div class="form-group chkbox">
-                                                <label class="col-form-label">Cooking School</label>
-                                                <input type="checkbox">
-                                             </div>
-                                             <div class="form-group chkbox">
-                                                <label class="col-form-label">Golf</label>
-                                                <input type="checkbox">
-                                             </div>
-                                             <!-- <div class="form-group">
+                                    <div class="form-group">
+                                        <label class="col-form-label">Referred</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Referred By</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Lead origin</label>
+                                        <Input type="text" value="Direkte kontakt" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Gron some</label>
+                                        <input type="text" value="No" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Acceptance for employees</label>
+                                        <input type="text" value="No" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Handicapvenlig</label>
+                                        <input type="text" value="No" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Bar</label>
+                                        <input type="text" value="No" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Launge</label>
+                                        <input type="text" value="No" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Bilard/dart/bordtennis/etc.</label>
+                                        <input type="text" value="No" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Spa</label>
+                                        <input type="text" value="No" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Pool</label>
+                                        <input type="text" value="No" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Fitness room</label>
+                                        <input type="text" value="No" class="form-control">
+                                    </div>
+                                    <div class="form-group chkbox">
+                                        <label class="col-form-label">Casino</label>
+                                        <input type="checkbox">
+                                    </div>
+                                    <div class="form-group chkbox">
+                                        <label class="col-form-label">Green areas</label>
+                                        <input type="checkbox">
+                                    </div>
+                                    <div class="form-group chkbox">
+                                        <label class="col-form-label">Aircondition</label>
+                                        <input type="checkbox">
+                                    </div>
+                                    <div class="form-group chkbox">
+                                        <label class="col-form-label">Cooking School</label>
+                                        <input type="checkbox">
+                                    </div>
+                                    <div class="form-group chkbox">
+                                        <label class="col-form-label">Golf</label>
+                                        <input type="checkbox">
+                                    </div>
+                                    <!-- <div class="form-group">
                                                 <label class="col-form-label">Stilling</label>
                                                 <input type="text" class="form-control">
                                              </div>
@@ -376,205 +387,216 @@
                                                 <label class="col-form-label">Hovedorganisation</label>
                                                 <input type="text" value = "Winpoint A/s" class="form-control">
                                              </div> -->
-                                             <div class="form-group">
-                                                <label class="col-form-label">Related parent request</label>
-                                                <input type="text" class="form-control">
-                                             </div>
-                                             <div class="form-group chkbox">
-                                                <label class="col-form-label">Turn off notifcation</label>
-                                                <input type="checkbox">
-                                             </div>
-                                             <!-- <div class="form-group chkbox">
+                                    <div class="form-group">
+                                        <label class="col-form-label">Related parent request</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group chkbox">
+                                        <label class="col-form-label">Turn off notifcation</label>
+                                        <input type="checkbox">
+                                    </div>
+                                    <!-- <div class="form-group chkbox">
                                                 <label class="col-form-label">Ny Kunde</label>
                                                 <input type="checkbox">
                                              </div> -->
-                                           
+
                                 </div>
                             </div>
                             <div class="nextpreviousbtn">
-                                <button class="btn btn-outline-warning " type="submit"  value="Submit"   >Save</button>
-                                <button class="btn btn-outline-primary" type="submit"  value="Submit"   >Save and exit</button>
-                                <button class="btn btn-outline-dark" type="submit"  value="Submit"  >Cancel</button>
+                                <button class="btn btn-outline-warning " type="submit" value="Submit">Save</button>
+                                <button class="btn btn-outline-primary" type="submit" value="Submit">Save and
+                                    exit</button>
+                                <button class="btn btn-outline-dark" type="submit" value="Submit">Cancel</button>
                             </div>
                         </div>
                         <div role="tabpanel" *ngIf="selectedwallet === 'Log'">
                             <div class="card">
                                 <div class="card-body">
-                                        <div class="form-group">
-                                                <label class="col-form-label">Emails</label>
-                                                <input type="text" value= "Conversation subject: Foresporgal fra DKBS SRM9081"class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-form-label">Communications</label>
-                                                <input type="text"  class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-form-label">Interne noter</label>
-                                                <input type="text" class="form-control">
-                                            </div>
-                                            <div class="form-group  chkbox">
-                                                <label class="col-form-label"> Read</label>
-                                                <input type="checkbox">
-                                            </div>
-        
-                                           
+                                    <div class="form-group">
+                                        <label class="col-form-label">Emails</label>
+                                        <input type="text" value="Conversation subject: Foresporgal fra DKBS SRM9081"
+                                            class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Communications</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Interne noter</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group  chkbox">
+                                        <label class="col-form-label"> Read</label>
+                                        <input type="checkbox">
+                                    </div>
+
+
                                 </div>
                             </div>
                             <div class="nextpreviousbtn">
-                                    <button class="btn btn-outline-warning " type="submit"  value="Submit"   >Save</button>
-                                    <button class="btn btn-outline-primary" type="submit"  value="Submit"   >Save and exit</button>
-                                    <button class="btn btn-outline-dark" type="submit"  value="Submit"  >Cancel</button>
-                                </div>
+                                <button class="btn btn-outline-warning " type="submit" value="Submit">Save</button>
+                                <button class="btn btn-outline-primary" type="submit" value="Submit">Save and
+                                    exit</button>
+                                <button class="btn btn-outline-dark" type="submit" value="Submit">Cancel</button>
+                            </div>
                         </div>
 
                         <div role="tabpanel" *ngIf="selectedwallet === 'Commission'">
                             <div class="card">
                                 <div class="cord-header"></div>
-                                        <div class="card-body">                                        
-                                            <div class="form-group">
-                                                    <div class="fulllabel">Kursuspakker</div>
-                                                    <div class="packagediv">
-                                                      <ul>
-                                                        <li>
-                                                          <div class="lbl"> course Packages</div>
-                                                          <input type="text" class="form-control">
-                                                        </li>
-                                                        <li>
-                                                          <div class="lbl">Participants</div>
-                                                          <input type="text" class="form-control">
-                                                        </li>
-                                                        <li>
-                                                          <div class="lbl">per ISK (ISK)</div>
-                                                          <input type="text" class="form-control">
-                                                        </li>
-                                                        <li>
-                                                          <div class="lbl">Total (kr.)</div>
-                                                          <input type="text" class="form-control">
-                                                        </li>
-                                                       
-                                                      </ul>
-                                  
-                                                      <ul class="ulrepeat" *ngFor="let ObjArrangementtype of Arrangementtype; let i = index">                                                        <li>
-                                  
-                                                          <input type="text" class="form-control">
-                                                        </li>
-                                                        <li>
-                                  
-                                                          <input type="text" class="form-control">
-                                                        </li>
-                                                        <li>
-                                  
-                                                          <input type="text" class="form-control">
-                                                        </li>
-                                                        <li>
-                                  
-                                                          <input type="text" class="form-control">
-                                                        </li>
-                                                        <li>
-                                                          <button class="btn btn-default" type="button" (click)="deleteFieldValue(i)">Delete</button>
-                                  
-                                                        </li>
-                                                      </ul>
-                                                      <div class="addrownew">
-                                                         <a class="btn btn-outline-warning" (click)="addFieldValue()"><i class="fa fa-plus"></i>Add new row</a>
-                                                       </div>
-                                                      <div class="clearfix"></div>
-                                                    </div>                                                 
-                                                  </div>
-                                                  <div class="form-group">
-                                                        <div class="fulllabel">Rooms</div>
-                                                        <div class="packagediv">
-                                                          <ul>
-                                                              <li>
-                                                                <div class="lbl">Local type</div>
-                                                                <input type="text" class="form-control">
-                                                              </li>
-                                                            <li>
-                                                              <div class="lbl">Number of rooms</div>
-                                                              <input type="text" class="form-control">
-                                                            </li>
-                                                            <li>
-                                                              <div class="lbl">per person</div>
-                                                              <input type="text" class="form-control">
-                                                            </li>
-                                                            <li>
-                                                              <div class="lbl">Total price (DKK))</div>
-                                                              <input type="text" class="form-control">
-                                                            </li>
-                                                            
-                                                            
-                                                          </ul>
-                                      
-                                                          <ul class="ulrepeat" *ngFor="let ObjArrangementtype of Arrangementtype; let i = index">                                                        <li>
-                                      
-                                                              <input type="text" class="form-control">
-                                                            </li>
-                                                            <li>
-                                      
-                                                              <input type="text" class="form-control">
-                                                            </li>
-                                                            <li>
-                                      
-                                                              <input type="text" class="form-control">
-                                                            </li>
-                                                            <li>
-                                      
-                                                              <input type="text" class="form-control">
-                                                            </li>
-                                                            <li>
-                                                              <button class="btn btn-default" type="button" (click)="deleteFieldValue(i)">Delete</button>
-                                      
-                                                            </li>
-                                                          </ul>
-                                                            <div class="addrownew">
-                                                                 <a class="btn btn-outline-warning" (click)="addFieldValue()"><i class="fa fa-plus"></i>Add new row</a>
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                        </div>                                                 
-                                                      </div>
-                                            <div class="form-group">
-                                                <label class="col-form-label">Andet</label>
-                                                <input type="text" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-form-label"> Kursuspakker</label>
-                                                <input type="text" class="form-control">
-                                            </div>
-        
-                                            <div class="form-group">
-                                                <label class="col-form-label">Andet</label>
-                                                <input type="text"  class="form-control">
-                                                
-                                            </div>
-                                            <div class="form-group">
-                                            <label class="col-form-label">Centres evt. kommentarer</label> 
-                                            <textarea class="form-control" rows="5" id="comment"></textarea>	
-                                            <div class="clearfix"></div>				
-                                            </div>
-                                            <br>
-                                            <div class="form-group">
-                                                <label class="col-form-label">Bogholders evt. kommentarer</label>
-                                                <textarea class="form-control" rows="5" id="comment"></textarea>
-                                                <div class="clearfix"></div>	
-                                               
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-form-label">Angivet af center i alt</label>
-                                                <input type="text" class="form-control">
-                                            </div>
-        
-                                            <div class="form-group">
-                                            
-                                                <label class="col-form-label">Estimeret af DKBS i alt</label>
-                                                <input type="text" value="No" class="form-control">
-          
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-form-label">Difference</label>
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <div class="fulllabel">Kursuspakker</div>
+                                        <div class="packagediv">
+                                            <ul>
+                                                <li>
+                                                    <div class="lbl"> course Packages</div>
                                                     <input type="text" class="form-control">
+                                                </li>
+                                                <li>
+                                                    <div class="lbl">Participants</div>
+                                                    <input type="text" class="form-control">
+                                                </li>
+                                                <li>
+                                                    <div class="lbl">per ISK (ISK)</div>
+                                                    <input type="text" class="form-control">
+                                                </li>
+                                                <li>
+                                                    <div class="lbl">Total (kr.)</div>
+                                                    <input type="text" class="form-control">
+                                                </li>
+
+                                            </ul>
+
+                                            <ul class="ulrepeat"
+                                                *ngFor="let ObjArrangementtype of Arrangementtype; let i = index">
+                                                <li>
+
+                                                    <input type="text" class="form-control">
+                                                </li>
+                                                <li>
+
+                                                    <input type="text" class="form-control">
+                                                </li>
+                                                <li>
+
+                                                    <input type="text" class="form-control">
+                                                </li>
+                                                <li>
+
+                                                    <input type="text" class="form-control">
+                                                </li>
+                                                <li>
+                                                    <button class="btn btn-default" type="button"
+                                                        (click)="deleteFieldValue(i)">Delete</button>
+
+                                                </li>
+                                            </ul>
+                                            <div class="addrownew">
+                                                <a class="btn btn-outline-warning" (click)="addFieldValue()"><i
+                                                        class="fa fa-plus"></i>Add new row</a>
                                             </div>
-                                            
-                                            <!-- <div class="form-group">
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="fulllabel">Rooms</div>
+                                        <div class="packagediv">
+                                            <ul>
+                                                <li>
+                                                    <div class="lbl">Local type</div>
+                                                    <input type="text" class="form-control">
+                                                </li>
+                                                <li>
+                                                    <div class="lbl">Number of rooms</div>
+                                                    <input type="text" class="form-control">
+                                                </li>
+                                                <li>
+                                                    <div class="lbl">per person</div>
+                                                    <input type="text" class="form-control">
+                                                </li>
+                                                <li>
+                                                    <div class="lbl">Total price (DKK))</div>
+                                                    <input type="text" class="form-control">
+                                                </li>
+
+
+                                            </ul>
+
+                                            <ul class="ulrepeat"
+                                                *ngFor="let ObjArrangementtype of Arrangementtype; let i = index">
+                                                <li>
+
+                                                    <input type="text" class="form-control">
+                                                </li>
+                                                <li>
+
+                                                    <input type="text" class="form-control">
+                                                </li>
+                                                <li>
+
+                                                    <input type="text" class="form-control">
+                                                </li>
+                                                <li>
+
+                                                    <input type="text" class="form-control">
+                                                </li>
+                                                <li>
+                                                    <button class="btn btn-default" type="button"
+                                                        (click)="deleteFieldValue(i)">Delete</button>
+
+                                                </li>
+                                            </ul>
+                                            <div class="addrownew">
+                                                <a class="btn btn-outline-warning" (click)="addFieldValue()"><i
+                                                        class="fa fa-plus"></i>Add new row</a>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Andet</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label"> Kursuspakker</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-form-label">Andet</label>
+                                        <input type="text" class="form-control">
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Centres evt. kommentarer</label>
+                                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Bogholders evt. kommentarer</label>
+                                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                                        <div class="clearfix"></div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Angivet af center i alt</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+
+                                        <label class="col-form-label">Estimeret af DKBS i alt</label>
+                                        <input type="text" value="No" class="form-control">
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Difference</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+
+                                    <!-- <div class="form-group">
                                                 <label class="col-form-label">Placeringsdato</label>
                                                <input type="text" class="form-control">
                                             </div>
@@ -583,124 +605,126 @@
                                                 <label class="col-form-label">Ankomst</label>
                                                <input type="text" class="form-control">
                                             </div> -->
-                                            
-                                            <!-- <div class="form-group">
+
+                                    <!-- <div class="form-group">
                                                 <label class="col-form-label">Difference i dage</label>
                                                <input type="text" class="form-control">
                                             </div> -->
-                                            <div class="form-group">
-                                                <label class="col-form-label">Provisionssats</label>
-                                               <input type="text"  class="form-control">
-                                            </div>
-                                           <div class="form-group">
-                                                <label class="col-form-label">Provision for arrangementet</label>
-                                               <input type="text"  class="form-control">
-                                            </div>
-                                           <div class="form-group">
-                                                <label class="col-form-label">Henvisninsgssats</label>
-                                               <input type="text"  class="form-control">
-                                            </div>
-                                  
-                                           <div class="form-group">
-                                                <label class="col-form-label">Henvisninsgsprovision for arrangementet</label>
-                                               <input type="text" class="form-control">
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <label class="col-form-label">Provision link</label>
-                                                <div class="radiocheckbox">
-                                                    <div class="form-check">
-                                                      <ng-multiselect-dropdown [placeholder]="'custom placeholder'" [data]="dropdownListProvision"
-                                                        [(ngModel)]="dropdownListProvision" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
-                                                        (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
-                                                    </div>
-                                                  </div>
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <label class="col-form-label">Provisionsopgoelser link</label>
-                                               <input type="text" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-form-label">Approve</label>
-                                                <input type="text" class="form-control">
-                                            </div>
-                                            
-                                                
-                                            
-                                        </div>
-                                        
-                                </div>
-                                <div class="nextpreviousbtn">
-                                        <button class="btn btn-outline-warning " type="submit"  value="Submit"   >Save</button>
-                                        <button class="btn btn-outline-primary" type="submit"  value="Submit"   >Save and exit</button>
-                                        <button class="btn btn-outline-dark" type="submit"  value="Submit"  >Cancel</button>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Provisionssats</label>
+                                        <input type="text" class="form-control">
                                     </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Provision for arrangementet</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Henvisninsgssats</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-form-label">Henvisninsgsprovision for arrangementet</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-form-label">Provision link</label>
+                                        <div class="radiocheckbox">
+                                            <div class="form-check">
+                                                <ng-multiselect-dropdown [placeholder]="'custom placeholder'"
+                                                    [data]="dropdownListProvision" [(ngModel)]="dropdownListProvision"
+                                                    [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+                                                    (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-form-label">Provisionsopgoelser link</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Approve</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+
+
+
+                                </div>
+
+                            </div>
+                            <div class="nextpreviousbtn">
+                                <button class="btn btn-outline-warning " type="submit" value="Submit">Save</button>
+                                <button class="btn btn-outline-primary" type="submit" value="Submit">Save and
+                                    exit</button>
+                                <button class="btn btn-outline-dark" type="submit" value="Submit">Cancel</button>
+                            </div>
                         </div>
                         <div role="tabpanel" *ngIf="selectedwallet === 'Power'">
-                                    <div class="card">
-                                            <div class="card-body"> 
-                                            <div class="form-group">
-                                                <label class="col-form-label">Status</label>
-                                                <input type="text" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-form-label">location</label>
-                                                <input type="text" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-form-label">Lead origin</label>
-                                                <input type="text" value = "Direkte kontakt" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-form-label"> referred</label>
-                                                <input type="text" class="form-control">
-                                            </div>
-        
-                                            <div class="form-group">
-                                                <label class="col-form-label">Depart</label>
-                                                <input type="text"  class="form-control">
-                                                
-                                            </div>
-                                            <div class="form-group">
-                                            <label class="col-form-label">PlaceringDato_S</label> 
-                                            <input type="text"  class="form-control">					
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-form-label">Response Time Email Offer_S</label>
-                                                <label class="col-form-label">Bind Data</label>
-                                            
-                                               
-                                            </div>
-                                            <div class="form-group chkbox">
-                                                <label class="col-form-label">Reference</label>
-                                                <input type="checkbox" >
-                                            </div>
-        
-                                            <div class="form-group chkbox">
-                                            
-                                                <label class="col-form-label">Offer accepted</label>
-                                                <input type="checkbox">
-          
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-form-label">interest Tags</label>
-                                                    <input type="text" class="form-control">
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <label class="col-form-label">Company ld</label>
-                                               <input type="text" class="form-control">
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <label class="col-form-label">Contact Person</label>
-                                               <input type="text" class="form-control">
-                                            </div>
-                                            
-                                           
-                                        </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label class="col-form-label">Status</label>
+                                        <input type="text" class="form-control">
                                     </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">location</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Lead origin</label>
+                                        <input type="text" value="Direkte kontakt" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label"> referred</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-form-label">Depart</label>
+                                        <input type="text" class="form-control">
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">PlaceringDato_S</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Response Time Email Offer_S</label>
+                                        <label class="col-form-label">Bind Data</label>
+
+
+                                    </div>
+                                    <div class="form-group chkbox">
+                                        <label class="col-form-label">Reference</label>
+                                        <input type="checkbox">
+                                    </div>
+
+                                    <div class="form-group chkbox">
+
+                                        <label class="col-form-label">Offer accepted</label>
+                                        <input type="checkbox">
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">interest Tags</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-form-label">Company ld</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-form-label">Contact Person</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

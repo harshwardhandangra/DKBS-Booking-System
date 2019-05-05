@@ -45,8 +45,7 @@ import { AwaitingpartnerComponent } from './pages/agent/booking/provision/awaiti
 import { AwaitingDKBSComponent } from './pages/agent/booking/provision/awaiting-dkbs/awaiting-dkbs.component';
 import { AwaitingeconomyComponent } from './pages/agent/booking/provision/awaitingeconomy/awaitingeconomy.component';
 import { NumberOnlyDirective } from './number.directive';
-
-// import { jqxDateTimeInputComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxdatetimeinput';
+import { jqxDateTimeInputComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxdatetimeinput';
 
 
 @NgModule({
@@ -86,7 +85,7 @@ import { NumberOnlyDirective } from './number.directive';
     AwaitingDKBSComponent,
     AwaitingeconomyComponent,
     NumberOnlyDirective,
-    // jqxDateTimeInputComponent
+    jqxDateTimeInputComponent
 
   ],
   imports: [
