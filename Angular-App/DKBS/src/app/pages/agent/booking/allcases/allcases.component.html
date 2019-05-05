@@ -87,20 +87,16 @@
 <main id="playground">
     <app-header></app-header>
     <section class="content-header">
-        <h1>
-           
-         
-        </h1>
         <ol class="breadcrumb">
-          <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-          <li class="active">All Cases</li>
+            <li><a routerLink="../allcases"><i class="fa fa-dashboard"></i> Booking</a></li>
+            <li class="active">All Cases</li>
         </ol>
-      </section>
+    </section>
     <section class="content-area">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                   
+
                     <!-- <div class="newbooking"> <a routerLink="/newbooking"><i
                                 class="fa fa-plus"></i> New Booking</a></div> -->
                     <div class="container-fluid">
@@ -150,7 +146,7 @@
                               </table>
                             </div> -->
                                 <div class="table-responsive" style="height: 500px;">
-                                    <table class="table table-hover"  style="width: 2633px;">
+                                    <table class="table table-hover" style="width: 2633px;">
                                         <thead>
                                             <tr>
                                                 <th scope="col">#</th>
@@ -161,7 +157,7 @@
                                                 <th scope="col">Email</th>
                                                 <th scope="col">Telephone</th>
                                                 <th scope="col">Mobile</th>
-                                              
+
                                                 <th scope="col">Booking
                                                     Responsible</th>
                                                 <th scope="col">Lead origin</th>
@@ -187,18 +183,19 @@
                                             <tr *ngFor="let p of Allcaseslst">
                                                 <th scope="row">1</th>
                                                 <td>{{p.bookingId}}</td>
-                                                <td>Refrence from another partner     
-                                                    <a routerLink="/allcases" style="
+                                                <td>Refrence from another partner
+                                                    <a routerLink="/bookingdetails/{{p.bookingId}}" style="
                                                     color: #eb6100;
                                                     text-decoration: underline;
-                                                " > <span>SRM{{p.bookingId}}</span>&nbsp;<i class="fa fa-external-link"></i> </a>
+                                                "> <span>SRM{{p.bookingId}}</span>&nbsp;<i
+                                                            class="fa fa-external-link"></i> </a>
                                                 </td>
                                                 <td>{{p.partnerDTO.partnerName}}</td>
                                                 <td>Business</td>
                                                 <td>{{p.partnerDTO.emailId}}</td>
                                                 <td>{{p.partnerDTO.phoneNumber}}</td>
                                                 <td>456</td>
-                                               
+
                                                 <td>Hall Booking</td>
                                                 <td>{{p.leadOfOriginDTO.name}}</td>
                                                 <td>{{p.partnerDTO.centerTypeDTO.createdDate}}</td>
@@ -214,19 +211,19 @@
                                                 <td>{{p.cancellationReasonDTO.cancellationReasonName}}</td>
 
 
-                                            </tbody>
-                                        </table>
-                                    </div>
-
+                                        </tbody>
+                                    </table>
                                 </div>
 
                             </div>
 
-
                         </div>
 
+
                     </div>
+
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>

@@ -1,12 +1,10 @@
 
 import { BookingdetailsService } from 'src/service/bookingdetails/bookingdetails.service';
 import { Component, OnInit, NgZone, ViewChild } from '@angular/core';
-import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead/typeahead-match.class';
 import { ZipcodeService } from 'src/service/zipcode/zipcode.service';
 import { StateprovinanceService } from 'src/service/stateprovinance/stateprovinance.service';
 import { ChoiceService } from 'src/service/Choice/Choice.service';
-import { element } from '@angular/core/src/render3';
 import { BookingService } from 'src/service/booking/booking.service';
 import { jqxDateTimeInputComponent } from 'jqwidgets-scripts/jqwidgets-ts/angular_jqxdatetimeinput';
 
@@ -19,7 +17,6 @@ export class BookingdetailsComponent implements OnInit {
   selectedwallet = 'SAGSDETALJER';
   @ViewChild('arrivaldate') arrivaldate: jqxDateTimeInputComponent;
   @ViewChild('departdate') departdate: jqxDateTimeInputComponent;
-  //constructor(private bookingdetailsService:BookingdetailsService) { }
 
   constructor(private bookingdetailsService: BookingdetailsService, private zipcodeService: ZipcodeService, private stateprovinanceService: StateprovinanceService, private zone: NgZone,
     private choiceService: ChoiceService, private bookingService: BookingService) {
@@ -84,7 +81,6 @@ export class BookingdetailsComponent implements OnInit {
 
 
   GetBookingDetails(): any {
-
     this.choiceService.GetBookingDetails().subscribe(ResponceData => {
       console.log(ResponceData);
 

@@ -28,6 +28,7 @@ const routes: Routes = [
   { path: '', component: BookinglistComponent },
   { path: 'newbooking', component: CreatebookingComponent },
   { path: 'bookingdetails', component: BookingdetailsComponent },
+  { path: 'bookingdetails/:id', component: BookingdetailsComponent },
   { path: 'customerbooking', component: CustomerbookingComponent },
   { path: 'allcases', component: AllcasesComponent },
   { path: 'PartnerDashboard', component: DashboardComponent },

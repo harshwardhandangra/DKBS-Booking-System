@@ -1171,18 +1171,25 @@ form h4 {
 .fullpackages ul li{float: left;margin-left:1%;}
 .fullpackages ul li:nth-child(1){margin-left:0px;}
 .fullpackages ul li:nth-child(1),
-.fullpackages ul li:nth-child(2){width:15%;}
+.fullpackages ul li:nth-child(2){width:14%;}
 .fullpackages ul li:nth-child(3),
 .fullpackages ul li:nth-child(4){width:30%;}
+.fullpackages ul li:nth-child(3) .dpicker,
+.fullpackages ul li:nth-child(4) .dpicker{width: 57%;
+    float: left;
+    margin-right: 10px;}
 .fullpackages ul li input,
 .fullpackages ul li select{padding:0.375rem 8px;}
 .fullpackages ul li .lbl,
 .yourprizefiled  ul li .lbl{font-weight: 600;color: #34395e;font-size: 12px;}
+.fullpackages.roompkgs ul li:nth-child(3){width:10%;}
 .fullpackages.roompkgs ul li:nth-child(4){width:12%;}
-.fullpackages.roompkgs ul li:nth-child(6){width:22%;}
-.fullpackages.roompkgs ul li:nth-child(7){margin-left: 0}
+.fullpackages.roompkgs ul li:nth-child(5){width:21%;}
+.fullpackages.roompkgs ul li:nth-child(6){width:21%;}
+.fullpackages.roompkgs ul li:nth-child(7){margin-left: 0;width: auto;}
 .formboxadditional .bs-timepicker-field { width: 34px;  padding: 3px 1px !important;}
-.fullpackages.roompkgs ul li .dpicker{width:45%;} 
+.fullpackages.roompkgs ul li .dpicker{width:45%;
+    margin-right: 3%;} 
 .fullpackages ul li button{padding:0;}
 .delbtn{padding: 0px !important;}
 .yourprizefiled{margin-top:50px;}

@@ -1,6 +1,12 @@
 <app-navigation></app-navigation>
 <main id="playground">
     <app-header></app-header>
+    <section class="content-header">
+        <ol class="breadcrumb">
+            <li><a routerLink="../allcases"><i class="fa fa-dashboard"></i> Booking</a></li>
+            <li class="active">Booking Details</li>
+        </ol>
+    </section>
     <section class="content-area">
 
         <div class="container-fluid">
@@ -141,8 +147,8 @@
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="form-group">
                                                     <label class="lbl">Arrival</label>
-                                                    <jqxDateTimeInput #arrivaldate [width]="300" [height]="30" [formatString]="'F'"
-                                                        [showTimeButton]="true">
+                                                    <jqxDateTimeInput #arrivaldate [width]="300" [height]="30"
+                                                        [formatString]="'F'" [showTimeButton]="true">
                                                     </jqxDateTimeInput>
                                                     <!-- <input type="text" placeholder="Datepicker" class="form-control"
                                                         bsDatepicker> -->
@@ -151,8 +157,8 @@
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="form-group">
                                                     <label class="lbl">Depart</label>
-                                                    <jqxDateTimeInput #departdate [width]="300" [height]="30" [formatString]="'F'"
-                                                        [showTimeButton]="true">
+                                                    <jqxDateTimeInput #departdate [width]="300" [height]="30"
+                                                        [formatString]="'F'" [showTimeButton]="true">
                                                     </jqxDateTimeInput>
                                                 </div>
                                             </div>
@@ -286,7 +292,8 @@
                                         <label class="col-form-label">Where do
                                             you know us?</label>
                                         <jqxDropDownList [theme]="'bootstrap'" [width]="710" [height]="30"
-                                            [source]="dropdownCampaign" [selectedIndex]="0" [displayMember]="'item_text'" [valueMember]="'item_id'">
+                                            [source]="dropdownCampaign" [selectedIndex]="0"
+                                            [displayMember]="'item_text'" [valueMember]="'item_id'">
                                         </jqxDropDownList>
                                     </div>
                                     <div class="form-group">

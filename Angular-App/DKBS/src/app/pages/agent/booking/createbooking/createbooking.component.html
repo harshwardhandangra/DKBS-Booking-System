@@ -1,6 +1,12 @@
 <app-navigation></app-navigation>
 <main id="playground">
   <app-header></app-header>
+  <section class="content-header">
+    <ol class="breadcrumb">
+      <li><a routerLink="../allcases"><i class="fa fa-dashboard"></i> Booking</a></li>
+      <li class="active">Create Booking</li>
+    </ol>
+  </section>
   <section class="content-area">
     <div class="container-fluid">
       <div class="row">
@@ -80,8 +86,9 @@
                         <label class="col-form-label">Refers</label>
                       </label>
                       <div class="form-group col-md-9">
-                        <input [(ngModel)]="partnerEmployeeId" [typeahead]="ReferDDL" typeaheadOptionField="employeeName"
-                          [typeaheadScrollable]="true" class="form-control" name="ReferDDL" autocomplete="off">
+                        <input [(ngModel)]="partnerEmployeeId" [typeahead]="ReferDDL"
+                          typeaheadOptionField="employeeName" [typeaheadScrollable]="true" class="form-control"
+                          name="ReferDDL" autocomplete="off">
                       </div>
                       <label class="col-sm-3 col-form-label">
                         <label class="col-form-label">Where do you know us?</label>
@@ -553,9 +560,10 @@
                       <div class="form-group col-sm-9">
                         <div class="radiocheckbox">
                           <div class="form-check">
-                            <ng-multiselect-dropdown [placeholder]="'Refreshments'" [data]="dropdownListforRefreshment" [settings]="dropdownSettings"
-                              (onSelect)="onItemSelect($event)" name="CreateBookingModel.Refreshment"
-                              [(ngModel)]="Refreshment" (onSelectAll)="onSelectAll($event)">
+                            <ng-multiselect-dropdown [placeholder]="'Refreshments'" [data]="dropdownListforRefreshment"
+                              [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+                              name="CreateBookingModel.Refreshment" [(ngModel)]="Refreshment"
+                              (onSelectAll)="onSelectAll($event)">
                             </ng-multiselect-dropdown>
                           </div>
                           {{dropdownListCenter}}
