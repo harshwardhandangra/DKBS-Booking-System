@@ -29,6 +29,10 @@ export class BookingdetailsComponent implements OnInit {
   ddlCenterInfoReason: [];
 
   dropdownCampaign = [];
+  Referred: any[];
+  ReferDDL: any[]; 
+  dropdownListLeadOrigin = [];
+
   
   ngOnInit() {
     this.dropdownSettings = {
@@ -65,6 +69,7 @@ export class BookingdetailsComponent implements OnInit {
      });
    }
 
+   //for where do you know us dropdown
    GetAllcampaigns(): any {
     this.choiceService.GetAllcampaigns().subscribe(state => {
       this.dropdownCampaign.push({ item_id: 0, item_text: 'Select' })
@@ -80,6 +85,33 @@ export class BookingdetailsComponent implements OnInit {
     this.choiceService.GetBookingDetails().subscribe(ResponceData => {
      console.log(ResponceData);
       
+    });
+  }
+
+  GetReferredbyDDL(): any {
+    this.choiceService.GetpartnersEmployee().subscribe(res => {
+      this.Referred = res;
+    });
+  }
+
+  onSelectReferredby(event: TypeaheadMatch): void {
+   // this.CreateBookingModel.partnerId = event.item.partnerEmployeeId;
+    // this.LocPartnerEmpID = 1;
+    this.GetAllRefer(event.item.partnerEmployeeId);
+  }
+
+  GetAllRefer(PartnerEMpID): any {
+    this.choiceService.GetpartnersEmployeebyID(PartnerEMpID).subscribe(res => {
+      this.ReferDDL = res;
+    });
+  }
+
+ GetAllLeadOrigin(): any {
+    this.stateprovinanceService.GetAllLeadOrigin().subscribe(state => {
+      this.dropdownListLeadOrigin.push({ item_id: 0, item_text: 'Select' })
+      for (let i = 0; i < state.length; ++i) {
+        this.dropdownListLeadOrigin.push({ item_id: state[i].leadOfOriginId, item_text: state[i].name });
+      }
     });
   }
 }
