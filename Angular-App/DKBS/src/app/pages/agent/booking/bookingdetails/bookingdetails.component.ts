@@ -25,13 +25,253 @@ export class BookingdetailsComponent implements OnInit {
   @ViewChild('ddlReferred') ddlReferred: jqxDropDownListComponent;
   @ViewChild('dropdownListLeadOriginddl') dropdownListLeadOriginddl: jqxDropDownListComponent;
 
-  updateBookingModel: any;
+  updateBookingModel: any = {
+    "bookingId": 0,
+    "partnerDTO": {
+      "partnerId": 0,
+      "partnerName": "string",
+      "emailId": "string",
+      "centerTypeDTO": {
+        "centerTypeId": 0,
+        "centerTypeTitle": "string",
+        "lastModified": "2019-05-06T16:05:42.255Z",
+        "lastModifiedBy": "string",
+        "createdDate": "2019-05-06T16:05:42.255Z",
+        "createdBy": "string"
+      },
+      "partnerTypeDTO": {
+        "partnerTypeId": 0,
+        "partnerTypeTitle": "string",
+        "lastModified": "2019-05-06T16:05:42.257Z",
+        "lastModifiedBy": "string",
+        "createdDate": "2019-05-06T16:05:42.257Z",
+        "createdBy": "string"
+      },
+      "phoneNumber": "string",
+      "lastModified": "2019-05-06T16:05:42.257Z",
+      "lastModifiedBy": "string"
+    },
+    "customerDTO": {
+      "customerId": 0,
+      "customerName": "string",
+      "emailId": "string",
+      "phoneNumber": "string",
+      "industryCode": "string",
+      "country": "string",
+      "city": "string",
+      "createdBy": "string",
+      "createdDate": "2019-05-06T16:05:42.257Z",
+      "lastModifiedDate": "2019-05-06T16:05:42.257Z",
+      "lastModifiedBY": "string"
+    },
+    "tableTypeDTO": {
+      "tableTypeId": 0,
+      "tableTypeName": "string",
+      "createdDate": "2019-05-06T16:05:42.257Z",
+      "createdBy": "string",
+      "lastModified": "2019-05-06T16:05:42.257Z",
+      "lastModifiedBY": "string"
+    },
+    "cancellationReasonDTO": {
+      "cancellationReasonId": 0,
+      "cancellationReasonName": "string",
+      "lastModified": "2019-05-06T16:05:42.257Z",
+      "lastModifiedBy": "string",
+      "createdDate": "2019-05-06T16:05:42.257Z",
+      "createdBy": "string"
+    },
+    "causeOfRemovalDTO": {
+      "causeOfRemovalId": 0,
+      "causeOfRemovalTitle": "string",
+      "lastModified": "2019-05-06T16:05:42.257Z",
+      "lastModifiedBy": "string",
+      "createdDate": "2019-05-06T16:05:42.257Z",
+      "createdBy": "string"
+    },
+    "contactPersonDTO": {
+      "contactPersonId": 0,
+      "name": "string",
+      "customerId": 0,
+      "email": "string",
+      "telephone": "string"
+    },
+    "bookingAndStatusDTO": {
+      "bookingAndStatusId": 0,
+      "bookingerIncidentTitle": "string",
+      "slaCount": true,
+      "closedStatus": true,
+      "informUserByEmail": "string",
+      "lastModified": "2019-05-06T16:05:42.257Z",
+      "lastModifiedBY": "string"
+    },
+    "flowDTO": {
+      "flowId": 0,
+      "flowName": "string",
+      "createdDate": "2019-05-06T16:05:42.257Z",
+      "createdBy": "string",
+      "lastModified": "2019-05-06T16:05:42.257Z",
+      "lastModifiedBy": "string"
+    },
+    "mailLanguageDTO": {
+      "mailLanguageId": 0,
+      "language": "string",
+      "createdDate": "2019-05-06T16:05:42.257Z",
+      "createdBy": "string",
+      "lastModified": "2019-05-06T16:05:42.257Z",
+      "lastModifiedBy": "string"
+    },
+    "participantTypeDTO": {
+      "participantTypeId": 0,
+      "participantTypeName": "string",
+      "createdDate": "2019-05-06T16:05:42.257Z",
+      "createdBy": "string",
+      "lastModified": "2019-05-06T16:05:42.257Z",
+      "lastModifiedBy": "string"
+    },
+    "purposeDTO": {
+      "purposeId": 0,
+      "createdDate": "2019-05-06T16:05:42.257Z",
+      "createdBy": "string",
+      "purposeName": "string",
+      "lastModified": "2019-05-06T16:05:42.257Z",
+      "lastModifiedBY": "string"
+    },
+    "leadOfOriginDTO": {
+      "leadOfOriginId": 0,
+      "name": "string",
+      "createdDate": "2019-05-06T16:05:42.257Z",
+      "createdBy": "string",
+      "lastModified": "2019-05-06T16:05:42.257Z",
+      "lastModifiedBy": "string"
+    },
+    "campaignDTO": {
+      "campaignId": 0,
+      "name": "string",
+      "lastModified": "2019-05-06T16:05:42.258Z",
+      "lastModifiedBy": "string",
+      "createdDate": "2019-05-06T16:05:42.258Z",
+      "createdBy": "string"
+    },
+    "arrivalDateTime": "2019-05-06T16:05:42.258Z",
+    "departDateTime": "2019-05-06T16:05:42.258Z",
+    "flexibleDates": true,
+    "internalHistory": "string",
+    "regionDTO": [
+      {
+        "regionId": 0,
+        "name": "string"
+      }
+    ],
+    "bookingRoomDTO": [
+      {
+        "bookingRoomId": 0,
+        "bookingId": 0,
+        "tableSetId": 0,
+        "locationAttraction": "string",
+        "numberOfRooms": 0,
+        "perPerson": 0,
+        "toDate": "2019-05-06T16:05:42.258Z",
+        "fromDate": "2019-05-06T16:05:42.258Z"
+      }
+    ],
+    "bookingArrangementTypeDTO": [
+      {
+        "bookingArrangementTypeId": 0,
+        "bookingId": 0,
+        "serviceCatalogId": 0,
+        "numberOfParticipants": 0,
+        "toDate": "2019-05-06T16:05:42.258Z",
+        "fromDate": "2019-05-06T16:05:42.258Z"
+      }
+    ],
+    "bookingAlternativeServiceDTO": [
+      {
+        "bookingAlternativeServiceId": 0,
+        "bookingId": 0,
+        "numberOfPieces": 0,
+        "description": "string",
+        "createdDate": "2019-05-06T16:05:42.258Z",
+        "createdBy": "string",
+        "lastModified": "2019-05-06T16:05:42.258Z",
+        "lastModifieddBy": "string"
+      }
+    ],
+    "procedureInfoDTO": [
+      {
+        "procedureInfoId": 0,
+        "procedureDTO": {
+          "procedureId": 0,
+          "procedureName": "string",
+          "causeOfRemovalDTO": {
+            "causeOfRemovalId": 0,
+            "causeOfRemovalTitle": "string",
+            "lastModified": "2019-05-06T16:05:42.258Z",
+            "lastModifiedBy": "string",
+            "createdDate": "2019-05-06T16:05:42.258Z",
+            "createdBy": "string"
+          },
+          "procedureReviewTypeDTO": {
+            "procedureReviewTypeId": 0,
+            "procedureReviewTypeTitle": "string",
+            "lastModified": "2019-05-06T16:05:42.258Z",
+            "lastModifiedBy": "string"
+          },
+          "lastModified": "2019-05-06T16:05:42.258Z",
+          "lastModifiedBy": "string",
+          "customerDTO": {
+            "customerId": 0,
+            "customerName": "string",
+            "emailId": "string",
+            "phoneNumber": "string",
+            "industryCode": "string",
+            "country": "string",
+            "city": "string",
+            "createdBy": "string",
+            "createdDate": "2019-05-06T16:05:42.258Z",
+            "lastModifiedDate": "2019-05-06T16:05:42.258Z",
+            "lastModifiedBY": "string"
+          }
+        },
+        "partnerDTO": {
+          "partnerId": 0,
+          "partnerName": "string",
+          "emailId": "string",
+          "centerTypeDTO": {
+            "centerTypeId": 0,
+            "centerTypeTitle": "string",
+            "lastModified": "2019-05-06T16:05:42.258Z",
+            "lastModifiedBy": "string",
+            "createdDate": "2019-05-06T16:05:42.258Z",
+            "createdBy": "string"
+          },
+          "partnerTypeDTO": {
+            "partnerTypeId": 0,
+            "partnerTypeTitle": "string",
+            "lastModified": "2019-05-06T16:05:42.258Z",
+            "lastModifiedBy": "string",
+            "createdDate": "2019-05-06T16:05:42.258Z",
+            "createdBy": "string"
+          },
+          "phoneNumber": "string",
+          "lastModified": "2019-05-06T16:05:42.258Z",
+          "lastModifiedBy": "string"
+        },
+        "emailOffer": "string",
+        "reply": "string",
+        "comment": "string",
+        "price": "string",
+        "chat": "string"
+      }
+    ]
+  }
   dropdownLanguage: any;
 
   constructor(private bookingdetailsService: BookingdetailsService, private zipcodeService: ZipcodeService, private stateprovinanceService: StateprovinanceService, private zone: NgZone,
     private choiceService: ChoiceService, private bookingService: BookingService, private route: ActivatedRoute, private router: Router) {
 
   }
+
+
   sendupdatebookingModel: any = {
     "bookingId": 0,
     "partnerId": 1,
@@ -116,11 +356,18 @@ export class BookingdetailsComponent implements OnInit {
 
   dropdownCampaign = [];
   Referred = [];
+  Company = [];
+  Contact = [];
   ReferDDL = [];
   dropdownListLeadOrigin = [];
   dropdownListforRefreshment = [];
   dropdownListforBookingstatus = [];
   dropdownListforCauseofRemoval = [];
+  dropdownListPurpose = [];
+  dropdownListPParticipants = [];
+  dropdownListTableSetting = [];
+  dropdownPackageType = [];
+
 
 
   ngOnInit() {
@@ -143,11 +390,57 @@ export class BookingdetailsComponent implements OnInit {
     this.GetBookingAndStatuses();
     this.GetAllCauseOfRemoval();
     this.GetAllLanguage();
-    setTimeout(function () {
-      this.selectedwallet = 1;
-      this.GetBookingDetails(bookingId);
-    }.bind(this), 1000)
+    this.GetAllPurpose();
+    this.GetAllTableSetting();
+    this.GetAllParticipants();
+    this.GetAllServiceCatalogs();
+    this.GetCompany();
+
+    this.selectedwallet = 1;
+    // setTimeout(function () {
+    //   this.selectedwallet = 1;
+    //   this.GetBookingDetails(bookingId);
+    // }.bind(this), 1000)
   }
+
+  private Arrangementtype: any = [];
+  private RoomMultilstType: Array<any> = [];
+  private GiveprizeMultilstType: Array<any> = [];
+  private locbookingRoomViewModel: Array<any> = [];
+  private locbAlternativeServiceView: Array<any> = [];
+  private newAttribute: any = {};
+  addFieldValue() {
+    this.Arrangementtype.push(this.newAttribute);
+    this.newAttribute = {};
+  }
+  addRoomMultilstType() {
+    this.RoomMultilstType.push(this.newAttribute);
+    this.newAttribute = {};
+  }
+
+  addgiveprizeMultilstType() {
+    this.GiveprizeMultilstType.push(this.newAttribute);
+    this.newAttribute = {};
+  }
+  addFieldValuebookingRoomViewModel() {
+    this.locbookingRoomViewModel.push(this.newAttribute);
+    this.newAttribute = {};
+  }
+  baddookingAlternativeServiceViewModel() {
+    this.locbAlternativeServiceView.push(this.newAttribute);
+    this.newAttribute = {};
+  }
+  deleteFieldValue(index) {
+    this.Arrangementtype.splice(index, 1);
+  }
+
+  deleteFieldRoomMultilstType(index) {
+    this.RoomMultilstType.splice(index, 1);
+  }
+  deleteFieldgiveprizeMultilstType(index) {
+    this.GiveprizeMultilstType.splice(index, 1);
+  }
+
   GetAllLanguage() {
     this.choiceService.getAllanguage().subscribe(res => {
       this.dropdownLanguage = res;
@@ -211,6 +504,33 @@ export class BookingdetailsComponent implements OnInit {
       this.updateBookingModel.arrivalDateTime = new Date(this.updateBookingModel.arrivalDateTime)
       this.updateBookingModel.departDateTime = new Date(this.updateBookingModel.departDateTime)
       this.dropdownListforCauseofRemovalddl.selectItem(this.updateBookingModel.causeOfRemovalDTO.causeOfRemovalId)
+    });
+  }
+  GetCompany(): any {
+
+    this.choiceService.GetAllcustomerCompany().subscribe(res => {
+      this.Company.push({ item_id: 0, item_text: 'Select' })
+      for (let i = 0; i < res.length; ++i) {
+        this.Company.push({ item_id: res[i].customerId, item_text: res[i].customerName });
+      }
+    });
+  }
+
+  listOnSelectCompany(event: any): void {
+    // debugger
+    let args = event.args;
+    //this.GetContactbyCompany(args.index);
+    this.GetContactbyCompany(921);
+  }
+
+
+  GetContactbyCompany(partnerID): any {
+    debugger
+    this.choiceService.GetContactbyCompany(partnerID).subscribe(res => {
+      this.Company.push({ item_id: 0, item_text: 'Select' })
+      for (let i = 0; i < res.length; ++i) {
+        this.Company.push({ item_id: res[i].contactPersonId, item_text: res[i].name });
+      }
     });
   }
 
@@ -296,5 +616,40 @@ export class BookingdetailsComponent implements OnInit {
         this.dropdownListforCauseofRemoval.push({ item_id: res[i].causeOfRemovalId, item_text: res[i].causeOfRemovalTitle });
       }
     })
+  }
+
+  GetAllPurpose(): any {
+    this.choiceService.GetAllpurposes().subscribe(ResponceData => {
+      this.dropdownListPurpose.push({ item_id: 0, item_text: 'Select' })
+      for (let i = 0; i < ResponceData.length; ++i) {
+        this.dropdownListPurpose.push({ item_id: ResponceData[i].purposeId, item_text: ResponceData[i].purposeName });
+      }
+    });
+  }
+  GetAllTableSetting(): any {
+
+    this.choiceService.GetAlltableSets().subscribe(ResponceData => {
+      this.dropdownListTableSetting.push({ item_id: 0, item_text: 'Select' })
+      for (let i = 0; i < ResponceData.length; ++i) {
+        this.dropdownListTableSetting.push({ item_id: ResponceData[i].tableSetId, item_text: ResponceData[i].tableSetName });
+      }
+    });
+  }
+  GetAllParticipants(): any {
+    this.choiceService.GetAllparticipantTypes().subscribe(ResponceData => {
+      this.dropdownListPParticipants.push({ item_id: 0, item_text: 'Select' })
+      for (let i = 0; i < ResponceData.length; ++i) {
+        this.dropdownListPParticipants.push({ item_id: ResponceData[i].participantTypeId, item_text: ResponceData[i].participantTypeName });
+      }
+    });
+  }
+
+  GetAllServiceCatalogs(): any {
+    this.choiceService.GetAllServiceCatalogs().subscribe(state => {
+      this.dropdownPackageType.push({ item_id: 0, item_text: 'Select' })
+      for (let i = 0; i < state.length; ++i) {
+        this.dropdownPackageType.push({ item_id: state[i].serviceCatalogId, item_text: state[i].coursePackage });
+      }
+    });
   }
 }

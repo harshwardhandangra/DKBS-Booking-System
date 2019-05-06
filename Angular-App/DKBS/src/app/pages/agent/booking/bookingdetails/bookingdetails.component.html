@@ -3,7 +3,8 @@
     <app-header></app-header>
     <section class="content-header">
         <ol class="breadcrumb">
-            <li><a routerLink="../allcases"><i class="fa fa-dashboard"></i> Booking</a></li>
+            <li><a routerLink="../allcases"><i class="fa fa-dashboard"></i>
+                    Booking</a></li>
             <li class="active">Booking Details</li>
         </ol>
     </section>
@@ -20,22 +21,30 @@
                     <div class="widthtab">
                         <ul class="nav nav-tabs" role="tablist">
                             <li [class]="selectedwallet ===
-                                1?'active':'inactive'"><a (click)="selectedwallet= 1" class="nav-link">Case Details</a>
+                                1?'active':'inactive'"><a
+                                    (click)="selectedwallet= 1"
+                                    class="nav-link">Case Details</a>
                             </li>
                             <li [class]="selectedwallet ===
-                                2?'active':'inactive'"><a (click)="selectedwallet= 2" class="nav-link">Event
+                                2?'active':'inactive'"><a
+                                    (click)="selectedwallet= 2"
+                                    class="nav-link">Event
                                     Details</a></li>
                             <li [class]="selectedwallet ===
-                                3?'active':'inactive'" class="nav-link"> <a (click)="displayselectedwallet(3)"
+                                3?'active':'inactive'" class="nav-link"> <a
+                                    (click)="displayselectedwallet(3)"
                                     class="nav-link">Company Information</a></li>
                             <li [class]="selectedwallet ===
-                                4?'active':'inactive'" class="nav-link"><a (click)="displayselectedwallet(4)"
+                                4?'active':'inactive'" class="nav-link"><a
+                                    (click)="displayselectedwallet(4)"
                                     class="nav-link">Other</a></li>
                             <li [class]="selectedwallet ===
-                                5?'active':'inactive'" class="nav-link"><a (click)="selectedwallet= 5"
+                                5?'active':'inactive'" class="nav-link"><a
+                                    (click)="selectedwallet= 5"
                                     class="nav-link">Log</a></li>
                             <li [class]="selectedwallet ===
-                                6?'active':'inactive'" class="nav-link"><a (click)="selectedwallet= 6"
+                                6?'active':'inactive'" class="nav-link"><a
+                                    (click)="selectedwallet= 6"
                                     class="nav-link">Commission</a></li>
                             <!-- <li [class]="selectedwallet === 7?'active':'inactive'" class="nav-link"><a
                                             (click)="selectedwallet = 7" class="nav-link">Power BI</a></li>-->
@@ -59,12 +68,16 @@
                                                 <table class="table
                                                     table-bordered">
                                                     <thead>
-                                                        <tr style="background-color:
+                                                        <tr
+                                                            style="background-color:
                                                             #c7c7dc;">
                                                             <th scope="col">
-                                                                <input type="checkbox" aria-label="Select
+                                                                <input
+                                                                    type="checkbox"
+                                                                    aria-label="Select
                                                                     all items in
-                                                                    this table" id="SelectAll"></th>
+                                                                    this table"
+                                                                    id="SelectAll"></th>
                                                             <!-- <th scope="col">
                                                                 <span class="glyphicon
                                                                     glyphicon-paperclip"></span></th> -->
@@ -81,7 +94,7 @@
                                                                 Price </th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
+                                                    <!-- <tbody>
                                                         <tr
                                                             *ngFor="let procedureInfo of updateBookingModel.procedureInfoDTO">
                                                             <td scope="row"><input type="checkbox"
@@ -95,40 +108,53 @@
                                                             <td>{{procedureInfo.price}}</td>
                                                             <td></td>
                                                         </tr>
-                                                    </tbody>
+                                                    </tbody> -->
                                                 </table>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-form-label">Center
                                                 info Reason for removal</label>
-                                            <jqxDropDownList #dropdownListforCauseofRemovalddl [theme]="'bootstrap'"
-                                                [width]="710" [height]="30" [source]="dropdownListforCauseofRemoval"
-                                                [selectedIndex]="0" [displayMember]="'item_text'"
+                                            <jqxDropDownList
+                                                #dropdownListforCauseofRemovalddl
+                                                [theme]="'bootstrap'"
+                                                [width]="710" [height]="30"
+                                                [source]="dropdownListforCauseofRemoval"
+                                                [selectedIndex]="0"
+                                                [displayMember]="'item_text'"
                                                 [valueMember]="'item_id'">
                                             </jqxDropDownList>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-form-label">Meeting
                                                 series</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text"
+                                                class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label class="col-form-label">Additional
                                                 series text</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text"
+                                                class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label class="col-form-label">Is
                                                 main series case</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text"
+                                                class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label class="col-form-label">Select
                                                 language</label>
-                                            <jqxDropDownList #dropdownLanguageddl [theme]="'bootstrap'" [width]="710"
-                                                [height]="30" [source]="dropdownLanguage" [selectedIndex]="0"
-                                                [displayMember]="'language'" [valueMember]="'mailLanguageId'">
+                                            <jqxDropDownList
+                                                #dropdownLanguageddl
+                                                [theme]="'bootstrap'"
+                                                [width]="710"
+                                                [height]="30"
+                                                [source]="dropdownLanguage"
+                                                [selectedIndex]="0"
+                                                [displayMember]="'language'"
+                                                [valueMember]="'mailLanguageId'">
                                             </jqxDropDownList>
                                         </div>
                                         <!-- <div class="form-group">
@@ -140,244 +166,621 @@
                             </form>
 
                             <div class="pull-right">
-                                <button type="button" class="btn btn-outline-primary"
+                                <button type="button" class="btn
+                                    btn-outline-primary"
                                     (click)="selectedwallet= 2">Next</button>
                             </div>
 
                         </div>
-                        <div role="tabpanel" *ngIf="selectedwallet ===
-                            2">
-                            <form>
-                                <div class="card">
-                                    <!--<div class="card-header"></div>-->
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="form-group">
-                                                    <label class="lbl">Arrival</label>
-                                                    <jqxDateTimeInput #arrivaldate [width]="300" [height]="30"
-                                                        [(ngModel)]="updateBookingModel.arrivalDateTime"
-                                                        [ngModelOptions]="{standalone: true}" [formatString]="'F'"
-                                                        [showTimeButton]="true">
-                                                    </jqxDateTimeInput>
-                                                    <!-- <input type="text" placeholder="Datepicker" class="form-control"
-                                                        bsDatepicker> -->
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="form-group">
-                                                    <label class="lbl">Depart</label>
-                                                    <jqxDateTimeInput #departdate [width]="300" [height]="30"
-                                                        [(ngModel)]="updateBookingModel.departDateTime"
-                                                        [ngModelOptions]="{standalone: true}" [formatString]="'F'"
-                                                        [showTimeButton]="true">
-                                                    </jqxDateTimeInput>
-                                                </div>
-                                            </div>
-                                        </div>
 
 
-
-                                        <div class="form-group">
-                                            <label class="col-form-label">Case</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-form-label">The
-                                                dates are flexible</label>
-                                            <input type="checkbox" [ngModelOptions]="{standalone: true}"
-                                                [(ngModel)]="updateBookingModel.flexibleDates">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-form-label">Our
-                                                Notes</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-form-label">Formal</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-form-label">Number
-                                                of participants</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-form-label">Number
-                                                of changes</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-form-label">participants</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-form-label">Table
-                                                setting in plenary</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="card">
-                                    <div class="card-header">Event type</div>
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <label class="col-form-label">Lokarer</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-form-label">Please
-                                                also indicate price</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-                                <div class="card">
-                                    <div class="card-header">Desired
-                                        geographical area</div>
-                                    <div class="card-body">
-                                        <div class="form-group chkbox">
-                                            <label class="col-form-label">booking
-                                                Responsible</label>
-                                            <input type="checkbox" [ngModelOptions]="{standalone: true}"
-                                                [(ngModel)]="displayadditionalwishescomments">
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="card" *ngIf="displayadditionalwishescomments">
-                                    <div class="card-header">Additional wishes /
-                                        comments</div>
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <label class="col-form-label">Default</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-form-label">Default</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="card">
-                                    <div class="card-header">CenterMatching</div>
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <label class="col-form-label">Default</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-form-label">state
-                                                agreement
-                                            </label>
-                                            <input type="text" class="form-control">
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </form>
-
-
-                            <div class="pull-right">
-                                <button type="button" class="btn btn-outline-warning "
-                                    (click)="selectedwallet= 1">Previous</button>
-                                <button type="button" class="btn btn-outline-primary" (click)="displayselectedwallet(3)"
-                                    style="text-align:
-                                        left; margin: 0px 11px;">Next</button>
-                            </div>
-
-                        </div>
-                        <div role="tabpanel" *ngIf="selectedwallet ===
-                            3">
+                        <div role="tabpanel" *ngIf="selectedwallet=== 2">
                             <div class="card">
-
+                                <div class="card-header">Date and time</div>
                                 <div class="card-body">
-                                    <div class="form-group">
-                                        <label class="col-form-label">Business</label>
-                                        <input type="text" value="WinPoint A/s" class="form-control"
-                                            [(ngModel)]="updateBookingModel.customerDTO.customerName">
+                                    <div class="row arrivedepart">
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="form-group">
+                                                <label class="col-form-label">Arrival</label>
+                                                <jqxDateTimeInput #arrivaldate
+                                                    [width]="300" [height]="30"
+                                                    [formatString]="'F'"
+                                                    [showTimeButton]="true">
+                                                </jqxDateTimeInput>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="form-group">
+                                                <label class="col-form-label">Depart</label>
+                                                <jqxDateTimeInput #departdate
+                                                    [width]="300" [height]="30"
+                                                    [formatString]="'F'"
+                                                    [showTimeButton]="true">
+                                                </jqxDateTimeInput>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="col-form-label">Contact
-                                            person</label>
-                                        <input type="text" class="form-control"
-                                            [(ngModel)]="updateBookingModel.contactPersonDTO.name">
+                                    <div class="form-group checkboxlabel">
+                                        <label class="col-form-label">The dates
+                                            are flexible</label>
+                                        <input type="checkbox" value="true">
                                     </div>
-                                    <div class="form-group">
-                                        <label class="col-form-label">Where do
-                                            you know us?</label>
-                                        <jqxDropDownList #dropdownCampaignddl [theme]="'bootstrap'" [width]="710"
-                                            [height]="30" [source]="dropdownCampaign" [selectedIndex]="0"
-                                            [displayMember]="'item_text'" [valueMember]="'item_id'">
-                                        </jqxDropDownList>
+                                    <div class="form-group internalhistory">
+                                        <label class="col-form-label">Internal
+                                            history</label>
+                                        <input type="text"
+                                            name="Internalhistory"
+                                            class="form-control InlineInput">
                                     </div>
-                                    <div class="form-group">
-                                        <label class="col-form-label"> Referred
-                                            contact person</label>
-                                        <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header">Event type and purpose</div>
+                                <div class="card-body">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-2">
+                                            <div class="sidelabel">Purpose</div>
+                                        </div>
+                                        <div class="form-group col-md-5">
+                                            <label class="col-form-label">Purpose</label>
+                                            <jqxDropDownList
+                                                [theme]="'bootstrap'"
+                                                [width]="220" [height]="30"
+                                                [source]="dropdownListPurpose"
+                                                [selectedIndex]="0"
+                                                [displayMember]="'item_text'"
+                                                [valueMember]="'item_id'">
+                                            </jqxDropDownList>
+                                        </div>
+                                        <div class="form-group col-md-5">
+                                            <label class="col-form-label">Table
+                                                setting</label>
+                                            <jqxDropDownList
+                                                [theme]="'bootstrap'"
+                                                [width]="220" [height]="30"
+                                                [source]="dropdownListTableSetting"
+                                                [selectedIndex]="0"
+                                                [displayMember]="'item_text'"
+                                                [valueMember]="'item_id'">
+                                            </jqxDropDownList>
+                                        </div>
                                     </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-2">
+                                            <div class="sidelabel">Participants</div>
+                                        </div>
+                                        <div class="form-group col-md-5">
+                                            <label>Participants</label>
+                                            <jqxDropDownList
+                                                [theme]="'bootstrap'"
+                                                [width]="220" [height]="30"
+                                                [source]="dropdownListPParticipants"
+                                                [selectedIndex]="0"
+                                                [displayMember]="'item_text'"
+                                                [valueMember]="'item_id'">
+                                            </jqxDropDownList>
+                                        </div>
+                                        <div class="form-group col-md-5">
+                                            <label>Number of participants</label>
+                                            <input type="number" myNumberOnly
+                                                name="Noofparticipants"
+                                                class="form-control InlineInput"
+                                                maxlength="8">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-2">
+                                            <div class="sidelabel">Rooms</div>
+                                        </div>
+                                        <div class="form-group col-md-5">
+                                            <label>Number of single rooms</label>
+                                            <input type="number" myNumberOnly
+                                                name="NoOfRooms"
+                                                class="form-control InlineInput"
+                                                maxlength="8">
+                                        </div>
+                                        <div class="form-group col-md-5">
+                                            <label>Number of double rooms</label>
+                                            <input myNumberOnly
+                                                [(ngModel)]="test"
+                                                class="form-control InlineInput"
+                                                maxlength="8">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header">Course packages and
+                                    rooms</div>
+                                <div class="card-body">
+                                    <div class="fullpackages">
+                                        <label class="col-form-label">Event type</label>
+                                        <ul>
+                                            <li>
+                                                <div class="lbl"> Course
+                                                    Packages</div>
+                                                <jqxDropDownList
+                                                    [theme]="'bootstrap'"
+                                                    [width]="130" [height]="35"
+                                                    [source]="dropdownPackageType"
+                                                    [selectedIndex]="0"
+                                                    [displayMember]="'item_text'"
+                                                    [valueMember]="'item_id'">
+                                                </jqxDropDownList>
+                                            </li>
+                                            <li>
+                                                <div class="lbl">No. of
+                                                    participants</div>
+                                                <input myNumberOnly
+                                                    name="NoOfPart"
+                                                    class="form-control
+                                                    InlineInput" maxlength="8">
+                                            </li>
+                                            <li>
+                                                <div class="lbl">From</div>
+                                                <div class="datetimediv">
+                                                    <jqxDateTimeInput
+                                                        #departdate
+                                                        [width]="230"
+                                                        [height]="35"
+                                                        [formatString]="'F'"
+                                                        [showTimeButton]="true">
+                                                    </jqxDateTimeInput>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="lbl">To</div>
+                                                <div class="datetimediv">
+                                                    <jqxDateTimeInput
+                                                        #departdate
+                                                        [width]="230"
+                                                        [height]="35"
+                                                        [formatString]="'F'"
+                                                        [showTimeButton]="true">
+                                                    </jqxDateTimeInput>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <ul *ngFor="let ObjArrangementtype of
+                                            Arrangementtype; let i=
+                                            index">
+                                            <li>
+                                                <jqxDropDownList
+                                                    [theme]="'bootstrap'"
+                                                    [width]="130" [height]="35"
+                                                    [source]="dropdownPackageType"
+                                                    [selectedIndex]="0"
+                                                    [displayMember]="'item_text'"
+                                                    [valueMember]="'item_id'">
+                                                </jqxDropDownList>
+                                            </li>
+                                            <li>
+                                                <input myNumberOnly
+                                                    name="NoOfPart_{{i}}"
+                                                    class="form-control
+                                                    InlineInput"
+                                                    maxlength="8">
+                                            </li>
+                                            <li>
+                                                <div class="datetimediv">
+                                                    <jqxDateTimeInput
+                                                        #departdate
+                                                        [width]="230"
+                                                        [height]="35"
+                                                        [formatString]="'F'"
+                                                        [showTimeButton]="true">
+                                                    </jqxDateTimeInput>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="datetimediv">
+                                                    <jqxDateTimeInput
+                                                        #departdate
+                                                        [width]="230"
+                                                        [height]="35"
+                                                        [formatString]="'F'"
+                                                        [showTimeButton]="true">
+                                                    </jqxDateTimeInput>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <button class="btn btn-default"
+                                                    type="button"
+                                                    (click)="deleteFieldValue(i)"><i
+                                                        class="fa fa-trash"></i></button>
+                                            </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                        <div class="addrownew">
+                                            <a (click)="addFieldValue()"
+                                                class="btn btn-outline-warning"><i
+                                                    class="fa fa-plus"></i>Add
+                                            </a>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="clearfix"></div>
+
 
                                     <div class="form-group">
-                                        <label class="col-form-label">Email</label>
-                                        <input type="text" class="form-control"
-                                            [(ngModel)]="updateBookingModel.contactPersonDTO.email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-form-label">Mobil</label>
-                                        <input type="text" class="form-control"
-                                            [(ngModel)]="updateBookingModel.contactPersonDTO.telephone">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-form-label">Telephone</label>
-                                        <Input type="text" class="form-control"
-                                            [(ngModel)]="updateBookingModel.contactPersonDTO.telephone">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-form-label">Referred
-                                            firm</label>
-                                        <input type="text" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-form-label">Addresse</label>
-                                        <input type="text" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-form-label">Postal
-                                            code, city, country</label>
-                                        <input type="text" class="form-control"
-                                            [(ngModel)]="updateBookingModel.customerDTO.city + ',' + updateBookingModel.customerDTO.country">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-form-label">Branch</label>
-                                        <input type="text" class="form-control">
-                                    </div>
+                                        <div class="fullpackages roompkgs">
+                                            <label class="col-form-label">Rooms</label>
+                                            <ul>
+                                                <li>
+                                                    <div class="lbl">local
+                                                        Attraction</div>
+                                                    <input type="text"
+                                                        name="localAttraction"
+                                                        class="form-control">
+                                                </li>
+                                                <li>
+                                                    <div class="lbl">No. of
+                                                        rooms</div>
+                                                    <input type="number"
+                                                        name="Rooms"
+                                                        class="form-control">
+                                                </li>
+                                                <li>
+                                                    <div class="lbl">Per persons</div>
+                                                    <input type="number"
+                                                        name="Perpersons"
+                                                        class="form-control">
+                                                </li>
+                                                <li>
+                                                    <div class="lbl">Table Set</div>
+                                                    <jqxDropDownList
+                                                        [theme]="'bootstrap'"
+                                                        [width]="110"
+                                                        [height]="35"
+                                                        [source]="dropdownListTableSetting"
+                                                        [selectedIndex]="0"
+                                                        [displayMember]="'item_text'"
+                                                        [valueMember]="'item_id'">
+                                                    </jqxDropDownList>
 
+
+                                                </li>
+                                                <li>
+                                                    <div class="lbl">From</div>
+                                                    <div class="datetimediv">
+                                                        <jqxDateTimeInput
+                                                            #departdate
+                                                            [width]="200"
+                                                            [height]="35"
+                                                            [formatString]="'F'"
+                                                            [showTimeButton]="true">
+                                                        </jqxDateTimeInput>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="lbl">To</div>
+                                                    <div class="datetimediv">
+                                                        <jqxDateTimeInput
+                                                            #departdate
+                                                            [width]="200"
+                                                            [height]="35"
+                                                            [formatString]="'F'"
+                                                            [showTimeButton]="true">
+                                                        </jqxDateTimeInput>
+                                                    </div>
+                                                </li>
+                                            </ul>
+
+                                            <div class="clearfix"></div>
+                                            <ul class="repeatul" *ngFor="let
+                                                ObjRoomMultilstType of
+                                                RoomMultilstType; let i=
+                                                index">
+                                                <li>
+                                                    <input type="text"
+                                                        name="localAttraction_{{i}}"
+                                                        class="form-control">
+                                                </li>
+                                                <li>
+                                                    <input type="number"
+                                                        name="Rooms_{{i}}"
+                                                        class="form-control">
+                                                </li>
+                                                <li>
+                                                    <input type="number"
+                                                        name="Perpersons_{{i}}"
+                                                        class="form-control">
+                                                </li>
+                                                <li>
+                                                    <jqxDropDownList
+                                                        [theme]="'bootstrap'"
+                                                        [width]="110"
+                                                        [height]="35"
+                                                        [source]="dropdownListTableSetting"
+                                                        [selectedIndex]="0"
+                                                        [displayMember]="'item_text'"
+                                                        [valueMember]="'item_id'">
+                                                    </jqxDropDownList>
+                                                </li>
+                                                <li>
+                                                    <div class="datetimediv">
+                                                        <jqxDateTimeInput
+                                                            #departdate
+                                                            [width]="200"
+                                                            [height]="35"
+                                                            [formatString]="'F'"
+                                                            [showTimeButton]="true">
+                                                        </jqxDateTimeInput>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="datetimediv">
+                                                        <jqxDateTimeInput
+                                                            #departdate
+                                                            [width]="200"
+                                                            [height]="35"
+                                                            [formatString]="'F'"
+                                                            [showTimeButton]="true">
+                                                        </jqxDateTimeInput>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <button class="btn
+                                                        btn-default delbtn"
+                                                        type="button"
+                                                        (click)="deleteFieldRoomMultilstType(i)"><i
+                                                            class="fa fa-trash"></i></button>
+                                                </li>
+                                            </ul>
+                                            <div class="clearfix"></div>
+                                            <div class="addrownew">
+                                                <a
+                                                    (click)="addRoomMultilstType()"
+                                                    class="btn
+                                                    btn-outline-warning"><i
+                                                        class="fa fa-plus"></i>Add
+                                                </a>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group yourprizefiled">
+                                        <div class="sidelbl"> Also give up your
+                                            prize</div>
+                                        <ul>
+                                            <li>
+                                                <div class="lbl">Description</div>
+                                                <input type="text"
+                                                    name="Description"
+                                                    class="form-control">
+                                            </li>
+                                            <li>
+                                                <div class="lbl">Anta (pcs.)</div>
+                                                <input type="number"
+                                                    name="Anta"
+                                                    class="form-control">
+                                            </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                        <ul class="repeatul" *ngFor="let
+                                            ObjGiveprizeMultilstType of
+                                            GiveprizeMultilstType; let i=index">
+                                            <li>
+                                                <input type="text"
+                                                    name="Description_{{i}}"
+                                                    class="form-control">
+                                            </li>
+                                            <li>
+                                                <input type="number"
+                                                    name="Anta_{{i}}"
+                                                    class="form-control">
+                                            </li>
+                                            <li>
+                                                <button class="btn btn-default"
+                                                    type="button"
+                                                    (click)="deleteFieldgiveprizeMultilstType(i)"><i
+                                                        class="fa fa-trash"></i></button>
+                                            </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                        <div class="addrownew">
+                                            <a
+                                                (click)="addgiveprizeMultilstType()"
+                                                class="btn btn-outline-warning"><i
+                                                    class="fa fa-plus"></i>Add
+                                            </a>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header">Comments</div>
+                                <div class="card-body compinfosec">
+                                    <div class="row">
+                                        <label class="col-sm-3 col-form-label">
+                                            <label class="col-form-label">Supplementary
+                                                Wishes/ Comments</label>
+                                        </label>
+                                        <div class="form-group col-md-9">
+                                            <textarea style="width:100%"
+                                                rows="4" [(ngModel)]="comments"></textarea>
+                                        </div>
+                                        <label class="col-sm-3 col-form-label">
+                                            <label class="col-form-label">Booking
+                                                Responsibility</label>
+                                        </label>
+                                        <div class="form-group col-md-9">
+                                            <input type="text" name="Mobile"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pull-right">
+                                <button type="button" class="btn
+                                    btn-outline-primary"
+                                    (click)="selectedwallet= 2">Next</button>
+                            </div>
+                        </div>
+
+
+                        <div role="tabpanel" *ngIf="selectedwallet=== 3">
+
+                            <div class="card">
+                                <div class="card-header">Company Information</div>
+                                <div class="card-body compinfosec">
+                                    <div class="row">
+                                        <label class="col-sm-3 col-form-label">
+                                            <label class="col-form-label">Company</label>
+                                        </label>
+                                        <div class="col-md-9">
+                                            <jqxDropDownList
+                                                #dropdownListforBookingstatusddl
+                                                [theme]="'bootstrap'"
+                                                [width]="710" [height]="30"
+                                                [source]="Company"
+                                                (onSelect)="listOnSelectCompany($event)"
+                                                [displayMember]="'item_text'"
+                                                [valueMember]="'item_id'"
+                                                [selectedIndex]="0">
+                                            </jqxDropDownList>
+                                        </div>
+                                        <label class="col-sm-3 col-form-label">
+                                            <label class="col-form-label">Contact
+                                                Person</label>
+                                        </label>
+                                        <div class="form-group col-md-9">
+                                            <input
+                                                [(ngModel)]="selectedValueContactPerson"
+                                                [typeahead]="ContactPerson"
+                                                typeaheadOptionField="name"
+                                                (typeaheadOnSelect)="onSelect($event)"
+                                                [typeaheadScrollable]="true"
+                                                class="form-control"
+                                                name="ContactPerson"
+                                                autocomplete="off">
+                                        </div>
+                                        <label class="col-sm-3 col-form-label">
+                                            <label class="col-form-label">Email</label>
+                                        </label>
+                                        <div class="form-group col-md-9">
+                                            <input type="text" name="Email"
+                                                class="form-control">
+                                        </div>
+                                        <label class="col-sm-3 col-form-label">
+                                            <label class="col-form-label">Telephone</label>
+                                        </label>
+                                        <div class="form-group col-md-9">
+                                            <input type="text" name="Telephone"
+                                                class="form-control">
+                                        </div>
+                                        <label class="col-sm-3 col-form-label">
+                                            <label class="col-form-label">Mobile</label>
+                                        </label>
+                                        <div class="form-group col-md-9">
+                                            <input type="text" name="Mobile"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header">Reference</div>
+                                <div class="card-body compinfosec">
+                                    <div class="row">
+                                        <label class="col-sm-3 col-form-label">
+                                            <label class="col-form-label">Referred
+                                                by</label>
+                                        </label>
+                                        <div class="form-group col-md-9">
+                                            <jqxDropDownList #ddlReferred
+                                                [theme]="'bootstrap'"
+                                                (onSelect)="listOnSelectReferred($event)"
+                                                [width]="710" [height]="30"
+                                                [source]="Referred"
+                                                [selectedIndex]="0"
+                                                [displayMember]="'item_text'"
+                                                [valueMember]="'item_id'">
+                                            </jqxDropDownList>
+
+                                        </div>
+                                        <label class="col-sm-3 col-form-label">
+                                            <label class="col-form-label">Refers</label>
+                                        </label>
+                                        <div class="form-group col-md-9">
+                                            <jqxDropDownList
+                                                [theme]="'bootstrap'"
+                                                [width]="710" [height]="30"
+                                                [source]="ReferDDL"
+                                                [selectedIndex]="0"
+                                                [displayMember]="'item_text'"
+                                                [valueMember]="'item_id'">
+                                            </jqxDropDownList>
+                                        </div>
+                                        <label class="col-sm-3 col-form-label">
+                                            <label class="col-form-label">Where
+                                                do you know us?</label>
+                                        </label>
+                                        <div class="form-group col-md-9">
+                                            <jqxDropDownList
+                                                #dropdownCampaignddl
+                                                [theme]="'bootstrap'"
+                                                [width]="710"
+                                                [height]="30"
+                                                [source]="dropdownCampaign"
+                                                [selectedIndex]="0"
+                                                [displayMember]="'item_text'"
+                                                [valueMember]="'item_id'">
+                                            </jqxDropDownList>
+                                        </div>
+                                        <label class="col-sm-3 col-form-label">
+                                            <label class="col-form-label">Lead
+                                                Origin</label>
+                                        </label>
+                                        <div class="form-group col-md-9">
+                                            <jqxDropDownList
+                                                #dropdownCampaignddl
+                                                [theme]="'bootstrap'"
+                                                [width]="710"
+                                                [height]="30"
+                                                [source]="dropdownListLeadOrigin"
+                                                [selectedIndex]="0"
+                                                [displayMember]="'item_text'"
+                                                [valueMember]="'item_id'">
+                                            </jqxDropDownList>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="pull-right">
-                                <button type="button" class="btn btn-outline-warning "
-                                    (click)="selectedwallet= 2">Previous</button>
-                                <button type="button" class="btn btn-outline-primary" (click)="displayselectedwallet(4)"
+                            <div class="nextpreviousbtn">
+                                <button type="button" class="btn
+                                    btn-outline-warning"(click)="selectedwallet=
+                                    1">Previous</button>
+                                <button type="button" class="btn
+                                    btn-outline-primary"
+                                    (click)="selectedwallet= 3"
                                     style="text-align:
-                                        left; margin: 0px 11px;">Next</button>
+                                    left; margin: 0px 11px;">Next</button>
+                                <button type="button" class="btn
+                                    btn-outline-dark">Cancel</button>
                             </div>
+
+
                         </div>
-                        <div role="tabpanel" *ngIf="selectedwallet === 4">
+                        <!-- <div role="tabpanel" *ngIf="selectedwallet === 4">
                             <div class="card">
                                 <div class="card-body">
 
                                     <div class="form-group">
                                         <label class="col-form-label">Status</label>
-                                        <jqxDropDownList #dropdownListforBookingstatusddl [theme]="'bootstrap'"
-                                            [width]="710" [height]="30" [source]="dropdownListforBookingstatus"
-                                            [displayMember]="'item_text'" [valueMember]="'item_id'" [selectedIndex]="0">
+                                        <jqxDropDownList
+                                            #dropdownListforBookingstatusddl
+                                            [theme]="'bootstrap'"
+                                            [width]="710" [height]="30"
+                                            [source]="dropdownListforBookingstatus"
+                                            [displayMember]="'item_text'"
+                                            [valueMember]="'item_id'"
+                                            [selectedIndex]="0">
                                         </jqxDropDownList>
                                     </div>
                                     <!-- <div class="form-group">
@@ -388,9 +791,7 @@
                                                 <label class="col-form-label"> Placeringskommenter</label>
                                                 <input type="text" value="Test case" class="form-control">
                                              </div> -->
-
-
-                                    <div class="form-group">
+                                    <!-- <div class="form-group">
                                         <label class="col-form-label">Referred</label>
                                         <jqxDropDownList #ddlReferred [theme]="'bootstrap'"
                                             (onSelect)="listOnSelectReferred($event)" [width]="710" [height]="30"
@@ -413,7 +814,7 @@
                                             [height]="30" [source]="dropdownListLeadOrigin" [selectedIndex]="0"
                                             [displayMember]="'item_text'" [valueMember]="'item_id'">
                                         </jqxDropDownList>
-                                    </div>
+                                    </div> -->
                                     <!-- <div class="form-group">
                                         <label class="col-form-label">Gron some</label>
                                         <input type="text" class="form-control">
@@ -451,12 +852,16 @@
                                         <label class="col-form-label">Fitness
                                             room</label>
                                         <input type="text" class="form-control">
-                                    </div> -->
+                                    </div> 
                                     <div class="form-group chkbox">
                                         <label class="col-form-label">Refreshment</label>
-                                        <jqxDropDownList #myDropDownList [width]="710" [height]="30"
-                                            [theme]="'bootstrap'" [source]="dropdownListforRefreshment"
-                                            [checkboxes]="true" [selectedIndex]="0" [displayMember]="'item_text'"
+                                        <jqxDropDownList #myDropDownList
+                                            [width]="710" [height]="30"
+                                            [theme]="'bootstrap'"
+                                            [source]="dropdownListforRefreshment"
+                                            [checkboxes]="true"
+                                            [selectedIndex]="0"
+                                            [displayMember]="'item_text'"
                                             [valueMember]="'item_id'">
                                         </jqxDropDownList>
                                     </div>
@@ -477,7 +882,7 @@
                                         <label class="col-form-label">Related
                                             parent request</label>
                                         <input type="text" class="form-control">
-                                    </div> -->
+                                    </div>
                                     <div class="form-group chkbox">
                                         <label class="col-form-label">Turn off
                                             notifcation</label>
@@ -486,16 +891,176 @@
                                     <!-- <div class="form-group chkbox">
                                                 <label class="col-form-label">Ny Kunde</label>
                                                 <input type="checkbox">
-                                             </div> -->
+                                             </div> 
                                 </div>
                             </div>
                             <div class="nextpreviousbtn">
-                                <button type="button" class="btn btn-outline-warning "
-                                    (click)="displayselectedwallet(3)">Previous</button>
-                                <button type="button" class="btn btn-outline-primary" (click)="selectedwallet= 5" style="text-align:
-                                        left; margin: 0px 11px;">Next</button>
+                                <button type="button" class="btn
+                                    btn-outline-warning"(click)="displayselectedwallet(3)">Previous</button>
+                                <button type="button" class="btn
+                                    btn-outline-primary"
+                                    (click)="selectedwallet= 5"
+                                    style="text-align:
+                                    left; margin: 0px 11px;">Next</button>
                             </div>
-                        </div>
+                        </div> -->
+
+                        <div role="tabpane3" *ngIf="selectedwallet=== 4">
+                            <div class="card">
+                              <div class="card-header">Cener-matching</div>
+                              <div class="card-body compinfosec">
+                                <div class="row">
+                                        <label class="col-sm-3 col-form-label">
+                                                <label class="col-form-label">Status</label>
+                                              </label>
+                                              <div class="form-group col-md-9">
+                                                <div class="radiocheckbox">
+                                                  <div class="form-check">
+                                                        <jqxDropDownList
+                                                        #dropdownListforBookingstatusddl
+                                                        [theme]="'bootstrap'"
+                                                        [width]="710" [height]="30"
+                                                        [source]="dropdownListforBookingstatus"
+                                                        [displayMember]="'item_text'"
+                                                        [valueMember]="'item_id'"
+                                                        [selectedIndex]="0">
+                                                    </jqxDropDownList>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <label class="col-sm-3 col-form-label">
+                                                    <label class="col-form-label">Refreshment</label>
+                                                  </label>
+                                                  <div class="form-group col-md-9">
+                                                    <div class="radiocheckbox">
+                                                      <div class="form-check">
+                                                            <jqxDropDownList #myDropDownList
+                                                            [width]="710" [height]="30"
+                                                            [theme]="'bootstrap'"
+                                                            [source]="dropdownListforRefreshment"
+                                                            [checkboxes]="true"
+                                                            [selectedIndex]="0"
+                                                            [displayMember]="'item_text'"
+                                                            [valueMember]="'item_id'">
+                                                        </jqxDropDownList>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                  <label class="col-sm-3 col-form-label">
+                                                        <label class="col-form-label">Turn on Notification</label>
+                                                      </label>
+                                                      <div class="form-group col-md-9">
+                                                        <div class="radiocheckbox">
+                                                          <div class="form-check">
+                                                              <input type="checkbox">
+                                                          </div>
+                                                        </div>
+                                                      </div>
+
+                                  <label class="col-sm-3 col-form-label">
+                                    <label class="col-form-label">Partner Type</label>
+                                  </label>
+                                  <div class="form-group col-md-9">
+                                    <div class="radiocheckbox">
+                                      <div class="form-check">
+                                        <ng-multiselect-dropdown [placeholder]="'Partner Type'" [data]="dropdownListforSearchType"
+                                          [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+                                          name="CreateBookingModel.PartnerType" [(ngModel)]="PartnerType"
+                                          (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <label class="col-sm-3 col-form-label">
+                                    <label class="col-form-label">Center Matchings</label>
+                                  </label>
+                                  <div class="form-group col-md-9">
+                                    <div class="radiocheckbox">
+                                      <div class="form-check">
+                                        <ng-multiselect-dropdown [placeholder]="'Center Matchings'"
+                                          [data]="dropdownListforCenterMatching" [settings]="dropdownSettings"
+                                          (onSelect)="onItemSelect($event)" name="CreateBookingModel.CenterMatchings"
+                                          [(ngModel)]="CenterMatchings" (onSelectAll)="onSelectAll($event)">
+                                        </ng-multiselect-dropdown>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card">
+                              <div class="card-header">Desired geographical area</div>
+                              <div class="card-body compinfosec">
+                                <div class="row">
+                                  <label class="col-sm-3 col-form-label">
+                                    <label class="col-form-label">Region / Province</label>
+                                  </label>
+                                  <div class="form-group col-sm-9">
+            
+                                    <div class="radiocheckbox">
+                                      <div class="form-check">
+                                        <ng-multiselect-dropdown [placeholder]="'Region / Province
+                                                    '" [data]="dropdownList" name="Regions" [settings]="dropdownSettings"
+                                          (onSelect)="onItemSelect($event)" name="CreateBookingModel.RegionProvinance"
+                                          [(ngModel)]="RegionProvinance" (onSelectAll)="onSelectAll($event)">
+                                        </ng-multiselect-dropdown>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card">
+                              <div class="card-header">Search Criteria</div>
+                              <div class="card-body compinfosec">
+                                <div class="row">
+                                  <div class="col-sm-3">
+                                    <label class="col-form-label">Refreshment</label>
+                                  </div>
+                                  <div class="form-group col-sm-9">
+                                    <div class="radiocheckbox">
+                                      <div class="form-check">
+                                        <ng-multiselect-dropdown [placeholder]="'Refreshments'" [data]="dropdownListforRefreshment"
+                                          [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+                                          name="CreateBookingModel.Refreshment" [(ngModel)]="Refreshment"
+                                          (onSelectAll)="onSelectAll($event)">
+                                        </ng-multiselect-dropdown>
+                                      </div>
+                                      {{dropdownListCenter}}
+                                      <button type="button" (click)="GetPartnerforFindCenter();" style=" float: right; "
+                                        class="btn btn-outline-info">Find Center</button>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="form-group" *ngIf="DivFindCenter">
+                                  <div class="row">
+                                    <label class=" col-sm-3 col-form-label">Center</label>
+                                    <div class="form-group col-sm-9">
+                                      <div class="radiocheckbox">
+                                        <div class="form-check">
+                                          <ng-multiselect-dropdown [placeholder]="'Centers'" [data]="dropdownListCenter"
+                                            [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+                                            name="CreateBookingModelPartner" [(ngModel)]="Partners"
+                                            (onSelectAll)="onSelectAll($event)">
+                                          </ng-multiselect-dropdown>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+            
+            
+                            <div class="nextpreviousbtn">
+                              <button type="button" class="btn btn-outline-warning" (click)="selectedwallet= 2"
+                                style="text-align: left; margin: 0px 11px;">Previous</button>
+                              <button class="btn btn-outline-primary">Save</button>
+                            </div>
+            
+            
+            
+                          </div>
+
                         <div role="tabpanel" *ngIf="selectedwallet === 5">
                             <div class="card">
                                 <div class="card-body">
@@ -521,10 +1086,13 @@
                                 </div>
                             </div>
                             <div class="nextpreviousbtn">
-                                <button type="button" class="btn btn-outline-warning "
-                                    (click)="displayselectedwallet(4)">Previous</button>
-                                <button type="button" class="btn btn-outline-primary" (click)="selectedwallet= 6" style="text-align:
-                                        left; margin: 0px 11px;">Next</button>
+                                <button type="button" class="btn
+                                    btn-outline-warning"(click)="displayselectedwallet(4)">Previous</button>
+                                <button type="button" class="btn
+                                    btn-outline-primary"
+                                    (click)="selectedwallet= 6"
+                                    style="text-align:
+                                    left; margin: 0px 11px;">Next</button>
                             </div>
                         </div>
 
@@ -540,52 +1108,63 @@
                                                 <li>
                                                     <div class="lbl"> course
                                                         Packages</div>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text"
+                                                        class="form-control">
                                                 </li>
                                                 <li>
                                                     <div class="lbl">Participants</div>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text"
+                                                        class="form-control">
                                                 </li>
                                                 <li>
                                                     <div class="lbl">per ISK
                                                         (ISK)</div>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text"
+                                                        class="form-control">
                                                 </li>
                                                 <li>
                                                     <div class="lbl">Total (kr.)</div>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text"
+                                                        class="form-control">
                                                 </li>
 
                                             </ul>
 
-                                            <ul class="ulrepeat" *ngFor="let ObjArrangementtype
+                                            <ul class="ulrepeat" *ngFor="let
+                                                ObjArrangementtype
                                                 of Arrangementtype; let i=
                                                 index">
                                                 <li>
 
-                                                    <input type="text" class="form-control">
+                                                    <input type="text"
+                                                        class="form-control">
                                                 </li>
                                                 <li>
 
-                                                    <input type="text" class="form-control">
+                                                    <input type="text"
+                                                        class="form-control">
                                                 </li>
                                                 <li>
 
-                                                    <input type="text" class="form-control">
+                                                    <input type="text"
+                                                        class="form-control">
                                                 </li>
                                                 <li>
 
-                                                    <input type="text" class="form-control">
+                                                    <input type="text"
+                                                        class="form-control">
                                                 </li>
                                                 <li>
                                                     <button class="btn
-                                                        btn-default" type="button"
+                                                        btn-default"
+                                                        type="button"
                                                         (click)="deleteFieldValue(i)">Delete</button>
                                                 </li>
                                             </ul>
                                             <div class="addrownew">
                                                 <a class="btn
-                                                    btn-outline-warning" (click)="addFieldValue()"><i
+                                                    btn-outline-warning"
+                                                    (click)="addFieldValue()"><i
                                                         class="fa fa-plus"></i>Add
                                                     new row</a>
                                             </div>
@@ -598,57 +1177,77 @@
                                             <ul>
                                                 <li>
                                                     <div class="lbl">Local type</div>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text"
+                                                        class="form-control">
                                                 </li>
                                                 <li>
                                                     <div class="lbl">Number of
                                                         rooms</div>
-                                                    <input type="number" myNumberOnly name="Noofparticipants"
-                                                        class="form-control InlineInput" maxlength="8">
+                                                    <input type="number"
+                                                        myNumberOnly
+                                                        name="Noofparticipants"
+                                                        class="form-control
+                                                        InlineInput"
+                                                        maxlength="8">
                                                 </li>
                                                 <li>
                                                     <div class="lbl">per person</div>
-                                                    <input type="number" myNumberOnly name="Noofparticipants"
-                                                        class="form-control InlineInput" maxlength="8">
+                                                    <input type="number"
+                                                        myNumberOnly
+                                                        name="Noofparticipants"
+                                                        class="form-control
+                                                        InlineInput"
+                                                        maxlength="8">
                                                 </li>
                                                 <li>
                                                     <div class="lbl">Total price
                                                         (DKK))</div>
-                                                    <input type="number" myNumberOnly name="Noofparticipants"
-                                                        class="form-control InlineInput" maxlength="8">
+                                                    <input type="number"
+                                                        myNumberOnly
+                                                        name="Noofparticipants"
+                                                        class="form-control
+                                                        InlineInput"
+                                                        maxlength="8">
                                                 </li>
 
 
                                             </ul>
 
-                                            <ul class="ulrepeat" *ngFor="let ObjArrangementtype
+                                            <ul class="ulrepeat" *ngFor="let
+                                                ObjArrangementtype
                                                 of Arrangementtype; let i=
                                                 index">
                                                 <li>
 
-                                                    <input type="text" class="form-control">
+                                                    <input type="text"
+                                                        class="form-control">
                                                 </li>
                                                 <li>
 
-                                                    <input type="text" class="form-control">
+                                                    <input type="text"
+                                                        class="form-control">
                                                 </li>
                                                 <li>
 
-                                                    <input type="text" class="form-control">
+                                                    <input type="text"
+                                                        class="form-control">
                                                 </li>
                                                 <li>
 
-                                                    <input type="text" class="form-control">
+                                                    <input type="text"
+                                                        class="form-control">
                                                 </li>
                                                 <li>
                                                     <button class="btn
-                                                        btn-default" type="button"
+                                                        btn-default"
+                                                        type="button"
                                                         (click)="deleteFieldValue(i)">Delete</button>
                                                 </li>
                                             </ul>
                                             <div class="addrownew">
                                                 <a class="btn
-                                                    btn-outline-warning" (click)="addFieldValue()"><i
+                                                    btn-outline-warning"
+                                                    (click)="addFieldValue()"><i
                                                         class="fa fa-plus"></i>Add
                                                     new row</a>
                                             </div>
@@ -672,14 +1271,16 @@
                                     <div class="form-group">
                                         <label class="col-form-label">Centres
                                             evt. kommentarer</label>
-                                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                                        <textarea class="form-control" rows="5"
+                                            id="comment"></textarea>
                                         <div class="clearfix"></div>
                                     </div>
                                     <br>
                                     <div class="form-group">
                                         <label class="col-form-label">Bogholders
                                             evt. kommentarer</label>
-                                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                                        <textarea class="form-control" rows="5"
+                                            id="comment"></textarea>
                                         <div class="clearfix"></div>
 
                                     </div>
@@ -694,7 +1295,6 @@
                                         <label class="col-form-label">Estimeret
                                             af DKBS i alt</label>
                                         <input type="text" class="form-control">
-
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Difference</label>
@@ -739,9 +1339,12 @@
                                             link</label>
                                         <div class="radiocheckbox">
                                             <div class="form-check">
-                                                <ng-multiselect-dropdown [placeholder]="'custom
-                                                    placeholder'" [data]="dropdownListProvision"
-                                                    [(ngModel)]="dropdownListProvision" [settings]="dropdownSettings"
+                                                <ng-multiselect-dropdown
+                                                    [placeholder]="'custom
+                                                    placeholder'"
+                                                    [data]="dropdownListProvision"
+                                                    [(ngModel)]="dropdownListProvision"
+                                                    [settings]="dropdownSettings"
                                                     (onSelect)="onItemSelect($event)"
                                                     (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
                                             </div>
@@ -764,12 +1367,16 @@
 
                             </div>
                             <div class="nextpreviousbtn">
-                                <button type="button" class="btn btn-outline-warning "
-                                (click)="selectedwallet= 5" >Previous</button>
-                                <button class="btn btn-outline-warning" type="submit" value="Submit" (click)="updateBooking()" >Save</button>
+                                <button type="button" class="btn
+                                    btn-outline-warning"(click)="selectedwallet=
+                                    5">Previous</button>
+                                <button class="btn btn-outline-warning"
+                                    type="submit" value="Submit"
+                                    (click)="updateBooking()">Save</button>
                                 <!-- <button class="btn btn-outline-primary" type="submit" value="Submit">Save and
                                     exit</button> -->
-                                <button class="btn btn-outline-dark" type="submit" value="Submit">Cancel</button>
+                                <button class="btn btn-outline-dark"
+                                    type="submit" value="Submit">Cancel</button>
                             </div>
                         </div>
                         <div role="tabpanel" *ngIf="selectedwallet === 7">
