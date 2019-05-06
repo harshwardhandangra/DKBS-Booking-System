@@ -339,6 +339,7 @@ export class CreatebookingComponent implements OnInit {
     })
     this.CreateBookingModel.bookingArrangementTypeViewModel = bookingArrangementTypeViewModel;
     this.CreateBookingModel.bookingRoomViewModel = bookingRoomViewModel;
+    this.CreateBookingModel.partnerId = 1;
     this.CreateBookingModel.bookingAlternativeServiceViewModel = bookingAlternativeServiceViewModel;
     this.bookingService.SaveBooking(this.CreateBookingModel).subscribe(res => {
       if (res.bookingId != 0) {
