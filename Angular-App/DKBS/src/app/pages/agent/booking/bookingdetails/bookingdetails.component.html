@@ -20,32 +20,32 @@
                     <div class="widthtab">
                         <ul class="nav nav-tabs" role="tablist">
                             <li [class]="selectedwallet ===
-                                'SAGSDETALJER'?'active':'inactive'"><a (click)="selectedwallet= 'SAGSDETALJER'"
-                                    class="nav-link">Case Details</a></li>
+                                1?'active':'inactive'"><a (click)="selectedwallet= 1" class="nav-link">Case Details</a>
+                            </li>
                             <li [class]="selectedwallet ===
-                                'EVENTDETALJER'?'active':'inactive'"><a (click)="selectedwallet= 'EVENTDETALJER'"
-                                    class="nav-link">Event Details</a></li>
+                                2?'active':'inactive'"><a (click)="selectedwallet= 2" class="nav-link">Event
+                                    Details</a></li>
                             <li [class]="selectedwallet ===
-                                'FIRMA-OG'?'active':'inactive'" class="nav-link"> <a
-                                    (click)="selectedwallet= 'FIRMA-OG'" class="nav-link">Company Information</a></li>
+                                3?'active':'inactive'" class="nav-link"> <a (click)="displayselectedwallet(3)"
+                                    class="nav-link">Company Information</a></li>
                             <li [class]="selectedwallet ===
-                                'OTHER'?'active':'inactive'" class="nav-link"><a (click)="selectedwallet= 'OTHER'"
+                                4?'active':'inactive'" class="nav-link"><a (click)="displayselectedwallet(4)"
                                     class="nav-link">Other</a></li>
                             <li [class]="selectedwallet ===
-                                'Log'?'active':'inactive'" class="nav-link"><a (click)="selectedwallet= 'Log'"
+                                5?'active':'inactive'" class="nav-link"><a (click)="selectedwallet= 5"
                                     class="nav-link">Log</a></li>
                             <li [class]="selectedwallet ===
-                                'Commission'?'active':'inactive'" class="nav-link"><a
-                                    (click)="selectedwallet= 'Commission'" class="nav-link">Commission</a></li>
-                            <!-- <li [class]="selectedwallet === 'Power'?'active':'inactive'" class="nav-link"><a
-                                            (click)="selectedwallet = 'Power'" class="nav-link">Power BI</a></li>-->
+                                6?'active':'inactive'" class="nav-link"><a (click)="selectedwallet= 6"
+                                    class="nav-link">Commission</a></li>
+                            <!-- <li [class]="selectedwallet === 7?'active':'inactive'" class="nav-link"><a
+                                            (click)="selectedwallet = 7" class="nav-link">Power BI</a></li>-->
                         </ul>
                     </div>
                     <!-- Tab panes -->
                     <div class="tab-content">
 
                         <div role="tabpanel" *ngIf="selectedwallet ===
-                            'SAGSDETALJER'">
+                            1">
 
                             <form class="">
                                 <div class="card">
@@ -65,9 +65,9 @@
                                                                 <input type="checkbox" aria-label="Select
                                                                     all items in
                                                                     this table" id="SelectAll"></th>
-                                                            <th scope="col">
+                                                            <!-- <th scope="col">
                                                                 <span class="glyphicon
-                                                                    glyphicon-paperclip"></span></th>
+                                                                    glyphicon-paperclip"></span></th> -->
                                                             <th scope="col">Queries</th>
                                                             <th scope="col">Reply</th>
                                                             <th scope="col">Email
@@ -82,19 +82,19 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <th scope="row">1</th>
-                                                            <td>Mark</td>
-                                                            <td>Otto</td>
-                                                            <td>@mdo</td>
-                                                            <td>@mdo</td>
-                                                            <td>@mdo</td>
-                                                            <td>Mark</td>
-                                                            <td>Otto</td>
-                                                            <td>@mdo</td>
-                                                            <td>@mdo</td>
+                                                        <tr
+                                                            *ngFor="let procedureInfo of updateBookingModel.procedureInfoDTO">
+                                                            <td scope="row"><input type="checkbox"
+                                                                    id="{{procedureInfo.procedureInfoId}}"></td>
+                                                            <td></td>
+                                                            <td>{{procedureInfo.reply}}</td>
+                                                            <td>{{procedureInfo.emailOffer}}</td>
+                                                            <td></td>
+                                                            <td>{{procedureInfo.chat}}</td>
+                                                            <td>{{procedureInfo.comment}}</td>
+                                                            <td>{{procedureInfo.price}}</td>
+                                                            <td></td>
                                                         </tr>
-
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -102,43 +102,51 @@
                                         <div class="form-group">
                                             <label class="col-form-label">Center
                                                 info Reason for removal</label>
-                                            <jqxDropDownList [theme]="'bootstrap'" (onSelect)="listOnSelect($event)" [width]="710"
-                                                [height]="30" [source]="dropdownListforCauseofRemoval"
-                                                [selectedIndex]="0" [displayMember]="'item_text'" [valueMember]="'item_id'">
+                                            <jqxDropDownList #dropdownListforCauseofRemovalddl [theme]="'bootstrap'"
+                                                [width]="710" [height]="30" [source]="dropdownListforCauseofRemoval"
+                                                [selectedIndex]="0" [displayMember]="'item_text'"
+                                                [valueMember]="'item_id'">
                                             </jqxDropDownList>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-form-label">Meeting
                                                 series</label>
-                                            <div class="labeltext">Bind Data</div>
+                                            <input type="text" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label class="col-form-label">Additional
                                                 series text</label>
-                                            <div class="labeltext">Bind Data</div>
+                                            <input type="text" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label class="col-form-label">Is
                                                 main series case</label>
-                                            <div class="labeltext">Bind Data</div>
+                                            <input type="text" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label class="col-form-label">Select
                                                 language</label>
-                                            <div class="labeltext">Bind Data</div>
+                                            <jqxDropDownList #dropdownLanguageddl [theme]="'bootstrap'" [width]="710"
+                                                [height]="30" [source]="dropdownLanguage" [selectedIndex]="0"
+                                                [displayMember]="'language'" [valueMember]="'mailLanguageId'">
+                                            </jqxDropDownList>
                                         </div>
                                         <!-- <div class="form-group">
                                             <label class="col-form-label">Attachments</label>
-                                            <div class="labeltext">Bind Data</div>
+                                            <div class="labeltext"></div>
                                         </div> -->
                                     </div>
                                 </div>
                             </form>
 
+                            <div class="pull-right">
+                                <button type="button" class="btn btn-outline-primary"
+                                    (click)="selectedwallet= 2">Next</button>
+                            </div>
 
                         </div>
                         <div role="tabpanel" *ngIf="selectedwallet ===
-                            'EVENTDETALJER'">
+                            2">
                             <form>
                                 <div class="card">
                                     <!--<div class="card-header"></div>-->
@@ -148,7 +156,9 @@
                                                 <div class="form-group">
                                                     <label class="lbl">Arrival</label>
                                                     <jqxDateTimeInput #arrivaldate [width]="300" [height]="30"
-                                                        [formatString]="'F'" [showTimeButton]="true">
+                                                        [(ngModel)]="updateBookingModel.arrivalDateTime"
+                                                        [ngModelOptions]="{standalone: true}" [formatString]="'F'"
+                                                        [showTimeButton]="true">
                                                     </jqxDateTimeInput>
                                                     <!-- <input type="text" placeholder="Datepicker" class="form-control"
                                                         bsDatepicker> -->
@@ -158,7 +168,9 @@
                                                 <div class="form-group">
                                                     <label class="lbl">Depart</label>
                                                     <jqxDateTimeInput #departdate [width]="300" [height]="30"
-                                                        [formatString]="'F'" [showTimeButton]="true">
+                                                        [(ngModel)]="updateBookingModel.departDateTime"
+                                                        [ngModelOptions]="{standalone: true}" [formatString]="'F'"
+                                                        [showTimeButton]="true">
                                                     </jqxDateTimeInput>
                                                 </div>
                                             </div>
@@ -168,14 +180,13 @@
 
                                         <div class="form-group">
                                             <label class="col-form-label">Case</label>
-                                            <input type="text" value="Foresporgsel fra DKBS
-                                                SRM7974" class="form-control">
+                                            <input type="text" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label class="col-form-label">The
                                                 dates are flexible</label>
-                                            <input type="checkbox" value="true"
-                                                >
+                                            <input type="checkbox" [ngModelOptions]="{standalone: true}"
+                                                [(ngModel)]="updateBookingModel.flexibleDates">
                                         </div>
                                         <div class="form-group">
                                             <label class="col-form-label">Our
@@ -194,8 +205,7 @@
                                         <div class="form-group">
                                             <label class="col-form-label">Number
                                                 of changes</label>
-                                            <input type="text" value="Antal
-                                                enkeltvxelser" class="form-control">
+                                            <input type="text" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label class="col-form-label">participants</label>
@@ -233,12 +243,13 @@
                                         <div class="form-group chkbox">
                                             <label class="col-form-label">booking
                                                 Responsible</label>
-                                            <input type="checkbox">
+                                            <input type="checkbox" [ngModelOptions]="{standalone: true}"
+                                                [(ngModel)]="displayadditionalwishescomments">
                                         </div>
 
                                     </div>
                                 </div>
-                                <div class="card">
+                                <div class="card" *ngIf="displayadditionalwishescomments">
                                     <div class="card-header">Additional wishes /
                                         comments</div>
                                     <div class="card-body">
@@ -273,26 +284,36 @@
                             </form>
 
 
+                            <div class="pull-right">
+                                <button type="button" class="btn btn-outline-warning "
+                                    (click)="selectedwallet= 1">Previous</button>
+                                <button type="button" class="btn btn-outline-primary" (click)="displayselectedwallet(3)"
+                                    style="text-align:
+                                        left; margin: 0px 11px;">Next</button>
+                            </div>
+
                         </div>
                         <div role="tabpanel" *ngIf="selectedwallet ===
-                            'FIRMA-OG'">
+                            3">
                             <div class="card">
 
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label class="col-form-label">Business</label>
-                                        <input type="text" value="WinPoint A/s" class="form-control">
+                                        <input type="text" value="WinPoint A/s" class="form-control"
+                                            [(ngModel)]="updateBookingModel.customerDTO.customerName">
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Contact
                                             person</label>
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control"
+                                            [(ngModel)]="updateBookingModel.contactPersonDTO.name">
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Where do
                                             you know us?</label>
-                                        <jqxDropDownList [theme]="'bootstrap'" [width]="710" [height]="30"
-                                            [source]="dropdownCampaign" [selectedIndex]="0"
+                                        <jqxDropDownList #dropdownCampaignddl [theme]="'bootstrap'" [width]="710"
+                                            [height]="30" [source]="dropdownCampaign" [selectedIndex]="0"
                                             [displayMember]="'item_text'" [valueMember]="'item_id'">
                                         </jqxDropDownList>
                                     </div>
@@ -304,15 +325,18 @@
 
                                     <div class="form-group">
                                         <label class="col-form-label">Email</label>
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control"
+                                            [(ngModel)]="updateBookingModel.contactPersonDTO.email">
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Mobil</label>
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control"
+                                            [(ngModel)]="updateBookingModel.contactPersonDTO.telephone">
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Telephone</label>
-                                        <Input type="text" class="form-control">
+                                        <Input type="text" class="form-control"
+                                            [(ngModel)]="updateBookingModel.contactPersonDTO.telephone">
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Referred
@@ -321,32 +345,39 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Addresse</label>
-                                        <input type="text" value="Holmekrogen
-                                            10" class="form-control">
+                                        <input type="text" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Postal
                                             code, city, country</label>
-                                        <input type="text" value="2830 - Virum,
-                                            Denmark" class="form-control">
+                                        <input type="text" class="form-control"
+                                            [(ngModel)]="updateBookingModel.customerDTO.city + ',' + updateBookingModel.customerDTO.country">
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-form-label">Business</label>
-                                        <input type="text" value="IT og
-                                            telekommunikation" class="form-control">
+                                        <label class="col-form-label">Branch</label>
+                                        <input type="text" class="form-control">
                                     </div>
 
                                 </div>
                             </div>
+
+                            <div class="pull-right">
+                                <button type="button" class="btn btn-outline-warning "
+                                    (click)="selectedwallet= 2">Previous</button>
+                                <button type="button" class="btn btn-outline-primary" (click)="displayselectedwallet(4)"
+                                    style="text-align:
+                                        left; margin: 0px 11px;">Next</button>
+                            </div>
                         </div>
-                        <div role="tabpanel" *ngIf="selectedwallet === 'OTHER'">
+                        <div role="tabpanel" *ngIf="selectedwallet === 4">
                             <div class="card">
                                 <div class="card-body">
 
                                     <div class="form-group">
                                         <label class="col-form-label">Status</label>
-                                        <jqxDropDownList [theme]="'bootstrap'" [width]="710" [height]="30"
-                                            [source]="dropdownListforBookingstatus"  [displayMember]="'item_text'" [valueMember]="'item_id'"  [selectedIndex]="0">
+                                        <jqxDropDownList #dropdownListforBookingstatusddl [theme]="'bootstrap'"
+                                            [width]="710" [height]="30" [source]="dropdownListforBookingstatus"
+                                            [displayMember]="'item_text'" [valueMember]="'item_id'" [selectedIndex]="0">
                                         </jqxDropDownList>
                                     </div>
                                     <!-- <div class="form-group">
@@ -361,67 +392,72 @@
 
                                     <div class="form-group">
                                         <label class="col-form-label">Referred</label>
-                                        <jqxDropDownList [theme]="'bootstrap'"  (onSelect)="listOnSelectReferred($event)" [width]="710" [height]="30"
-                                        [source]="Referred" [selectedIndex]="0" [displayMember]="'item_text'" [valueMember]="'item_id'">
+                                        <jqxDropDownList #ddlReferred [theme]="'bootstrap'"
+                                            (onSelect)="listOnSelectReferred($event)" [width]="710" [height]="30"
+                                            [source]="Referred" [selectedIndex]="0" [displayMember]="'item_text'"
+                                            [valueMember]="'item_id'">
                                         </jqxDropDownList>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Referred
                                             By</label>
-                                            <jqxDropDownList [theme]="'bootstrap'" [width]="710" [height]="30"
-                                            [source]="ReferDDL" [selectedIndex]="0" [displayMember]="'item_text'" [valueMember]="'item_id'">
-                                            </jqxDropDownList>
+                                        <jqxDropDownList [theme]="'bootstrap'" [width]="710" [height]="30"
+                                            [source]="ReferDDL" [selectedIndex]="0" [displayMember]="'item_text'"
+                                            [valueMember]="'item_id'">
+                                        </jqxDropDownList>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Lead
                                             origin</label>
-                                            <jqxDropDownList [theme]="'bootstrap'" [width]="710" [height]="30"
-                                            [source]="dropdownListLeadOrigin" [selectedIndex]="0" [displayMember]="'item_text'" [valueMember]="'item_id'">
-                                            </jqxDropDownList>
+                                        <jqxDropDownList #dropdownListLeadOriginddl [theme]="'bootstrap'" [width]="710"
+                                            [height]="30" [source]="dropdownListLeadOrigin" [selectedIndex]="0"
+                                            [displayMember]="'item_text'" [valueMember]="'item_id'">
+                                        </jqxDropDownList>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Gron some</label>
-                                        <input type="text" value="No" class="form-control">
+                                        <input type="text" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Acceptance
                                             for employees</label>
-                                        <input type="text" value="No" class="form-control">
+                                        <input type="text" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Handicapvenlig</label>
-                                        <input type="text" value="No" class="form-control">
+                                        <input type="text" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Bar</label>
-                                        <input type="text" value="No" class="form-control">
+                                        <input type="text" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Launge</label>
-                                        <input type="text" value="No" class="form-control">
+                                        <input type="text" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Bilard/dart/bordtennis/etc.</label>
-                                        <input type="text" value="No" class="form-control">
+                                        <input type="text" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Spa</label>
-                                        <input type="text" value="No" class="form-control">
+                                        <input type="text" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Pool</label>
-                                        <input type="text" value="No" class="form-control">
+                                        <input type="text" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Fitness
                                             room</label>
-                                        <input type="text" value="No" class="form-control">
+                                        <input type="text" class="form-control">
                                     </div>
                                     <div class="form-group chkbox">
                                         <label class="col-form-label">Refreshment</label>
-                                        <jqxDropDownList #myDropDownList (onSelect)="listOnSelect($event)" [width]="710"
-                                            [height]="30"  [theme]="'bootstrap'"  [source]="dropdownListforRefreshment" [checkboxes]="true"
-                                         [selectedIndex]="0" [displayMember]="'item_text'" [valueMember]="'item_id'">
+                                        <jqxDropDownList #myDropDownList [width]="710" [height]="30"
+                                            [theme]="'bootstrap'" [source]="dropdownListforRefreshment"
+                                            [checkboxes]="true" [selectedIndex]="0" [displayMember]="'item_text'"
+                                            [valueMember]="'item_id'">
                                         </jqxDropDownList>
                                     </div>
 
@@ -454,20 +490,18 @@
                                 </div>
                             </div>
                             <div class="nextpreviousbtn">
-                                <button class="btn btn-outline-warning" type="submit" value="Submit">Save</button>
-                                <button class="btn btn-outline-primary" type="submit" value="Submit">Save and
-                                    exit</button>
-                                <button class="btn btn-outline-dark" type="submit" value="Submit">Cancel</button>
+                                <button type="button" class="btn btn-outline-warning "
+                                    (click)="displayselectedwallet(3)">Previous</button>
+                                <button type="button" class="btn btn-outline-primary" (click)="selectedwallet= 5" style="text-align:
+                                        left; margin: 0px 11px;">Next</button>
                             </div>
                         </div>
-                        <div role="tabpanel" *ngIf="selectedwallet === 'Log'">
+                        <div role="tabpanel" *ngIf="selectedwallet === 5">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label class="col-form-label">Emails</label>
-                                        <input type="text" value="Conversation
-                                            subject: Foresporgal fra DKBS
-                                            SRM9081" class="form-control">
+                                        <input type="text" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label class="col-form-label">Communications</label>
@@ -487,15 +521,15 @@
                                 </div>
                             </div>
                             <div class="nextpreviousbtn">
-                                <button class="btn btn-outline-warning" type="submit" value="Submit">Save</button>
-                                <button class="btn btn-outline-primary" type="submit" value="Submit">Save and
-                                    exit</button>
-                                <button class="btn btn-outline-dark" type="submit" value="Submit">Cancel</button>
+                                <button type="button" class="btn btn-outline-warning "
+                                    (click)="displayselectedwallet(4)">Previous</button>
+                                <button type="button" class="btn btn-outline-primary" (click)="selectedwallet= 6" style="text-align:
+                                        left; margin: 0px 11px;">Next</button>
                             </div>
                         </div>
 
                         <div role="tabpanel" *ngIf="selectedwallet ===
-                            'Commission'">
+                            6">
                             <div class="card">
                                 <div class="cord-header"></div>
                                 <div class="card-body">
@@ -570,20 +604,17 @@
                                                     <div class="lbl">Number of
                                                         rooms</div>
                                                     <input type="number" myNumberOnly name="Noofparticipants"
-                                                       
                                                         class="form-control InlineInput" maxlength="8">
                                                 </li>
                                                 <li>
                                                     <div class="lbl">per person</div>
                                                     <input type="number" myNumberOnly name="Noofparticipants"
-                                                      
                                                         class="form-control InlineInput" maxlength="8">
                                                 </li>
                                                 <li>
                                                     <div class="lbl">Total price
                                                         (DKK))</div>
                                                     <input type="number" myNumberOnly name="Noofparticipants"
-                                                        
                                                         class="form-control InlineInput" maxlength="8">
                                                 </li>
 
@@ -662,7 +693,7 @@
 
                                         <label class="col-form-label">Estimeret
                                             af DKBS i alt</label>
-                                        <input type="text" value="No" class="form-control">
+                                        <input type="text" class="form-control">
 
                                     </div>
                                     <div class="form-group">
@@ -733,13 +764,15 @@
 
                             </div>
                             <div class="nextpreviousbtn">
-                                <button class="btn btn-outline-warning" type="submit" value="Submit">Save</button>
-                                <button class="btn btn-outline-primary" type="submit" value="Submit">Save and
-                                    exit</button>
+                                <button type="button" class="btn btn-outline-warning "
+                                (click)="selectedwallet= 5" >Previous</button>
+                                <button class="btn btn-outline-warning" type="submit" value="Submit" (click)="updateBooking()" >Save</button>
+                                <!-- <button class="btn btn-outline-primary" type="submit" value="Submit">Save and
+                                    exit</button> -->
                                 <button class="btn btn-outline-dark" type="submit" value="Submit">Cancel</button>
                             </div>
                         </div>
-                        <div role="tabpanel" *ngIf="selectedwallet === 'Power'">
+                        <div role="tabpanel" *ngIf="selectedwallet === 7">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="form-group">
@@ -772,7 +805,7 @@
                                     <div class="form-group">
                                         <label class="col-form-label">Response
                                             Time Email Offer_S</label>
-                                        <label class="col-form-label">Bind Data</label>
+                                        <label class="col-form-label"></label>
                                     </div>
                                     <div class="form-group chkbox">
                                         <label class="col-form-label">Reference</label>

@@ -67,6 +67,12 @@ export class CommonService {
     return response;
   }
 
+  put(url: string, model: any): Observable<any> {
+    var response = this._http.put(this.baseUrl + url, model, this.getHeader())
+    .pipe(map((response: any) => response.json()),
+    catchError(this.handleError('getData')));
+    return response;
+  }
 
   get(url: string): Observable<any> {    
     

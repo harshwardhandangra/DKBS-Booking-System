@@ -6,13 +6,17 @@ import { CommonService } from '../common/common.service';
   providedIn: 'root'
 })
 export class ChoiceService {
-
   constructor(private commonService: CommonService) {
 
   }
 
   GetAllStateProvinance(): any {
     var url = '/choice/regions';
+    return this.commonService.get(url);
+  }
+
+  getAllanguage() {
+    var url = '/choice/maillanguages';
     return this.commonService.get(url);
   }
 
@@ -210,8 +214,8 @@ export class ChoiceService {
   //   return this.commonService.get(url);
   // }
 
-  GetBookingDetails(): any {
-    var url = '/BookingController';
+  GetBookingDetails(bookingId: any): any {
+    var url = '/BookingController/' + bookingId;
     return this.commonService.get(url);
   }
 
