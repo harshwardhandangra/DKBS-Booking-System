@@ -367,9 +367,11 @@ export class BookingdetailsComponent implements OnInit {
   dropdownListPParticipants = [];
   dropdownListTableSetting = [];
   dropdownPackageType = [];
+  dropdownListforSearchType = [];
+  dropdownListforCenterMatching = [];
+  dropdownList = [];
 
-
-
+  dropdownListforPartnerType = [];
   ngOnInit() {
     var bookingId = this.route.snapshot.params["id"];
     this.dropdownSettings = {
@@ -395,7 +397,10 @@ export class BookingdetailsComponent implements OnInit {
     this.GetAllParticipants();
     this.GetAllServiceCatalogs();
     this.GetCompany();
-
+    this.GetAllCeterMatching();
+    this.GetAllStateProvinance();
+    this.GetAllPartnerType();
+    this.GetSearchType();
     this.selectedwallet = 1;
     // setTimeout(function () {
     //   this.selectedwallet = 1;
@@ -652,4 +657,38 @@ export class BookingdetailsComponent implements OnInit {
       }
     });
   }
+
+  GetAllStateProvinance(): any {
+    this.stateprovinanceService.GetAllStateProvinance().subscribe(state => {
+      this.dropdownList.push({ item_id: 0, item_text: 'Select' })
+      for (let i = 0; i < state.length; ++i) {
+        this.dropdownList.push({ item_id: state[i].regionId, item_text: state[i].name });
+      }
+    });
+  }
+  GetSearchType(): any {
+    this.stateprovinanceService.GetSearchType().subscribe(state => {
+      this.dropdownListforPartnerType.push({ item_id: 0, item_text: 'Select' })
+      for (let i = 0; i < state.length; ++i) {
+        this.dropdownListforPartnerType.push({ item_id: state[i].Region_Id, item_text: state[i].Region_Name });
+      }
+    });
+  }
+  GetAllPartnerType(): any {
+    this.stateprovinanceService.GetAllPartnerType().subscribe(state => {
+      this.dropdownListforSearchType.push({ item_id: 0, item_text: 'Select' })
+      for (let i = 0; i < state.length; ++i) {
+        this.dropdownListforSearchType.push({ item_id: state[i].partnerTypeId, item_text: state[i].partnerTypeTitle });
+      }
+    });
+  }
+  GetAllCeterMatching(): any {
+    this.choiceService.GetAllcentermatchings().subscribe(state => {
+      this.dropdownListforCenterMatching.push({ item_id: 0, item_text: 'Select' })
+      for (let i = 0; i < state.length; ++i) {
+        this.dropdownListforCenterMatching.push({ item_id: state[i].centerMatchingId, item_text: state[i].matchingCenter });
+      }
+    });
+  }
+
 }

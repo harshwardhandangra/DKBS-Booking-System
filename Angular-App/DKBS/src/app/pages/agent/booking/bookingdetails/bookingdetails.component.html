@@ -119,7 +119,7 @@
                                                 #dropdownListforCauseofRemovalddl
                                                 [theme]="'bootstrap'"
                                                 [width]="710" [height]="30"
-                                                [source]="dropdownListforCauseofRemoval"
+                                                [source]="dropdownListforCauseofRemoval"  [filterable]="true" 
                                                 [selectedIndex]="0"
                                                 [displayMember]="'item_text'"
                                                 [valueMember]="'item_id'">
@@ -151,7 +151,7 @@
                                                 [theme]="'bootstrap'"
                                                 [width]="710"
                                                 [height]="30"
-                                                [source]="dropdownLanguage"
+                                                [source]="dropdownLanguage"  [filterable]="true" 
                                                 [selectedIndex]="0"
                                                 [displayMember]="'language'"
                                                 [valueMember]="'mailLanguageId'">
@@ -226,7 +226,7 @@
                                             <jqxDropDownList
                                                 [theme]="'bootstrap'"
                                                 [width]="220" [height]="30"
-                                                [source]="dropdownListPurpose"
+                                                [source]="dropdownListPurpose"  [filterable]="true" 
                                                 [selectedIndex]="0"
                                                 [displayMember]="'item_text'"
                                                 [valueMember]="'item_id'">
@@ -238,7 +238,7 @@
                                             <jqxDropDownList
                                                 [theme]="'bootstrap'"
                                                 [width]="220" [height]="30"
-                                                [source]="dropdownListTableSetting"
+                                                [source]="dropdownListTableSetting"  [filterable]="true" 
                                                 [selectedIndex]="0"
                                                 [displayMember]="'item_text'"
                                                 [valueMember]="'item_id'">
@@ -254,7 +254,7 @@
                                             <jqxDropDownList
                                                 [theme]="'bootstrap'"
                                                 [width]="220" [height]="30"
-                                                [source]="dropdownListPParticipants"
+                                                [source]="dropdownListPParticipants"  [filterable]="true" 
                                                 [selectedIndex]="0"
                                                 [displayMember]="'item_text'"
                                                 [valueMember]="'item_id'">
@@ -302,7 +302,7 @@
                                                 <jqxDropDownList
                                                     [theme]="'bootstrap'"
                                                     [width]="130" [height]="35"
-                                                    [source]="dropdownPackageType"
+                                                    [source]="dropdownPackageType"  [filterable]="true" 
                                                     [selectedIndex]="0"
                                                     [displayMember]="'item_text'"
                                                     [valueMember]="'item_id'">
@@ -348,7 +348,7 @@
                                                 <jqxDropDownList
                                                     [theme]="'bootstrap'"
                                                     [width]="130" [height]="35"
-                                                    [source]="dropdownPackageType"
+                                                    [source]="dropdownPackageType"  [filterable]="true" 
                                                     [selectedIndex]="0"
                                                     [displayMember]="'item_text'"
                                                     [valueMember]="'item_id'">
@@ -432,7 +432,7 @@
                                                         [theme]="'bootstrap'"
                                                         [width]="110"
                                                         [height]="35"
-                                                        [source]="dropdownListTableSetting"
+                                                        [source]="dropdownListTableSetting"  [filterable]="true" 
                                                         [selectedIndex]="0"
                                                         [displayMember]="'item_text'"
                                                         [valueMember]="'item_id'">
@@ -491,7 +491,7 @@
                                                         [theme]="'bootstrap'"
                                                         [width]="110"
                                                         [height]="35"
-                                                        [source]="dropdownListTableSetting"
+                                                        [source]="dropdownListTableSetting" [filterable]="true" 
                                                         [selectedIndex]="0"
                                                         [displayMember]="'item_text'"
                                                         [valueMember]="'item_id'">
@@ -636,7 +636,7 @@
                                             <jqxDropDownList
                                                 #dropdownListforBookingstatusddl
                                                 [theme]="'bootstrap'"
-                                                [width]="710" [height]="30"
+                                                [width]="710" [height]="30" [filterable]="true" 
                                                 [source]="Company"
                                                 (onSelect)="listOnSelectCompany($event)"
                                                 [displayMember]="'item_text'"
@@ -695,7 +695,7 @@
                                             <jqxDropDownList #ddlReferred
                                                 [theme]="'bootstrap'"
                                                 (onSelect)="listOnSelectReferred($event)"
-                                                [width]="710" [height]="30"
+                                                [width]="710" [height]="30" [filterable]="true" 
                                                 [source]="Referred"
                                                 [selectedIndex]="0"
                                                 [displayMember]="'item_text'"
@@ -711,7 +711,7 @@
                                                 [theme]="'bootstrap'"
                                                 [width]="710" [height]="30"
                                                 [source]="ReferDDL"
-                                                [selectedIndex]="0"
+                                                [selectedIndex]="0" [filterable]="true" 
                                                 [displayMember]="'item_text'"
                                                 [valueMember]="'item_id'">
                                             </jqxDropDownList>
@@ -726,7 +726,7 @@
                                                 [theme]="'bootstrap'"
                                                 [width]="710"
                                                 [height]="30"
-                                                [source]="dropdownCampaign"
+                                                [source]="dropdownCampaign" [filterable]="true" 
                                                 [selectedIndex]="0"
                                                 [displayMember]="'item_text'"
                                                 [valueMember]="'item_id'">
@@ -742,12 +742,32 @@
                                                 [theme]="'bootstrap'"
                                                 [width]="710"
                                                 [height]="30"
-                                                [source]="dropdownListLeadOrigin"
+                                                [source]="dropdownListLeadOrigin" [filterable]="true" 
                                                 [selectedIndex]="0"
                                                 [displayMember]="'item_text'"
                                                 [valueMember]="'item_id'">
                                             </jqxDropDownList>
                                         </div>
+
+                                        <label class="col-sm-3 col-form-label">
+                                                <label class="col-form-label">Status</label>
+                                              </label>
+                                              <div class="form-group col-md-9">
+                                                <div class="radiocheckbox">
+                                                  <div class="form-check">
+                                                        <jqxDropDownList
+                                                        #dropdownListforBookingstatusddl
+                                                        [theme]="'bootstrap'"
+                                                        [width]="710" [height]="30"
+                                                        [source]="dropdownListforBookingstatus"
+                                                        [displayMember]="'item_text'" [filterable]="true" 
+                                                        [valueMember]="'item_id'"
+                                                        [selectedIndex]="0">
+                                                    </jqxDropDownList>
+                                                  </div>
+                                                </div>
+                                              </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -910,42 +930,7 @@
                               <div class="card-header">Cener-matching</div>
                               <div class="card-body compinfosec">
                                 <div class="row">
-                                        <label class="col-sm-3 col-form-label">
-                                                <label class="col-form-label">Status</label>
-                                              </label>
-                                              <div class="form-group col-md-9">
-                                                <div class="radiocheckbox">
-                                                  <div class="form-check">
-                                                        <jqxDropDownList
-                                                        #dropdownListforBookingstatusddl
-                                                        [theme]="'bootstrap'"
-                                                        [width]="710" [height]="30"
-                                                        [source]="dropdownListforBookingstatus"
-                                                        [displayMember]="'item_text'"
-                                                        [valueMember]="'item_id'"
-                                                        [selectedIndex]="0">
-                                                    </jqxDropDownList>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                              <label class="col-sm-3 col-form-label">
-                                                    <label class="col-form-label">Refreshment</label>
-                                                  </label>
-                                                  <div class="form-group col-md-9">
-                                                    <div class="radiocheckbox">
-                                                      <div class="form-check">
-                                                            <jqxDropDownList #myDropDownList
-                                                            [width]="710" [height]="30"
-                                                            [theme]="'bootstrap'"
-                                                            [source]="dropdownListforRefreshment"
-                                                            [checkboxes]="true"
-                                                            [selectedIndex]="0"
-                                                            [displayMember]="'item_text'"
-                                                            [valueMember]="'item_id'">
-                                                        </jqxDropDownList>
-                                                      </div>
-                                                    </div>
-                                                  </div>
+                                       
                                                   <label class="col-sm-3 col-form-label">
                                                         <label class="col-form-label">Turn on Notification</label>
                                                       </label>
@@ -963,10 +948,15 @@
                                   <div class="form-group col-md-9">
                                     <div class="radiocheckbox">
                                       <div class="form-check">
-                                        <ng-multiselect-dropdown [placeholder]="'Partner Type'" [data]="dropdownListforSearchType"
-                                          [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
-                                          name="CreateBookingModel.PartnerType" [(ngModel)]="PartnerType"
-                                          (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
+                                            <jqxDropDownList #myDropDownList
+                                            [width]="710" [height]="30"
+                                            [theme]="'bootstrap'"
+                                            [source]="dropdownListforPartnerType"
+                                            [checkboxes]="true"
+                                            [selectedIndex]="0" [filterable]="true" 
+                                            [displayMember]="'item_text'"
+                                            [valueMember]="'item_id'">
+                                        </jqxDropDownList>
                                       </div>
                                     </div>
                                   </div>
@@ -976,11 +966,15 @@
                                   <div class="form-group col-md-9">
                                     <div class="radiocheckbox">
                                       <div class="form-check">
-                                        <ng-multiselect-dropdown [placeholder]="'Center Matchings'"
-                                          [data]="dropdownListforCenterMatching" [settings]="dropdownSettings"
-                                          (onSelect)="onItemSelect($event)" name="CreateBookingModel.CenterMatchings"
-                                          [(ngModel)]="CenterMatchings" (onSelectAll)="onSelectAll($event)">
-                                        </ng-multiselect-dropdown>
+                                            <jqxDropDownList #myDropDownList
+                                            [width]="710" [height]="30"
+                                            [theme]="'bootstrap'"
+                                            [source]="dropdownListforCenterMatching"
+                                            [checkboxes]="true"
+                                            [selectedIndex]="0" [filterable]="true" 
+                                            [displayMember]="'item_text'"
+                                            [valueMember]="'item_id'">
+                                        </jqxDropDownList>
                                       </div>
                                     </div>
                                   </div>
@@ -998,11 +992,15 @@
             
                                     <div class="radiocheckbox">
                                       <div class="form-check">
-                                        <ng-multiselect-dropdown [placeholder]="'Region / Province
-                                                    '" [data]="dropdownList" name="Regions" [settings]="dropdownSettings"
-                                          (onSelect)="onItemSelect($event)" name="CreateBookingModel.RegionProvinance"
-                                          [(ngModel)]="RegionProvinance" (onSelectAll)="onSelectAll($event)">
-                                        </ng-multiselect-dropdown>
+                                            <jqxDropDownList #myDropDownList
+                                            [width]="710" [height]="30"
+                                            [theme]="'bootstrap'"
+                                            [source]="dropdownList"
+                                            [checkboxes]="true"
+                                            [selectedIndex]="0" [filterable]="true" 
+                                            [displayMember]="'item_text'"
+                                            [valueMember]="'item_id'">
+                                        </jqxDropDownList>
                                       </div>
                                     </div>
                                   </div>
@@ -1019,11 +1017,15 @@
                                   <div class="form-group col-sm-9">
                                     <div class="radiocheckbox">
                                       <div class="form-check">
-                                        <ng-multiselect-dropdown [placeholder]="'Refreshments'" [data]="dropdownListforRefreshment"
-                                          [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
-                                          name="CreateBookingModel.Refreshment" [(ngModel)]="Refreshment"
-                                          (onSelectAll)="onSelectAll($event)">
-                                        </ng-multiselect-dropdown>
+                                            <jqxDropDownList #myDropDownList
+                                            [width]="710" [height]="30"
+                                            [theme]="'bootstrap'"
+                                            [source]="dropdownListforRefreshment"
+                                            [checkboxes]="true"
+                                            [selectedIndex]="0" [filterable]="true" 
+                                            [displayMember]="'item_text'"
+                                            [valueMember]="'item_id'">
+                                        </jqxDropDownList>
                                       </div>
                                       {{dropdownListCenter}}
                                       <button type="button" (click)="GetPartnerforFindCenter();" style=" float: right; "
