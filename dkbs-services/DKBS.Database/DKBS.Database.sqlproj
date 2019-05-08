@@ -73,14 +73,14 @@
     <Build Include="Tables\Flow.sql" />
     <Build Include="Tables\CrmStatus.sql" />
     <Build Include="Tables\CoursePackageType.sql" />
-    <Build Include="Tables\ContactPerson.sql" />
+    <Build Include="Tables\ContactPerson_old.sql" />
     <Build Include="Tables\Campaign.sql" />
     <Build Include="Tables\CenterType.sql" />
     <Build Include="Tables\CenterMatching.sql" />
     <Build Include="Tables\CauseOfRemoval.sql" />
     <Build Include="Tables\CancellationReason.sql" />
     <Build Include="Tables\Booking.sql" />
-    <Build Include="Tables\Customer.sql" />
+    <Build Include="Tables\Customer_Old.sql" />
     <Build Include="Tables\Partner.sql" />
     <Build Include="Tables\ProcedureReviewType.sql" />
     <Build Include="Tables\Procedure.sql" />
@@ -107,6 +107,8 @@
     <Build Include="Tables\PartnerCenterDescription.sql" />
     <Build Include="Tables\PartnerCoursePackages.sql" />
     <Build Include="Tables\PartnerInspirationCategories.sql" />
+    <Build Include="Tables\Customer.sql" />
+    <Build Include="Tables\ContactPerson.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DKBS.publish.xml" />
