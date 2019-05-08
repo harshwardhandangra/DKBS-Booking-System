@@ -22,7 +22,7 @@
                 class="nav-link">Matching</a></li>
           </ul>
           <!-- Tab panes -->
-          <form name="form" class="formboxadditional" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+          <form name="form" class="bookingdetailtabs" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
             <div class="tab-content">
               <div role="tabpanel" *ngIf="selectedwallet=== 2">
 
@@ -34,9 +34,21 @@
                         <label class="col-form-label">Company</label>
                       </label>
                       <div class="col-md-9">
-                        <input [(ngModel)]="selectedValuestates" [typeahead]="company"
+                        <!-- <input [(ngModel)]="selectedValuestates" [typeahead]="company"
                           typeaheadOptionField="customerName" (typeaheadOnSelect)="onSelectCompany($event)"
-                          [typeaheadScrollable]="true" class="form-control" name="kp" autocomplete="off">
+                          [typeaheadScrollable]="true" class="form-control" name="kp" autocomplete="off"> -->
+
+                          <jqxDropDownList
+                          #dropdownListforBookingstatusddl
+                          [theme]="'bootstrap'"
+                          [width]="640"
+                          [height]="36" [filterable]="true" 
+                          [source]="Company"
+                          (onSelect)="listOnSelectCompany($event)"
+                          [displayMember]="'item_text'"
+                          [valueMember]="'item_id'"
+                          [selectedIndex]="0">
+                      </jqxDropDownList>
                       </div>
                       <label class="col-sm-3 col-form-label">
                         <label class="col-form-label">Contact Person</label>
@@ -78,41 +90,81 @@
                         <label class="col-form-label">Referred by</label>
                       </label>
                       <div class="form-group col-md-9">
-                        <input [(ngModel)]="partnerId" [typeahead]="Referred" typeaheadOptionField="partnerName"
+                        <!-- <input [(ngModel)]="partnerId" [typeahead]="Referred" typeaheadOptionField="partnerName"
                           (typeaheadOnSelect)="onSelectReferredby($event)" [typeaheadScrollable]="true"
-                          class="form-control" name="Referred" autocomplete="off">
+                          class="form-control" name="Referred" autocomplete="off"> -->
+
+                          <jqxDropDownList #ddlReferred
+                                                [theme]="'bootstrap'"
+                                                (onSelect)="listOnSelectReferred($event)"
+                                                [height]="36" [filterable]="true" 
+                                                [source]="Referred"
+                                                [selectedIndex]="0"
+                                                [displayMember]="'item_text'"
+                                                [valueMember]="'item_id'">
+                        </jqxDropDownList>
                       </div>
                       <label class="col-sm-3 col-form-label">
                         <label class="col-form-label">Refers</label>
                       </label>
                       <div class="form-group col-md-9">
-                        <input [(ngModel)]="partnerEmployeeId" [typeahead]="ReferDDL"
+                        <!-- <input [(ngModel)]="partnerEmployeeId" [typeahead]="ReferDDL"
                           typeaheadOptionField="employeeName" [typeaheadScrollable]="true" class="form-control"
-                          name="ReferDDL" autocomplete="off">
+                          name="ReferDDL" autocomplete="off"> -->
+
+                          <jqxDropDownList
+                          [theme]="'bootstrap'"
+                          [height]="36"
+                          [source]="ReferDDL"
+                          [selectedIndex]="0" [filterable]="true" 
+                          [displayMember]="'item_text'"
+                          [valueMember]="'item_id'">
+                      </jqxDropDownList>
+
                       </div>
                       <label class="col-sm-3 col-form-label">
                         <label class="col-form-label">Where do you know us?</label>
                       </label>
                       <div class="form-group col-md-9">
-                        <select id="inputState" name="Campaign" [(ngModel)]="CreateBookingModel.campaignId"
+                        <!-- <select id="inputState" name="Campaign" [(ngModel)]="CreateBookingModel.campaignId"
                           class="form-control txtsize">
                           <option *ngFor="let ObjdropdownCampaign of dropdownCampaign"
                             [ngValue]="ObjdropdownCampaign.item_id">
                             {{ObjdropdownCampaign.item_text}}
                           </option>
-                        </select>
+                        </select> -->
+
+                        <jqxDropDownList
+                        #dropdownCampaignddl
+                        [theme]="'bootstrap'"
+                        [height]="36" name="Campaign" [(ngModel)]="CreateBookingModel.campaignId"
+                        [source]="dropdownCampaign" [filterable]="true" 
+                        [selectedIndex]="0"
+                        [displayMember]="'item_text'"
+                        [valueMember]="'item_id'">
+                    </jqxDropDownList>
                       </div>
                       <label class="col-sm-3 col-form-label">
                         <label class="col-form-label">Lead Origin</label>
                       </label>
                       <div class="form-group col-md-9">
-                        <select id="inputState" name="LeadOrigin" [(ngModel)]="CreateBookingModel.leadOfOriginId"
+                        <!-- <select id="inputState" name="LeadOrigin" [(ngModel)]="CreateBookingModel.leadOfOriginId"
                           class="form-control txtsize">
                           <option *ngFor="let ObjLeadOrigin of dropdownListLeadOrigin"
                             [ngValue]="ObjLeadOrigin.item_id">
                             {{ObjLeadOrigin.item_text}}
                           </option>
-                        </select>
+                        </select> -->
+
+                        <jqxDropDownList
+                        #dropdownCampaignddl
+                        [theme]="'bootstrap'"
+                        [height]="36"
+                        [source]="dropdownListLeadOrigin" [filterable]="true" 
+                        [selectedIndex]="0"
+                        [displayMember]="'item_text'"
+                        [valueMember]="'item_id'" name="LeadOrigin" [(ngModel)]="CreateBookingModel.leadOfOriginId">
+                    </jqxDropDownList>
                       </div>
                     </div>
                   </div>
@@ -136,21 +188,27 @@
                       <div class="col-lg-6 col-md-6">
                         <div class="form-group">
                           <label class="col-form-label">Arrival</label>
-                          <input type="text" [(ngModel)]="arrivalDate" name="ArrivalDate" bsDatepicker
+                          <!-- <input type="text" [(ngModel)]="arrivalDate" name="ArrivalDate" bsDatepicker
                             class="form-control dpicker" autocomplete="off" />
                           <timepicker [(ngModel)]="arrivalTime" name="CreateBookingModelmytime1s"
                             class="widthtimepicker">
-                          </timepicker>
+                          </timepicker> -->
+                          <jqxDateTimeInput #arrivaldate
+                          [width]="300" [height]="30"
+                          [formatString]="'F'"
+                          [showTimeButton]="true">
+                      </jqxDateTimeInput>
                         </div>
                       </div>
                       <div class="col-lg-6 col-md-6">
                         <div class="form-group">
-                          <label class="col-form-label">Depart</label>
-                          <input type="text" [(ngModel)]="departDate" name="DepartDate" bsDatepicker
-                            class="form-control dpicker" autocomplete="off" />
-                          <timepicker [(ngModel)]="departTime" name="CreateBookingModelmytime2" class="widthtimepicker">
-                          </timepicker>
-                        </div>
+                          <label class="col-form-label">Arrival</label>
+                          <jqxDateTimeInput #departdate
+                                                    [width]="300" [height]="30"
+                                                    [formatString]="'F'"
+                                                    [showTimeButton]="true">
+                                                </jqxDateTimeInput>
+                      </div>
                       </div>
                     </div>
                     <div class="form-group checkboxlabel">
@@ -173,23 +231,40 @@
                       </div>
                       <div class="form-group col-md-5">
                         <label class="col-form-label">Purpose</label>
-                        <select id="inputState" name="Purpose" [(ngModel)]="CreateBookingModel.purposeId"
+                        <!-- <select id="inputState" name="Purpose" [(ngModel)]="CreateBookingModel.purposeId"
                           class="form-control txtsize">
                           <option *ngFor="let ObjPurpose of
                                     dropdownListPurpose" [ngValue]="ObjPurpose.item_id">
                             {{ObjPurpose.item_text}}
                           </option>
-                        </select>
+                        </select> -->
+                        <jqxDropDownList
+                        [theme]="'bootstrap'"
+                        [height]="36"
+                        [source]="dropdownListPurpose"  [filterable]="true" 
+                        [selectedIndex]="0"
+                        [displayMember]="'item_text'"
+                        [valueMember]="'item_id'" name="Purpose" [(ngModel)]="CreateBookingModel.purposeId">
+                    </jqxDropDownList>
                       </div>
                       <div class="form-group col-md-5">
                         <label class="col-form-label">Table setting</label>
-                        <select id="inputState" name="TableSetting" [(ngModel)]="CreateBookingModel.tableTypeId"
+                        <!-- <select id="inputState" name="TableSetting" [(ngModel)]="CreateBookingModel.tableTypeId"
                           class="form-control txtsize">
                           <option *ngFor="let ObjTableSetting of
                                     dropdownListTableSetting" [ngValue]="ObjTableSetting.item_id">
                             {{ObjTableSetting.item_text}}
                           </option>
-                        </select>
+                        </select> -->
+
+                        <jqxDropDownList
+                        [theme]="'bootstrap'"
+                        [height]="36"
+                        [source]="dropdownListTableSetting"  [filterable]="true" 
+                        [selectedIndex]="0"
+                        [displayMember]="'item_text'"
+                        [valueMember]="'item_id'" name="TableSetting" [(ngModel)]="CreateBookingModel.tableTypeId">
+                    </jqxDropDownList>
                       </div>
                     </div>
                     <div class="form-row">
@@ -198,13 +273,22 @@
                       </div>
                       <div class="form-group col-md-5">
                         <label>Participants</label>
-                        <select id="inputState" name="Participants" [(ngModel)]="CreateBookingModel.participantTypeId"
+                        <!-- <select id="inputState" name="Participants" [(ngModel)]="CreateBookingModel.participantTypeId"
                           class="form-control txtsize">
                           <option *ngFor="let ObjParticipants of
                                     dropdownListPParticipants" [ngValue]="ObjParticipants.item_id">
                             {{ObjParticipants.item_text}}
                           </option>
-                        </select>
+                        </select> -->
+
+                        <jqxDropDownList
+                        [theme]="'bootstrap'"
+                        [height]="36"
+                        [source]="dropdownListPParticipants"  [filterable]="true" 
+                        [selectedIndex]="0"
+                        [displayMember]="'item_text'"
+                        [valueMember]="'item_id'" name="Participants" [(ngModel)]="CreateBookingModel.participantTypeId">
+                    </jqxDropDownList>
                       </div>
                       <div class="form-group col-md-5">
                         <label>Number of participants</label>
@@ -238,13 +322,24 @@
                       <ul>
                         <li>
                           <div class="lbl"> Course Packages</div>
-                          <select id="inputState" name="PackageType"
+                          <!-- <select id="inputState" name="PackageType"
                             [(ngModel)]="bookingArrangementTypeViewModel.serviceCatalogId" class="form-control txtsize">
                             <option *ngFor="let ObjdropdownPackageType of
                                         dropdownPackageType" [ngValue]="ObjdropdownPackageType.item_id">
                               {{ObjdropdownPackageType.item_text}}
                             </option>
-                          </select>
+                          </select> -->
+                          <jqxDropDownList
+                          [theme]="'bootstrap'"
+                          [height]="36"
+                          [source]="dropdownPackageType"  [filterable]="true" 
+                          [selectedIndex]="0"
+                          [displayMember]="'item_text'"
+                          [valueMember]="'item_id'"
+                          name="PackageType"
+                          [(ngModel)]="bookingArrangementTypeViewModel.serviceCatalogId">
+                      </jqxDropDownList>
+
                         </li>
                         <li>
                           <div class="lbl">No. of participants</div>
@@ -254,33 +349,58 @@
                         </li>
                         <li>
                           <div class="lbl">From</div>
-                          <div class="datetimediv">
+                          <!-- <div class="datetimediv">
                             <input type="text" [(ngModel)]="bookingArrangementTypeViewModel.fromDate"
                               name="FromArrivalDate" bsDatepicker class="form-control dpicker" autocomplete="off" />
                             <timepicker [(ngModel)]="bookingArrangementTypeViewModel.fromTime"
                               name="bookingArrangementTypeViewModelfromTime" class="widthtimepicker"></timepicker>
-                          </div>
+                          </div> -->
+
+                          <div class="datetimediv">
+                            <jqxDateTimeInput
+                                #departdate
+                                [height]="35"
+                                [formatString]="'F'"
+                                [showTimeButton]="true"  name="FromArrivalDate"  [(ngModel)]="bookingArrangementTypeViewModel.fromDate">
+                            </jqxDateTimeInput>
+                        </div>
                         </li>
                         <li>
                           <div class="lbl">To</div>
-                          <div class="datetimediv">
+                          <!-- <div class="datetimediv">
                             <input type="text" [(ngModel)]="bookingArrangementTypeViewModel.toDate" name="ToArrivalDate"
                               bsDatepicker class="form-control dpicker" autocomplete="off" />
                             <timepicker [(ngModel)]="bookingArrangementTypeViewModel.toTime"
                               name="bookingArrangementTypeViewModel" class="widthtimepicker"></timepicker>
-                          </div>
+                          </div> -->
+
+                          <jqxDateTimeInput
+                          #departdate
+                          [height]="35"
+                          [formatString]="'F'"
+                          [showTimeButton]="true"[(ngModel)]="bookingArrangementTypeViewModel.toDate" name="ToArrivalDate">
+                      </jqxDateTimeInput>
                         </li>
                       </ul>
                       <ul *ngFor="let ObjArrangementtype of Arrangementtype; let i=
                             index">
                         <li>
-                          <select id="inputState" name="PackageType_{{i}}"
+                          <!-- <select id="inputState" name="PackageType_{{i}}"
                             [(ngModel)]="ObjArrangementtype.serviceCatalogId" class="form-control txtsize">
                             <option *ngFor="let ObjdropdownPackageType of
                                   dropdownPackageType" [value]="ObjdropdownPackageType.item_id">
                               {{ObjdropdownPackageType.item_text}}
                             </option>
-                          </select>
+                          </select> -->
+                          <jqxDropDownList
+                          [theme]="'bootstrap'"
+                          [height]="35"
+                          [source]="dropdownPackageType"  [filterable]="true" 
+                          [selectedIndex]="0"
+                          [displayMember]="'item_text'"
+                          [valueMember]="'item_id'">
+                           </jqxDropDownList>
+
                         </li>
                         <li>
                           <input myNumberOnly name="NoOfPart_{{i}}"
@@ -288,22 +408,43 @@
                             maxlength="8">
                         </li>
                         <li>
-                          <div class="datetimediv">
+                          <!-- <div class="datetimediv">
                             <input type="text" [(ngModel)]="ObjArrangementtype.fromDate"
                               name="bookingArrangementTypeViewModelFromArrivalDate_{{i}}" bsDatepicker
                               class="form-control dpicker" autocomplete="off" />
                             <timepicker [(ngModel)]="ObjArrangementtype.fromTime" name="fromTime_{{i}}"
                               class="widthtimepicker"></timepicker>
-                          </div>
+                          </div> -->
+
+                          <div class="datetimediv">
+                            <jqxDateTimeInput
+                                #departdate 
+                                [height]="36" [(ngModel)]="ObjArrangementtype.fromDate"
+                                name="bookingArrangementTypeViewModelFromArrivalDate_{{i}}"
+                                [formatString]="'F'"
+                                [showTimeButton]="true">
+                            </jqxDateTimeInput>
+                        </div>
+
                         </li>
                         <li>
-                          <div class="datetimediv">
+                          <!-- <div class="datetimediv">
                             <input type="text" [(ngModel)]="ObjArrangementtype.toDate"
                               name="bookingArrangementTypeViewModeltoDate_{{i}}" bsDatepicker
                               class="form-control dpicker" autocomplete="off" />
                             <timepicker [(ngModel)]="ObjArrangementtype.toTime" name="toTime_{{i}}"
                               class="widthtimepicker"></timepicker>
-                          </div>
+                          </div> -->
+
+                          <div class="datetimediv">
+                            <jqxDateTimeInput
+                                #departdate
+                               [height]="36" [(ngModel)]="ObjArrangementtype.toDate"
+                               name="bookingArrangementTypeViewModeltoDate_{{i}}"
+                                [formatString]="'F'"
+                                [showTimeButton]="true">
+                            </jqxDateTimeInput>
+                        </div>
                         </li>
                         <li>
                           <button class="btn btn-default" type="button" (click)="deleteFieldValue(i)"><i
@@ -341,33 +482,62 @@
                           </li>
                           <li>
                             <div class="lbl">Table Set</div>
-                            <select id="inputState" name="TableSets" [(ngModel)]="bookingRoomViewModel.tableSetName"
+                            <!-- <select id="inputState" name="TableSets" [(ngModel)]="bookingRoomViewModel.tableSetName"
                               class="form-control txtsize">
                               <option *ngFor="let ObjTableSetting of
                                   dropdownListTableSetting" [ngValue]="ObjTableSetting.item_id">
                                 {{ObjTableSetting.item_text}}
                               </option>
-                            </select>
+                            </select> -->
+
+                            <jqxDropDownList
+                            [theme]="'bootstrap'"
+                            [height]="35"
+                            [source]="dropdownListTableSetting" name="TableSets" [(ngModel)]="bookingRoomViewModel.tableSetName"  [filterable]="true" 
+                            [selectedIndex]="0"
+                            [displayMember]="'item_text'"
+                            [valueMember]="'item_id'">
+                        </jqxDropDownList>
                           </li>
                           <li>
                             <div class="lbl">From</div>
-                            <div class="datetimediv">
+                            <!-- <div class="datetimediv">
                               <input type="text" [(ngModel)]="bookingRoomViewModel.fromDate"
                                 name="ObjRoomMultilstTypetoDate" bsDatepicker class="form-control
                                   dpicker" autocomplete="off" />
                               <timepicker [(ngModel)]="bookingRoomViewModel.fromTime"
                                 name="ObjRoomMultilstTypemytime1fromDate" class="widthtimepicker"></timepicker>
-                            </div>
+                            </div> -->
+
+                            <div class="datetimediv">
+                              <jqxDateTimeInput
+                                  #departdate
+                                  [height]="35" [(ngModel)]="bookingRoomViewModel.fromDate"
+                                  name="ObjRoomMultilstTypetoDate" 
+                                  [formatString]="'F'"
+                                  [showTimeButton]="true">
+                              </jqxDateTimeInput>
+                          </div>
                           </li>
                           <li>
                             <div class="lbl">To</div>
-                            <div class="datetimediv">
+                            <!-- <div class="datetimediv">
                               <input type="text" [(ngModel)]="bookingRoomViewModel.toDate"
                                 name="ObjRoomMultilstTypetoDate" bsDatepicker class="form-control
                                   dpicker" autocomplete="off" />
                               <timepicker [(ngModel)]="bookingRoomViewModel.toTime"
                                 name="ObjRoomMultilstTypemytime1toDate" class="widthtimepicker"></timepicker>
-                            </div>
+                            </div> -->
+
+                            <div class="datetimediv">
+                              <jqxDateTimeInput
+                                  #departdate 
+                                  [height]="35"  [(ngModel)]="bookingRoomViewModel.toDate"
+                                  name="ObjRoomMultilstTypetoDate"
+                                  [formatString]="'F'"
+                                  [showTimeButton]="true">
+                              </jqxDateTimeInput>
+                          </div>
                           </li>
                         </ul>
 
@@ -387,31 +557,55 @@
                               class="form-control">
                           </li>
                           <li>
-                            <select id="inputState" name="TableSets_{{i}}"
+                            <!-- <select id="inputState" name="TableSets_{{i}}"
                               [(ngModel)]="ObjRoomMultilstType.tableSetName" class="form-control txtsize">
                               <option *ngFor="let ObjTableSetting of
                                 dropdownListTableSetting" [ngValue]="ObjTableSetting.item_id">
                                 {{ObjTableSetting.item_text}}
                               </option>
-                            </select>
+                            </select> -->
+                            <jqxDropDownList
+                            [theme]="'bootstrap'"
+                            [height]="35"
+                            [source]="dropdownListTableSetting" name="TableSets" [(ngModel)]="bookingRoomViewModel.tableSetName"  [filterable]="true" 
+                            [selectedIndex]="0"
+                            [displayMember]="'item_text'"
+                            [valueMember]="'item_id'">
+                        </jqxDropDownList>
                           </li>
                           <li>
-                            <div class="datetimediv">
+                            <!-- <div class="datetimediv">
                               <input type="text" [(ngModel)]="ObjRoomMultilstType.fromDate"
                                 name="ObjRoomMultilstTypetoDate_{{i}}" bsDatepicker class="form-control
                                   dpicker" autocomplete="off" />
                               <timepicker [(ngModel)]="ObjRoomMultilstType.fromTime"
                                 name="ObjRoomMultilstTypemytime1fromDate_{{i}}" class="widthtimepicker"></timepicker>
-                            </div>
+                            </div> -->
+
+                            <jqxDateTimeInput
+                            #departdate 
+                            [height]="35"  [(ngModel)]="ObjRoomMultilstType.fromDate"
+                            name="ObjRoomMultilstTypetoDate"
+                            [formatString]="'F'"
+                            [showTimeButton]="true">
+                        </jqxDateTimeInput> 
                           </li>
                           <li>
-                            <div class="datetimediv">
+                            <!-- <div class="datetimediv">
                               <input type="text" [(ngModel)]="ObjRoomMultilstType.toDate"
                                 name="ObjRoomMultilstTypetoDate_{{i}}" bsDatepicker class="form-control
                                   dpicker" autocomplete="off" />
                               <timepicker [(ngModel)]="ObjRoomMultilstType.toTime"
                                 name="ObjRoomMultilstTypemytime1toDate_{{i}}" class="widthtimepicker"></timepicker>
-                            </div>
+                            </div> -->
+                            <jqxDateTimeInput
+                                  #departdate 
+                                  [height]="35"  [(ngModel)]="ObjRoomMultilstType.toDate"
+                                  name="ObjRoomMultilstTypetoDate"
+                                  [formatString]="'F'"
+                                  [showTimeButton]="true">
+                              </jqxDateTimeInput> 
+
                           </li>
                           <li>
                             <button class="btn btn-default delbtn" type="button"
@@ -504,10 +698,20 @@
                       <div class="form-group col-md-9">
                         <div class="radiocheckbox">
                           <div class="form-check">
-                            <ng-multiselect-dropdown [placeholder]="'Partner Type'" [data]="dropdownListforSearchType"
+                            <!-- <ng-multiselect-dropdown [placeholder]="'Partner Type'" [data]="dropdownListforSearchType"
                               [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
                               name="CreateBookingModel.PartnerType" [(ngModel)]="PartnerType"
-                              (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown>
+                              (onSelectAll)="onSelectAll($event)"></ng-multiselect-dropdown> -->
+
+                              <jqxDropDownList #myDropDownList
+                              [height]="36"
+                              [theme]="'bootstrap'"
+                              [source]="dropdownListforPartnerType"
+                              [checkboxes]="true"
+                              [selectedIndex]="0" [filterable]="true" 
+                              [displayMember]="'item_text'"
+                              [valueMember]="'item_id'">
+                          </jqxDropDownList>
                           </div>
                         </div>
                       </div>
@@ -517,11 +721,21 @@
                       <div class="form-group col-md-9">
                         <div class="radiocheckbox">
                           <div class="form-check">
-                            <ng-multiselect-dropdown [placeholder]="'Center Matchings'"
+                            <!-- <ng-multiselect-dropdown [placeholder]="'Center Matchings'"
                               [data]="dropdownListforCenterMatching" [settings]="dropdownSettings"
                               (onSelect)="onItemSelect($event)" name="CreateBookingModel.CenterMatchings"
                               [(ngModel)]="CenterMatchings" (onSelectAll)="onSelectAll($event)">
-                            </ng-multiselect-dropdown>
+                            </ng-multiselect-dropdown> -->
+
+                              <jqxDropDownList #myDropDownList
+                                  [height]="36"
+                                  [theme]="'bootstrap'"
+                                  [source]="dropdownListforCenterMatching"
+                                  [checkboxes]="true"
+                                  [selectedIndex]="0" [filterable]="true" 
+                                  [displayMember]="'item_text'"
+                                  [valueMember]="'item_id'">
+                              </jqxDropDownList>
                           </div>
                         </div>
                       </div>
@@ -539,11 +753,21 @@
 
                         <div class="radiocheckbox">
                           <div class="form-check">
-                            <ng-multiselect-dropdown [placeholder]="'Region / Province
+                            <!-- <ng-multiselect-dropdown [placeholder]="'Region / Province
                                         '" [data]="dropdownList" name="Regions" [settings]="dropdownSettings"
                               (onSelect)="onItemSelect($event)" name="CreateBookingModel.RegionProvinance"
                               [(ngModel)]="RegionProvinance" (onSelectAll)="onSelectAll($event)">
-                            </ng-multiselect-dropdown>
+                            </ng-multiselect-dropdown> -->
+
+                            <jqxDropDownList #myDropDownList
+                            [height]="36"
+                            [theme]="'bootstrap'"
+                            [source]="dropdownList"
+                            [checkboxes]="true"
+                            [selectedIndex]="0" [filterable]="true" 
+                            [displayMember]="'item_text'"
+                            [valueMember]="'item_id'">
+                        </jqxDropDownList>
                           </div>
                         </div>
                       </div>
@@ -560,11 +784,21 @@
                       <div class="form-group col-sm-9">
                         <div class="radiocheckbox">
                           <div class="form-check">
-                            <ng-multiselect-dropdown [placeholder]="'Refreshments'" [data]="dropdownListforRefreshment"
+                            <!-- <ng-multiselect-dropdown [placeholder]="'Refreshments'" [data]="dropdownListforRefreshment"
                               [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
                               name="CreateBookingModel.Refreshment" [(ngModel)]="Refreshment"
                               (onSelectAll)="onSelectAll($event)">
-                            </ng-multiselect-dropdown>
+                            </ng-multiselect-dropdown> -->
+
+                            <jqxDropDownList #myDropDownList
+                            [height]="36"
+                            [theme]="'bootstrap'"
+                            [source]="dropdownListforRefreshment"
+                            [checkboxes]="true"
+                            [selectedIndex]="0" [filterable]="true" 
+                            [displayMember]="'item_text'"
+                            [valueMember]="'item_id'">
+                        </jqxDropDownList>
                           </div>
                           {{dropdownListCenter}}
                           <button type="button" (click)="GetPartnerforFindCenter();" style=" float: right; "
@@ -578,11 +812,21 @@
                         <div class="form-group col-sm-9">
                           <div class="radiocheckbox">
                             <div class="form-check">
-                              <ng-multiselect-dropdown [placeholder]="'Centers'" [data]="dropdownListCenter"
+                              <!-- <ng-multiselect-dropdown [placeholder]="'Centers'" [data]="dropdownListCenter"
                                 [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
                                 name="CreateBookingModelPartner" [(ngModel)]="Partners"
                                 (onSelectAll)="onSelectAll($event)">
-                              </ng-multiselect-dropdown>
+                              </ng-multiselect-dropdown> -->
+
+                              <jqxDropDownList #myDropDownList
+                              [height]="36"
+                              [theme]="'bootstrap'"
+                              [source]="dropdownListCenter"
+                              [checkboxes]="true"
+                              [selectedIndex]="0" [filterable]="true" 
+                              [displayMember]="'item_text'"
+                              [valueMember]="'item_id'">
+                          </jqxDropDownList>
                             </div>
                           </div>
                         </div>
