@@ -1052,7 +1052,6 @@ ul {
 .bookingdetailtabs .nav-tabs li{width:20%; line-height: 28px;text-align: center;}
 .bookingdetailtabs .nav-tabs li:nth-child(4),
 .bookingdetailtabs .nav-tabs li:nth-child(5){width:10%;}
-.bookingdetailtabs .nav-tabs li:nth-child(6) a{line-height: normal;padding: 3px 7px;}
 .bookingdetailtabs .nav-tabs li a{    padding: 0.5rem 5px;}
 .bookingdetailtabs .nav-tabs li.active a{}
 
@@ -1171,13 +1170,11 @@ form h4 {
 .fullpackages ul li{float: left;margin-left:1%;}
 .fullpackages ul li:nth-child(1){margin-left:0px;}
 .fullpackages ul li:nth-child(1),
-.fullpackages ul li:nth-child(2){width:14%;}
+.fullpackages ul li:nth-child(2){width:20.5%;}
 .fullpackages ul li:nth-child(3),
-.fullpackages ul li:nth-child(4){width:30%;}
+.fullpackages ul li:nth-child(4){width:28%;}
 .fullpackages ul li:nth-child(3) .dpicker,
-.fullpackages ul li:nth-child(4) .dpicker{width: 57%;
-    float: left;
-    margin-right: 10px;}
+.fullpackages ul li:nth-child(4) .dpicker{width: 57%;float: left; margin-right: 10px;}
 .fullpackages ul li input,
 .fullpackages ul li select{padding:0.375rem 8px;}
 .fullpackages ul li .lbl,
@@ -1206,7 +1203,7 @@ form h4 {
 .nextpreviousbtn .btn-outline-warning{border-color:#eb6100; color:#eb6100;}
 .nextpreviousbtn .btn-outline-warning:hover{background-color:#eb6100;color:#fff;}
 .card-body .form-group .radiocheckbox .form-check {padding-left: 0;}
-
+.fullpackages.roompkgs ul li .datetimediv .jqx-input{width:100%;}
 
 .formbox .form-group textarea{ margin-bottom: 10px;}
 
@@ -1295,98 +1292,6 @@ form h4 {
 .form-group .radiocheckbox input[type="radio"] {
     margin-top: 0.3rem;
 }
-/*
-.formbox .form-group .radiocheckbox label {
-    width: auto;
-    float: initial;
-}
-.formbox .form-group .fullpackages {width:100%;float:left;margin-bottom: 15px;}
-.formbox .form-group  .fullpackages label,
-.formbox .form-group .fullpackages input[type="text"] {width: 100%; font-size: 12px;}
-.formbox .form-group .fullpackages .lbl { font-size: 12px;  font-weight: 600; color: #000; vertical-align: bottom; display: table-cell;}
-.formbox .form-group .fullpackages .col-sm-2,
-.formbox .form-group .fullpackages .col-sm-3 { padding: 0 5px;}
-.formbox .form-group .fullpackages ul { margin: 0px 0px 0px 0px; padding: 0px;list-style: none;}
-.formbox .form-group .fullpackages ul li {float: left; margin-left: 1%;
-    margin-bottom: 10px;}
-.formbox .form-group .fullpackages ul li:nth-child(1) {margin-left: 0px;}
-
-.formbox .form-group .fullpackages ul li input, 
-.formbox .form-group .fullpackages ul li select{width:100%;}
-.formbox .form-group .fullpackages ul li:nth-child(1){width:11%;}
-.formbox .form-group .fullpackages ul li:nth-child(2){width:11%;}
-.formbox .form-group .fullpackages ul li:nth-child(3){width:34%;}
-.formbox .form-group .fullpackages ul li:nth-child(4){width:34%;}
-.formbox .form-group .fullpackages ul li .datetimediv{width:100%;}
-.formbox .form-group .fullpackages ul li .datetimediv .dpicker{width:110px;margin-top:0px;
-    margin-right: 10px;}
-.formbox .form-group .fullpackages ul li .widthtimepicker { margin: -1px 0px -5px 0px; }
-.formbox .form-group .fullpackages ul li .widthtimepicker table td:nth-child(4),
-.arrivedepart .widthtimepicker table td:nth-child(4){display: none;}
-.formbox .form-group .fullpackages ul li .datetimediv table td button,
-.arrivedepart .datetimediv table td button{padding:0px 10px;}
-.formbox .form-group .fullpackages ul li .widthtimepicker table td input{margin:0px;}
-
-.formbox .form-group .fullpackages.roompkgs ul li:nth-child(3){width:10%;}
-.formbox .form-group .fullpackages.roompkgs ul li:nth-child(4){width:10%;}
-.formbox .form-group .fullpackages.roompkgs ul li:nth-child(5){width:19%;}
-.formbox .form-group .fullpackages.roompkgs ul li:nth-child(6){width:34%;}
-.formbox .form-group .fullpackages.roompkgs ul li:nth-child(7){width:10%;}
-.formbox .form-group .fullpackages.yourprizefiled ul li:nth-child(1){width:40%;}
-.formbox .form-group .fullpackages.yourprizefiled ul li:nth-child(2){width:20%}
-.btnorange{background: #eb6100;color:#fff;}
-.btnorange:hover{background: #d45a04;color: #fff;}
-
-.formbox .form-group .fullpackages ul.repeatulrow {width: 100%;display: block; clear: both; height: 40px;}
-.formbox .form-group .fullpackages ul.repeatulrow li{float: left;}
-.formbox .form-group .fullpackages ul.repeatulrow li:nth-child(3),
-.formbox .form-group .fullpackages ul.repeatulrow li:nth-child(4){width:20%;}
-.formbox .form-group .width80per {
-    margin-bottom: 15px;
-}
-
-.formbox .form-group .width80per label,
-.formbox .form-group .width80per input[type="text"] {
-    width: 100%;
-    font-size: 12px;
-}
-
-.formbox .form-group .width80per .lbl {
-    font-size: 12px;
-    font-weight: 600;
-    color: #000;
-    height: 40px;
-    vertical-align: bottom;
-    display: table-cell;
-}
-
-.formbox .form-group .width80per .col-sm-2,
-.formbox .form-group .width80per .col-sm-3 {
-    padding: 0 5px;
-}
-
-.datetimediv table td button{height: 30px;line-height: 18px;
-    font-size: 12px;
-    font-weight: 500;}
-
-.formbox .form-group .datetimediv .dpicker {
-    width: 120px;height: 30px;
-}
-.lblmtop20{margin-top:20px;}
-
-.formbox .form-group .datetimediv .widthtimepicker {
-    float: left;
-}
-
-.formbox .form-group .datetimediv .widthtimepicker td.form-group {
-    margin-bottom: 0px;
-}
-
-.formbox .form-group .datetimediv .widthtimepicker td input {
-    width: 65px;height: 30px; margin-top: 3px;
-}
-*/
-
 
 
 .accordion .card .card-header {
@@ -1449,6 +1354,8 @@ form h4 {
 .fulllabel{display: block;width: 100%;}
 .bookingdetailtabs .form-group{min-height: 40px;}
 .bookingdetailtabs .form-group label{width:25%;float: left;}
+.bookingdetailtabs .form-group.col-md-5 label,
+.bookingdetailtabs .form-group.col-md-5 jqxDropDownList{width:100% !important;}
 .bookingdetailtabs .form-group input[type="text"],
 .bookingdetailtabs .form-group input[type="email"],
 .bookingdetailtabs .form-group input[type="tel"],
@@ -1456,6 +1363,17 @@ form h4 {
 .bookingdetailtabs .form-group textarea,
 .bookingdetailtabs .form-group .labeltext,
 .bookingdetailtabs .form-group  .radiocheckbox{width:75%;float: left;}
+
+.bookingdetailtabs .form-group jqxDropDownList{width:75%;float: left;}
+.bookingdetailtabs .form-group jqxDropDownList .jqx-dropdownlist,
+.bookingdetailtabs .form-group jqxDropDownList .jqx-listbox,
+.bookingdetailtabs .fullpackages ul li jqxDropDownList,
+.bookingdetailtabs .compinfosec .form-group jqxDropDownList,
+.bookingdetailtabs .fullpackages ul li jqxDropDownList .jqx-dropdownlist{width:100% !important;}
+/*.jqx-listbox-container{width:635px !important;}
+.jqx-popup-bootstrap.jqx-fill-state-focus-bootstrap{width:632px !important;}
+.jqx-listbox-container  input.jqx-listbox-filter-input{width:624px !important;}*/
+
 .bookingdetailtabs .table thead th,
 .bookingdetailtabs .table tbody td,
 .bookingdetailtabs .table tbody th{padding:5px;}
@@ -1470,7 +1388,18 @@ form h4 {
 .bookingdetailtabs .addrownew{margin-top:15px;}
 .bookingdetailtabs .nextpreviousbtn button{margin-left:15px;width:auto;}
 .widthtab{display:block;width:100%;position: relative;}
-
+.bookingdetailtabs .fullpackages.roompkgs ul li:nth-child(1),
+.bookingdetailtabs .fullpackages.roompkgs ul li:nth-child(2){width:12%;}
+.bookingdetailtabs .fullpackages.roompkgs ul li input[type="text"]{width:100%;}
+.bookingdetailtabs .fullpackages.roompkgs ul li:nth-child(5),
+.bookingdetailtabs .fullpackages.roompkgs ul li:nth-child(6) {width: 24%;}
+.bookingdetailtabs .yourprizefiled{margin-top:25px;}
+.bookingdetailtabs .yourprizefiled ul li input,
+.bookingdetailtabs .compinfosec [type="text"],
+.bookingdetailtabs .form-group textarea,
+.bookingdetailtabs .compinfosec .form-group .radiocheckbox{width:100% !important;}
+.mtop20{margin-top: 20px;}
+textarea.form-control.width75per{width:75% !important;}
 
 @media (max-width:1366px) {
     #sidebar .nav-submenu,

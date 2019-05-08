@@ -113,12 +113,11 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-form-label">Center
-                                                info Reason for removal</label>
+                                            <label class="col-form-label">Center info Reason for removal</label>
                                             <jqxDropDownList
                                                 #dropdownListforCauseofRemovalddl
                                                 [theme]="'bootstrap'"
-                                                [width]="710" [height]="30"
+                                                [height]="36"
                                                 [source]="dropdownListforCauseofRemoval"  [filterable]="true" 
                                                 [selectedIndex]="0"
                                                 [displayMember]="'item_text'"
@@ -149,8 +148,7 @@
                                             <jqxDropDownList
                                                 #dropdownLanguageddl
                                                 [theme]="'bootstrap'"
-                                                [width]="710"
-                                                [height]="30"
+                                                [height]="36"
                                                 [source]="dropdownLanguage"  [filterable]="true" 
                                                 [selectedIndex]="0"
                                                 [displayMember]="'language'"
@@ -225,7 +223,7 @@
                                             <label class="col-form-label">Purpose</label>
                                             <jqxDropDownList
                                                 [theme]="'bootstrap'"
-                                                [width]="220" [height]="30"
+                                                [height]="36"
                                                 [source]="dropdownListPurpose"  [filterable]="true" 
                                                 [selectedIndex]="0"
                                                 [displayMember]="'item_text'"
@@ -237,7 +235,7 @@
                                                 setting</label>
                                             <jqxDropDownList
                                                 [theme]="'bootstrap'"
-                                                [width]="220" [height]="30"
+                                                [height]="36"
                                                 [source]="dropdownListTableSetting"  [filterable]="true" 
                                                 [selectedIndex]="0"
                                                 [displayMember]="'item_text'"
@@ -253,7 +251,7 @@
                                             <label>Participants</label>
                                             <jqxDropDownList
                                                 [theme]="'bootstrap'"
-                                                [width]="220" [height]="30"
+                                                [height]="36"
                                                 [source]="dropdownListPParticipants"  [filterable]="true" 
                                                 [selectedIndex]="0"
                                                 [displayMember]="'item_text'"
@@ -297,11 +295,10 @@
                                         <label class="col-form-label">Event type</label>
                                         <ul>
                                             <li>
-                                                <div class="lbl"> Course
-                                                    Packages</div>
+                                                <div class="lbl"> Course  Packages</div>
                                                 <jqxDropDownList
                                                     [theme]="'bootstrap'"
-                                                    [width]="130" [height]="35"
+                                                    [height]="36"
                                                     [source]="dropdownPackageType"  [filterable]="true" 
                                                     [selectedIndex]="0"
                                                     [displayMember]="'item_text'"
@@ -309,19 +306,14 @@
                                                 </jqxDropDownList>
                                             </li>
                                             <li>
-                                                <div class="lbl">No. of
-                                                    participants</div>
-                                                <input myNumberOnly
-                                                    name="NoOfPart"
-                                                    class="form-control
-                                                    InlineInput" maxlength="8">
+                                                <div class="lbl">No. of  participants</div>
+                                                <input myNumberOnly  name="NoOfPart"  class="form-control  InlineInput" maxlength="8">
                                             </li>
                                             <li>
                                                 <div class="lbl">From</div>
                                                 <div class="datetimediv">
                                                     <jqxDateTimeInput
                                                         #departdate
-                                                        [width]="230"
                                                         [height]="35"
                                                         [formatString]="'F'"
                                                         [showTimeButton]="true">
@@ -333,7 +325,6 @@
                                                 <div class="datetimediv">
                                                     <jqxDateTimeInput
                                                         #departdate
-                                                        [width]="230"
                                                         [height]="35"
                                                         [formatString]="'F'"
                                                         [showTimeButton]="true">
@@ -347,7 +338,7 @@
                                             <li>
                                                 <jqxDropDownList
                                                     [theme]="'bootstrap'"
-                                                    [width]="130" [height]="35"
+                                                    [height]="35"
                                                     [source]="dropdownPackageType"  [filterable]="true" 
                                                     [selectedIndex]="0"
                                                     [displayMember]="'item_text'"
@@ -365,8 +356,7 @@
                                                 <div class="datetimediv">
                                                     <jqxDateTimeInput
                                                         #departdate
-                                                        [width]="230"
-                                                        [height]="35"
+                                                        [height]="36"
                                                         [formatString]="'F'"
                                                         [showTimeButton]="true">
                                                     </jqxDateTimeInput>
@@ -376,8 +366,7 @@
                                                 <div class="datetimediv">
                                                     <jqxDateTimeInput
                                                         #departdate
-                                                        [width]="230"
-                                                        [height]="35"
+                                                       [height]="36"
                                                         [formatString]="'F'"
                                                         [showTimeButton]="true">
                                                     </jqxDateTimeInput>
@@ -430,7 +419,6 @@
                                                     <div class="lbl">Table Set</div>
                                                     <jqxDropDownList
                                                         [theme]="'bootstrap'"
-                                                        [width]="110"
                                                         [height]="35"
                                                         [source]="dropdownListTableSetting"  [filterable]="true" 
                                                         [selectedIndex]="0"
@@ -445,7 +433,6 @@
                                                     <div class="datetimediv">
                                                         <jqxDateTimeInput
                                                             #departdate
-                                                            [width]="200"
                                                             [height]="35"
                                                             [formatString]="'F'"
                                                             [showTimeButton]="true">
@@ -457,7 +444,6 @@
                                                     <div class="datetimediv">
                                                         <jqxDateTimeInput
                                                             #departdate
-                                                            [width]="200"
                                                             [height]="35"
                                                             [formatString]="'F'"
                                                             [showTimeButton]="true">
@@ -489,7 +475,6 @@
                                                 <li>
                                                     <jqxDropDownList
                                                         [theme]="'bootstrap'"
-                                                        [width]="110"
                                                         [height]="35"
                                                         [source]="dropdownListTableSetting" [filterable]="true" 
                                                         [selectedIndex]="0"
@@ -501,7 +486,6 @@
                                                     <div class="datetimediv">
                                                         <jqxDateTimeInput
                                                             #departdate
-                                                            [width]="200"
                                                             [height]="35"
                                                             [formatString]="'F'"
                                                             [showTimeButton]="true">
@@ -512,7 +496,6 @@
                                                     <div class="datetimediv">
                                                         <jqxDateTimeInput
                                                             #departdate
-                                                            [width]="200"
                                                             [height]="35"
                                                             [formatString]="'F'"
                                                             [showTimeButton]="true">
@@ -601,8 +584,7 @@
                                                 Wishes/ Comments</label>
                                         </label>
                                         <div class="form-group col-md-9">
-                                            <textarea style="width:100%"
-                                                rows="4" [(ngModel)]="comments"></textarea>
+                                            <textarea class="form-control"  rows="4" [(ngModel)]="comments"></textarea>
                                         </div>
                                         <label class="col-sm-3 col-form-label">
                                             <label class="col-form-label">Booking
@@ -633,16 +615,18 @@
                                             <label class="col-form-label">Company</label>
                                         </label>
                                         <div class="col-md-9">
-                                            <jqxDropDownList
-                                                #dropdownListforBookingstatusddl
-                                                [theme]="'bootstrap'"
-                                                [width]="710" [height]="30" [filterable]="true" 
-                                                [source]="Company"
-                                                (onSelect)="listOnSelectCompany($event)"
-                                                [displayMember]="'item_text'"
-                                                [valueMember]="'item_id'"
-                                                [selectedIndex]="0">
-                                            </jqxDropDownList>
+                                                <div class="form-group">
+                                                <jqxDropDownList
+                                                    #dropdownListforBookingstatusddl
+                                                    [theme]="'bootstrap'"
+                                                    [height]="36" [filterable]="true" 
+                                                    [source]="Company"
+                                                    (onSelect)="listOnSelectCompany($event)"
+                                                    [displayMember]="'item_text'"
+                                                    [valueMember]="'item_id'"
+                                                    [selectedIndex]="0">
+                                                </jqxDropDownList>
+                                            </div>
                                         </div>
                                         <label class="col-sm-3 col-form-label">
                                             <label class="col-form-label">Contact
@@ -695,7 +679,7 @@
                                             <jqxDropDownList #ddlReferred
                                                 [theme]="'bootstrap'"
                                                 (onSelect)="listOnSelectReferred($event)"
-                                                [width]="710" [height]="30" [filterable]="true" 
+                                                [height]="36" [filterable]="true" 
                                                 [source]="Referred"
                                                 [selectedIndex]="0"
                                                 [displayMember]="'item_text'"
@@ -709,7 +693,7 @@
                                         <div class="form-group col-md-9">
                                             <jqxDropDownList
                                                 [theme]="'bootstrap'"
-                                                [width]="710" [height]="30"
+                                                [height]="36"
                                                 [source]="ReferDDL"
                                                 [selectedIndex]="0" [filterable]="true" 
                                                 [displayMember]="'item_text'"
@@ -724,8 +708,7 @@
                                             <jqxDropDownList
                                                 #dropdownCampaignddl
                                                 [theme]="'bootstrap'"
-                                                [width]="710"
-                                                [height]="30"
+                                                [height]="36"
                                                 [source]="dropdownCampaign" [filterable]="true" 
                                                 [selectedIndex]="0"
                                                 [displayMember]="'item_text'"
@@ -740,8 +723,7 @@
                                             <jqxDropDownList
                                                 #dropdownCampaignddl
                                                 [theme]="'bootstrap'"
-                                                [width]="710"
-                                                [height]="30"
+                                                [height]="36"
                                                 [source]="dropdownListLeadOrigin" [filterable]="true" 
                                                 [selectedIndex]="0"
                                                 [displayMember]="'item_text'"
@@ -758,7 +740,7 @@
                                                         <jqxDropDownList
                                                         #dropdownListforBookingstatusddl
                                                         [theme]="'bootstrap'"
-                                                        [width]="710" [height]="30"
+                                                        [height]="36"
                                                         [source]="dropdownListforBookingstatus"
                                                         [displayMember]="'item_text'" [filterable]="true" 
                                                         [valueMember]="'item_id'"
@@ -803,7 +785,7 @@
                                             [selectedIndex]="0">
                                         </jqxDropDownList>
                                     </div>
-                                    <!-- <div class="form-group">
+                                     <div class="form-group">
                                                 <label class="col-form-label">Placering</label>
                                                 <input type="text" class="form-control">
                                              </div>
@@ -886,7 +868,7 @@
                                         </jqxDropDownList>
                                     </div>
 
-                                    <!-- <div class="form-group">
+                                     <div class="form-group">
                                                 <label class="col-form-label">Stilling</label>
                                                 <input type="text" class="form-control">
                                              </div>
@@ -908,7 +890,7 @@
                                             notifcation</label>
                                         <input type="checkbox">
                                     </div>
-                                    <!-- <div class="form-group chkbox">
+                                    <div class="form-group chkbox">
                                                 <label class="col-form-label">Ny Kunde</label>
                                                 <input type="checkbox">
                                              </div> 
@@ -949,7 +931,7 @@
                                     <div class="radiocheckbox">
                                       <div class="form-check">
                                             <jqxDropDownList #myDropDownList
-                                            [width]="710" [height]="30"
+                                            [height]="36"
                                             [theme]="'bootstrap'"
                                             [source]="dropdownListforPartnerType"
                                             [checkboxes]="true"
@@ -967,7 +949,7 @@
                                     <div class="radiocheckbox">
                                       <div class="form-check">
                                             <jqxDropDownList #myDropDownList
-                                            [width]="710" [height]="30"
+                                            [height]="36"
                                             [theme]="'bootstrap'"
                                             [source]="dropdownListforCenterMatching"
                                             [checkboxes]="true"
@@ -993,7 +975,7 @@
                                     <div class="radiocheckbox">
                                       <div class="form-check">
                                             <jqxDropDownList #myDropDownList
-                                            [width]="710" [height]="30"
+                                            [height]="36"
                                             [theme]="'bootstrap'"
                                             [source]="dropdownList"
                                             [checkboxes]="true"
@@ -1018,7 +1000,7 @@
                                     <div class="radiocheckbox">
                                       <div class="form-check">
                                             <jqxDropDownList #myDropDownList
-                                            [width]="710" [height]="30"
+                                            [height]="36"
                                             [theme]="'bootstrap'"
                                             [source]="dropdownListforRefreshment"
                                             [checkboxes]="true"
@@ -1029,7 +1011,7 @@
                                       </div>
                                       {{dropdownListCenter}}
                                       <button type="button" (click)="GetPartnerforFindCenter();" style=" float: right; "
-                                        class="btn btn-outline-info">Find Center</button>
+                                        class="btn btn-outline-info mtop20">Find Center</button>
                                     </div>
                                   </div>
                                 </div>
@@ -1273,7 +1255,7 @@
                                     <div class="form-group">
                                         <label class="col-form-label">Centres
                                             evt. kommentarer</label>
-                                        <textarea class="form-control" rows="5"
+                                        <textarea class="form-control width75per" rows="5"
                                             id="comment"></textarea>
                                         <div class="clearfix"></div>
                                     </div>
@@ -1281,7 +1263,7 @@
                                     <div class="form-group">
                                         <label class="col-form-label">Bogholders
                                             evt. kommentarer</label>
-                                        <textarea class="form-control" rows="5"
+                                        <textarea class="form-control width75per" rows="5"
                                             id="comment"></textarea>
                                         <div class="clearfix"></div>
 
