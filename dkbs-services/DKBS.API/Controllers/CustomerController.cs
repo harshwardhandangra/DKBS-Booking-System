@@ -8,6 +8,7 @@ using DKBS.DTO;
 using DKBS.Repository;
 using Microsoft.AspNetCore.Mvc;
 
+
 namespace DKBS.API.Controllers
 {
     /// <summary>
@@ -25,7 +26,7 @@ namespace DKBS.API.Controllers
         /// </summary>
         /// <param name="mapper"></param>
         /// <param name="choiceReposiroty"></param>
-        public CustomerController(IChoiceRepository choiceReposiroty,IMapper mapper)
+        public CustomerController(IChoiceRepository choiceReposiroty, IMapper mapper)
         {
             _choiceRepoistory = choiceReposiroty;
             _mapper = mapper;
@@ -40,14 +41,14 @@ namespace DKBS.API.Controllers
             return Ok(_choiceRepoistory.GetCustomers());
         }
         /// <summary>
-        /// Get Customer List based on some character entered by user in Customer name
+        /// Get Customer List based on search character entered by user for company name
         /// </summary>
-        /// <param name="name"></param>
+        /// <param name="companyName"></param>
         /// <returns></returns>
-        [HttpGet("{name}",Name = "GetCustomer")]
-        public ActionResult<IEnumerable<CustomerDTO>> GetCustomer(string name)
+        [HttpGet("{companyName}", Name = "GetCustomersByCompanyName")]
+        public ActionResult<IEnumerable<CustomerDTO>> GetCustomersByCompanyName(string companyName)
         {
-            return _choiceRepoistory.GetCustomers().FindAll(c => c.CustomerName.Contains(name));
+            return _choiceRepoistory.GetCustomers().FindAll(c => c.CompanyName.Contains(companyName));
         }
 
         /// <summary>
@@ -68,32 +69,24 @@ namespace DKBS.API.Controllers
             if (customerDto == null)
                 return BadRequest();
 
-            var checkCustomerIdinDb = _choiceRepoistory.GetCustomers().Find(c => c.CustomerId == customerDto.CustomerId);
 
-            if (checkCustomerIdinDb != null)
-            {
-                return BadRequest();
-            }
+            Customer newCustomer = _mapper.Map<CustomerDTO, Customer>(customerDto);
 
-            Customer newlyCreatedCustomer = new Customer() { CustomerName=customerDto.CustomerName,  City = customerDto.City, Country = customerDto.Country, CreatedBy = customerDto.CreatedBy, CreatedDate = customerDto.CreatedDate, CustomerId = customerDto.CustomerId, LastModifiedBY = customerDto.LastModifiedBY, LastModifiedDate = customerDto.LastModifiedDate };
-            var destination = _mapper.Map<Customer, CustomerDTO>(newlyCreatedCustomer);
-
-
-            _choiceRepoistory.GetCustomers().Add(destination);
+            _choiceRepoistory.Attach<Customer>(newCustomer);
             _choiceRepoistory.Complete();
 
-            return CreatedAtRoute("GetCustomer", new { name = newlyCreatedCustomer.CustomerName }, newlyCreatedCustomer);
+            return CreatedAtRoute("GetCustomersByCompanyName", new { companyName = newCustomer.CompanyName }, newCustomer);
         }
 
 
         /// <summary>
         /// Update Customer
         /// </summary>
-        /// <param name="CustomerId"></param>
+        /// <param name="accountId"></param>
         /// <param name="customerDTO"></param>
         /// <returns></returns>
-        [HttpPut("{CustomerId}")]
-        public IActionResult UpdateCustomer(int CustomerId, [FromBody] CustomerDTO customerDTO)
+        [HttpPut("{accountId}")]
+        public IActionResult UpdateCustomer(string accountId, [FromBody] CustomerDTO customerDTO)
         {
 
             if (!ModelState.IsValid)
@@ -104,15 +97,25 @@ namespace DKBS.API.Controllers
             if (customerDTO == null)
                 return BadRequest();
 
-            var customer = _choiceRepoistory.GetCustomers().Find(c => c.CustomerId == CustomerId);
+
+            var customer = _choiceRepoistory.GetById<Customer>(c => c.AccountId == accountId);
 
             if (customer == null)
             {
                 return BadRequest();
             }
 
-            customer = customerDTO;
+            customer.Address1 = customerDTO.Address1;
+            customer.Address2 = customerDTO.Address2;
+            customer.CompanyName = customerDTO.CompanyName;
+            customer.Country = customerDTO.Country;
+            customer.IndustryCode = customerDTO.IndustryCode;
+            customer.PhoneNumber = customerDTO.PhoneNumber;
+            customer.PostNumber = customerDTO.PostNumber;
+            customer.StateAgreement = customerDTO.StateAgreement;
+            customer.Town = customerDTO.Town;
 
+            _choiceRepoistory.Attach(customer);
             _choiceRepoistory.Complete();
 
             return NoContent();

@@ -7,6 +7,7 @@ using System.Linq;
 using DKBS.Domain;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace DKBS.Repository
 {
@@ -57,6 +58,8 @@ namespace DKBS.Repository
         List<BookingDTO> GetAllBookings(int bookingId = -1);
         List<RefreshmentsDTO> GetRefreshments();
         TEntity GetById<TEntity>(int id) where TEntity : class;
+
+        TEntity GetById<TEntity>(Expression<Func<TEntity, bool>> predicate) where TEntity : class;
 
         List<TEntity> GetAll<TEntity>() where TEntity : class;
 
@@ -174,7 +177,7 @@ namespace DKBS.Repository
 
         public List<ContactPersonDTO> GetContactPersons()
         {
-            return _dbContext.ContactPerson.Select(p => new ContactPersonDTO { Name = p.Name, ContactPersonId = p.ContactPersonId, CustomerId = p.CustomerId, /*Department = p.Department,*/ Email = p.Email, /*Mobile = p.Mobile,Position = p.Position,*/ Telephone = p.Telephone }).ToList();
+            return _dbContext.ContactPerson.Select(p => new ContactPersonDTO { FirstName = p.FirstName, LastName = p.LastName, ContactPersonId = p.ContactPersonId, AccountId = p.AccountId, /*Department = p.Department,*/ Email = p.Email, /*Mobile = p.Mobile,Position = p.Position,*/ Telephone = p.Telephone }).ToList();
         }
 
         public List<CampaignDTO> GetCampaigns()
@@ -379,19 +382,8 @@ namespace DKBS.Repository
                 var customer = _dbContext.Customer.Where(x => x.CustomerId == item.CustomerId).FirstOrDefault();//.Include(x => x.IndustryCode).FirstOrDefault();
                 //var industryCode = _dbContext.IndustryCode.Where(x => x.IndustryCodeId == customer.IndustryCode.IndustryCodeId).FirstOrDefault();
                 //IndustryCodeDTO industryCodeDto = _mapper.Map<IndustryCode, IndustryCodeDTO>(industryCode);
-                var customerDto = new CustomerDTO()
-                {
-                    City = customer.City,
-                    //IndustryCodeDTO = industryCodeDto,
-                    CreatedBy = customer.CreatedBy,
-                    Country = customer.Country,
-                    CreatedDate = customer.CreatedDate,
-                    CustomerName = customer.CustomerName,
-                    EmailId = customer.EmailId,
-                    LastModifiedBY = customer.LastModifiedBY,
-                    LastModifiedDate = customer.LastModifiedDate,
-                    PhoneNumber = customer.PhoneNumber
-                };
+
+                var customerDto = _mapper.Map<Customer, CustomerDTO>(customer);
 
                 var tableType = GetById<TableType>(item.TableTypeId);
                 TableTypeDTO tableTypeDTO = _mapper.Map<TableType, TableTypeDTO>(tableType);
@@ -569,19 +561,8 @@ namespace DKBS.Repository
                 var customer = _dbContext.Customer.Where(x => x.CustomerId == item.CustomerId).FirstOrDefault();//.Include(x => x.IndustryCode).FirstOrDefault();
                                                                                                                 //var industryCode = _dbContext.IndustryCode.Where(x => x.IndustryCodeId == customer.IndustryCode.IndustryCodeId).FirstOrDefault();
                                                                                                                 // IndustryCodeDTO industryCodeDto = _mapper.Map<IndustryCode, IndustryCodeDTO>(industryCode);
-                var customerDto = new CustomerDTO()
-                {
-                    City = customer.City,
-                    IndustryCode = customer.IndustryCode,
-                    CreatedBy = customer.CreatedBy,
-                    Country = customer.Country,
-                    CreatedDate = customer.CreatedDate,
-                    CustomerName = customer.CustomerName,
-                    EmailId = customer.EmailId,
-                    LastModifiedBY = customer.LastModifiedBY,
-                    LastModifiedDate = customer.LastModifiedDate,
-                    PhoneNumber = customer.PhoneNumber
-                };
+
+                var customerDto = _mapper.Map<Customer, CustomerDTO>(customer);
 
                 var tableType = GetById<TableType>(item.TableTypeId);
                 TableTypeDTO tableTypeDTO = _mapper.Map<TableType, TableTypeDTO>(tableType);
@@ -811,6 +792,11 @@ namespace DKBS.Repository
         void IChoiceRepository.Remove<TEntity>(TEntity entity)
         {
             _dbContext.Set<TEntity>().Remove(entity);
+        }
+
+        TEntity IChoiceRepository.GetById<TEntity>(Expression<Func<TEntity, bool>> predicate)
+        {
+            return _dbContext.Set<TEntity>().Where(predicate).FirstOrDefault();
         }
     }
 }

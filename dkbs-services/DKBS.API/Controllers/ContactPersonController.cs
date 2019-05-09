@@ -41,27 +41,32 @@ namespace DKBS.API.Controllers
         {
             return Ok(_choiceRepoistory.GetContactPersons());
         }
-        /// <summary>
-        /// Get ContactPerson list based on user input of some characters
-        /// </summary>
-        /// <param name="name"></param>
-        /// <returns></returns>
-        [HttpGet("{name}", Name = "GetContactPerson")]
-        public ActionResult<IEnumerable<ContactPersonDTO>> GetContactPerson(string name)
-        {
-            return _choiceRepoistory.GetContactPersons().FindAll(c => c.Name.Contains(name));
-        }
+
+
+        ///// <summary>
+        ///// Get ContactPerson list based on user input of some characters
+        ///// </summary>
+        ///// <param name="name"></param>
+        ///// <returns></returns>
+        //[HttpGet("{name}", Name = "GetContactPersonByName")]
+        //public ActionResult<IEnumerable<ContactPersonDTO>> GetContactPersonByName(string name)
+        //{
+        //    return _choiceRepoistory.GetContactPersons().FindAll(c => c.FirstName.Contains(name) || c.LastName.Contains(name));
+        //}
+
+
 
         /// <summary>
         /// Get ContactPersonByCustomerId List based on CustomerId
         /// </summary>
-        /// <param name="CustomerId"></param>
+        /// <param name="accountId"></param>
         /// <returns></returns>
-        [HttpGet("{CustomerId}", Name = "GetContactPersonByCustomerId")]
-        public ActionResult<IEnumerable<ContactPersonDTO>> GetContactPersonByCustomerId(int CustomerId)
+        [HttpGet("{accountId}", Name = "GetContactPersonByAccountId")]
+        public ActionResult<IEnumerable<ContactPersonDTO>> GetContactPersonByAccountId(string accountId)
         {
-            return _choiceRepoistory.GetContactPersons().FindAll(c => c.CustomerId == CustomerId);
+            return _choiceRepoistory.GetContactPersons().FindAll(c => c.AccountId == accountId);
         }
+
 
         /// <summary>
         /// Creating ContactPerson
@@ -69,7 +74,7 @@ namespace DKBS.API.Controllers
         /// <param name="contactPersonDTO"></param>
         /// <returns></returns>
         // GET api/ContactPerson/{ContactPerson}
-        [HttpPost("{ContactPerson}")]
+        [HttpPost]
         public ActionResult<IEnumerable<ContactPersonDTO>> CreateContactPerson([FromBody] ContactPersonDTO contactPersonDTO)
         {
 
@@ -81,31 +86,22 @@ namespace DKBS.API.Controllers
             if (contactPersonDTO == null)
                 return BadRequest();
 
-            var checkContactPersonIdinDb = _choiceRepoistory.GetContactPersons().Find(c => c.ContactPersonId == contactPersonDTO.ContactPersonId);
 
-            if (checkContactPersonIdinDb != null)
-            {
-                return BadRequest();
-            }
-
-            ContactPerson newlyCreatedContactPerson = new ContactPerson() { Name = contactPersonDTO.Name, CustomerId = contactPersonDTO.CustomerId, /*Department = contactPersonDTO.Department,*/ Email = contactPersonDTO.Email, ContactPersonId = contactPersonDTO.ContactPersonId, /*Mobile = contactPersonDTO.Mobile, Position = contactPersonDTO.Position, */Telephone = contactPersonDTO.Telephone };
-            var destination = _mapper.Map<ContactPerson, ContactPersonDTO>(newlyCreatedContactPerson);
-
-
-            _choiceRepoistory.GetContactPersons().Add(destination);
+            ContactPerson newContactPerson = _mapper.Map<ContactPersonDTO, ContactPerson>(contactPersonDTO);
+            _choiceRepoistory.Attach<ContactPerson>(newContactPerson);
             _choiceRepoistory.Complete();
 
-            return CreatedAtRoute("GetContactPerson", new { name = newlyCreatedContactPerson.Name }, newlyCreatedContactPerson);
+            return CreatedAtRoute("GetContactPersonByAccountId", new { accountId = newContactPerson.AccountId }, newContactPerson);
         }
 
         /// <summary>
         /// Update Contact Person
         /// </summary>
-        /// <param name="ContactPersonId"></param>
+        /// <param name="accountId"></param>
         /// <param name="contactPersonDTO"></param>
         /// <returns></returns>
-        [HttpPut("{ContactPersonId}")]
-        public IActionResult UpdateContactPerson(int ContactPersonId, [FromBody] ContactPersonDTO contactPersonDTO)
+        [HttpPut]
+        public IActionResult UpdateContactPerson(string accountId, [FromBody] ContactPersonDTO contactPersonDTO)
         {
 
             if (!ModelState.IsValid)
@@ -116,14 +112,21 @@ namespace DKBS.API.Controllers
             if (contactPersonDTO == null)
                 return BadRequest();
 
-            var checkContactPersonIdinDb = _choiceRepoistory.GetContactPersons().Find(c => c.ContactPersonId == ContactPersonId);
+            var contactPersonIdinDb = _choiceRepoistory.GetById<ContactPerson>(c => c.AccountId == accountId);
 
-            if (checkContactPersonIdinDb == null)
+            if (contactPersonIdinDb == null)
             {
                 return BadRequest();
             }
 
-            checkContactPersonIdinDb = contactPersonDTO;
+            contactPersonIdinDb.ContactId = contactPersonDTO.ContactId;
+            contactPersonIdinDb.Email = contactPersonDTO.Email;
+            contactPersonIdinDb.FirstName = contactPersonDTO.FirstName;
+            contactPersonIdinDb.LastName = contactPersonDTO.LastName;
+            contactPersonIdinDb.MobilePhone = contactPersonDTO.MobilePhone;
+            contactPersonIdinDb.Telephone = contactPersonDTO.Telephone;
+
+            _choiceRepoistory.Attach(contactPersonIdinDb);
             _choiceRepoistory.Complete();
 
             return NoContent();
