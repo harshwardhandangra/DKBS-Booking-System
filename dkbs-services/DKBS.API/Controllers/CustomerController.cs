@@ -6,6 +6,7 @@ using AutoMapper;
 using DKBS.Domain;
 using DKBS.DTO;
 using DKBS.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -52,30 +53,32 @@ namespace DKBS.API.Controllers
         }
 
         /// <summary>
-        /// Creating Customer
+        /// Creating Customer from CRM
         /// </summary>
         /// <param name="customerDto"></param>
         /// <returns></returns>
-        // GET api/Customer/{customer}
+        /// 
+        [Authorize]
         [HttpPost]
         public ActionResult<IEnumerable<CustomerDTO>> CreateCustomer([FromBody] CustomerDTO customerDto)
         {
+            if (customerDto == null)
+            {
+                ModelState.AddModelError("Customer", "Customer object can't be null");
+                return BadRequest(ModelState);
+            }
 
             if (!ModelState.IsValid)
             {
-                return BadRequest();
+                return BadRequest(ModelState);
             }
-
-            if (customerDto == null)
-                return BadRequest();
-
 
             Customer newCustomer = _mapper.Map<CustomerDTO, Customer>(customerDto);
 
             _choiceRepoistory.Attach<Customer>(newCustomer);
             _choiceRepoistory.Complete();
 
-            return CreatedAtRoute("GetCustomersByCompanyName", new { companyName = newCustomer.CompanyName }, newCustomer);
+            return CreatedAtRoute("GetCustomersByCompanyName", new { companyName = newCustomer.AccountId }, newCustomer);
         }
 
 
@@ -85,24 +88,27 @@ namespace DKBS.API.Controllers
         /// <param name="accountId"></param>
         /// <param name="customerDTO"></param>
         /// <returns></returns>
+        /// 
+        [Authorize]
         [HttpPut("{accountId}")]
         public IActionResult UpdateCustomer(string accountId, [FromBody] CustomerDTO customerDTO)
         {
+            if (customerDTO == null)
+            {
+                ModelState.AddModelError("Customer", "Customer object can't be null");
+                return BadRequest(ModelState);
+            }
 
             if (!ModelState.IsValid)
             {
-                return BadRequest();
+                return BadRequest(ModelState);
             }
-
-            if (customerDTO == null)
-                return BadRequest();
-
-
+            
             var customer = _choiceRepoistory.GetById<Customer>(c => c.AccountId == accountId);
 
             if (customer == null)
             {
-                return BadRequest();
+                return NotFound();
             }
 
             customer.Address1 = customerDTO.Address1;

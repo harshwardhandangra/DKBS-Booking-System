@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using DKBS.Data;
 using DKBS.Repository;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -58,6 +59,18 @@ namespace DKBS.API
                     builder.AllowAnyHeader();
                 });
             });
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.Authority = string.Format( Configuration["AzureAd:AadInstance"],Configuration["AzureAd:Tenant"]);
+                options.Audience = Configuration["AzureAd:Audience"];
+                options.TokenValidationParameters.ValidateLifetime = true;
+                options.TokenValidationParameters.ClockSkew = TimeSpan.Zero;
+            });
+            services.AddAuthorization();
             services.AddMvc();
             services.AddSwaggerGen(c =>
             {
@@ -93,6 +106,7 @@ namespace DKBS.API
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseCors(AllowOrigins);
+            app.UseAuthentication();
             app.UseMvc();
 
             //This line enables the app to use Swagger, with the configuration in the ConfigureServices method.
