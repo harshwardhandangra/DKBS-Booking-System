@@ -1,14 +1,13 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Text;
 
 namespace DKBS.DTO
 {
-    public class CustomerDTO
+    public class CustomerUpdateDTO
     {
-        [JsonIgnore]
-        public int CustomerId { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Company Name is required.")]
         public string CompanyName { get; set; }
         public string Address1 { get; set; }
         public string Address2 { get; set; }
@@ -17,8 +16,6 @@ namespace DKBS.DTO
         public string PhoneNumber { get; set; }
         public string Country { get; set; }
         public bool StateAgreement { get; set; }
-        [Required(ErrorMessage = "Account Id is required.")]
-        public string AccountId { get; set; }
         public string IndustryCode { get; set; }
     }
 }

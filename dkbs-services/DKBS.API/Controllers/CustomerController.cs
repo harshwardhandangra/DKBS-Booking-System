@@ -42,14 +42,14 @@ namespace DKBS.API.Controllers
             return Ok(_choiceRepoistory.GetCustomers());
         }
         /// <summary>
-        /// Get Customer List based on search character entered by user for company name
+        /// Get Customer details by account id
         /// </summary>
-        /// <param name="companyName"></param>
+        /// <param name="accountId"></param>
         /// <returns></returns>
-        [HttpGet("{companyName}", Name = "GetCustomersByCompanyName")]
-        public ActionResult<IEnumerable<CustomerDTO>> GetCustomersByCompanyName(string companyName)
+        [HttpGet("{accountId}", Name = "GetCustomerByAccountId")]
+        public ActionResult<CustomerDTO> GetCustomerByAccountId(string accountId)
         {
-            return _choiceRepoistory.GetCustomers().FindAll(c => c.CompanyName.Contains(companyName));
+            return _choiceRepoistory.GetCustomers().Find(c => c.AccountId == accountId);
         }
 
         /// <summary>
@@ -57,28 +57,45 @@ namespace DKBS.API.Controllers
         /// </summary>
         /// <param name="customerDto"></param>
         /// <returns></returns>
-        /// 
+        ///
         [Authorize]
         [HttpPost]
-        public ActionResult<IEnumerable<CustomerDTO>> CreateCustomer([FromBody] CustomerDTO customerDto)
+        public ActionResult<CustomerDTO> CreateCustomer([FromBody] CustomerDTO customerDto)
         {
-            if (customerDto == null)
+            try
             {
-                ModelState.AddModelError("Customer", "Customer object can't be null");
-                return BadRequest(ModelState);
+                if (customerDto == null)
+                {
+                    ModelState.AddModelError("Customer", "Customer object can't be null");
+                    return BadRequest(ModelState);
+                }
+
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                var customer = _choiceRepoistory.GetById<Customer>(c => c.AccountId == customerDto.AccountId);
+
+                if (customer != null)
+                {
+                    ModelState.AddModelError("Customer", $"Customer entry already exist for AccountId {customerDto.AccountId}.");
+                    return BadRequest(ModelState);
+                }
+
+                Customer newCustomer = _mapper.Map<CustomerDTO, Customer>(customerDto);
+
+                _choiceRepoistory.Attach<Customer>(newCustomer);
+                _choiceRepoistory.Complete();
+
+                return CreatedAtRoute("GetCustomerByAccountId", new { newCustomer.AccountId }, newCustomer);
+            }
+            catch (Exception ex)
+            {
+                // TODO : Add logging and decide on showing ex.message
+                return StatusCode(500, "An error occurred while creating Customer. Please try again or contact adminstrator"); 
             }
 
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            Customer newCustomer = _mapper.Map<CustomerDTO, Customer>(customerDto);
-
-            _choiceRepoistory.Attach<Customer>(newCustomer);
-            _choiceRepoistory.Complete();
-
-            return CreatedAtRoute("GetCustomersByCompanyName", new { companyName = newCustomer.AccountId }, newCustomer);
         }
 
 
@@ -86,45 +103,60 @@ namespace DKBS.API.Controllers
         /// Update Customer
         /// </summary>
         /// <param name="accountId"></param>
-        /// <param name="customerDTO"></param>
+        /// <param name="customerUpdateDTO"></param>
         /// <returns></returns>
         /// 
         [Authorize]
         [HttpPut("{accountId}")]
-        public IActionResult UpdateCustomer(string accountId, [FromBody] CustomerDTO customerDTO)
+        public IActionResult UpdateCustomer(string accountId, [FromBody] CustomerUpdateDTO  customerUpdateDTO)
         {
-            if (customerDTO == null)
+
+            try
             {
-                ModelState.AddModelError("Customer", "Customer object can't be null");
-                return BadRequest(ModelState);
-            }
+                if(string.IsNullOrWhiteSpace(accountId))
+                {
+                    ModelState.AddModelError("AccountId", "AccountId can't be null or empty.");
+                    return BadRequest(ModelState);
+                }
 
-            if (!ModelState.IsValid)
+                if (customerUpdateDTO == null)
+                {
+                    ModelState.AddModelError("Customer", "Customer object can't be null");
+                    return BadRequest(ModelState);
+                }
+
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                var customer = _choiceRepoistory.GetById<Customer>(c => c.AccountId == accountId);
+
+                if (customer == null)
+                {
+                    ModelState.AddModelError("Customer", $"No customer found with AccountId {accountId}");
+                    return NotFound(ModelState);
+                }
+
+                customer.Address1 = customerUpdateDTO.Address1;
+                customer.Address2 = customerUpdateDTO.Address2;
+                customer.CompanyName = customerUpdateDTO.CompanyName;
+                customer.Country = customerUpdateDTO.Country;
+                customer.IndustryCode = customerUpdateDTO.IndustryCode;
+                customer.PhoneNumber = customerUpdateDTO.PhoneNumber;
+                customer.PostNumber = customerUpdateDTO.PostNumber;
+                customer.StateAgreement = customerUpdateDTO.StateAgreement;
+                customer.Town = customerUpdateDTO.Town;
+
+                _choiceRepoistory.Attach(customer);
+                _choiceRepoistory.Complete();
+
+                return NoContent();
+            }
+            catch (Exception ex)
             {
-                return BadRequest(ModelState);
+                return StatusCode(500, "An error occurred while updating Customer. Please try again or contact adminstrator");
             }
-            
-            var customer = _choiceRepoistory.GetById<Customer>(c => c.AccountId == accountId);
-
-            if (customer == null)
-            {
-                return NotFound();
-            }
-
-            customer.Address1 = customerDTO.Address1;
-            customer.Address2 = customerDTO.Address2;
-            customer.CompanyName = customerDTO.CompanyName;
-            customer.Country = customerDTO.Country;
-            customer.IndustryCode = customerDTO.IndustryCode;
-            customer.PhoneNumber = customerDTO.PhoneNumber;
-            customer.PostNumber = customerDTO.PostNumber;
-            customer.StateAgreement = customerDTO.StateAgreement;
-            customer.Town = customerDTO.Town;
-
-            _choiceRepoistory.Attach(customer);
-            _choiceRepoistory.Complete();
-
-            return NoContent();
         }
 
     }

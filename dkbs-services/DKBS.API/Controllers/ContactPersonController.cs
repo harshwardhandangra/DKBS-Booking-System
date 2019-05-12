@@ -6,6 +6,7 @@ using AutoMapper;
 using DKBS.Domain;
 using DKBS.DTO;
 using DKBS.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -43,17 +44,19 @@ namespace DKBS.API.Controllers
         }
 
 
-        ///// <summary>
-        ///// Get ContactPerson list based on user input of some characters
-        ///// </summary>
-        ///// <param name="name"></param>
-        ///// <returns></returns>
-        //[HttpGet("{name}", Name = "GetContactPersonByName")]
-        //public ActionResult<IEnumerable<ContactPersonDTO>> GetContactPersonByName(string name)
-        //{
-        //    return _choiceRepoistory.GetContactPersons().FindAll(c => c.FirstName.Contains(name) || c.LastName.Contains(name));
-        //}
 
+        ///// <summary>
+        ///// Get ContactPersonByCustomerId List based on ContactId
+        ///// </summary>
+        ///// <param name="contactId"></param>
+        ///// <returns></returns>
+        ///// 
+        //[Route("[action]/{contactId}",Name = "GetContactPersonByContactId")]
+        //[HttpGet]
+        //public ActionResult<IEnumerable<ContactPersonDTO>> GetContactPersonByContactId(string contactId)
+        //{
+        //    return _choiceRepoistory.GetContactPersons().FindAll(c => c.ContactId == contactId);
+        //}
 
 
         /// <summary>
@@ -61,6 +64,8 @@ namespace DKBS.API.Controllers
         /// </summary>
         /// <param name="accountId"></param>
         /// <returns></returns>
+        /// 
+
         [HttpGet("{accountId}", Name = "GetContactPersonByAccountId")]
         public ActionResult<IEnumerable<ContactPersonDTO>> GetContactPersonByAccountId(string accountId)
         {
@@ -69,67 +74,118 @@ namespace DKBS.API.Controllers
 
 
         /// <summary>
-        /// Creating ContactPerson
+        /// Creating ContactPerson from CRM
         /// </summary>
         /// <param name="contactPersonDTO"></param>
         /// <returns></returns>
-        // GET api/ContactPerson/{ContactPerson}
+        /// 
+
+        [Authorize]
         [HttpPost]
-        public ActionResult<IEnumerable<ContactPersonDTO>> CreateContactPerson([FromBody] ContactPersonDTO contactPersonDTO)
+        public ActionResult<ContactPersonDTO> CreateContactPerson([FromBody] ContactPersonDTO contactPersonDTO)
         {
 
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest();
+                if (contactPersonDTO == null)
+                {
+                    ModelState.AddModelError("ContactPerson", "ContactPerson object can't be null");
+                    return BadRequest(ModelState);
+                }
+
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                // Intentionally commented                                               
+                //var contactPersonInDb = _choiceRepoistory.GetById<ContactPerson>(c => c.AccountId == contactPersonDTO.AccountId);
+
+                //if (contactPersonInDb != null)
+                //{
+                //    ModelState.AddModelError("ContactPerson", $"ContactPerson entry already exist for AccountId {contactPersonDTO.AccountId}.");
+                //    return BadRequest(ModelState);
+                //}
+
+                var contactPersonInDb = _choiceRepoistory.GetById<ContactPerson>(c => c.ContactId == contactPersonDTO.ContactId);
+                if (contactPersonInDb != null)
+                {
+                    ModelState.AddModelError("ContactPerson", $"ContactPerson entry already exist for ContactId {contactPersonDTO.ContactId}.");
+                    return BadRequest(ModelState);
+                }
+
+                ContactPerson newContactPerson = _mapper.Map<ContactPersonDTO, ContactPerson>(contactPersonDTO);
+
+                _choiceRepoistory.Attach<ContactPerson>(newContactPerson);
+                _choiceRepoistory.Complete();
+
+                return CreatedAtRoute("GetContactPersonByAccountId", new { newContactPerson.AccountId }, newContactPerson);
+            }
+            catch (Exception ex)
+            {
+                // TODO : Add logging and decide on showing ex.message
+                return StatusCode(500, "An error occurred while creating ContactPerson. Please try again or contact adminstrator");
             }
 
-            if (contactPersonDTO == null)
-                return BadRequest();
-
-
-            ContactPerson newContactPerson = _mapper.Map<ContactPersonDTO, ContactPerson>(contactPersonDTO);
-            _choiceRepoistory.Attach<ContactPerson>(newContactPerson);
-            _choiceRepoistory.Complete();
-
-            return CreatedAtRoute("GetContactPersonByAccountId", new { accountId = newContactPerson.AccountId }, newContactPerson);
         }
 
         /// <summary>
         /// Update Contact Person
         /// </summary>
-        /// <param name="accountId"></param>
-        /// <param name="contactPersonDTO"></param>
+        /// <param name="contactId"></param>
+        /// <param name="contactPersonUpdateDTO"></param>
         /// <returns></returns>
+        /// 
+
+        [Authorize]
         [HttpPut]
-        public IActionResult UpdateContactPerson(string accountId, [FromBody] ContactPersonDTO contactPersonDTO)
+        public IActionResult UpdateContactPerson(string contactId, [FromBody] ContactPersonUpdateDTO contactPersonUpdateDTO)
         {
-
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest();
+                if(string.IsNullOrWhiteSpace(contactId))
+                {
+                    ModelState.AddModelError("ContactId", "ContactId can't be null or empty");
+                    return BadRequest(ModelState);
+                }
+
+                if (contactPersonUpdateDTO == null)
+                {
+                    ModelState.AddModelError("ContactPerson", "ContactPerson object can't be null");
+                    return BadRequest(ModelState);
+                }
+
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                var contactPersonInDb = _choiceRepoistory.GetById<ContactPerson>(c => c.ContactId == contactId);
+
+                if (contactPersonInDb == null)
+                {
+                    ModelState.AddModelError("ContactPerson", $"No contact person found with AccountId {contactId}");
+                    return NotFound(ModelState);
+                }
+
+                contactPersonInDb.AccountId = contactPersonUpdateDTO.AccountId;
+                contactPersonInDb.Email = contactPersonUpdateDTO.Email;
+                contactPersonInDb.FirstName = contactPersonUpdateDTO.FirstName;
+                contactPersonInDb.LastName = contactPersonUpdateDTO.LastName;
+                contactPersonInDb.MobilePhone = contactPersonUpdateDTO.MobilePhone;
+                contactPersonInDb.Telephone = contactPersonUpdateDTO.Telephone;
+
+                _choiceRepoistory.Attach(contactPersonInDb);
+                _choiceRepoistory.Complete();
+
+                return NoContent();
+
             }
-
-            if (contactPersonDTO == null)
-                return BadRequest();
-
-            var contactPersonIdinDb = _choiceRepoistory.GetById<ContactPerson>(c => c.AccountId == accountId);
-
-            if (contactPersonIdinDb == null)
+            catch (Exception ex)
             {
-                return BadRequest();
+                // TODO : Add logging and decide on showing ex.message
+                return StatusCode(500, "An error occurred while updating ContactPerson. Please try again or contact adminstrator");
             }
-
-            contactPersonIdinDb.ContactId = contactPersonDTO.ContactId;
-            contactPersonIdinDb.Email = contactPersonDTO.Email;
-            contactPersonIdinDb.FirstName = contactPersonDTO.FirstName;
-            contactPersonIdinDb.LastName = contactPersonDTO.LastName;
-            contactPersonIdinDb.MobilePhone = contactPersonDTO.MobilePhone;
-            contactPersonIdinDb.Telephone = contactPersonDTO.Telephone;
-
-            _choiceRepoistory.Attach(contactPersonIdinDb);
-            _choiceRepoistory.Complete();
-
-            return NoContent();
         }
     }
 }

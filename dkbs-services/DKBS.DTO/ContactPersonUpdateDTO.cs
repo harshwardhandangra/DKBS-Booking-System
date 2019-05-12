@@ -1,13 +1,12 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Text;
 
 namespace DKBS.DTO
 {
-    public class ContactPersonDTO
+    public class ContactPersonUpdateDTO
     {
-        [JsonIgnore]
-        public int ContactPersonId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
@@ -15,7 +14,5 @@ namespace DKBS.DTO
         public string MobilePhone { get; set; }
         [Required(ErrorMessage = "Account Id is required.")]
         public string AccountId { get; set; }
-        [Required(ErrorMessage = "Contact Id is required.")]
-        public string ContactId { get; set; }
     }
 }
