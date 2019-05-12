@@ -78,7 +78,7 @@ namespace DKBS.API.Controllers
             _choiceRepoistory.Attach<Customer>(newCustomer);
             _choiceRepoistory.Complete();
 
-            return CreatedAtRoute("GetCustomersByCompanyName", new { companyName = newCustomer.AccountId }, newCustomer);
+            return CreatedAtRoute("GetCustomersByCompanyName", new { accountId = newCustomer.AccountId }, newCustomer);
         }
 
 
@@ -93,6 +93,12 @@ namespace DKBS.API.Controllers
         [HttpPut("{accountId}")]
         public IActionResult UpdateCustomer(string accountId, [FromBody] CustomerDTO customerDTO)
         {
+            if (customerDTO == null)
+            {
+                ModelState.AddModelError("accountId", "accountId can't be empty");
+                return BadRequest(ModelState);
+            }
+
             if (customerDTO == null)
             {
                 ModelState.AddModelError("Customer", "Customer object can't be null");

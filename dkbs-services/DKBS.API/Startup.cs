@@ -65,7 +65,7 @@ namespace DKBS.API
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             }).AddJwtBearer(options =>
             {
-                options.Authority = string.Format( Configuration["AzureAd:AadInstance"],Configuration["AzureAd:Tenant"]);
+                options.Authority = string.Format(Configuration["AzureAd:AadInstance"], Configuration["AzureAd:Tenant"]);
                 options.Audience = Configuration["AzureAd:Audience"];
                 options.TokenValidationParameters.ValidateLifetime = true;
                 options.TokenValidationParameters.ClockSkew = TimeSpan.Zero;
@@ -85,6 +85,13 @@ namespace DKBS.API
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 //... and tell Swagger to use those XML comments.
                 c.IncludeXmlComments(xmlPath);
+                c.AddSecurityDefinition("oauth2", new ApiKeyScheme()
+                {
+                    Description = "Standard Authorization header using the Bearer scheme. Example: \"bearer {token}\"",
+                    In = "header",
+                    Name = "Authorization",
+                    Type = "apiKey"
+                });
             });
 
             Mapper.Initialize(cfg =>
