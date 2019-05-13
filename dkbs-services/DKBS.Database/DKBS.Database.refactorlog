@@ -1302,4 +1302,18 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="MobilePhone" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="1c51655d-8357-421f-bbb2-295aebf3c45c" ChangeDateTime="05/13/2019 03:17:52">
+    <Property Name="ElementName" Value="[dbo].[Customer].[PostCode]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Customer]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PostNumber" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0a12952e-e72b-4ab5-a74f-f1eb70da0d6b" ChangeDateTime="05/13/2019 03:50:05">
+    <Property Name="ElementName" Value="[dbo].[CRMPartner].[URL]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[CRMPartner]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PublicURL" />
+  </Operation>
 </Operations>

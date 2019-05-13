@@ -15,7 +15,7 @@ namespace DKBS.API.Controllers
     /// <summary>
     /// Contact Parson
     /// </summary>
-    [Route("api/[controller]")]
+    [Route("contactperson")]
     [ApiController]
     public class ContactPersonController : ControllerBase
     {
@@ -66,10 +66,10 @@ namespace DKBS.API.Controllers
         /// <returns></returns>
         /// 
 
-        [HttpGet("{accountId}", Name = "GetContactPersonByAccountId")]
-        public ActionResult<IEnumerable<ContactPersonDTO>> GetContactPersonByAccountId(string accountId)
+        [HttpGet("{contactId}", Name = "GetContactPersonByAccountId")]
+        public ActionResult<IEnumerable<ContactPersonDTO>> GetContactPersonByAccountId(string contactId)
         {
-            return _choiceRepoistory.GetContactPersons().FindAll(c => c.AccountId == accountId);
+            return _choiceRepoistory.GetContactPersons().FindAll(c => c.ContactId == contactId);
         }
 
 
@@ -115,11 +115,14 @@ namespace DKBS.API.Controllers
                 }
 
                 ContactPerson newContactPerson = _mapper.Map<ContactPersonDTO, ContactPerson>(contactPersonDTO);
-
+                newContactPerson.CreatedBy = "CRM";
+                newContactPerson.CreatedDate = DateTime.UtcNow;
+                newContactPerson.LastModified = DateTime.UtcNow;
+                newContactPerson.LastModifiedBy = "CRM";
                 _choiceRepoistory.Attach<ContactPerson>(newContactPerson);
                 _choiceRepoistory.Complete();
 
-                return CreatedAtRoute("GetContactPersonByAccountId", new { newContactPerson.AccountId }, newContactPerson);
+                return CreatedAtRoute("GetContactPersonByAccountId", new { newContactPerson.ContactId }, newContactPerson);
             }
             catch (Exception ex)
             {
@@ -138,7 +141,7 @@ namespace DKBS.API.Controllers
         /// 
 
         [Authorize]
-        [HttpPut]
+        [HttpPut("{contactId}")]
         public IActionResult UpdateContactPerson(string contactId, [FromBody] ContactPersonUpdateDTO contactPersonUpdateDTO)
         {
             try
@@ -175,6 +178,9 @@ namespace DKBS.API.Controllers
                 contactPersonInDb.LastName = contactPersonUpdateDTO.LastName;
                 contactPersonInDb.MobilePhone = contactPersonUpdateDTO.MobilePhone;
                 contactPersonInDb.Telephone = contactPersonUpdateDTO.Telephone;
+
+                contactPersonInDb.LastModified = DateTime.UtcNow;
+                contactPersonInDb.LastModifiedBy = "CRM";
 
                 _choiceRepoistory.Attach(contactPersonInDb);
                 _choiceRepoistory.Complete();

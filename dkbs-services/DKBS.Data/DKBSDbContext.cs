@@ -53,6 +53,8 @@ namespace DKBS.Data
 
         public DbSet<Partner> Partner { get; set; }
 
+        public DbSet<CRMPartner> CRMPartner { get; set; }
+
         public DbSet<PartnerEmployee> PartnerEmployee { get; set; }
 
         public DbSet<TownZipCode> TownZipCode { get; set; }

@@ -5,10 +5,14 @@
 	[Address1] [nvarchar](255) NOT NULL,
 	[Address2] [nvarchar](255) NOT NULL,
 	[Town] [nvarchar](200) NOT NULL,
-	[PostCode] [nvarchar](100) NOT NULL,
+	[PostNumber] [nvarchar](100) NOT NULL,
 	[PhoneNumber] [nvarchar](255) NOT NULL,
 	[Country] [nvarchar](200) NOT NULL,
 	[StateAgreement] BIT NOT NULL,
-	[AccountId] NVARCHAR(255) NOT NULL,
-	[IndustryCode] NVARCHAR(1000) NOT NULL
+	[AccountId] NVARCHAR(255) UNIQUE NOT NULL,
+	[IndustryCode] NVARCHAR(1000) NOT NULL,
+	[CreatedDate] DATETIME NULL,
+	[CreatedBy] nvarchar(100),
+	[LastModified] DATETIME NULL, 
+	[LastModifiedBy] NVARCHAR(100) NULL
 )

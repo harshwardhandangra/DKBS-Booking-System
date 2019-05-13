@@ -7,5 +7,9 @@
 	[Telephone] [nvarchar](50) NOT NULL,
 	[MobilePhone] NVARCHAR(50) NOT NULL, 
     [AccountId] NVARCHAR(255) NOT NULL, 
-    [ContactId] NVARCHAR(255) NOT NULL
+    [ContactId] NVARCHAR(255) UNIQUE NOT NULL,
+	[CreatedDate] DATETIME NULL,
+	[CreatedBy] nvarchar(100),
+	[LastModified] DATETIME NULL, 
+	[LastModifiedBy] NVARCHAR(100) NULL
 )

@@ -84,7 +84,10 @@ namespace DKBS.API.Controllers
                 }
 
                 Customer newCustomer = _mapper.Map<CustomerDTO, Customer>(customerDto);
-
+                newCustomer.CreatedDate = DateTime.UtcNow;
+                newCustomer.CreatedBy = "CRM";
+                newCustomer.LastModified = DateTime.UtcNow;
+                newCustomer.LastModifiedBy = "CRM";
                 _choiceRepoistory.Attach<Customer>(newCustomer);
                 _choiceRepoistory.Complete();
 
@@ -147,7 +150,8 @@ namespace DKBS.API.Controllers
                 customer.PostNumber = customerUpdateDTO.PostNumber;
                 customer.StateAgreement = customerUpdateDTO.StateAgreement;
                 customer.Town = customerUpdateDTO.Town;
-
+                customer.LastModified = DateTime.UtcNow;
+                customer.LastModifiedBy = "CRM";
                 _choiceRepoistory.Attach(customer);
                 _choiceRepoistory.Complete();
 

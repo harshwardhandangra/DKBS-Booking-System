@@ -48,7 +48,7 @@ namespace DKBS.API
             options.UseSqlServer(Configuration.GetConnectionString("DKBSConnectionString"))
             .UseLoggerFactory(DbCommandDebugLoggerFactory).EnableSensitiveDataLogging());
             services.AddScoped<IChoiceRepository, ChoiceRepository>();
-            services.AddAutoMapper();
+            services.AddAutoMapper(cfg => { cfg.ValidateInlineMaps = false; });
             services.AddCors(options =>
             {
                 options.AddPolicy(AllowOrigins,
