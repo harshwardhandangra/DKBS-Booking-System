@@ -56,6 +56,12 @@ namespace DKBS.Repository
         List<SRConversationItemDTO> GetSRConversationItems();
         List<BookingDTO> GetAllBookings(int bookingId = -1);
         List<RefreshmentsDTO> GetRefreshments();
+        List<PartnerCenterInfoDTO> GetPartnerCenterInfo();
+        List<PartnerCenterRoomInfoDTO> GetPartnerCenterRoomInfo();
+
+        List<PartnerInspirationCategoriesDTO> GetPartnerInspirationCategories();
+
+
         TEntity GetById<TEntity>(int id) where TEntity : class;
 
         List<TEntity> GetAll<TEntity>() where TEntity : class;
@@ -231,6 +237,25 @@ namespace DKBS.Repository
         {
             return _mapper.Map<List<RefreshmentsDTO>>(_dbContext.Refreshment.ToList());
         }
+
+        public List<PartnerCenterInfoDTO> GetPartnerCenterInfo()
+        {
+            return _mapper.Map<List<PartnerCenterInfoDTO>>(_dbContext.PartnerCenterInfo.ToList());
+        }
+
+        public List<PartnerCenterRoomInfoDTO> GetPartnerCenterRoomInfo()
+        {
+            return _mapper.Map<List<PartnerCenterRoomInfoDTO>>(_dbContext.PartnerCenterRoomInfo.ToList());
+        }
+
+
+        public List<PartnerInspirationCategoriesDTO> GetPartnerInspirationCategories()
+        {
+            return _mapper.Map<List<PartnerInspirationCategoriesDTO>>(_dbContext.PartnerInspirationCategories.ToList());
+        }
+
+
+
 
         public TEntity GetById<TEntity>(int id) where TEntity : class
         {
