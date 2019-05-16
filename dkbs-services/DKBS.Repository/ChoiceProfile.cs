@@ -43,7 +43,7 @@ namespace DKBS.Repository
             CreateMap<MailLanguage, MailLanguageDTO>();
             CreateMap<ParticipantType, ParticipantTypeDTO>();
 
-
+            CreateMap<PartnerCenterDescriptionDTO, PartnerCenterDescriptionDTO>();
             CreateMap<Partner, PartnerDTO>();
                 //.ForMember(dest => dest.CenterTypeDTO, opt => opt.MapFrom(src => src.CenterType))
                 //.ForMember(dest => dest.PartnerTypeDTO, opt => opt.MapFrom(src => src.PartnerType))

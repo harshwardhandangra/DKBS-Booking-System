@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace DKBS.Data
 {
    public class DKBSDbContext :DbContext
@@ -52,6 +53,8 @@ namespace DKBS.Data
         public DbSet<Customer> Customer { get; set; }
 
         public DbSet<Partner> Partner { get; set; }
+
+        public DbSet<PartnerCenterDescription> PartnerCenterDescription { get; set; }
 
         public DbSet<PartnerEmployee> PartnerEmployee { get; set; }
 

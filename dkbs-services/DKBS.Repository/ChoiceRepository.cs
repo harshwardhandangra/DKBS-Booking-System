@@ -49,6 +49,7 @@ namespace DKBS.Repository
         List<CancellationReasonDTO> GetCancellationReasons();
         List<CustomerDTO> GetCustomers();
         List<PartnerDTO> GetPartners();
+        List<PartnerCenterDescriptionDTO> GetPartnerCenterDescriptions();
         List<PartnerEmployeeDTO> GetPartnerEmployees();
         List<BookingAndStatusDTO> GetBookingAndStatuses();
         List<ServiceCatalogDTO> GetServiceCatalogs();
@@ -123,6 +124,10 @@ namespace DKBS.Repository
         public List<PurposeDTO> GetPurposes()
         {
             return _dbContext.Purpose.Select(p => new PurposeDTO { PurposeName = p.PurposeName, PurposeId = p.PurposeId }).ToList();
+        }
+        public List<PartnerCenterDescriptionDTO> GetPartnerCenterDescriptions()
+        {
+            return _mapper.Map<List<PartnerCenterDescriptionDTO>>(_dbContext.PartnerCenterDescription.ToList());
         }
 
         public List<PartnerTypeDTO> GetPartnerTypes()
@@ -354,7 +359,7 @@ namespace DKBS.Repository
         public List<BookingDTO> GetAllBookings(int bookingId = -1)
         {
 
-            var booking = bookingId!=-1 ? _dbContext.Booking.Where(x => x.BookingId == bookingId).ToList() : _dbContext.Booking.ToList();
+            var booking = bookingId != -1 ? _dbContext.Booking.Where(x => x.BookingId == bookingId).ToList() : _dbContext.Booking.ToList();
             List<BookingDTO> bookingDtoList = new List<BookingDTO>();
 
             foreach (var item in booking)
@@ -485,7 +490,7 @@ namespace DKBS.Repository
                                 Price = procedureInfo.Price,
                                 ProcedureInfoId = procedureInfo.ProcedureInfoId,
                                 Reply = procedureInfo.Reply,
-                                ProcedureDTO = procedureDto,                               
+                                ProcedureDTO = procedureDto,
                             };
 
                             bookingDto.ProcedureInfoDTO.Add(procedureInfoDto);
