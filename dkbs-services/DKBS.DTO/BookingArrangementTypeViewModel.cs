@@ -1,5 +1,4 @@
-﻿using DKBS.Domain;
-using System;
+﻿using System;
 
 namespace DKBS.DTO
 {
