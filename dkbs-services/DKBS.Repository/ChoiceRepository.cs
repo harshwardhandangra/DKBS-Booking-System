@@ -70,6 +70,7 @@ namespace DKBS.Repository
         void Remove<TEntity>(TEntity entity) where TEntity : class;
 
         void SetBookings(Booking booking);
+        void SetPartnerEmployees(PartnerEmployee partnerEmployee);
         void SetPartner(Partner newlyCreatedPartner);
         void SetCenterType(CenterType centerTypeMapped);
         void SetPartnerType(PartnerType partnerTypeMapped);
@@ -485,7 +486,7 @@ namespace DKBS.Repository
                                 Price = procedureInfo.Price,
                                 ProcedureInfoId = procedureInfo.ProcedureInfoId,
                                 Reply = procedureInfo.Reply,
-                                ProcedureDTO = procedureDto,                               
+                                ProcedureDTO = procedureDto,
                             };
 
                             bookingDto.ProcedureInfoDTO.Add(procedureInfoDto);
@@ -704,6 +705,10 @@ namespace DKBS.Repository
             _dbContext.Booking.Add(booking);
         }
 
+        public void SetPartnerEmployees(PartnerEmployee partnerEmployee)
+        {
+            _dbContext.PartnerEmployee.Add(partnerEmployee);
+        }
         public void SetPartner(Partner newlyCreatedPartner)
         {
             _dbContext.Partner.Add(newlyCreatedPartner);

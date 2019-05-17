@@ -92,7 +92,7 @@
     <Build Include="Tables\TownZipCode.sql" />
     <Build Include="Tables\Provision.sql" />
     <Build Include="Tables\MailGroup.sql" />
-    <Build Include="Tables\PartnerEmployee.sql" />
+    <Build Include="Tables\PartnerEmployee_old.sql" />
     <Build Include="Tables\ProcedureInfo.sql" />
     <Build Include="Tables\BookingAlternativeService.sql" />
     <Build Include="Tables\BookingRoom.sql" />
@@ -110,6 +110,7 @@
     <Build Include="Tables\Customer.sql" />
     <Build Include="Tables\ContactPerson.sql" />
     <Build Include="Tables\CRMPartner.sql" />
+    <Build Include="Tables\PartnerEmployee.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DKBS.publish.xml" />
