@@ -6,6 +6,7 @@ using DKBS.DTO;
 using DKBS.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.SharePoint.Client;
 
 namespace DKBS.API.Controllers
 {
@@ -466,7 +467,7 @@ namespace DKBS.API.Controllers
         /// <returns></returns>
         [Route("Refreshments")]
         [HttpGet()]
-        public ActionResult<RefreshmentsDTO>GetRefreshments()
+        public ActionResult<RefreshmentsDTO> GetRefreshments()
         {
             return Ok(_choiceRepoistory.GetRefreshments());
         }

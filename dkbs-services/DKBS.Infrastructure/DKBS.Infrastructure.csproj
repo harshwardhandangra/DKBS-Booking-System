@@ -4,4 +4,12 @@
     <TargetFramework>net461</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SharePoint2013.CSOM" Version="15.0.5031.1001" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DKBS.DTO\DKBS.DTO.csproj" />
+  </ItemGroup>
+
 </Project>

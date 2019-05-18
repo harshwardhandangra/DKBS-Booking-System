@@ -25,7 +25,7 @@ namespace DKBS.API
                  logging.AddConsole();
                  logging.AddDebug();
                  logging.AddEventSourceLogger();
-             })
+             }).UseIIS()
                 .UseStartup<Startup>();
     }
 }

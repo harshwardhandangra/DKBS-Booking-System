@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using DKBS.Domain;
 using DKBS.DTO;
+using DKBS.Infrastructure.Sharepoint;
 using DKBS.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -20,6 +21,7 @@ namespace DKBS.API.Controllers
     public class CustomerController : Controller
     {
         private readonly IChoiceRepository _choiceRepoistory;
+        private readonly ISharepointService _sharePointService;
         private IMapper _mapper;
 
         /// <summary>
@@ -27,10 +29,12 @@ namespace DKBS.API.Controllers
         /// </summary>
         /// <param name="mapper"></param>
         /// <param name="choiceReposiroty"></param>
-        public CustomerController(IChoiceRepository choiceReposiroty, IMapper mapper)
+        /// <param name="sharePointService"></param>
+        public CustomerController(IChoiceRepository choiceReposiroty, IMapper mapper, ISharepointService sharePointService)
         {
             _choiceRepoistory = choiceReposiroty;
             _mapper = mapper;
+            _sharePointService = sharePointService;
         }
         /// <summary>
         /// Get All Customers
@@ -60,7 +64,7 @@ namespace DKBS.API.Controllers
         ///
         [Authorize]
         [HttpPost]
-        public ActionResult<CustomerDTO> CreateCustomer([FromBody] CustomerDTO customerDto)
+        public async Task<ActionResult<CustomerDTO>> CreateCustomer([FromBody] CustomerDTO customerDto)
         {
             try
             {
@@ -90,13 +94,17 @@ namespace DKBS.API.Controllers
                 newCustomer.LastModifiedBy = "CRM";
                 _choiceRepoistory.Attach<Customer>(newCustomer);
                 _choiceRepoistory.Complete();
-
+                var status = await _sharePointService.InsertCustomerAsync(customerDto);
+                if (status)
+                {
+                    return StatusCode(500, "An error occurred while creating sharepoint customer. Please try again or contact adminstrator");
+                }
                 return CreatedAtRoute("GetCustomerByAccountId", new { newCustomer.AccountId }, newCustomer);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // TODO : Add logging and decide on showing ex.message
-                return StatusCode(500, "An error occurred while creating Customer. Please try again or contact adminstrator"); 
+                return StatusCode(500, "An error occurred while creating Customer. Please try again or contact adminstrator");
             }
 
         }
@@ -111,12 +119,12 @@ namespace DKBS.API.Controllers
         /// 
         [Authorize]
         [HttpPut("{accountId}")]
-        public IActionResult UpdateCustomer(string accountId, [FromBody] CustomerUpdateDTO  customerUpdateDTO)
+        public async Task<IActionResult> UpdateCustomer(string accountId, [FromBody] CustomerUpdateDTO customerUpdateDTO)
         {
 
             try
             {
-                if(string.IsNullOrWhiteSpace(accountId))
+                if (string.IsNullOrWhiteSpace(accountId))
                 {
                     ModelState.AddModelError("AccountId", "AccountId can't be null or empty.");
                     return BadRequest(ModelState);
@@ -154,7 +162,11 @@ namespace DKBS.API.Controllers
                 customer.LastModifiedBy = "CRM";
                 _choiceRepoistory.Attach(customer);
                 _choiceRepoistory.Complete();
-
+                var status = await _sharePointService.UpdateCustomerAsync(customerUpdateDTO, accountId);
+                if (status)
+                {
+                    return StatusCode(500, "An error occurred while creating sharepoint customer. Please try again or contact adminstrator");
+                }
                 return NoContent();
             }
             catch (Exception ex)
