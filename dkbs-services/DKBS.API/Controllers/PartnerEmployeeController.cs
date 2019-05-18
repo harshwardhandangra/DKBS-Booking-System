@@ -40,26 +40,27 @@ namespace DKBS.API.Controllers
             return Ok(_choiceRepoistory.GetPartnerEmployees());
         }
 
-        /// <summary>
-        /// Get GetPartnerEmployeesByPartnerId List based on PartnerId
-        /// </summary>
-        /// <param name="PartnerId"></param>
-        /// <returns></returns>
-        [HttpGet("{PartnerId}", Name = "GetPartnerEmployeesByPartnerId")]
-        public ActionResult<IEnumerable<PartnerEmployeeDTO>> GetPartnerEmployeesByPartnerId(string PartnerId)
-        {
-            return _choiceRepoistory.GetPartnerEmployees().FindAll(c => c.Partner == PartnerId);
-        }
+        ///// <summary>
+        ///// Get GetPartnerEmployeesByPartnerId List based on PartnerId
+        ///// </summary>
+        ///// <param name="PartnerId"></param>
+        ///// <returns></returns>
+        //[HttpGet("{PartnerId}", Name = "GetPartnerEmployeesByPartnerId")]
+        //public ActionResult<IEnumerable<PartnerEmployeeDTO>> GetPartnerEmployeesByPartnerId(string PartnerId)
+        //{
+        //    return _choiceRepoistory.GetPartnerEmployees().FindAll(c => c.Partner == PartnerId);
+        //}
 
         /// <summary>
         /// Get PartnerEmployee List based on some character entered by user in Partner name
         /// </summary>
-        /// <param name="name"></param>
+        /// <param name="partnerName"></param>
         /// <returns></returns>
-        [HttpGet("{name}", Name = "GetPartnerEmployee")]
-        public ActionResult<IEnumerable<PartnerEmployeeDTO>> GetPartnerEmployees(string name)
+        [HttpGet("{partnerName}", Name = "GetPartnerEmployee")]
+        public ActionResult<IEnumerable<PartnerEmployeeDTO>> GetPartnerEmployees(string partnerName)
         {
-            return _choiceRepoistory.GetPartnerEmployees().FindAll(c => c.FirstName.Contains(name) || c.LastName.Contains(name));
+            //currently sdduming partnerName only later we will change as per requirement
+            return _choiceRepoistory.GetPartnerEmployees().FindAll(c => c.Partner == partnerName);
         }
 
         /// <summary>
@@ -81,16 +82,16 @@ namespace DKBS.API.Controllers
             if (partnerEmployeeDto == null)
                 return BadRequest();
 
-            var checkPartnerIdinDb = _choiceRepoistory.GetPartnerEmployees().Find(c => c.PartnerEmployeeId == partnerEmployeeDto.PartnerEmployeeId);
+            var checkPartnerEmployeeinDb = _choiceRepoistory.GetPartnerEmployees().Find(c => c.PESharePointId == partnerEmployeeDto.PESharePointId);
 
-            if (checkPartnerIdinDb != null)
+            if (checkPartnerEmployeeinDb != null)
             {
                 return BadRequest();
             }
 
             //var centerType = _mapper.Map<CenterTypeDTO, CenterType>(partnerEmployeeDto.PartnerDTO.CenterTypeDTO);
             //var partnerType = _mapper.Map<PartnerTypeDTO, PartnerType>(partnerEmployeeDto.PartnerDTO.PartnerTypeDTO);
-            
+
             // TODO: check and use map functionlity of mapping properties
             //var partner = new Partner()
             //{
@@ -104,19 +105,19 @@ namespace DKBS.API.Controllers
             //    LastModifiedBy = partnerEmployeeDto.PartnerDTO.LastModifiedBy
             //};
 
-          //  var participantType = _mapper.Map<ParticipantTypeDTO, ParticipantType>(partnerEmployeeDto.ParticipantTypeDTO);
-          //  var mailGroup = _mapper.Map<MailGroupDTO, MailGroup>(partnerEmployeeDto.MailGroup);
+            //  var participantType = _mapper.Map<ParticipantTypeDTO, ParticipantType>(partnerEmployeeDto.ParticipantTypeDTO);
+            //  var mailGroup = _mapper.Map<MailGroupDTO, MailGroup>(partnerEmployeeDto.MailGroup);
 
 
             PartnerEmployee newlyCreatedPartnerEmployee = new PartnerEmployee()
             {
                 FirstName = partnerEmployeeDto.FirstName,
                 LastName = partnerEmployeeDto.LastName,
-               // PartnerEmployeeId = partnerEmployeeDto.PartnerEmployeeId,
+                // PartnerEmployeeId = partnerEmployeeDto.PartnerEmployeeId,
                 Email = partnerEmployeeDto.Email,
-               // ParticipantType = participantType,
+                // ParticipantType = participantType,
                 JobTitle = partnerEmployeeDto.JobTitle,
-              //  PartnerType = partnerType,
+                //  PartnerType = partnerType,
                 MailGroup = partnerEmployeeDto.MailGroup,
                 PESharePointId = partnerEmployeeDto.PESharePointId,
                 TelePhoneNumber = partnerEmployeeDto.TelePhoneNumber,
@@ -131,10 +132,10 @@ namespace DKBS.API.Controllers
                 EmailNotification = partnerEmployeeDto.EmailNotification,
                 Identifier = partnerEmployeeDto.Identifier,
                 DeactivatedUser = partnerEmployeeDto.DeactivatedUser,
-                
+
             };
 
-           // var destination = _mapper.Map<PartnerEmployee, PartnerEmployeeDTO>(newlyCreatedPartnerEmployee);
+            // var destination = _mapper.Map<PartnerEmployee, PartnerEmployeeDTO>(newlyCreatedPartnerEmployee);
             _choiceRepoistory.SetPartnerEmployees(newlyCreatedPartnerEmployee);
             _choiceRepoistory.Complete();
 
@@ -156,18 +157,19 @@ namespace DKBS.API.Controllers
             return CreatedAtRoute("GetPartnerEmployee", new { name = newlyCreatedPartnerEmployee.FirstName }, newlyCreatedPartnerEmployee);
         }
 
+
         /// <summary>
-        /// Updating partner employess
+        /// 
         /// </summary>
-        /// <param name="partnerId"></param>
-        /// <param name="partnerEmployeeDTO"></param>
+        /// <param name="peSharePointId"></param>
+        /// <param name="partnerEmployeeUpdateDTO"></param>
         /// <returns></returns>
         [Authorize]
-        [HttpPut("{partnerEmployeeId}")]
-        public IActionResult UpdatePartnerEmployee(string partnerEmployeeId, [FromBody] PartnerEmployeeDTO partnerEmployeeDTO)
+        [HttpPut("{peSharePointId}")]
+        public IActionResult UpdatePartnerEmployee(string peSharePointId, [FromBody] PartnerEmployeeUpdateDTO partnerEmployeeUpdateDTO)
         {
 
-            if (partnerEmployeeDTO == null)
+            if (partnerEmployeeUpdateDTO == null)
                 return BadRequest();
 
             if (!ModelState.IsValid)
@@ -175,7 +177,7 @@ namespace DKBS.API.Controllers
                 return BadRequest();
             }
 
-            var checkPartnerIdinDb = _choiceRepoistory.GetById<PartnerEmployee>(c => c.PESharePointId == partnerEmployeeId);//_choiceRepoistory.GetPartnerEmployees().Find(c => c.SharePointId == partnerEmployeeId);
+            var checkPartnerIdinDb = _choiceRepoistory.GetById<PartnerEmployee>(c => c.PESharePointId == peSharePointId);//_choiceRepoistory.GetPartnerEmployees().Find(c => c.SharePointId == partnerEmployeeId);
 
             if (checkPartnerIdinDb == null)
             {
@@ -185,57 +187,57 @@ namespace DKBS.API.Controllers
             //checkPartnerIdinDb = partnerEmployeeDTO;
 
 
-             checkPartnerIdinDb.FirstName = partnerEmployeeDTO.FirstName;
-            checkPartnerIdinDb.LastName = partnerEmployeeDTO.LastName;
+            checkPartnerIdinDb.FirstName = partnerEmployeeUpdateDTO.FirstName;
+            checkPartnerIdinDb.LastName = partnerEmployeeUpdateDTO.LastName;
             // PartnerEmployeeId = partnerEmployeeDto.PartnerEmployeeId,
-            checkPartnerIdinDb.Email = partnerEmployeeDTO.Email;
-                // ParticipantType = participantType,
-                checkPartnerIdinDb.JobTitle = partnerEmployeeDTO.JobTitle;
+            checkPartnerIdinDb.Email = partnerEmployeeUpdateDTO.Email;
+            // ParticipantType = participantType,
+            checkPartnerIdinDb.JobTitle = partnerEmployeeUpdateDTO.JobTitle;
             //  PartnerType = partnerType,
-            checkPartnerIdinDb.MailGroup = partnerEmployeeDTO.MailGroup;
+            checkPartnerIdinDb.MailGroup = partnerEmployeeUpdateDTO.MailGroup;
 
 
-           // checkPartnerIdinDb.SharePointId = partnerEmployeeDTO.SharePointId;
+            // checkPartnerIdinDb.SharePointId = partnerEmployeeDTO.SharePointId;
 
 
-            checkPartnerIdinDb.TelePhoneNumber = partnerEmployeeDTO.TelePhoneNumber;
+            checkPartnerIdinDb.TelePhoneNumber = partnerEmployeeUpdateDTO.TelePhoneNumber;
 
 
-            checkPartnerIdinDb.Partner = partnerEmployeeDTO.Partner;
+            checkPartnerIdinDb.Partner = partnerEmployeeUpdateDTO.Partner;
 
 
-                 checkPartnerIdinDb.LastModified = partnerEmployeeDTO.LastModified;
+            checkPartnerIdinDb.LastModified = partnerEmployeeUpdateDTO.LastModified;
 
 
-            checkPartnerIdinDb.LastModifiedBY = partnerEmployeeDTO.LastModifiedBY;
+            checkPartnerIdinDb.LastModifiedBY = partnerEmployeeUpdateDTO.LastModifiedBY;
 
 
-            checkPartnerIdinDb.CreatedBy = partnerEmployeeDTO.CreatedBy;
+            checkPartnerIdinDb.CreatedBy = partnerEmployeeUpdateDTO.CreatedBy;
 
 
-                checkPartnerIdinDb.CreatedOn = partnerEmployeeDTO.CreatedOn;
+            checkPartnerIdinDb.CreatedOn = partnerEmployeeUpdateDTO.CreatedOn;
 
 
-            checkPartnerIdinDb.ModifiedBY = partnerEmployeeDTO.ModifiedBY;
+            checkPartnerIdinDb.ModifiedBY = partnerEmployeeUpdateDTO.ModifiedBY;
 
 
-            checkPartnerIdinDb.ModifiedOn = partnerEmployeeDTO.ModifiedOn;
+            checkPartnerIdinDb.ModifiedOn = partnerEmployeeUpdateDTO.ModifiedOn;
 
 
-                checkPartnerIdinDb.SMSNotification= partnerEmployeeDTO.SMSNotification;
+            checkPartnerIdinDb.SMSNotification = partnerEmployeeUpdateDTO.SMSNotification;
 
 
-            checkPartnerIdinDb.EmailNotification = partnerEmployeeDTO.EmailNotification;
-                
-               
-                checkPartnerIdinDb.Identifier = partnerEmployeeDTO.Identifier;
-                
+            checkPartnerIdinDb.EmailNotification = partnerEmployeeUpdateDTO.EmailNotification;
 
 
-                checkPartnerIdinDb.DeactivatedUser = partnerEmployeeDTO.DeactivatedUser;
+            checkPartnerIdinDb.Identifier = partnerEmployeeUpdateDTO.Identifier;
 
 
-            
+
+            checkPartnerIdinDb.DeactivatedUser = partnerEmployeeUpdateDTO.DeactivatedUser;
+
+
+
             _choiceRepoistory.Attach(checkPartnerIdinDb);
             _choiceRepoistory.Complete();
 

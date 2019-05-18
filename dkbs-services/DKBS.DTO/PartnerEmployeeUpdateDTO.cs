@@ -1,12 +1,13 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DKBS.DTO
 {
-    public class PartnerEmployeeDTO
+    public class PartnerEmployeeUpdateDTO
     {
-        [JsonIgnore]
-        public int PartnerEmployeeId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string JobTitle { get; set; }
@@ -14,7 +15,6 @@ namespace DKBS.DTO
         public string Email { get; set; }
         public string Partner { get; set; }
         public string MailGroup { get; set; }
-        public string PESharePointId { get; set; }
         public DateTime CreatedOn { get; set; }
         public string CreatedBy { get; set; }
         public DateTime LastModified { get; set; }
