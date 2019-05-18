@@ -21,6 +21,7 @@ namespace DKBS.API.Controllers
     public class PartnerCenterRoomInfoController : Controller
     {
         private IChoiceRepository _choiceRepoistory;
+        private IMapper _mapper;
 
         /// <summary>
         /// PartnerCenterRoomInfo
@@ -35,7 +36,8 @@ namespace DKBS.API.Controllers
         /// Get All GetPartnerCenterRoomInfo
         /// </summary>
         /// <returns></returns>
-        [HttpGet()]
+        //[HttpGet()]
+        [HttpGet("[action]/{name}", Name = "GetPartnerCenterRoomInfo")]
         public ActionResult<PartnerCenterRoomInfoDTO> GetPartnerCenterRoomInfo()
         {
             return Ok(_choiceRepoistory.GetPartnerCenterRoomInfo());
@@ -91,7 +93,7 @@ namespace DKBS.API.Controllers
         /// <returns></returns>
         // GET api/PartnerCenterRoomInfo/{PartnerCenterRoomInfos}
         [HttpPost]
-        public ActionResult<IEnumerable<PartnerCenterRoomInfoDTO>> PartnerCenterRoomInfo([FromBody] PartnerCenterRoomInfoDTO partnerCenterRoomInfoDTO)
+        public ActionResult PartnerCenterRoomInfo([FromBody] PartnerCenterRoomInfoDTO partnerCenterRoomInfoDTO)
         {
 
             if (!ModelState.IsValid)
@@ -109,11 +111,16 @@ namespace DKBS.API.Controllers
                 return BadRequest();
             }
 
-            PartnerCenterRoomInfo newlyCreatedPartnerCenterRoomInfo = new PartnerCenterRoomInfo() { PartnerCenterRoomInfo_Id = partnerCenterRoomInfoDTO.PartnerCenterRoomInfo_Id, PartnerId = partnerCenterRoomInfoDTO.PartnerId, Room_Name = partnerCenterRoomInfoDTO.Room_Name, LastModifiedBY = partnerCenterRoomInfoDTO.LastModifiedBY, LastModified = partnerCenterRoomInfoDTO.LastModified };
-            var destination = Mapper.Map<PartnerCenterRoomInfo, PartnerCenterRoomInfoDTO>(newlyCreatedPartnerCenterRoomInfo);
+            PartnerCenterRoomInfo newlyCreatedPartnerCenterRoomInfo = new PartnerCenterRoomInfo() { PartnerCenterRoomInfo_Id = partnerCenterRoomInfoDTO.PartnerCenterRoomInfo_Id, PartnerId = partnerCenterRoomInfoDTO.PartnerId, Room_Name = partnerCenterRoomInfoDTO.Room_Name};
+            // var destination = Mapper.Map<PartnerCenterRoomInfo, PartnerCenterRoomInfoDTO>(newlyCreatedPartnerCenterRoomInfo);
 
 
-            _choiceRepoistory.GetPartnerCenterRoomInfo().Add(destination);
+            // _choiceRepoistory.GetPartnerCenterRoomInfo().Add(destination);
+
+           // PartnerCenterRoomInfo newlyCreatedPartnerCenterRoomInfos = _mapper.Map<PartnerCenterRoomInfoDTO, PartnerCenterRoomInfo>(newlyCreatedPartnerCenterRoomInfo);
+           // _choiceRepoistory.Attach<PartnerCenterRoomInfo>(newlyCreatedPartnerCenterRoomInfos);
+
+          // _choiceRepoistory.Attach(newlyCreatedPartnerCenterRoomInfo);
             _choiceRepoistory.Complete();
 
             return CreatedAtRoute("GetPartnerCenterRoomInfo", new { name = newlyCreatedPartnerCenterRoomInfo.Room_Name }, newlyCreatedPartnerCenterRoomInfo);
