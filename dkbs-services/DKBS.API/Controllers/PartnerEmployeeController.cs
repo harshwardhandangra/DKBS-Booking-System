@@ -30,33 +30,27 @@ namespace DKBS.API.Controllers
             _mapper = mapper;
         }
 
+
         /// <summary>
-        /// Get All partnerEmployees details.
+        /// Get PartnerEmployee  based on peSharepointId
         /// </summary>
-        /// <returns>List of partnerEmployees.</returns>        
-        [HttpGet()]
-        public ActionResult<PartnerEmployeeDTO> GetPartnerEmployes()
+        /// <param name="peSharePointId"></param>
+        /// <returns></returns>
+       // [Route("[action]/{peSharePointId}")]
+        [HttpGet]
+        [Route("[action]/{peSharePointId}", Name = "GetPartnerEmployeeById")]
+        public ActionResult<PartnerEmployeeDTO> GetPartnerEmployeeById(string peSharePointId)
         {
-            return Ok(_choiceRepoistory.GetPartnerEmployees());
+            return Ok(_choiceRepoistory.GetPartnerEmployees().Find(x => x.PESharePointId == peSharePointId));
         }
 
-        ///// <summary>
-        ///// Get GetPartnerEmployeesByPartnerId List based on PartnerId
-        ///// </summary>
-        ///// <param name="PartnerId"></param>
-        ///// <returns></returns>
-        //[HttpGet("{PartnerId}", Name = "GetPartnerEmployeesByPartnerId")]
-        //public ActionResult<IEnumerable<PartnerEmployeeDTO>> GetPartnerEmployeesByPartnerId(string PartnerId)
-        //{
-        //    return _choiceRepoistory.GetPartnerEmployees().FindAll(c => c.Partner == PartnerId);
-        //}
 
         /// <summary>
         /// Get PartnerEmployee List based on some character entered by user in Partner name
         /// </summary>
         /// <param name="partnerName"></param>
         /// <returns></returns>
-        [HttpGet("{partnerName}", Name = "GetPartnerEmployee")]
+        [HttpGet("{partnerName}", Name = "GetPartnerEmployees")]
         public ActionResult<IEnumerable<PartnerEmployeeDTO>> GetPartnerEmployees(string partnerName)
         {
             //currently sdduming partnerName only later we will change as per requirement
@@ -154,7 +148,7 @@ namespace DKBS.API.Controllers
             };
 
 
-            return CreatedAtRoute("GetPartnerEmployee", new { name = newlyCreatedPartnerEmployee.FirstName }, newlyCreatedPartnerEmployee);
+            return CreatedAtRoute("GetPartnerEmployeeById", new { peSharePointId = newlyCreatedPartnerEmployee.PESharePointId }, newlyCreatedPartnerEmployee);
         }
 
 
