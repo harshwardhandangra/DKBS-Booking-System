@@ -37,6 +37,7 @@ namespace DKBS.API.Controllers
         public ActionResult<RegionDTO> GetRegions()
         {
             return Ok(_choiceRepoistory.GetRegions());
+
         }
 
         /// <summary>

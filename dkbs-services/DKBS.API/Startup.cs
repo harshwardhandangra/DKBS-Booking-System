@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using AutoMapper;
 using DKBS.Data;
+using DKBS.Infrastructure.Sharepoint;
 using DKBS.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -49,6 +50,7 @@ namespace DKBS.API
             options.UseSqlServer(Configuration.GetConnectionString("DKBSConnectionString"))
             .UseLoggerFactory(DbCommandDebugLoggerFactory).EnableSensitiveDataLogging());
             services.AddScoped<IChoiceRepository, ChoiceRepository>();
+            services.AddScoped<ISharepointService, SharepointService>();
             services.AddAutoMapper(cfg => { cfg.ValidateInlineMaps = false; });
             services.AddCors(options =>
             {

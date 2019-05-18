@@ -95,7 +95,7 @@ namespace DKBS.API.Controllers
                 _choiceRepoistory.Attach<Customer>(newCustomer);
                 _choiceRepoistory.Complete();
                 var status = await _sharePointService.InsertCustomerAsync(customerDto);
-                if (status)
+                if (!status)
                 {
                     return StatusCode(500, "An error occurred while creating sharepoint customer. Please try again or contact adminstrator");
                 }
@@ -163,7 +163,7 @@ namespace DKBS.API.Controllers
                 _choiceRepoistory.Attach(customer);
                 _choiceRepoistory.Complete();
                 var status = await _sharePointService.UpdateCustomerAsync(customerUpdateDTO, accountId);
-                if (status)
+                if (!status)
                 {
                     return StatusCode(500, "An error occurred while creating sharepoint customer. Please try again or contact adminstrator");
                 }
