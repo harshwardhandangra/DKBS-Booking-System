@@ -94,11 +94,11 @@ namespace DKBS.API.Controllers
                 newCustomer.LastModifiedBy = "CRM";
                 _choiceRepoistory.Attach<Customer>(newCustomer);
                 _choiceRepoistory.Complete();
-                var status = await _sharePointService.InsertCustomerAsync(customerDto);
-                if (!status)
-                {
-                    return StatusCode(500, "An error occurred while creating sharepoint customer. Please try again or contact adminstrator");
-                }
+                //var status = await _sharePointService.InsertCustomerAsync(customerDto);
+                //if (!status)
+                //{
+                //    return StatusCode(500, "An error occurred while creating sharepoint customer. Please try again or contact adminstrator");
+                //}
                 return CreatedAtRoute("GetCustomerByAccountId", new { newCustomer.AccountId }, newCustomer);
             }
             catch (Exception)
@@ -162,11 +162,11 @@ namespace DKBS.API.Controllers
                 customer.LastModifiedBy = "CRM";
                 _choiceRepoistory.Attach(customer);
                 _choiceRepoistory.Complete();
-                var status = await _sharePointService.UpdateCustomerAsync(customerUpdateDTO, accountId);
-                if (!status)
-                {
-                    return StatusCode(500, "An error occurred while creating sharepoint customer. Please try again or contact adminstrator");
-                }
+                //var status = await _sharePointService.UpdateCustomerAsync(customerUpdateDTO, accountId);
+                //if (!status)
+                //{
+                //    return StatusCode(500, "An error occurred while creating sharepoint customer. Please try again or contact adminstrator");
+                //}
                 return NoContent();
             }
             catch (Exception ex)
