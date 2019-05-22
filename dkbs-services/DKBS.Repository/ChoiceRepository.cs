@@ -29,6 +29,12 @@ namespace DKBS.Repository
         List<BookingRoomDTO> GetBookingRooms();
         List<TownZipCodeDTO> GetTownZipCodes();
         List<TableSetDTO> GetTableSets();
+        List<CoursePackageMenueDTO> GetAllCoursePackageMenue();
+        List<CoursePackageFreeServicesDTO> GetAllCoursePackageFreeServices();
+        List<CoursePackagePremiumServicesDTO> GetAllCoursePackagePremiumServices();
+        List<CoursePackageYearPriceDTO> GetAllCoursePackageYearPrice();
+        List<SCPartnerCoursePackageMappingDTO> GetAllSCPartnerCoursePackageMapping();
+        List<ServiceCatalogDTO> GetServiceCatalog();
         List<RegionDTO> GetRegions();
         List<PurposeDTO> GetPurposes();
         List<PartnerTypeDTO> GetPartnerTypes();
@@ -51,7 +57,7 @@ namespace DKBS.Repository
         List<PartnerDTO> GetPartners();
         List<PartnerEmployeeDTO> GetPartnerEmployees();
         List<BookingAndStatusDTO> GetBookingAndStatuses();
-        List<ServiceCatalogDTO> GetServiceCatalogs();
+      
         List<ServiceRequestCommunicationDTO> GetServiceRequestCommunications();
         List<ServiceRequestNoteDTO> GetServiceRequestNotes();
         List<SRConversationItemDTO> GetSRConversationItems();
@@ -678,12 +684,6 @@ namespace DKBS.Repository
             return _mapper.Map<List<BookingAndStatusDTO>>(_dbContext.BookingAndStatus.ToList());
         }
 
-        public List<ServiceCatalogDTO> GetServiceCatalogs()
-        {
-            var d = _dbContext.ServiceCatalog.ToList();
-            return _mapper.Map<List<ServiceCatalogDTO>>(_dbContext.ServiceCatalog.ToList());
-        }
-
         public List<ServiceRequestCommunicationDTO> GetServiceRequestCommunications()
         {
             return _mapper.Map<List<ServiceRequestCommunicationDTO>>(_dbContext.ServiceRequestCommunication.ToList());
@@ -797,6 +797,35 @@ namespace DKBS.Repository
         TEntity IChoiceRepository.GetById<TEntity>(Expression<Func<TEntity, bool>> predicate)
         {
             return _dbContext.Set<TEntity>().Where(predicate).FirstOrDefault();
+        }
+
+        public List<CoursePackageMenueDTO> GetAllCoursePackageMenue()
+        {
+            return _mapper.Map<List<CoursePackageMenueDTO>>(_dbContext.CoursePackageMenue.ToList());
+        }
+
+        public List<CoursePackageFreeServicesDTO> GetAllCoursePackageFreeServices()
+        {
+            return _mapper.Map<List<CoursePackageFreeServicesDTO>>(_dbContext.CoursePackageFreeServices.ToList());
+        }
+
+        public List<CoursePackagePremiumServicesDTO> GetAllCoursePackagePremiumServices()
+        {
+            return _mapper.Map<List<CoursePackagePremiumServicesDTO>>(_dbContext.CoursePackagePremiumServices.ToList());
+        }
+
+        public List<CoursePackageYearPriceDTO> GetAllCoursePackageYearPrice()
+        {
+            return _mapper.Map<List<CoursePackageYearPriceDTO>>(_dbContext.CoursePackageYearPrice.ToList());
+        }
+        public List<SCPartnerCoursePackageMappingDTO> GetAllSCPartnerCoursePackageMapping()
+        {
+            return _mapper.Map<List<SCPartnerCoursePackageMappingDTO>>(_dbContext.SCPartnerCoursePackageMapping.ToList());
+        }
+
+        public List<ServiceCatalogDTO> GetServiceCatalog()
+        {
+            return _mapper.Map<List<ServiceCatalogDTO>>(_dbContext.ServiceCatalog.ToList());
         }
     }
 }

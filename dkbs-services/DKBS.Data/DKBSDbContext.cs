@@ -91,8 +91,12 @@ namespace DKBS.Data
         public DbSet<ServiceRequestNote> ServiceRequestNote { get; set; }
         public DbSet<SRConversationItem> SRConversationItem { get; set; }
         public DbSet<Refreshment> Refreshment { get; set; }
+        public DbSet<CoursePackageMenue> CoursePackageMenue { get; set; }
+        public DbSet<CoursePackageFreeServices> CoursePackageFreeServices { get; set; }
+        public DbSet<CoursePackagePremiumServices> CoursePackagePremiumServices { get; set; }
+        public DbSet<CoursePackageYearPrice> CoursePackageYearPrice { get; set; }
 
-
+        public DbSet<SCPartnerCoursePackageMapping> SCPartnerCoursePackageMapping { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -209,4 +213,5 @@ namespace DKBS.Data
 
         //}
     }
+    
 }

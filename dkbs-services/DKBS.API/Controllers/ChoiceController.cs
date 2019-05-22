@@ -424,7 +424,7 @@ namespace DKBS.API.Controllers
         [HttpGet()]
         public ActionResult<ServiceCatalogDTO> GetServiceCatalogs()
         {
-            return Ok(_choiceRepoistory.GetServiceCatalogs());
+            return Ok(_choiceRepoistory.GetServiceCatalog());
         }
 
         /// <summary>
