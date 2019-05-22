@@ -1,4 +1,6 @@
-﻿using DKBS.DTO;
+﻿using DKBS.Domain;
+using DKBS.DTO;
+using Microsoft.Extensions.Configuration;
 using Microsoft.SharePoint.Client;
 using System;
 using System.Collections.Generic;
@@ -10,17 +12,23 @@ namespace DKBS.Infrastructure.Sharepoint
 {
     public interface ISharepointService
     {
-        Task<bool> InsertCustomerAsync(CustomerDTO customer);
-        Task<bool> UpdateCustomerAsync(CustomerUpdateDTO customer, string accountId);
+        Task<int> InsertCustomerAsync(Customer customer);
+        Task<bool> UpdateCustomerAsync(Customer customer);
 
-        Task<bool> InsertCustomerContactAsync(ContactPersonDTO contact);
-        Task<bool> UpdateCustomerContactAsync(string contactId, ContactPersonUpdateDTO contact);
+        Task<int> InsertCustomerContactAsync(ContactPerson contact, Customer customer);
+        Task<bool> UpdateCustomerContactAsync(ContactPerson contact, Customer customer);
     }
     public class SharepointService : ISharepointService
     {
-        public const string webSPOUrl = "https://bookon.dkbs.dk";
-        public const string listName = "Customers";
-        public async Task<bool> InsertCustomerAsync(CustomerDTO customer)
+        private readonly IConfiguration _configuration;
+        public string listName = string.Empty;
+
+        public SharepointService(IConfiguration configuration)
+        {
+            _configuration = configuration;
+            listName = _configuration["SharePointListName"];
+        }
+        public async Task<int> InsertCustomerAsync(Customer customer)
         {
             try
             {
@@ -150,17 +158,17 @@ namespace DKBS.Infrastructure.Sharepoint
                     }
                     newItem.Update();
                     context.ExecuteQuery();
-                    return await Task.FromResult<bool>(true);
+                    return await Task.FromResult<int>(newItem.Id);
                 }
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-           
+
         }
 
-        public async Task<bool> UpdateCustomerAsync(CustomerUpdateDTO customer,string acctId)
+        public async Task<bool> UpdateCustomerAsync(Customer customer)
         {
             try
             {
@@ -169,7 +177,6 @@ namespace DKBS.Infrastructure.Sharepoint
                     throw new ArgumentNullException("Customer can't be null.");
                 }
                 List<FieldMataData> itemMetaData = new List<FieldMataData>();
-                itemMetaData.Add(new FieldMataData { FieldName = "accountId", Value = acctId });
                 foreach (var prop in customer.GetType().GetProperties())
                 {
                     FieldMataData obj = new FieldMataData();
@@ -232,7 +239,7 @@ namespace DKBS.Infrastructure.Sharepoint
                     if (itemMetaData.Find(x => x.FieldName == "accountId") != null)
                     {
                         string accountId = itemMetaData.Find(x => x.FieldName == "accountId").Value;
-                        ListItem updatableItem = GetCustomerItem(context, lst, accountId, "accountID");
+                        ListItem updatableItem = GetCustomerItem(context, lst, customer.SharePointId.Value);
 
                         if (updatableItem != null)
                         {
@@ -299,12 +306,11 @@ namespace DKBS.Infrastructure.Sharepoint
             {
                 throw ex;
             }
-          
+
         }
 
-        public async Task<bool> InsertCustomerContactAsync(ContactPersonDTO contact)
+        public async Task<int> InsertCustomerContactAsync(ContactPerson contact,Customer customer)
         {
-
             try
             {
                 if (contact == null)
@@ -338,11 +344,9 @@ namespace DKBS.Infrastructure.Sharepoint
                     string relatedOrgId = null;
                     if (itemMetaData.Find(x => x.FieldName == "accountId") != null)
                     {
-                        string accountId = itemMetaData.Find(x => x.FieldName == "accountId").Value;
-                        ListItem organization = GetCustomerItem(context, lst, accountId, "accountID");
-                        if (organization != null)
+                        if (customer.SharePointId>0)
                         {
-                            relatedOrgId = organization.Id.ToString() + ";#";
+                            relatedOrgId = customer.SharePointId.ToString() + ";#";
                         }
                     }
 
@@ -386,18 +390,17 @@ namespace DKBS.Infrastructure.Sharepoint
                     }
                     newItem.Update();
                     context.ExecuteQuery();
+                    return await Task.FromResult<int>(newItem.Id);
                 }
-
-                return await Task.FromResult<bool>(true);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-          
+
         }
 
-        public async Task<bool> UpdateCustomerContactAsync(string cntId, ContactPersonUpdateDTO contact)
+        public async Task<bool> UpdateCustomerContactAsync(ContactPerson contact,Customer customer)
         {
             try
             {
@@ -406,7 +409,7 @@ namespace DKBS.Infrastructure.Sharepoint
                     throw new ArgumentNullException("ContactPerson can't be null.");
                 }
                 List<FieldMataData> itemMetaData = new List<FieldMataData>();
-                itemMetaData.Add(new FieldMataData { FieldName = "contactId", Value = cntId });
+                itemMetaData.Add(new FieldMataData { FieldName = "contactId", Value = contact.ContactId });
                 foreach (var prop in contact.GetType().GetProperties())
                 {
                     FieldMataData obj = new FieldMataData();
@@ -433,11 +436,9 @@ namespace DKBS.Infrastructure.Sharepoint
                     string relatedOrgId = null;
                     if (itemMetaData.Find(x => x.FieldName == "accountId") != null)
                     {
-                        string accountId = itemMetaData.Find(x => x.FieldName == "accountId").Value;
-                        ListItem organization = GetCustomerItem(context, lst, accountId, "accountID");
-                        if (organization != null)
+                        if (customer.SharePointId>0)
                         {
-                            relatedOrgId = organization.Id.ToString() + ";#";
+                            relatedOrgId = customer.SharePointId.ToString() + ";#";
                         }
                     }
 
@@ -445,7 +446,7 @@ namespace DKBS.Infrastructure.Sharepoint
                     if (itemMetaData.Find(x => x.FieldName == "contactId") != null)
                     {
                         string contactId = itemMetaData.Find(x => x.FieldName == "contactId").Value;
-                        updatableItem = GetCustomerItem(context, lst, contactId, "contactID");
+                        updatableItem = GetCustomerItem(context, lst, contact.SharePointId.Value);
                     }
 
                     if (updatableItem != null)
@@ -490,45 +491,32 @@ namespace DKBS.Infrastructure.Sharepoint
             {
                 throw ex;
             }
-           
+
         }
 
         private ClientContext GetClientContext()
         {
-            ClientContext context = new ClientContext(webSPOUrl);
+            ClientContext context = new ClientContext(_configuration["SharePointServerURL"]);
             context.AuthenticationMode = ClientAuthenticationMode.FormsAuthentication;
-            context.FormsAuthenticationLoginInfo = new FormsAuthenticationLoginInfo("CRM Automation", "9LEkTny4");
+            context.FormsAuthenticationLoginInfo = new FormsAuthenticationLoginInfo(_configuration["SharePointUserName"], _configuration["SharePointPassword"]);
             context.ExecuteQuery();
             return context;
         }
 
-        private static ListItem GetCustomerItem(ClientContext context, List customersLst, string accountId, string searchableField)
+        private static ListItem GetCustomerItem(ClientContext context, List customersLst, int id)
         {
             ListItem result = null;
             CamlQuery query = new CamlQuery();
-            query.ViewXml = @"<View><Query><Where><Eq><FieldRef Name='" + searchableField + @"' /><Value Type='Text'>" + accountId + @"</Value></Eq></Where></Query>
-                                                        <ViewFields><FieldRef Name='ID'/><FieldRef Name='Title'/><FieldRef Name='Address'/><FieldRef Name='Address2'/><FieldRef Name='ZipMachingFilter'/><FieldRef Name='Country'/><FieldRef Name='Phone'/><FieldRef Name='IndustryCode'/></ViewFields></View>";
-            ListItemCollection customerColl = customersLst.GetItems(query);
+            CamlQuery query2 = new CamlQuery();
+            query2.ViewXml = @"<View><Query><Where><Eq><FieldRef Name='ID' /><Value Type='Text'>" + id + @"</Value></Eq></Where></Query>
+                                                        <ViewFields><FieldRef Name='Title'/><FieldRef Name='Address'/><FieldRef Name='Address2'/><FieldRef Name='ZipMachingFilter'/><FieldRef Name='Country'/><FieldRef Name='Phone'/><FieldRef Name='IndustryCode'/></ViewFields></View>";
+            ListItemCollection customerColl = customersLst.GetItems(query2);
             context.Load(customerColl);
             context.ExecuteQuery();
             if (customerColl.Count == 1)
             {
                 result = customerColl[0];
             }
-            else
-            {
-                CamlQuery query2 = new CamlQuery();
-                query2.ViewXml = @"<View><Query><Where><Eq><FieldRef Name='ID' /><Value Type='Text'>" + accountId + @"</Value></Eq></Where></Query>
-                                                        <ViewFields><FieldRef Name='Title'/><FieldRef Name='Address'/><FieldRef Name='Address2'/><FieldRef Name='ZipMachingFilter'/><FieldRef Name='Country'/><FieldRef Name='Phone'/><FieldRef Name='IndustryCode'/></ViewFields></View>";
-                ListItemCollection customerColl2 = customersLst.GetItems(query2);
-                context.Load(customerColl2);
-                context.ExecuteQuery();
-                if (customerColl2.Count == 1)
-                {
-                    result = customerColl2[0];
-                }
-            }
-
             return result;
         }
     }

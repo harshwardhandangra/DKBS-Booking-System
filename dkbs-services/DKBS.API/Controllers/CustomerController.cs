@@ -9,7 +9,7 @@ using DKBS.Infrastructure.Sharepoint;
 using DKBS.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.Extensions.Configuration;
 
 namespace DKBS.API.Controllers
 {
@@ -20,6 +20,7 @@ namespace DKBS.API.Controllers
     [Route("customer")]
     public class CustomerController : Controller
     {
+        private readonly IConfiguration _configuration;
         private readonly IChoiceRepository _choiceRepoistory;
         private readonly ISharepointService _sharePointService;
         private IMapper _mapper;
@@ -30,11 +31,13 @@ namespace DKBS.API.Controllers
         /// <param name="mapper"></param>
         /// <param name="choiceReposiroty"></param>
         /// <param name="sharePointService"></param>
-        public CustomerController(IChoiceRepository choiceReposiroty, IMapper mapper, ISharepointService sharePointService)
+        ///  <param name="configuration"></param>
+        public CustomerController(IChoiceRepository choiceReposiroty, IMapper mapper, ISharepointService sharePointService, IConfiguration configuration)
         {
             _choiceRepoistory = choiceReposiroty;
             _mapper = mapper;
             _sharePointService = sharePointService;
+            _configuration = configuration;
         }
         /// <summary>
         /// Get All Customers
@@ -92,14 +95,22 @@ namespace DKBS.API.Controllers
                 newCustomer.CreatedBy = "CRM";
                 newCustomer.LastModified = DateTime.UtcNow;
                 newCustomer.LastModifiedBy = "CRM";
+               
+
+                if (bool.Parse(_configuration["SharePointIntegrationEnabled"].ToString()))
+                {
+                    var sharePointId = await _sharePointService.InsertCustomerAsync(newCustomer);
+                    if (sharePointId <=0)
+                    {
+                        return StatusCode(500, "An error occurred while creating sharepoint customer. Please try again or contact adminstrator");
+                    }
+                    newCustomer.SharePointId = sharePointId;
+                }
                 _choiceRepoistory.Attach<Customer>(newCustomer);
                 _choiceRepoistory.Complete();
-                //var status = await _sharePointService.InsertCustomerAsync(customerDto);
-                //if (!status)
-                //{
-                //    return StatusCode(500, "An error occurred while creating sharepoint customer. Please try again or contact adminstrator");
-                //}
-                return CreatedAtRoute("GetCustomerByAccountId", new { newCustomer.AccountId }, newCustomer);
+
+
+                return CreatedAtRoute("GetCustomerByAccountId", new { newCustomer.AccountId }, customer);
             }
             catch (Exception)
             {
@@ -162,11 +173,16 @@ namespace DKBS.API.Controllers
                 customer.LastModifiedBy = "CRM";
                 _choiceRepoistory.Attach(customer);
                 _choiceRepoistory.Complete();
-                //var status = await _sharePointService.UpdateCustomerAsync(customerUpdateDTO, accountId);
-                //if (!status)
-                //{
-                //    return StatusCode(500, "An error occurred while creating sharepoint customer. Please try again or contact adminstrator");
-                //}
+
+                if (bool.Parse(_configuration["SharePointIntegrationEnabled"].ToString()))
+                {
+                    var status = await _sharePointService.UpdateCustomerAsync(customer);
+                    if (!status)
+                    {
+                        return StatusCode(500, "An error occurred while creating sharepoint customer. Please try again or contact adminstrator");
+                    }
+                }
+
                 return NoContent();
             }
             catch (Exception ex)

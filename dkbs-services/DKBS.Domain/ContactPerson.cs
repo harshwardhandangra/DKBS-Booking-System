@@ -12,7 +12,7 @@ namespace DKBS.Domain
         public string MobilePhone { get; set; }
         public string AccountId { get; set; }
         public string ContactId { get; set; }
-
+        public int? SharePointId { get; set; }
         public DateTime LastModified { get; set; }
         public string LastModifiedBy { get; set; }
         public DateTime CreatedDate { get; set; }

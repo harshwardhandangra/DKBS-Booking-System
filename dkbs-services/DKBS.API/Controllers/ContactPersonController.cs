@@ -10,6 +10,7 @@ using DKBS.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace DKBS.API.Controllers
 {
@@ -22,6 +23,7 @@ namespace DKBS.API.Controllers
     {
         private readonly IChoiceRepository _choiceRepoistory;
         private readonly ISharepointService _sharePointService;
+        private readonly IConfiguration _configuration;
         private IMapper _mapper;
 
         /// <summary>
@@ -30,12 +32,14 @@ namespace DKBS.API.Controllers
         /// <param name="choiceReposiroty"></param>
         /// <param name="mapper"></param>
         /// <param name="sharePointService"></param>
+        /// <param name="configuration"></param>
 
-        public ContactPersonController(IChoiceRepository choiceReposiroty, IMapper mapper, ISharepointService sharePointService)
+        public ContactPersonController(IChoiceRepository choiceReposiroty, IMapper mapper, ISharepointService sharePointService, IConfiguration configuration)
         {
             _choiceRepoistory = choiceReposiroty;
             _mapper = mapper;
             _sharePointService = sharePointService;
+            _configuration = configuration;
         }
 
         /// <summary>
@@ -114,14 +118,19 @@ namespace DKBS.API.Controllers
                 newContactPerson.CreatedDate = DateTime.UtcNow;
                 newContactPerson.LastModified = DateTime.UtcNow;
                 newContactPerson.LastModifiedBy = "CRM";
+              
+                if (bool.Parse(_configuration["SharePointIntegrationEnabled"].ToString()))
+                {
+                    var sharePointId = await _sharePointService.InsertCustomerContactAsync(contactPersonInDb, _choiceRepoistory.GetById<Customer>(c => c.AccountId == contactPersonInDb.AccountId)).ConfigureAwait(false);
+                    if (sharePointId <= 0)
+                    {
+                        return StatusCode(500, "An error occurred while creating sharepoint customer contact. Please try again or contact adminstrator");
+                    }
+                    newContactPerson.SharePointId = sharePointId;
+                }
                 _choiceRepoistory.Attach<ContactPerson>(newContactPerson);
                 _choiceRepoistory.Complete();
-                //var status = await _sharePointService.InsertCustomerContactAsync(contactPersonDTO).ConfigureAwait(false);
-                //if (!status)
-                //{
-                //    return StatusCode(500, "An error occurred while creating sharepoint customer contact. Please try again or contact adminstrator");
-                //}
-                return CreatedAtRoute("GetContactPersonByAccountId", new { newContactPerson.ContactId }, newContactPerson);
+                return CreatedAtRoute("GetContactPersonByAccountId", new { newContactPerson.ContactId }, contactPersonDTO);
             }
             catch (Exception)
             {
@@ -141,11 +150,11 @@ namespace DKBS.API.Controllers
 
         [Authorize]
         [HttpPut("{contactId}")]
-        public async  Task<IActionResult> UpdateContactPerson(string contactId, [FromBody] ContactPersonUpdateDTO contactPersonUpdateDTO)
+        public async Task<IActionResult> UpdateContactPerson(string contactId, [FromBody] ContactPersonUpdateDTO contactPersonUpdateDTO)
         {
             try
             {
-                if(string.IsNullOrWhiteSpace(contactId))
+                if (string.IsNullOrWhiteSpace(contactId))
                 {
                     ModelState.AddModelError("ContactId", "ContactId can't be null or empty");
                     return BadRequest(ModelState);
@@ -183,11 +192,14 @@ namespace DKBS.API.Controllers
 
                 _choiceRepoistory.Attach(contactPersonInDb);
                 _choiceRepoistory.Complete();
-                //var status = await _sharePointService.UpdateCustomerContactAsync(contactId,contactPersonUpdateDTO).ConfigureAwait(false);
-                //if (!status)
-                //{
-                //    return StatusCode(500, "An error occurred while updating sharepoint customer contact. Please try again or contact adminstrator");
-                //}
+                if (bool.Parse(_configuration["SharePointIntegrationEnabled"].ToString()))
+                {
+                    var status = await _sharePointService.UpdateCustomerContactAsync(contactPersonInDb, _choiceRepoistory.GetById<Customer>(c => c.AccountId == contactPersonInDb.AccountId)).ConfigureAwait(false);
+                    if (!status)
+                    {
+                        return StatusCode(500, "An error occurred while updating sharepoint customer contact. Please try again or contact adminstrator");
+                    }
+                }
                 return NoContent();
 
             }

@@ -14,5 +14,7 @@ namespace DKBS.DTO
         public string MobilePhone { get; set; }
         [Required(ErrorMessage = "Account Id is required.")]
         public string AccountId { get; set; }
+
+        public int SharePointId { get; set; }
     }
 }
