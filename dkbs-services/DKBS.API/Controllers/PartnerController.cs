@@ -44,7 +44,7 @@ namespace DKBS.API.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public ActionResult<PartnerDTO> GetPartnerById(int id)
         {
             return _choiceRepoistory.GetPartners().Find(c => c.PartnerId == id);
@@ -56,7 +56,7 @@ namespace DKBS.API.Controllers
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        [HttpGet("[action]/{name}", Name = "GetPartnersByName")]
+        [HttpGet("partner_rename/{name}", Name = "GetPartnersByName")]
         public ActionResult<IEnumerable<PartnerDTO>> SearchPartnersByName(string name)
         {
             return _choiceRepoistory.GetPartners().FindAll(c => c.PartnerName.Contains(name));

@@ -5,7 +5,7 @@
 	[LastName] [nvarchar](255) NOT NULL,
 	[Email] [nvarchar](255) NOT NULL,
 	[Telephone] [nvarchar](50) NOT NULL,
-	[MobilePhone] NVARCHAR(50) NOT NULL, 
+	[MobilePhone] NVARCHAR(50) NULL, 
     [AccountId] NVARCHAR(255) NOT NULL, 
     [ContactId] NVARCHAR(255) UNIQUE NOT NULL,
 	[SharePointId] INT NULL,
