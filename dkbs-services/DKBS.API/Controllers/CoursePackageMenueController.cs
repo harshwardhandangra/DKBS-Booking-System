@@ -71,7 +71,7 @@ namespace DKBS.API.Controllers
                 if (CoursePackageMenueDTO == null)
                 {
                     ModelState.AddModelError("CoursePackageMenue", "CoursePackageMenue object can't be null");
-                    return BadRequest(ModelState);
+                    return BadRequest(ModelState); 
                 }
 
                 if (!ModelState.IsValid)
