@@ -172,8 +172,6 @@ namespace DKBS.API.Controllers
                 customer.LastModified = DateTime.UtcNow;
                 customer.LastModifiedBy = "CRM";
                 _choiceRepoistory.Attach(customer);
-                _choiceRepoistory.Complete();
-
                 if (bool.Parse(_configuration["SharePointIntegrationEnabled"].ToString()))
                 {
                     var status = await _sharePointService.UpdateCustomerAsync(customer);
@@ -182,7 +180,7 @@ namespace DKBS.API.Controllers
                         return StatusCode(500, "An error occurred while creating sharepoint customer. Please try again or contact adminstrator");
                     }
                 }
-
+                _choiceRepoistory.Complete();
                 return NoContent();
             }
             catch (Exception ex)

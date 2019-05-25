@@ -121,7 +121,7 @@ namespace DKBS.API.Controllers
               
                 if (bool.Parse(_configuration["SharePointIntegrationEnabled"].ToString()))
                 {
-                    var sharePointId = await _sharePointService.InsertCustomerContactAsync(contactPersonInDb, _choiceRepoistory.GetById<Customer>(c => c.AccountId == contactPersonInDb.AccountId)).ConfigureAwait(false);
+                    var sharePointId = await _sharePointService.InsertCustomerContactAsync(newContactPerson, _choiceRepoistory.GetById<Customer>(c => c.AccountId == newContactPerson.AccountId)).ConfigureAwait(false);
                     if (sharePointId <= 0)
                     {
                         return StatusCode(500, "An error occurred while creating sharepoint customer contact. Please try again or contact adminstrator");
@@ -189,9 +189,7 @@ namespace DKBS.API.Controllers
 
                 contactPersonInDb.LastModified = DateTime.UtcNow;
                 contactPersonInDb.LastModifiedBy = "CRM";
-
                 _choiceRepoistory.Attach(contactPersonInDb);
-                _choiceRepoistory.Complete();
                 if (bool.Parse(_configuration["SharePointIntegrationEnabled"].ToString()))
                 {
                     var status = await _sharePointService.UpdateCustomerContactAsync(contactPersonInDb, _choiceRepoistory.GetById<Customer>(c => c.AccountId == contactPersonInDb.AccountId)).ConfigureAwait(false);
@@ -200,6 +198,7 @@ namespace DKBS.API.Controllers
                         return StatusCode(500, "An error occurred while updating sharepoint customer contact. Please try again or contact adminstrator");
                     }
                 }
+                _choiceRepoistory.Complete();
                 return NoContent();
 
             }
