@@ -4,7 +4,7 @@
           AccountId NVARCHAR(100) UNIQUE NOT NULL,
           Partnertype NVARCHAR(100),
           MembershipType NVARCHAR(100),
-          PartnerName NVARCHAR(200),
+          PartnerName NVARCHAR(200) NOT NULL,
           CVR NVARCHAR(255),
           Telefon NVARCHAR(50),
           Centertype NVARCHAR(100),

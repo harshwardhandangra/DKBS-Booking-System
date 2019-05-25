@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace DKBS.DTO
 {
@@ -21,6 +22,7 @@ namespace DKBS.DTO
         public string AccountId { get; set; }
         public string Partnertype { get; set; }
         public string MembershipType { get; set; }
+        [Required]
         public string PartnerName { get; set; }
         public string CVR { get; set; }
         public string Telefon { get; set; }
@@ -43,4 +45,5 @@ namespace DKBS.DTO
         public bool QualityAssuredNPSGRD30 { get; set; }
 
     }
+
 }

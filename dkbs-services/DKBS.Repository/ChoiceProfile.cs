@@ -7,7 +7,7 @@ using System.Text;
 
 namespace DKBS.Repository
 {
-   public class ChoiceProfile :Profile
+    public class ChoiceProfile : Profile
     {
         public ChoiceProfile()
         {
@@ -37,23 +37,14 @@ namespace DKBS.Repository
             CreateMap<Flow, FlowDTO>();
             CreateMap<IndustryCode, IndustryCodeDTO>();
             CreateMap<ITProcedureStatus, ITProcedureStatusDTO>();
-            CreateMap<Land , LandDTO>();
+            CreateMap<Land, LandDTO>();
             CreateMap<LeadOfOrigin, LeadOfOriginDTO>();
             CreateMap<MailGroup, MailGroupDTO>();
             CreateMap<MailLanguage, MailLanguageDTO>();
             CreateMap<ParticipantType, ParticipantTypeDTO>();
-
-
             CreateMap<Partner, PartnerDTO>();
             CreateMap<CRMPartner, CRMPartnerDTO>();
-            //.ForMember(dest => dest.CenterTypeDTO, opt => opt.MapFrom(src => src.CenterType))
-            //.ForMember(dest => dest.PartnerTypeDTO, opt => opt.MapFrom(src => src.PartnerType))
-            //.ForMember(dest => dest.EmailId, opt => opt.MapFrom(src => src.EmailId))
-            //.ForMember(dest => dest.LastModified, opt => opt.MapFrom(src => src.LastModified))
-            //.ForMember(dest => dest.LastModifiedBy, opt => opt.MapFrom(src => src.LastModifiedBy))
-            //.ForMember(dest => dest.PartnerName, opt => opt.MapFrom(src => src.PartnerName))
-            //.ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => src.PhoneNumber));
-
+            CreateMap<CRMPartnerDTO, CRMPartner>();
             CreateMap<PartnerEmployee, PartnerEmployeeDTO>();
             CreateMap<PartnerType, PartnerTypeDTO>();
             CreateMap<Procedure, ProcedureDTO>();

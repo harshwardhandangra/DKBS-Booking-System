@@ -52,29 +52,28 @@ namespace DKBS.API.Controllers
 
 
         /// <summary>
-        /// Get Partner List based by user in Partner name
-        /// </summary>
-        /// <param name="name"></param>
-        /// <returns></returns>
-        [HttpGet("partner_rename/{name}", Name = "GetPartnersByName")]
-        public ActionResult<IEnumerable<PartnerDTO>> SearchPartnersByName(string name)
-        {
-            return _choiceRepoistory.GetPartners().FindAll(c => c.PartnerName.Contains(name));
-        }
-
-        /// <summary>
         /// Creating Partner
         /// </summary>
         /// <param name="dto"></param>
-        /// <returns></returns>
+        /// <response code="201">Returns the newly created partner</response>
+        /// <response code="400">If the item is null</response>            
+        /// <returns>newly created partner</returns>
         ///
         [Authorize]
         [HttpPost("")]
+        [ProducesResponseType(201)]
+        [ProducesResponseType(400)]
         public IActionResult CreatePartner([FromBody] CRMPartnerDTO dto)
         {
 
             try
             {
+                if (string.IsNullOrEmpty(dto.AccountId))
+                {
+                    ModelState.AddModelError("AccountId", "AccountId can't be null");
+                    return BadRequest(ModelState);
+                }
+
                 if (dto == null)
                 {
                     ModelState.AddModelError("Partner", "Partner object can't be null");
@@ -102,7 +101,7 @@ namespace DKBS.API.Controllers
                 _choiceRepoistory.Attach<CRMPartner>(newPartner);
                 _choiceRepoistory.Complete();
 
-                return CreatedAtRoute("GetPartnerByAccountId", new { newPartner.AccountId }, newPartner);
+                return CreatedAtRoute("GetPartnerByAccountId", new { newPartner.AccountId }, dto);
             }
             catch (Exception ex)
             {
@@ -117,52 +116,18 @@ namespace DKBS.API.Controllers
         /// <param name="accountId"></param>
         /// <returns></returns>
         [HttpGet("{accountId}", Name = "GetPartnerByAccountId")]
-        public ActionResult<CustomerDTO> GetPartnerByAccountId(string accountId)
+        public ActionResult<CRMPartnerDTO> GetPartnerByAccountId(string accountId)
         {
             var partner = _choiceRepoistory.GetById<CRMPartner>(c => c.AccountId == accountId);
 
-            if(partner == null)
+            if (partner == null)
             {
-               return NotFound(accountId);
+                return NotFound(accountId);
             }
 
-            return Ok(partner);
-        }
+           var returnval = _mapper.Map<CRMPartner, CRMPartnerDTO>(partner);
 
-        /// <summary>
-        /// Creating Partner
-        /// </summary>
-        /// <param name="partnerDto"></param>
-        /// <returns></returns>
-        [HttpPost("/partner_rename")]
-        public ActionResult<IEnumerable<PartnerDTO>> CreatePartner([FromBody] PartnerDTO partnerDto)
-        {
-
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
-            if (partnerDto == null)
-                return BadRequest();
-
-            var checkPartnerIdinDb = _choiceRepoistory.GetPartners().Find(c => c.PartnerId == partnerDto.PartnerId);
-
-            if (checkPartnerIdinDb != null)
-            {
-                return BadRequest();
-            }
-
-            var centerType = _mapper.Map<CenterTypeDTO, CenterType>(partnerDto.CenterTypeDTO);
-            var partnerType = _mapper.Map<PartnerTypeDTO, PartnerType>(partnerDto.PartnerTypeDTO);
-            Partner newlyCreatedPartner = new Partner() { PartnerId = partnerDto.PartnerId, PartnerName = partnerDto.PartnerName, CenterType = centerType, EmailId = partnerDto.EmailId, LastModified = partnerDto.LastModified, LastModifiedBy = partnerDto.LastModifiedBy, PartnerType = partnerType, PhoneNumber = partnerDto.PhoneNumber };
-            var destination = _mapper.Map<Partner, PartnerDTO>(newlyCreatedPartner);
-
-
-            _choiceRepoistory.GetPartners().Add(destination);
-            _choiceRepoistory.Complete();
-
-            return CreatedAtRoute("GetPartnersByName", new { name = newlyCreatedPartner.PartnerName }, newlyCreatedPartner);
+            return Ok(returnval);
         }
 
         /// <summary>
@@ -240,35 +205,7 @@ namespace DKBS.API.Controllers
             }
         }
 
-        /// <summary>
-        /// Update partner
-        /// </summary>
-        /// <param name="PartnerId"></param>
-        /// <param name="partnerDTO"></param>
-        /// <returns></returns>
-        [HttpPut("partner_rename/{PartnerId}")]
-        public IActionResult UpdatePartner(int PartnerId, [FromBody] PartnerDTO partnerDTO)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
 
-            if (partnerDTO == null)
-                return BadRequest();
-
-            var partner = _choiceRepoistory.GetPartners().Find(c => c.PartnerId == PartnerId);
-
-            if (partner == null)
-            {
-                return BadRequest();
-            }
-
-            partner = partnerDTO;
-
-            _choiceRepoistory.Complete();
-            return NoContent();
-        }
 
     }
 }

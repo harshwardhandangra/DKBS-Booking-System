@@ -106,7 +106,7 @@ namespace DKBS.API.Controllers
                     return BadRequest(ModelState);
                 }
 
-                var contactPersonInDb = _choiceRepoistory.GetById<ContactPerson>(c => c.ContactId == contactPersonDTO.ContactId && c.AccountId == contactPersonDTO.AccountId);
+                var contactPersonInDb = _choiceRepoistory.GetById<ContactPerson>(c => c.ContactId == contactPersonDTO.ContactId);
                 if (contactPersonInDb != null)
                 {
                     ModelState.AddModelError("ContactPerson", $"ContactPerson entry already exist for ContactId {contactPersonDTO.ContactId}.");
@@ -171,7 +171,7 @@ namespace DKBS.API.Controllers
                     return BadRequest(ModelState);
                 }
 
-                var contactPersonInDb = _choiceRepoistory.GetById<ContactPerson>(c => c.ContactId == contactId && c.AccountId == contactPersonUpdateDTO.AccountId);
+                var contactPersonInDb = _choiceRepoistory.GetById<ContactPerson>(c => c.ContactId == contactId);
 
 
                 if (contactPersonInDb == null)
