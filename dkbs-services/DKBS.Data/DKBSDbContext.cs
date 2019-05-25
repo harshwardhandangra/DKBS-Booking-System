@@ -91,6 +91,9 @@ namespace DKBS.Data
         public DbSet<ServiceRequestNote> ServiceRequestNote { get; set; }
         public DbSet<SRConversationItem> SRConversationItem { get; set; }
         public DbSet<Refreshment> Refreshment { get; set; }
+        public DbSet<PartnerCenterInfo> PartnerCenterInfo { get; set; }
+        public DbSet<PartnerCenterRoomInfo> PartnerCenterRoomInfo { get; set; }
+        public DbSet<PartnerInspirationCategories> PartnerInspirationCategories { get; set; }
 
 
 
