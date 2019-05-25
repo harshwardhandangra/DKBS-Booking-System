@@ -17,7 +17,7 @@ namespace DKBS.API.Controllers
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
-    public class PartnerEmployeeController : ControllerBase
+    public class PartnerEmployeeController : Controller
     {
         private readonly IChoiceRepository _choiceRepoistory;
         private IMapper _mapper;

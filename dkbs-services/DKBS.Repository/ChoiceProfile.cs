@@ -64,6 +64,7 @@ namespace DKBS.Repository
             CreateMap<TownZipCode, TownZipCodeDTO>();
             CreateMap<Refreshment, RefreshmentsDTO>();
             CreateMap<PartnerCenterInfo, PartnerCenterInfoDTO>();
+            CreateMap<PartnerCenterRoomInfo, PartnerCenterRoomInfoDTO>();
 
         }
     }
