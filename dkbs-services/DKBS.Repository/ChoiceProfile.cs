@@ -42,6 +42,8 @@ namespace DKBS.Repository
             CreateMap<MailGroup, MailGroupDTO>();
             CreateMap<MailLanguage, MailLanguageDTO>();
             CreateMap<ParticipantType, ParticipantTypeDTO>();
+
+            CreateMap<PartnerCenterDescriptionDTO, PartnerCenterDescriptionDTO>();
             CreateMap<Partner, PartnerDTO>();
             CreateMap<CRMPartner, CRMPartnerDTO>();
             CreateMap<CRMPartnerDTO, CRMPartner>();
