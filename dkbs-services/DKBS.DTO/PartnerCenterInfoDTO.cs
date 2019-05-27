@@ -15,7 +15,7 @@ namespace DKBS.DTO
         public Boolean State_agreement { get; set; }
         public string MaxAccommodation { get; set; }
         public int PartnerId { get; set; }
-
+        public string PartnerCenfoInfoSPId { get; set; }
 
     }
 }

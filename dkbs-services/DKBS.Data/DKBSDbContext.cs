@@ -92,7 +92,7 @@ namespace DKBS.Data
         public DbSet<PartnerCenterInfo> PartnerCenterInfo { get; set; }
         public DbSet<PartnerCenterRoomInfo> PartnerCenterRoomInfo { get; set; }
         public DbSet<PartnerInspirationCategories> PartnerInspirationCategories { get; set; }
-
+        public DbSet<Provision> provision { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
