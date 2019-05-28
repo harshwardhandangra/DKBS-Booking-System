@@ -49,6 +49,19 @@ namespace DKBS.API.Controllers
             return _choiceRepoistory.GetPartnerCenterInfo().FirstOrDefault(c => c.PartnerCenterInfo_Id == PartnerCenterInfo_Id);
         }
 
+
+        /// <summary>
+        /// Get PartnerCenterInfo_Id by PartnerId
+        /// </summary>
+        /// <param name="PartnerId"></param>
+        /// <returns></returns> 
+        [Route("GetByPartnerId")]
+        [HttpGet()]
+        public ActionResult<PartnerCenterInfoDTO> GetById(int PartnerId)
+        {
+            return _choiceRepoistory.GetPartnerCenterInfo().FirstOrDefault(c => c.PartnerId == PartnerId);
+        }
+
         /// <summary>
         /// Update UpdatePartnerCenterInfo
         /// </summary>
@@ -56,7 +69,9 @@ namespace DKBS.API.Controllers
         /// <param name="partnerCenterInfoDTO"></param>
         /// <returns></returns>
 
-        [HttpPut("{PartnerCenterInfo_Id}")]
+        //[HttpPut("{PartnerCenterInfo_Id}")]
+        [HttpPut()]
+        [Route("UpdatePartnerCenterInfo/{PartnerCenterInfo_Id:int}")]      
         public IActionResult UpdatePartnerCenterInfo(int PartnerCenterInfo_Id, [FromBody] PartnerCenterInfoDTO partnerCenterInfoDTO)
         {
             if (!ModelState.IsValid)

@@ -52,6 +52,19 @@ namespace DKBS.API.Controllers
             return _choiceRepoistory.GetPartnerInspirationCategories().FirstOrDefault(c => c.PartnerInspirationCategories_Id == PartnerInspirationCategories_Id);
         }
 
+        /// <summary>
+        /// Get PartnerInspirationCategories_Id by PartnerId
+        /// </summary>
+        /// <param name="PartnerId"></param>
+        /// <returns></returns>
+        [Route("GetByPartnerId")]
+        [HttpGet()]
+        public ActionResult<PartnerInspirationCategoriesDTO> GetById(int PartnerId)
+        {
+            return _choiceRepoistory.GetPartnerInspirationCategories().FirstOrDefault(c => c.PartnerId == PartnerId);
+        }
+
+
         /// <summary>y
         /// Update UpdatePartnerCenterInfo
         /// </summary>
@@ -85,6 +98,57 @@ namespace DKBS.API.Controllers
             return NoContent();
         }
 
+
+        /// <summary>
+        /// Creating PartnerCenterRoomInfo
+        /// </summary>
+        /// <param name="partnerInspirationCategoriesDTO"></param>
+        /// <returns></returns>
+        // GET api/PartnerInspirationCategories/{PartnerInspirationCategories}
+        [HttpPost]
+        public ActionResult<IEnumerable<PartnerInspirationCategoriesDTO>> PartnerInspirationCategories([FromBody] PartnerInspirationCategoriesDTO partnerInspirationCategoriesDTO)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            if (partnerInspirationCategoriesDTO == null)
+            {
+                return BadRequest();
+            }
+
+            var checkPartnerCenterRoomInfoIdinDb = _choiceRepoistory.GetPartnerInspirationCategories().Find(c => c.PartnerInspirationCategories_Id == partnerInspirationCategoriesDTO.PartnerInspirationCategories_Id);
+
+            if (checkPartnerCenterRoomInfoIdinDb != null)
+            {
+                return BadRequest();
+            }
+
+            PartnerInspirationCategories newlypartnerInspirationCategoriesDTO = new PartnerInspirationCategories()
+            {
+                PartnerInspirationCategories_Id = partnerInspirationCategoriesDTO.PartnerInspirationCategories_Id,
+                PartnerId = partnerInspirationCategoriesDTO.PartnerId,
+                // Room_Name = partnerInspirationCategoriesDTO.Room_Name,
+                Heading = partnerInspirationCategoriesDTO.Heading,
+                Description = partnerInspirationCategoriesDTO.Description,
+                Price = partnerInspirationCategoriesDTO.Price,
+                ApprovalStatus = partnerInspirationCategoriesDTO.ApprovalStatus,
+                //LastModifiedBY = partnerCenterRoomInfoDTO.LastModifiedBY,
+                //LastModified = partnerCenterRoomInfoDTO.LastModified
+            };
+            //  var destination = Mapper.Map<PartnerCenterRoomInfo, PartnerCenterRoomInfoDTO>(newlyCreatedPartnerCenterRoomInfo);
+
+
+            //_choiceRepoistory.GetPartnerCenterRoomInfo().Add(destination);
+            //_choiceRepoistory.Complete();
+
+            _choiceRepoistory.SetpartnerInspirationCategories(newlypartnerInspirationCategoriesDTO);
+            _choiceRepoistory.Complete();
+
+            return CreatedAtRoute("GetPartnerCenterRoomInfo", new { name = newlypartnerInspirationCategoriesDTO.Heading }, newlypartnerInspirationCategoriesDTO);
+        }
 
     }
 }

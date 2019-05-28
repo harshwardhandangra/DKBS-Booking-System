@@ -5,17 +5,33 @@ using System.Text;
 
 namespace DKBS.Domain
 {
-   public class PartnerInspirationCategories
+    public class PartnerInspirationCategories
     {
+
+
+        //public int PartnerInspirationCategories_Id { get; set; }
+        //public int PartnerId { get; set; }
+        //public string Room_Name { get; set; }
+        //public int Price { get; set; }
+        //public Boolean Approval_Status { get; set; }
+        //public DateTime LastModified { get; set; }
+        //public string LastModifiedBY { get; set; }
+
 
         [Key]
         public int PartnerInspirationCategories_Id { get; set; }
+
         public int PartnerId { get; set; }
-        public string Room_Name { get; set; }
-        public int Price { get; set; }
-        public Boolean Approval_Status { get; set; }
-        public DateTime LastModified { get; set; }
-        public string LastModifiedBY { get; set; }
+
+        public string Heading { get; set; }
+
+        public string Description { get; set; }
+
+        public int? Price { get; set; }
+
+        public bool? ApprovalStatus { get; set; }
+
+        public string PartnerInspirationCategoriesSpId { get; set; }
 
     }
 }

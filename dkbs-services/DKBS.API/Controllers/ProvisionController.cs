@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DKBS.Domain;
 using DKBS.DTO;
 using DKBS.Repository;
 using Microsoft.AspNetCore.Mvc;
@@ -78,5 +79,60 @@ namespace DKBS.API.Controllers
             _choiceRepoistory.Complete();
             return NoContent();
         }
+
+
+
+        /// <summary>
+        /// Creating Provision
+        /// </summary>
+        /// <param name="provisionDTO"></param>
+        /// <returns></returns>
+        // GET api/Provision/{Provision}
+        [HttpPost]
+        public ActionResult<IEnumerable<ProvisionDTO>> Provision([FromBody] ProvisionDTO provisionDTO)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            if (provisionDTO == null)
+            {
+                return BadRequest();
+            }
+
+            var checkProvisiondinDb = _choiceRepoistory.GetProvisions().Find(c => c.ProvisionId == provisionDTO.ProvisionId);
+
+            if (checkProvisiondinDb != null)
+            {
+                return BadRequest();
+            }
+
+            Provision newlyProvision = new Provision()
+            {               
+                ProvisionId = provisionDTO.ProvisionId,
+                PartnerId = provisionDTO.PartnerId,
+                CustomerId = provisionDTO.CustomerId,
+                BookingId = provisionDTO.BookingId,
+                Price = provisionDTO.Price,
+                CreatedOn = System.DateTime.Now,
+                DateofShipment = provisionDTO.DateofShipment,
+                Debtor = provisionDTO.Debtor,
+                ProvisionName = provisionDTO.ProvisionName,
+                UnitID = provisionDTO.UnitID,
+                CreatedBy = provisionDTO.CreatedBy,
+                ProvisionSpID = provisionDTO.ProvisionSpID,
+                LastModified = provisionDTO.LastModified,
+                LastModifiedBy = provisionDTO.LastModifiedBy,       
+
+            };
+            
+            _choiceRepoistory.SetProvision(newlyProvision);
+            _choiceRepoistory.Complete();
+
+            return CreatedAtRoute("GetProvisions", new { name = newlyProvision.ProvisionName }, newlyProvision);
+        }
+
     }
 }

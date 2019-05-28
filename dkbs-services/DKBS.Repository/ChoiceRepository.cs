@@ -100,6 +100,10 @@ namespace DKBS.Repository
         void SetPurpose(Purpose newlyCreatedPurpose);
         void SetCampaign(Campaign newlyCreatedCampaign);
         void SetLeadOfOrigin(LeadOfOrigin newlyCreatedLeadOfOrigin);
+        void SetpartnerCenterRoomInfo(PartnerCenterRoomInfo partnerCenterRoomInfo);
+        void SetpartnerInspirationCategories(PartnerInspirationCategories partnerInspirationCategories);
+        void SetProvision(Provision provision);
+
     }
 
     public class ChoiceRepository : IChoiceRepository
@@ -817,6 +821,21 @@ namespace DKBS.Repository
         public void SetLeadOfOrigin(LeadOfOrigin newlyCreatedLeadOfOrigin)
         {
             _dbContext.LeadOfOrigin.Add(newlyCreatedLeadOfOrigin);
+        }
+
+        public void SetpartnerCenterRoomInfo(PartnerCenterRoomInfo partnerCenterRoomInfo)
+        {
+            _dbContext.PartnerCenterRoomInfo.Add(partnerCenterRoomInfo);
+        }
+        public void SetpartnerInspirationCategories(PartnerInspirationCategories partnerInspirationCategories)
+        {
+            _dbContext.PartnerInspirationCategories.Add(partnerInspirationCategories);
+        }
+
+      
+        public void SetProvision(Provision provision)
+        {
+            _dbContext.provision.Add(provision);
         }
 
         List<TEntity> IChoiceRepository.GetAll<TEntity>()
