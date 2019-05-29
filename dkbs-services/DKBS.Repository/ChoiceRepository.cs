@@ -67,7 +67,8 @@ namespace DKBS.Repository
         List<PartnerCenterInfoDTO> GetPartnerCenterInfo();
         List<PartnerCenterRoomInfoDTO> GetPartnerCenterRoomInfo();
 
-        List<PartnerInspirationCategoriesDTO> GetPartnerInspirationCategories();
+        List<PartnerInspirationCategoriesUKDTO> GetPartnerInspirationCategoriesUK();
+        List<PartnerInspirationCategoriesDKDTO> GetPartnerInspirationCategoriesDK();
 
 
         TEntity GetById<TEntity>(int id) where TEntity : class;
@@ -101,7 +102,8 @@ namespace DKBS.Repository
         void SetCampaign(Campaign newlyCreatedCampaign);
         void SetLeadOfOrigin(LeadOfOrigin newlyCreatedLeadOfOrigin);
         void SetpartnerCenterRoomInfo(PartnerCenterRoomInfo partnerCenterRoomInfo);
-        void SetpartnerInspirationCategories(PartnerInspirationCategories partnerInspirationCategories);
+        void SetpartnerInspirationCategoriesUK(PartnerInspirationCategoriesUK partnerInspirationCategoriesUK);
+        void SetpartnerInspirationCategoriesDK(PartnerInspirationCategoriesDK partnerInspirationCategoriesDK);
         void SetProvision(Provision provision);
 
     }
@@ -268,10 +270,15 @@ namespace DKBS.Repository
         }
 
 
-        public List<PartnerInspirationCategoriesDTO> GetPartnerInspirationCategories()
+        public List<PartnerInspirationCategoriesUKDTO> GetPartnerInspirationCategoriesUK()
         {
-            return _mapper.Map<List<PartnerInspirationCategoriesDTO>>(_dbContext.PartnerInspirationCategories.ToList());
+            return _mapper.Map<List<PartnerInspirationCategoriesUKDTO>>(_dbContext.PartnerInspirationCategoriesUK.ToList());
         }
+        public List<PartnerInspirationCategoriesDKDTO> GetPartnerInspirationCategoriesDK()
+        {
+            return _mapper.Map<List<PartnerInspirationCategoriesDKDTO>>(_dbContext.PartnerInspirationCategoriesDK.ToList());
+        }
+
 
 
 
@@ -827,12 +834,17 @@ namespace DKBS.Repository
         {
             _dbContext.PartnerCenterRoomInfo.Add(partnerCenterRoomInfo);
         }
-        public void SetpartnerInspirationCategories(PartnerInspirationCategories partnerInspirationCategories)
+        public void SetpartnerInspirationCategoriesUK(PartnerInspirationCategoriesUK partnerInspirationCategoriesUK)
         {
-            _dbContext.PartnerInspirationCategories.Add(partnerInspirationCategories);
+            _dbContext.PartnerInspirationCategoriesUK.Add(partnerInspirationCategoriesUK);
         }
 
-      
+        public void SetpartnerInspirationCategoriesDK(PartnerInspirationCategoriesDK partnerInspirationCategoriesDK)
+        {
+            _dbContext.PartnerInspirationCategoriesDK.Add(partnerInspirationCategoriesDK);
+        }
+
+
         public void SetProvision(Provision provision)
         {
             _dbContext.provision.Add(provision);

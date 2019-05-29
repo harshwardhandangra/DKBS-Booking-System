@@ -11,14 +11,14 @@ namespace DKBS.API.Controllers
 {
 
     /// <summary>
-    /// PartnerInspirationCategoriesController
+    /// PartnerInspirationCategoriesUKController
     /// </summary>
     /// 
 
 
     [Route("api/[controller]")]
     [ApiController]
-    public class PartnerInspirationCategoriesController : Controller
+    public class PartnerInspirationCategoriesUKController : Controller
     {
         private IChoiceRepository _choiceRepoistory;
 
@@ -26,73 +26,73 @@ namespace DKBS.API.Controllers
         /// PartnerCenterRoomInfo
         /// </summary>
         /// <param name="choiceRepoistory"></param>
-        public PartnerInspirationCategoriesController(IChoiceRepository choiceRepoistory)
+        public PartnerInspirationCategoriesUKController(IChoiceRepository choiceRepoistory)
         {
             _choiceRepoistory = choiceRepoistory;
         }
 
         /// <summary>
-        /// Get All GetPartnerCenterRoomInfo
+        /// Get All GetPartnerInspirationCategoriesUK
         /// </summary>
         /// <returns></returns>
         [HttpGet()]
-        public ActionResult<PartnerInspirationCategories> GetPartnerInspirationCategories()
+        public ActionResult<PartnerInspirationCategoriesUK> GetPartnerInspirationCategoriesUK()
         {
-            return Ok(_choiceRepoistory.GetPartnerInspirationCategories());
+            return Ok(_choiceRepoistory.GetPartnerInspirationCategoriesUK());
         }
 
         /// <summary>
-        /// Get PartnerInspirationCategories_Id by id
+        /// Get PartnerInspirationCategoriesUK_Id by id
         /// </summary>
-        /// <param name="PartnerInspirationCategories_Id"></param>
+        /// <param name="PartnerInspirationCategoriesUK_Id"></param>
         /// <returns></returns>
-        [HttpGet("{PartnerInspirationCategories_Id}")]
-        public ActionResult<PartnerInspirationCategoriesDTO> GetPartnerInspirationCategories(int PartnerInspirationCategories_Id)
+        [HttpGet("{PartnerInspirationCategoriesUK_Id}")]
+        public ActionResult<PartnerInspirationCategoriesUKDTO> GetPartnerInspirationCategoriesUK(int PartnerInspirationCategoriesUK_Id)
         {
-            return _choiceRepoistory.GetPartnerInspirationCategories().FirstOrDefault(c => c.PartnerInspirationCategories_Id == PartnerInspirationCategories_Id);
+            return _choiceRepoistory.GetPartnerInspirationCategoriesUK().FirstOrDefault(c => c.PartnerInspirationCategoriesUK_Id == PartnerInspirationCategoriesUK_Id);
         }
 
         /// <summary>
-        /// Get PartnerInspirationCategories_Id by PartnerId
+        /// Get PartnerInspirationCategoriesUK_Id by PartnerId
         /// </summary>
         /// <param name="PartnerId"></param>
         /// <returns></returns>
         [Route("GetByPartnerId")]
         [HttpGet()]
-        public ActionResult<PartnerInspirationCategoriesDTO> GetById(int PartnerId)
+        public ActionResult<PartnerInspirationCategoriesUKDTO> GetById(int PartnerId)
         {
-            return _choiceRepoistory.GetPartnerInspirationCategories().FirstOrDefault(c => c.PartnerId == PartnerId);
+            return _choiceRepoistory.GetPartnerInspirationCategoriesUK().FirstOrDefault(c => c.PartnerId == PartnerId);
         }
 
 
         /// <summary>y
         /// Update UpdatePartnerCenterInfo
         /// </summary>
-        /// <param name="PartnerInspirationCategories_Id"></param>
-        /// <param name="partnerInspirationCategoriesDTO"></param>
+        /// <param name="PartnerInspirationCategoriesUK_Id"></param>
+        /// <param name="PartnerInspirationCategoriesUKDTO"></param>
         /// <returns></returns>
 
-        [HttpPut("{PartnerInspirationCategories_Id}")]
-        public IActionResult UpdatepartnerCenterRoomInfo(int PartnerInspirationCategories_Id, [FromBody] PartnerInspirationCategoriesDTO partnerInspirationCategoriesDTO)
+        [HttpPut("{PartnerInspirationCategoriesUK_Id}")]
+        public IActionResult UpdatepartnerCenterRoomInfo(int PartnerInspirationCategoriesUK_Id, [FromBody] PartnerInspirationCategoriesUKDTO PartnerInspirationCategoriesUKDTO)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
 
-            if (partnerInspirationCategoriesDTO == null)
+            if (PartnerInspirationCategoriesUKDTO == null)
             {
                 return BadRequest();
             }
 
-            var partnerInspirationCategories = _choiceRepoistory.GetPartnerInspirationCategories().Find(c => c.PartnerInspirationCategories_Id == PartnerInspirationCategories_Id);
+            var PartnerInspirationCategoriesUK = _choiceRepoistory.GetPartnerInspirationCategoriesUK().Find(c => c.PartnerInspirationCategoriesUK_Id == PartnerInspirationCategoriesUK_Id);
 
-            if (partnerInspirationCategories == null)
+            if (PartnerInspirationCategoriesUK == null)
             {
                 return BadRequest();
             }
 
-            partnerInspirationCategories = partnerInspirationCategoriesDTO;
+            PartnerInspirationCategoriesUK = PartnerInspirationCategoriesUKDTO;
 
             _choiceRepoistory.Complete();
             return NoContent();
@@ -102,11 +102,11 @@ namespace DKBS.API.Controllers
         /// <summary>
         /// Creating PartnerCenterRoomInfo
         /// </summary>
-        /// <param name="partnerInspirationCategoriesDTO"></param>
+        /// <param name="PartnerInspirationCategoriesUKDTO"></param>
         /// <returns></returns>
-        // GET api/PartnerInspirationCategories/{PartnerInspirationCategories}
+        // GET api/PartnerInspirationCategoriesUK/{PartnerInspirationCategoriesUK}
         [HttpPost]
-        public ActionResult<IEnumerable<PartnerInspirationCategoriesDTO>> PartnerInspirationCategories([FromBody] PartnerInspirationCategoriesDTO partnerInspirationCategoriesDTO)
+        public ActionResult<IEnumerable<PartnerInspirationCategoriesUKDTO>> PartnerInspirationCategoriesUK([FromBody] PartnerInspirationCategoriesUKDTO PartnerInspirationCategoriesUKDTO)
         {
 
             if (!ModelState.IsValid)
@@ -114,27 +114,27 @@ namespace DKBS.API.Controllers
                 return BadRequest();
             }
 
-            if (partnerInspirationCategoriesDTO == null)
+            if (PartnerInspirationCategoriesUKDTO == null)
             {
                 return BadRequest();
             }
 
-            var checkPartnerCenterRoomInfoIdinDb = _choiceRepoistory.GetPartnerInspirationCategories().Find(c => c.PartnerInspirationCategories_Id == partnerInspirationCategoriesDTO.PartnerInspirationCategories_Id);
+            var checkPartnerCenterRoomInfoIdinDb = _choiceRepoistory.GetPartnerInspirationCategoriesUK().Find(c => c.PartnerInspirationCategoriesUK_Id == PartnerInspirationCategoriesUKDTO.PartnerInspirationCategoriesUK_Id);
 
             if (checkPartnerCenterRoomInfoIdinDb != null)
             {
                 return BadRequest();
             }
 
-            PartnerInspirationCategories newlypartnerInspirationCategoriesDTO = new PartnerInspirationCategories()
+            PartnerInspirationCategoriesUK newlyPartnerInspirationCategoriesUKDTO = new PartnerInspirationCategoriesUK()
             {
-                PartnerInspirationCategories_Id = partnerInspirationCategoriesDTO.PartnerInspirationCategories_Id,
-                PartnerId = partnerInspirationCategoriesDTO.PartnerId,
-                // Room_Name = partnerInspirationCategoriesDTO.Room_Name,
-                Heading = partnerInspirationCategoriesDTO.Heading,
-                Description = partnerInspirationCategoriesDTO.Description,
-                Price = partnerInspirationCategoriesDTO.Price,
-                ApprovalStatus = partnerInspirationCategoriesDTO.ApprovalStatus,
+                PartnerInspirationCategoriesUK_Id = PartnerInspirationCategoriesUKDTO.PartnerInspirationCategoriesUK_Id,
+                PartnerId = PartnerInspirationCategoriesUKDTO.PartnerId,
+                // Room_Name = PartnerInspirationCategoriesUKDTO.Room_Name,
+                Heading = PartnerInspirationCategoriesUKDTO.Heading,
+                Description = PartnerInspirationCategoriesUKDTO.Description,
+                Price = PartnerInspirationCategoriesUKDTO.Price,
+                ApprovalStatus = PartnerInspirationCategoriesUKDTO.ApprovalStatus,
                 //LastModifiedBY = partnerCenterRoomInfoDTO.LastModifiedBY,
                 //LastModified = partnerCenterRoomInfoDTO.LastModified
             };
@@ -144,10 +144,10 @@ namespace DKBS.API.Controllers
             //_choiceRepoistory.GetPartnerCenterRoomInfo().Add(destination);
             //_choiceRepoistory.Complete();
 
-            _choiceRepoistory.SetpartnerInspirationCategories(newlypartnerInspirationCategoriesDTO);
+            _choiceRepoistory.SetpartnerInspirationCategoriesUK(newlyPartnerInspirationCategoriesUKDTO);
             _choiceRepoistory.Complete();
 
-            return CreatedAtRoute("GetPartnerCenterRoomInfo", new { name = newlypartnerInspirationCategoriesDTO.Heading }, newlypartnerInspirationCategoriesDTO);
+            return CreatedAtRoute("GetPartnerInspirationCategoriesUK", new { name = newlyPartnerInspirationCategoriesUKDTO.Heading }, newlyPartnerInspirationCategoriesUKDTO);
         }
 
     }
