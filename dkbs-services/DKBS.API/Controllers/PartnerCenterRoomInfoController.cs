@@ -129,7 +129,14 @@ namespace DKBS.API.Controllers
             {
                 PartnerCenterRoomInfo_Id = partnerCenterRoomInfoDTO.PartnerCenterRoomInfo_Id,
                 PartnerId = partnerCenterRoomInfoDTO.PartnerId,
-                Room_Name = partnerCenterRoomInfoDTO.Room_Name,
+                MaxPersonsAtMeetingTable = partnerCenterRoomInfoDTO.MaxPersonsAtMeetingTable,
+                MaxPersonsAtSchoolTable = partnerCenterRoomInfoDTO.MaxPersonsAtSchoolTable,
+                MaxPersonsAtRowOfChairs = partnerCenterRoomInfoDTO.MaxPersonsAtRowOfChairs,
+                MaxPersonsAtIslands = partnerCenterRoomInfoDTO.MaxPersonsAtIslands,
+                MaxPersonsAtUTable = partnerCenterRoomInfoDTO.MaxPersonsAtUTable,
+                IsRoomdividetosmallroom = partnerCenterRoomInfoDTO.IsRoomdividetosmallroom,
+                Remark = partnerCenterRoomInfoDTO.Room_Name,
+
                 //LastModifiedBY = partnerCenterRoomInfoDTO.LastModifiedBY,
                 //LastModified = partnerCenterRoomInfoDTO.LastModified
             };
