@@ -1,0 +1,69 @@
+USE [VSD]
+GO
+
+/****** Object:  Table [dbo].[PartnerCenterInfo]    Script Date: 30-05-2019 08:38:46 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[PartnerCenterInfo](
+	[PartnerCenterInfo_Id] [int] IDENTITY(1,1) NOT NULL,
+	[Total_Rooms] [int] NULL,
+	[Group_Rooms] [int] NULL,
+	[Max_space_at_row_of_chairs] [nvarchar](50) NULL,
+	[Maxspace_at_tables] [nvarchar](50) NULL,
+	[State_agreement] [bit] NULL,
+	[MaxAccommodation] [nvarchar](50) NULL,
+	[PartnerId] [int] NULL,
+	[PartnerCenfoInfoSPId] [nvarchar](50) NULL,
+	[NumberOfSingleRooms] [int] NULL,
+	[NumberOfDoubleRooms] [int] NULL,
+	[Suite] [int] NULL,
+	[DistanceToAddtiionalAccommodation] [int] NULL,
+	[Chamber] [int] NULL,
+	[HandicapRooms] [int] NULL,
+	[MaximumNumberOfVisitors] [int] NULL,
+	[MaxDiningPlacesInRestaurant] [int] NULL,
+	[MaxDiningPlacesInRoom] [int] NULL,
+	[MaxSpaceInAuditorium] [int] NULL,
+	[MinParticipants] [int] NULL,
+	[AirportDistance] [int] NULL,
+	[StationDdistance] [int] NULL,
+	[DistanceToBus] [int] NULL,
+	[DistanceToMotorway] [int] NULL,
+	[NumberOfFreeParkingSpaces] [int] NULL,
+	[DistanceToFreeParking] [int] NULL,
+	[NumberOfParkingSpaces] [int] NULL,
+	[DistanceToPayParking] [int] NULL,
+	[EnvironmentalCertificate] [bit] NULL,
+	[AgreementForEmployees] [bit] NULL,
+	[Handicapfriendly] [bit] NULL,
+	[RegionsAgreement] [bit] NULL,
+	[Bar] [bit] NULL,
+	[Lounge] [bit] NULL,
+	[Spa] [bit] NULL,
+	[Pool] [bit] NULL,
+	[FitnessRoom] [bit] NULL,
+	[Casino] [bit] NULL,
+	[DiningArea] [int] NULL,
+	[GreenArea] [bit] NULL,
+	[Golf] [bit] NULL,
+	[AirCondition] [bit] NULL,
+	[CookingSchool] [bit] NULL,
+	[NoOfRooms] [int] NULL,
+	[Auditoriums] [int] NULL,
+	[ApprovalStatus] [bit] NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[CreatedBy] [nvarchar](255) NOT NULL,
+	[LastModified] [datetime] NOT NULL,
+	[LastModifiedBY] [nvarchar](255) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[PartnerCenterInfo_Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
