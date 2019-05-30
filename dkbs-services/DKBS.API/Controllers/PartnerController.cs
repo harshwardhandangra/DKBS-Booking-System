@@ -120,6 +120,64 @@ namespace DKBS.API.Controllers
                     _choiceRepoistory.Complete();
                 }
 
+                PartnerCenterInfo newPartnerCenterInfo = new PartnerCenterInfo
+                {
+                    PartnerId = newPartner.CRMPartnerId,
+                    PartnerCenterInfo_Id = 1,
+                    Total_Rooms = 0,
+                    Group_Rooms = 0,
+                    Max_space_at_row_of_chairs = "aaa",
+                    Maxspace_at_tables = "bbb",
+                    State_agreement = false,
+                    MaxAccommodation = "ccc",
+                    PartnerCenfoInfoSPId = "zbc",
+                    NumberOfSingleRooms = 0,
+                    NumberOfDoubleRooms = 0,
+                    Suite = 0,
+                    DistanceToAddtiionalAccommodation = 0,
+                    Chamber = 0,
+                    HandicapRooms = 0,
+                    MaximumNumberOfVisitors = 0,
+                    MaxDiningPlacesInRestaurant = 0,
+                    MaxDiningPlacesInRoom = 0,
+                    MaxSpaceInAuditorium = 0,
+                    MinParticipants = 0,
+                    AirportDistance = 0,
+                    StationDdistance = 0,
+                    DistanceToBus = 0,
+                    DistanceToMotorway = 0,
+                    NumberOfFreeParkingSpaces = 0,
+                    DistanceToFreeParking = 0,
+                    NumberOfParkingSpaces = 0,
+                    DistanceToPayParking = 0,
+                    EnvironmentalCertificate = false,
+                    AgreementForEmployees = true,
+                    Handicapfriendly = true,
+                    RegionsAgreement = false,
+                    Bar = true,
+                    Lounge = true,
+                    Spa = false,
+                    Pool = true,
+                    FitnessRoom = false,
+                    Casino = false,
+                    DiningArea = 0,
+                    GreenArea = false,
+                    Golf = false,
+                    AirCondition = true,
+                    CookingSchool = false,
+                    NoOfRooms = 0,
+                    Auditoriums = 0,
+                    ApprovalStatus = false,
+                    CreatedDate = DateTime.UtcNow,
+                    CreatedBy = "CRM",
+                    LastModified = DateTime.UtcNow,
+                    LastModifiedBY = "CRM"
+
+                };
+
+                _choiceRepoistory.Attach<PartnerCenterInfo>(newPartnerCenterInfo);
+                _choiceRepoistory.Complete();
+
                 return CreatedAtRoute("GetPartnerByAccountId", new { newPartner.AccountId }, dto);
             }
             catch (Exception ex)
