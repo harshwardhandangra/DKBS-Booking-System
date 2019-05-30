@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
-
+using static DKBS.Domain.Partner;
 
 namespace DKBS.Data
 {
@@ -104,6 +104,8 @@ namespace DKBS.Data
         public DbSet<Provision> provision { get; set; }
 
         public DbSet<SCPartnerCoursePackageMapping> SCPartnerCoursePackageMapping { get; set; }
+
+        public DbSet<PartnerServiceCatalogue> PartnerServiceCatalogue { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

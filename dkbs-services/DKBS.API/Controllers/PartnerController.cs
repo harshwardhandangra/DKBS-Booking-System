@@ -9,6 +9,7 @@ using DKBS.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using static DKBS.Domain.Partner;
 
 namespace DKBS.API.Controllers
 {
@@ -59,7 +60,7 @@ namespace DKBS.API.Controllers
         /// <response code="400">If the item is null</response>            
         /// <returns>newly created partner</returns>
         ///
-        [Authorize]
+        //[Authorize]
         [HttpPost("")]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
@@ -94,12 +95,30 @@ namespace DKBS.API.Controllers
                 }
 
                 CRMPartner newPartner = _mapper.Map<CRMPartnerDTO, CRMPartner>(dto);
+
                 newPartner.CreatedBy = "CRM";
                 newPartner.CreatedDate = DateTime.UtcNow;
                 newPartner.LastModified = DateTime.UtcNow;
                 newPartner.LastModifiedBy = "CRM";
                 _choiceRepoistory.Attach<CRMPartner>(newPartner);
                 _choiceRepoistory.Complete();
+
+                var t = _choiceRepoistory.GetServiceCatalog();
+
+                foreach (var k in t)
+                {
+                    PartnerServiceCatalogue newPartnerServiceCatalogue = new PartnerServiceCatalogue
+                    {
+                        ServiceCatalogueID = k.ServiceCatalogId,
+                        PartnerId = newPartner.CRMPartnerId,
+                        Offered = false,
+                        Price = k.Price.HasValue ? k.Price.Value : 0,
+                        Status = false
+                    };
+
+                    _choiceRepoistory.Attach<PartnerServiceCatalogue>(newPartnerServiceCatalogue);
+                    _choiceRepoistory.Complete();
+                }
 
                 return CreatedAtRoute("GetPartnerByAccountId", new { newPartner.AccountId }, dto);
             }
@@ -125,7 +144,7 @@ namespace DKBS.API.Controllers
                 return NotFound(accountId);
             }
 
-           var returnval = _mapper.Map<CRMPartner, CRMPartnerDTO>(partner);
+            var returnval = _mapper.Map<CRMPartner, CRMPartnerDTO>(partner);
 
             return Ok(returnval);
         }

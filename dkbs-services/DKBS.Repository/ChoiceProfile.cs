@@ -4,6 +4,7 @@ using DKBS.DTO;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using static DKBS.Domain.Partner;
 
 namespace DKBS.Repository
 {

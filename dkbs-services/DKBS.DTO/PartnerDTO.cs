@@ -13,6 +13,9 @@ namespace DKBS.DTO
         public string PhoneNumber { get; set; }
         public DateTime LastModified { get; set; }
         public string LastModifiedBy { get; set; }
+        public int ServiceCatalogId { get; set; }
+        public bool Offered { get; set; }
+        public object Price { get; set; }
     }
 
 
