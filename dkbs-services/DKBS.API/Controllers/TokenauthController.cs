@@ -35,6 +35,9 @@ namespace DKBS.API.Controllers
     /// <summary>
     /// Creating TokenauthController
     /// </summary>
+    // public class TokenauthController : ControllerBase
+    [Route("Tokenauth")]
+    [ApiController]
     public class TokenauthController : ControllerBase
     {
         private IConfiguration _config;
@@ -47,21 +50,22 @@ namespace DKBS.API.Controllers
         }
 
 
-         /// <summary>
+        /// <summary>
         /// Creating TokenauthController
         /// </summary>
 
-        [HttpGet("[action]")]
-        [Route("api/TokenAuth/GenerateJSONWebTokenauth")]      
+        [HttpGet("GenerateJSONWebTokenauth")]
+        // [Route("api/TokenAuth/GenerateJSONWebTokenauth")]      
         public IActionResult GenerateJSONWebTokenauth(PartnerDTO userInfo)
+
         {
             IActionResult response = Unauthorized();
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
             var AppIDKey = _config["Jwt:APPID"];
-            var ClientSecretKey= _config["Jwt:CLIENTSECRET"];
-          
+            var ClientSecretKey = _config["Jwt:CLIENTSECRET"];
+
             var claims = new[] {
                  new Claim(JwtRegisteredClaimNames.Sub, "DKBS"),
                 new Claim("APPID", AppIDKey.ToString()),
