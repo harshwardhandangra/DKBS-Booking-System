@@ -116,6 +116,13 @@
     <Build Include="dbo\Tables\CoursePackagePremiumServices.sql" />
     <Build Include="dbo\Tables\CoursePackageMenue.sql" />
     <Build Include="dbo\Tables\CoursePackageFreeServices.sql" />
+    <Build Include="dbo\Tables\SRInternalNotify.sql" />
+    <Build Include="dbo\Tables\SRInternalNotes.sql" />
+    <Build Include="dbo\Tables\PartnerInspirationCategoriesUK.sql" />
+    <Build Include="dbo\Tables\PartnerInspirationCategoriesDK.sql" />
+    <Build Include="dbo\Tables\EmailConversation.sql" />
+    <Build Include="dbo\Tables\chatcommunication.sql" />
+    <Build Include="dbo\Tables\CenterInfoApproveStatus.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DKBS.publish.xml" />

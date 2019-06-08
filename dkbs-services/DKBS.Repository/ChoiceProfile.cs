@@ -66,6 +66,12 @@ namespace DKBS.Repository
             CreateMap<PartnerCenterInfo, PartnerCenterInfoDTO>();
             CreateMap<PartnerCenterRoomInfo, PartnerCenterRoomInfoDTO>();
 
+            CreateMap<ChatCommunication, ChatCommunicationDTO>();
+            CreateMap<EmailConversation, EmailConversationDTO>();
+            CreateMap<SRInternalNotes, SRInternalNotesDTO>();
+            CreateMap<SRInternalNotify, SRInternalNotifyDTO>();
+
+
         }
     }
 }
